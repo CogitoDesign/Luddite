@@ -207,7 +207,7 @@ public class GameManager : MonoBehaviour
         hasSix = true;
     }
 
-    private void HasNone()
+    public void HasNone()
     {
         hasOne = false;
         hasTwo = false;
@@ -215,6 +215,9 @@ public class GameManager : MonoBehaviour
         hasFour = false;
         hasFive = false;
         hasSix = false;
+        dieOneIsActive = false;
+        dieTwoIsActive = false;
+        dieThreeIsActive = false;
     }
 
     //Die is clicked

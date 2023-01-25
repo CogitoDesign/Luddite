@@ -8,6 +8,7 @@ public class ScreensAppear : MonoBehaviour
     //buttons
     public GameObject switchesScreen;
     public GameObject clockScreen;
+    public GameObject hackScreen;
 
 
     //turn on and off switch menu and turn off all other menus
@@ -18,6 +19,7 @@ public class ScreensAppear : MonoBehaviour
         {
             switchesScreen.SetActive(true);
             clockScreen.SetActive(false);
+            hackScreen.SetActive(false);
         }
         else
         {
@@ -34,6 +36,7 @@ public class ScreensAppear : MonoBehaviour
         {
             clockScreen.SetActive(true);
             switchesScreen.SetActive(false);
+            hackScreen.SetActive(false);
         }
         else
         {
@@ -42,5 +45,21 @@ public class ScreensAppear : MonoBehaviour
 
     }
 
+    //turn on and off hack menu and turn off all other menus
+    public void HackMenuIsOn()
+    {
+
+        if (hackScreen.activeSelf == false)
+        {
+            hackScreen.SetActive(true);
+            switchesScreen.SetActive(false);
+            clockScreen.SetActive(false);
+        }
+        else
+        {
+            hackScreen.SetActive(false);
+        }
+
+    }
 
 }
