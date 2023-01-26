@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 
 
+
 public class GameManager : MonoBehaviour
 {
     //stuff
@@ -36,8 +37,26 @@ public class GameManager : MonoBehaviour
 
     public UnlockNode unlockNode;
 
-   
-  
+    public GameObject creditTrackerNumber;
+    public GameObject multitoolTrackerNumber;
+    public GameObject energyTrackerNumber;
+
+    public int creditNumber = 0;
+    public int multitoolNumber = 1;
+    public int energyNumber = 1;
+
+    public int damageNumber;
+
+    public GameObject multitoolButton;
+
+    public GameObject dieOneUpButton;
+    public GameObject dieOneDownButton;
+
+    public GameObject dieTwoUpButton;
+    public GameObject dieTwoDownButton;
+
+    public GameObject dieThreeUpButton;
+    public GameObject dieThreeDownButton;
 
 
 
@@ -377,6 +396,571 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //track resource amounts
+        creditTrackerNumber.GetComponent<TextMeshProUGUI>().text = creditNumber.ToString();
+        multitoolTrackerNumber.GetComponent<TextMeshProUGUI>().text = multitoolNumber.ToString();
+        energyTrackerNumber.GetComponent<TextMeshProUGUI>().text = energyNumber.ToString();
+
+        //set multitool button active if have a multitool
+        if(multitoolNumber >= 1)
+        {
+            multitoolButton.SetActive(true);
+        }
+        else
+        {
+            multitoolButton.SetActive(false);
+        }
+    }
+
+    public void MultitoolButtonIsClicked()
+    {
+        dieOneUpButton.SetActive(true);
+        dieOneDownButton.SetActive(true);
+        dieTwoUpButton.SetActive(true);
+        dieTwoDownButton.SetActive(true);
+        dieThreeUpButton.SetActive(true);
+        dieThreeDownButton.SetActive(true);
+        multitoolNumber -= 1;
+    }
+
+    public void DieOneUpIsClicked()
+    {
+        if (die1Number == 1)
+        {
+            die1Number = 2;
+            die1.GetComponent<Image>().sprite = Two;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if (die1Number == 2)
+        {
+            die1Number = 3;
+            die1.GetComponent<Image>().sprite = Three;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if(die1Number == 3)
+        {
+            die1Number = 4;
+            die1.GetComponent<Image>().sprite = Four;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if(die1Number == 4)
+        {
+            die1Number = 5;
+            die1.GetComponent<Image>().sprite = Five;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if(die1Number == 5)
+        {
+            die1Number = 6;
+            die1.GetComponent<Image>().sprite = Six;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if(die1Number == 6)
+        {
+            die1Number = 1;
+            die1.GetComponent<Image>().sprite = One;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+    }
+
+    public void DieTwoUpIsClicked()
+    {
+        if (die2Number == 1)
+        {
+            die2Number = 2;
+            die2.GetComponent<Image>().sprite = Two;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if(die2Number == 2)
+        {
+            die2Number = 3;
+            die2.GetComponent<Image>().sprite = Three;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if(die2Number == 3)
+        {
+            die2Number = 4;
+            die2.GetComponent<Image>().sprite = Four;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if(die2Number == 4)
+        {
+            die2Number = 5;
+            die2.GetComponent<Image>().sprite = Five;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if(die2Number == 5)
+        {
+            die2Number = 6;
+            die2.GetComponent<Image>().sprite = Six;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if(die2Number == 6)
+        {
+            die2Number = 1;
+            die2.GetComponent<Image>().sprite = One;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+    }
+
+    public void DieThreeUpIsClicked()
+    {
+        if (die3Number == 1)
+        {
+            die3Number = 2;
+            die3.GetComponent<Image>().sprite = Two;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if(die3Number == 2)
+        {
+            die3Number = 3;
+            die3.GetComponent<Image>().sprite = Three;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if(die3Number == 3)
+        {
+            die3Number = 4;
+            die3.GetComponent<Image>().sprite = Four;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if(die3Number == 4)
+        {
+            die3Number = 5;
+            die3.GetComponent<Image>().sprite = Five;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if(die3Number == 5)
+        {
+            die3Number = 6;
+            die3.GetComponent<Image>().sprite = Six;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if(die3Number == 6)
+        {
+            die3Number = 1;
+            die3.GetComponent<Image>().sprite = One;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+    }
+
+    public void DieOneDownIsClicked()
+    {
+        if (die1Number == 1)
+        {
+            die1Number = 6;
+            die1.GetComponent<Image>().sprite = Six;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if(die1Number == 2)
+        {
+            die1Number = 1;
+            die1.GetComponent<Image>().sprite = One;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if (die1Number == 3)
+        {
+            die1Number = 2;
+            die1.GetComponent<Image>().sprite = Two;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if (die1Number == 4)
+        {
+            die1Number = 3;
+            die1.GetComponent<Image>().sprite = Three;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if (die1Number == 5)
+        {
+            die1Number = 4;
+            die1.GetComponent<Image>().sprite = Four;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if (die1Number == 6)
+        {
+            die1Number = 5;
+            die1.GetComponent<Image>().sprite = Five;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+    }
+
+    public void DieTwoDownIsClicked()
+    {
+        if (die2Number == 1)
+        {
+            die2Number = 6;
+            die2.GetComponent<Image>().sprite = Six;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if (die2Number == 2)
+        {
+            die2Number = 1;
+            die2.GetComponent<Image>().sprite = One;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if (die2Number == 3)
+        {
+            die2Number = 2;
+            die2.GetComponent<Image>().sprite = Two;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if (die2Number == 4)
+        {
+            die2Number = 3;
+            die2.GetComponent<Image>().sprite = Three;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if (die2Number == 5)
+        {
+            die2Number = 4;
+            die2.GetComponent<Image>().sprite = Four;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if (die2Number == 6)
+        {
+            die2Number = 5;
+            die2.GetComponent<Image>().sprite = Five;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+    }
+
+    public void DieThreeDownIsClicked()
+    {
+        if (die3Number == 1)
+        {
+            die3Number = 6;
+            die3.GetComponent<Image>().sprite = Six;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if (die3Number == 2)
+        {
+            die3Number = 1;
+            die3.GetComponent<Image>().sprite = One;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if (die3Number == 3)
+        {
+            die3Number = 2;
+            die3.GetComponent<Image>().sprite = Two;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if (die3Number == 4)
+        {
+            die3Number = 3;
+            die3.GetComponent<Image>().sprite = Three;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if (die3Number == 5)
+        {
+            die3Number = 4;
+            die3.GetComponent<Image>().sprite = Four;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+
+        else if (die3Number == 6)
+        {
+            die3Number = 5;
+            die3.GetComponent<Image>().sprite = Five;
+
+            dieOneUpButton.SetActive(false);
+            dieOneDownButton.SetActive(false);
+            dieTwoUpButton.SetActive(false);
+            dieTwoDownButton.SetActive(false);
+            dieThreeUpButton.SetActive(false);
+            dieThreeDownButton.SetActive(false);
+
+        }
+    }
+
+    public void AddCredit()
+    {
+        creditNumber += 1;
         
     }
+
+    public void AddMultitool()
+    {
+        multitoolNumber += 1;
+       
+    }
+
+    public void AddEnergy()
+    {
+        energyNumber += 1;
+       
+    }
+
 }

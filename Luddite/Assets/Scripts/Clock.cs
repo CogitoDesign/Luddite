@@ -220,6 +220,61 @@ public class Clock : MonoBehaviour
         {
             gameManager.Die3Disable();
         }
+
+        clockBonus();
+    }
+
+    private void clockBonus()
+    {
+        if (crosses[0].activeSelf == true && crosses[1].activeSelf == false)
+        {
+            gameManager.energyNumber += 1;
+        }
+
+        if (crosses[5].activeSelf == true && crosses[6].activeSelf == false)
+        {
+            gameManager.multitoolNumber += 1;
+        }
+
+        if (crosses[9].activeSelf == true && crosses[10].activeSelf == false)
+        {
+            gameManager.energyNumber += 1;
+        }
+
+        if (crosses[11].activeSelf == true && crosses[12].activeSelf == false)
+        {
+            gameManager.multitoolNumber += 1;
+        }
+
+        if (crosses[13].activeSelf == true && crosses[14].activeSelf == false)
+        {
+            gameManager.creditNumber += 1;
+        }
+
+        if (crosses[16].activeSelf == true && crosses[17].activeSelf == false)
+        {
+            gameManager.energyNumber += 1;
+        }
+
+        if (crosses[21].activeSelf == true && crosses[22].activeSelf == false)
+        {
+            gameManager.multitoolNumber += 1;
+        }
+
+        if (crosses[25].activeSelf == true && crosses[26].activeSelf == false)
+        {
+            gameManager.energyNumber += 1;
+        }
+
+        if (crosses[27].activeSelf == true && crosses[28].activeSelf == false)
+        {
+            gameManager.multitoolNumber += 1;
+        }
+
+        if (crosses[29].activeSelf == true && crosses[30].activeSelf == false)
+        {
+            gameManager.creditNumber += 1;
+        }
     }
 
     private void AddCrosses()

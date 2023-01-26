@@ -108,7 +108,14 @@ public class HackBehaviour : MonoBehaviour
     public bool hasTool5;
     public bool hasTool6;
 
+    private bool damageBonus1;
+    private bool damageBonus2;
+    private int damageBonus1count = 1;
+    private int damageBonus2count = 1;
 
+    private bool doubleEnergybool;
+
+    public GameObject doubleEnergybutton;
 
     // 1 buttons
 
@@ -121,18 +128,23 @@ public class HackBehaviour : MonoBehaviour
         cross11.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
+
+        doubleEnergybool = false;
 
     }
 
@@ -145,18 +157,23 @@ public class HackBehaviour : MonoBehaviour
         cross12.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
+
+        doubleEnergybool = false;
 
     }
 
@@ -169,18 +186,23 @@ public class HackBehaviour : MonoBehaviour
         cross13.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
+
+        doubleEnergybool = false;
 
     }
 
@@ -193,18 +215,23 @@ public class HackBehaviour : MonoBehaviour
         cross14.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
+
+        doubleEnergybool = false;
 
     }
 
@@ -219,18 +246,23 @@ public class HackBehaviour : MonoBehaviour
         cross21.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
+        doubleEnergybool = false;
 
     }
 
@@ -243,19 +275,23 @@ public class HackBehaviour : MonoBehaviour
         cross22.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
-        {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
 
+        if (doubleEnergybool == false)
+        {
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
+        }
+        doubleEnergybool = false;
     }
 
     public void Number2IsClicked3()
@@ -267,18 +303,22 @@ public class HackBehaviour : MonoBehaviour
         cross23.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
+        doubleEnergybool = false;
 
     }
 
@@ -291,19 +331,22 @@ public class HackBehaviour : MonoBehaviour
         cross24.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
-
+        doubleEnergybool = false;
     }
 
     public void Number2IsClicked5()
@@ -315,18 +358,22 @@ public class HackBehaviour : MonoBehaviour
         cross25.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
+        doubleEnergybool = false;
 
     }
 
@@ -341,19 +388,23 @@ public class HackBehaviour : MonoBehaviour
         cross31.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
-        {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
 
+        if (doubleEnergybool == false)
+        {
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
+        }
+        doubleEnergybool = false;
     }
 
     public void Number3IsClicked2()
@@ -365,19 +416,23 @@ public class HackBehaviour : MonoBehaviour
         cross32.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
-        {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
 
+        if (doubleEnergybool == false)
+        {
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
+        }
+        doubleEnergybool = false;
     }
 
     public void Number3IsClicked3()
@@ -389,18 +444,23 @@ public class HackBehaviour : MonoBehaviour
         cross33.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
+        doubleEnergybool = false;
 
     }
 
@@ -413,19 +473,23 @@ public class HackBehaviour : MonoBehaviour
         cross34.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
-        {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
 
+        if (doubleEnergybool == false)
+        {
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
+        }
+        doubleEnergybool = false;
     }
 
     //4 buttons
@@ -439,18 +503,23 @@ public class HackBehaviour : MonoBehaviour
         cross41.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
+        doubleEnergybool = false;
 
     }
 
@@ -463,18 +532,23 @@ public class HackBehaviour : MonoBehaviour
         cross42.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
+        doubleEnergybool = false;
 
     }
 
@@ -487,18 +561,23 @@ public class HackBehaviour : MonoBehaviour
         cross43.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
+        doubleEnergybool = false;
 
     }
 
@@ -511,18 +590,23 @@ public class HackBehaviour : MonoBehaviour
         cross44.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
+        doubleEnergybool = false;
 
     }
 
@@ -535,19 +619,23 @@ public class HackBehaviour : MonoBehaviour
         cross45.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
-        {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
 
+        if (doubleEnergybool == false)
+        {
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
+        }
+        doubleEnergybool = false;
     }
 
     //5 buttons
@@ -561,19 +649,22 @@ public class HackBehaviour : MonoBehaviour
         cross51.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
-
+        doubleEnergybool = false;
     }
 
     public void Number5IsClicked2()
@@ -585,19 +676,22 @@ public class HackBehaviour : MonoBehaviour
         cross52.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
-
+        doubleEnergybool = false;
     }
 
     public void Number5IsClicked3()
@@ -609,19 +703,22 @@ public class HackBehaviour : MonoBehaviour
         cross53.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
-
+        doubleEnergybool = false;
     }
 
     public void Number5IsClicked4()
@@ -633,19 +730,22 @@ public class HackBehaviour : MonoBehaviour
         cross54.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
-
+        doubleEnergybool = false;
     }
 
     public void Number5IsClicked5()
@@ -657,19 +757,23 @@ public class HackBehaviour : MonoBehaviour
         cross55.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
-        {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
 
+        if (doubleEnergybool == false)
+        {
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
+        }
+        doubleEnergybool = false;
     }
 
     public void Number5IsClicked6()
@@ -681,19 +785,23 @@ public class HackBehaviour : MonoBehaviour
         cross56.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
-        {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
 
+        if (doubleEnergybool == false)
+        {
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
+        }
+        doubleEnergybool = false;
     }
 
     //6 buttons
@@ -707,19 +815,23 @@ public class HackBehaviour : MonoBehaviour
         cross61.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
-        {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
 
+        if (doubleEnergybool == false)
+        {
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
+        }
+        doubleEnergybool = false;
     }
 
     public void Number6IsClicked2()
@@ -731,19 +843,23 @@ public class HackBehaviour : MonoBehaviour
         cross62.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
-        {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
 
+        if (doubleEnergybool == false)
+        {
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
+        }
+        doubleEnergybool = false;
     }
 
     public void Number6IsClicked3()
@@ -755,19 +871,22 @@ public class HackBehaviour : MonoBehaviour
         cross63.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
+        if (doubleEnergybool == false)
         {
-            gameManager.Die1Disable();
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
         }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
-
+        doubleEnergybool = false;
     }
 
     public void Number6IsClicked4()
@@ -779,19 +898,23 @@ public class HackBehaviour : MonoBehaviour
         cross64.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
-        {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
 
+        if (doubleEnergybool == false)
+        {
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
+        }
+        doubleEnergybool = false;
     }
 
     public void Number6IsClicked5()
@@ -803,19 +926,23 @@ public class HackBehaviour : MonoBehaviour
         cross65.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
-        {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
 
+        if (doubleEnergybool == false)
+        {
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
+        }
+        doubleEnergybool = false;
     }
 
     public void Number6IsClicked6()
@@ -827,19 +954,23 @@ public class HackBehaviour : MonoBehaviour
         cross66.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
-        {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
 
+        if (doubleEnergybool == false)
+        {
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
+        }
+        doubleEnergybool = false;
     }
 
     public void Number6IsClicked7()
@@ -851,19 +982,23 @@ public class HackBehaviour : MonoBehaviour
         cross67.SetActive(true);
         ToolCheck();
 
-        if (gameManager.dieOneIsActive == true)
-        {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true)
-        {
-            gameManager.Die3Disable();
-        }
 
+        if (doubleEnergybool == false)
+        {
+            if (gameManager.dieOneIsActive == true)
+            {
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.dieTwoIsActive == true)
+            {
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true)
+            {
+                gameManager.Die3Disable();
+            }
+        }
+        doubleEnergybool = false;
     }
 
     //Check if tool is gained
@@ -898,14 +1033,85 @@ public class HackBehaviour : MonoBehaviour
         {
             hasTool6 = true;
         }
+
+        if(buttonSix4isDone == true && buttonOne2isDone == true)
+        {
+            gameManager.AddCredit();
+        }
+        if(buttonFour2isDone == true && buttonThree1isDone == true && buttonFive1isDone == true && buttonTwo1isDone == true && buttonThree2isDone == true && buttonFive2isDone == true)
+        {
+            damageBonus1 = true;
+            
+            increaseDamage();
+            
+
+        }
+        if(buttonTwo3isDone == true && buttonFive4isDone == true && buttonThree4isDone == true && buttonFour4isDone == true && buttonFive5isDone == true && buttonOne2isDone == true)
+        {
+            damageBonus2 = true;
+            
+            increaseDamage();
+            
+
+        }
     }
 
+    private void increaseDamage()
+    {
+        if (damageBonus1 == true && damageBonus1count == 1)
+        {
+            gameManager.damageNumber += 8;
+            damageBonus1count = 2;
+
+        }
+
+        if (damageBonus2 == true && damageBonus2count == 1)
+        {
+            gameManager.damageNumber += 8;
+            damageBonus2count = 2;
+        }
+    }
+
+    public void DoubleEnergyIsClicked()
+    {
+        gameManager.energyNumber -= 2;
+        doubleEnergybool = true;
+
+        foreach (GameObject box in box1)
+        {
+            box.SetActive(true);
+        }
+        foreach (GameObject box in box2)
+        {
+            box.SetActive(true);
+        }
+
+        foreach (GameObject box in box3)
+        {
+            box.SetActive(true);
+        }
+
+        foreach (GameObject box in box4)
+        {
+            box.SetActive(true);
+        }
+
+        foreach (GameObject box in box5)
+        {
+            box.SetActive(true);
+        }
+
+        foreach (GameObject box in box6)
+        {
+            box.SetActive(true);
+        }
+    }
 
     // Update is called once per frame
     //for each loop makes all gameobjects active when hasNumber is true and all others off last turns all off when no die active
     void Update()
     {
-        if (gameManager.GetComponent<GameManager>().hasOne == true)
+        if (gameManager.GetComponent<GameManager>().hasOne == true && doubleEnergybool == false)
         {
             foreach (GameObject box in box1)
             {
@@ -937,7 +1143,7 @@ public class HackBehaviour : MonoBehaviour
                 box.SetActive(false);
             }
         }
-        else if (gameManager.GetComponent<GameManager>().hasTwo == true)
+        else if (gameManager.GetComponent<GameManager>().hasTwo == true && doubleEnergybool == false)
         {
             foreach (GameObject box in box1)
             {
@@ -969,7 +1175,7 @@ public class HackBehaviour : MonoBehaviour
                 box.SetActive(false);
             }
         }
-        else if (gameManager.GetComponent<GameManager>().hasThree == true)
+        else if (gameManager.GetComponent<GameManager>().hasThree == true && doubleEnergybool == false)
         {
             foreach (GameObject box in box1)
             {
@@ -1001,7 +1207,7 @@ public class HackBehaviour : MonoBehaviour
                 box.SetActive(false);
             }
         }
-        else if (gameManager.GetComponent<GameManager>().hasFour == true)
+        else if (gameManager.GetComponent<GameManager>().hasFour == true && doubleEnergybool == false)
         {
 
             foreach (GameObject box in box1)
@@ -1035,7 +1241,7 @@ public class HackBehaviour : MonoBehaviour
             }
 
         }
-        else if (gameManager.GetComponent<GameManager>().hasFive == true)
+        else if (gameManager.GetComponent<GameManager>().hasFive == true && doubleEnergybool == false)
         {
             foreach(GameObject box in box1)
             {
@@ -1067,7 +1273,7 @@ public class HackBehaviour : MonoBehaviour
                 box.SetActive(false);
             }
         }
-        else if (gameManager.GetComponent<GameManager>().hasSix == true)
+        else if (gameManager.GetComponent<GameManager>().hasSix == true && doubleEnergybool == false)
         {
             foreach (GameObject box in box1)
             {
@@ -1099,7 +1305,7 @@ public class HackBehaviour : MonoBehaviour
                 box.SetActive(true);
             }
         }
-        else if (gameManager.GetComponent<GameManager>().hasOne == false && gameManager.GetComponent<GameManager>().hasTwo == false && gameManager.GetComponent<GameManager>().hasThree == false && gameManager.GetComponent<GameManager>().hasFour == false && gameManager.GetComponent<GameManager>().hasFive == false && gameManager.GetComponent<GameManager>().hasSix == false)
+        else if (gameManager.GetComponent<GameManager>().hasOne == false && gameManager.GetComponent<GameManager>().hasTwo == false && gameManager.GetComponent<GameManager>().hasThree == false && gameManager.GetComponent<GameManager>().hasFour == false && gameManager.GetComponent<GameManager>().hasFive == false && gameManager.GetComponent<GameManager>().hasSix == false && doubleEnergybool == false)
         {
             foreach (GameObject box in box1)
             {
@@ -1132,6 +1338,16 @@ public class HackBehaviour : MonoBehaviour
             }
         }
 
+        //check if double energy button should be on
+
+        if(gameManager.energyNumber >= 2)
+        {
+            doubleEnergybutton.SetActive(true);
+        }
+        else
+        {
+            doubleEnergybutton.SetActive(false);
+        }
 
     }
 }
