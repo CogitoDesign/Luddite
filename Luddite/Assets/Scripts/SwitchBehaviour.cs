@@ -14,6 +14,8 @@ public class SwitchBehaviour : MonoBehaviour
     bool switchFiveisActive;
     bool switchSixisActive;
 
+    public GameObject[] crosses;
+
     public bool switchOneIsOn;
     public bool switchTwoIsOn;
     public bool switchThreeIsOn;
@@ -58,9 +60,20 @@ public class SwitchBehaviour : MonoBehaviour
             
             switchOneCounter += 1;
 
+            if (switchOneCounter == 1)
+            {
+                crosses[0].SetActive(true);
+            }
+           
+            else if (switchOneCounter == 3)
+            {
+                crosses[2].SetActive(true);
+            }
+
             if (switchOneCounter == 3)
             {
                 switchOneIsDone = true;
+                gameManager.damageNumber += 2;
             }
         }
         else if (switchOneIsOn == true)
@@ -68,10 +81,12 @@ public class SwitchBehaviour : MonoBehaviour
             switchOneIsOn = false;
             switchOneCounter += 1;
 
-            if (switchOneCounter == 3)
+            if (switchOneCounter == 2)
             {
-                switchOneIsDone = true;
+                crosses[1].SetActive(true);
             }
+
+       
         }
 
         if (gameManager.dieOneIsActive == true)
@@ -98,9 +113,20 @@ public class SwitchBehaviour : MonoBehaviour
 
             switchTwoCounter += 1;
 
+            if (switchTwoCounter == 1)
+            {
+                crosses[3].SetActive(true);
+            }
+
+            else if (switchTwoCounter == 3)
+            {
+                crosses[5].SetActive(true);
+            }
+
             if (switchTwoCounter == 3)
             {
                 switchTwoIsDone = true;
+                gameManager.damageNumber += 2;
             }
         }
         else if (switchTwoIsOn == true)
@@ -108,10 +134,12 @@ public class SwitchBehaviour : MonoBehaviour
             switchTwoIsOn = false;
             switchTwoCounter += 1;
 
-            if (switchTwoCounter == 3)
+            if (switchTwoCounter == 2)
             {
-                switchTwoIsDone = true;
+                crosses[4].SetActive(true);
             }
+
+          
         }
 
         if (gameManager.dieOneIsActive == true)
@@ -138,9 +166,20 @@ public class SwitchBehaviour : MonoBehaviour
 
             switchThreeCounter += 1;
 
+            if (switchThreeCounter == 1)
+            {
+                crosses[6].SetActive(true);
+            }
+
+            else if (switchThreeCounter == 3)
+            {
+                crosses[8].SetActive(true);
+            }
+
             if (switchThreeCounter == 3)
             {
                 switchThreeIsDone = true;
+                gameManager.damageNumber += 2;
             }
         }
         else if (switchThreeIsOn == true)
@@ -148,10 +187,12 @@ public class SwitchBehaviour : MonoBehaviour
             switchThreeIsOn = false;
             switchThreeCounter += 1;
 
-            if (switchThreeCounter == 3)
+            if (switchThreeCounter == 2)
             {
-                switchThreeIsDone = true;
+                crosses[7].SetActive(true);
             }
+
+         
         }
 
         if (gameManager.dieOneIsActive == true)
@@ -178,9 +219,20 @@ public class SwitchBehaviour : MonoBehaviour
 
             switchFourCounter += 1;
 
+            if (switchFourCounter == 1)
+            {
+                crosses[9].SetActive(true);
+            }
+
+            else if (switchFourCounter == 3)
+            {
+                crosses[11].SetActive(true);
+            }
+
             if (switchFourCounter == 3)
             {
                 switchFourIsDone = true;
+                gameManager.damageNumber += 2;
             }
         }
         else if (switchFourIsOn == true)
@@ -188,10 +240,12 @@ public class SwitchBehaviour : MonoBehaviour
             switchFourIsOn = false;
             switchFourCounter += 1;
 
-            if (switchFourCounter == 3)
+            if (switchFourCounter == 2)
             {
-                switchFourIsDone = true;
+                crosses[10].SetActive(true);
             }
+
+          
         }
 
         if (gameManager.dieOneIsActive == true)
@@ -218,6 +272,17 @@ public class SwitchBehaviour : MonoBehaviour
 
             switchFiveCounter += 1;
 
+            if (switchFiveCounter == 1)
+            {
+                crosses[12].SetActive(true);
+            }
+
+            else if (switchFiveCounter == 3)
+            {
+                crosses[14].SetActive(true);
+                gameManager.damageNumber += 2;
+            }
+
             if (switchFiveCounter == 3)
             {
                 switchFiveIsDone = true;
@@ -228,10 +293,12 @@ public class SwitchBehaviour : MonoBehaviour
             switchFiveIsOn = false;
             switchFiveCounter += 1;
 
-            if (switchFiveCounter == 3)
+            if (switchFiveCounter == 2)
             {
-                switchFiveIsDone = true;
+                crosses[13].SetActive(true);
             }
+
+          
         }
 
         if (gameManager.dieOneIsActive == true)
@@ -258,9 +325,20 @@ public class SwitchBehaviour : MonoBehaviour
 
             switchSixCounter += 1;
 
+            if (switchSixCounter == 1)
+            {
+                crosses[15].SetActive(true);
+            }
+
+            else if (switchSixCounter == 3)
+            {
+                crosses[17].SetActive(true);
+            }
+
             if (switchSixCounter == 3)
             {
                 switchSixIsDone = true;
+                gameManager.damageNumber += 2;
             }
         }
         else if (switchSixIsOn == true)
@@ -268,10 +346,12 @@ public class SwitchBehaviour : MonoBehaviour
             switchSixIsOn = false;
             switchSixCounter += 1;
 
-            if (switchSixCounter == 3)
+            if (switchSixCounter == 2)
             {
-                switchSixIsDone = true;
+                crosses[16].SetActive(true);
             }
+
+         
         }
 
         if (gameManager.dieOneIsActive == true)
