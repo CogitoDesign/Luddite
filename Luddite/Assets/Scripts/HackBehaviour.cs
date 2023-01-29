@@ -117,6 +117,13 @@ public class HackBehaviour : MonoBehaviour
 
     public GameObject doubleEnergybutton;
 
+    public GameObject tool1;
+    public GameObject tool2;
+    public GameObject tool3;
+    public GameObject tool4;
+    public GameObject tool5;
+    public GameObject tool6;
+
     // 1 buttons
 
     public void Number1IsClicked1()
@@ -1008,30 +1015,36 @@ public class HackBehaviour : MonoBehaviour
         if (buttonFour1isDone == true && buttonSix1isDone == true && buttonThree2isDone == true && buttonFour3isDone == true)
         {
             hasTool1 = true;
+            tool1.SetActive(true);
         }
 
         if (buttonThree3isDone == true && buttonSix2isDone == true && buttonOne1isDone == true && buttonFive3isDone == true)
         {
             hasTool2 = true;
+            tool2.SetActive(true);
         }
 
         if (buttonOne1isDone == true && buttonSix3isDone == true && buttonTwo2isDone == true && buttonThree4isDone == true)
         {
             hasTool3 = true;
+            tool3.SetActive(true);
         }
 
         if (buttonFive4isDone == true && buttonSix5isDone == true && buttonOne4isDone == true && buttonFive6isDone == true)
         {
             hasTool4 = true;
+            tool4.SetActive(true);
         }
 
         if (buttonFive5isDone == true && buttonTwo4isDone == true && buttonSix7isDone == true && buttonTwo5isDone == true)
         {
             hasTool5 = true;
+            tool5.SetActive(true);
         }
         if(buttonOne3isDone == true && buttonOne4isDone == true && buttonSix6isDone == true && buttonFour5isDone == true && buttonSix7isDone == true)
         {
             hasTool6 = true;
+            tool6.SetActive(true);
         }
 
         if(buttonSix4isDone == true && buttonOne2isDone == true)

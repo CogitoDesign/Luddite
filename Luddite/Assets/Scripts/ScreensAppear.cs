@@ -10,6 +10,7 @@ public class ScreensAppear : MonoBehaviour
     public GameObject clockScreen;
     public GameObject hackScreen;
     public GameObject rollbonusScreen;
+    public GameObject toolsScreen;
 
 
     //turn on and off switch menu and turn off all other menus
@@ -22,6 +23,7 @@ public class ScreensAppear : MonoBehaviour
             clockScreen.SetActive(false);
             hackScreen.SetActive(false);
             rollbonusScreen.SetActive(false);
+            toolsScreen.SetActive(false);
         }
         else
         {
@@ -40,6 +42,7 @@ public class ScreensAppear : MonoBehaviour
             switchesScreen.SetActive(false);
             hackScreen.SetActive(false);
             rollbonusScreen.SetActive(false);
+            toolsScreen.SetActive(false);
         }
         else
         {
@@ -58,6 +61,7 @@ public class ScreensAppear : MonoBehaviour
             switchesScreen.SetActive(false);
             clockScreen.SetActive(false);
             rollbonusScreen.SetActive(false);
+            toolsScreen.SetActive(false);
         }
         else
         {
@@ -75,10 +79,29 @@ public class ScreensAppear : MonoBehaviour
             clockScreen.SetActive(false);
             hackScreen.SetActive(false);
             switchesScreen.SetActive(false);
+            toolsScreen.SetActive(false);
         }
         else
         {
             rollbonusScreen.SetActive(false);
+        }
+
+    }
+
+    public void ToolsMenuIsOn()
+    {
+
+        if (toolsScreen.activeSelf == false)
+        {
+            rollbonusScreen.SetActive(false);
+            clockScreen.SetActive(false);
+            hackScreen.SetActive(false);
+            switchesScreen.SetActive(false);
+            toolsScreen.SetActive(true);
+        }
+        else
+        {
+            toolsScreen.SetActive(false);
         }
 
     }
