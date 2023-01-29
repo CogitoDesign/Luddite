@@ -270,7 +270,7 @@ public class GameManager : MonoBehaviour
 
         Die1Activate();
 
-        unlockNode.GetComponent<UnlockNode>().NodeCheck();
+    
 
     }
 
@@ -303,7 +303,7 @@ public class GameManager : MonoBehaviour
 
         Die2Activate();
 
-        unlockNode.GetComponent<UnlockNode>().NodeCheck();
+      
     }
 
     public void Die3Clicked()
@@ -335,7 +335,7 @@ public class GameManager : MonoBehaviour
 
         Die3Activate();
 
-        unlockNode.GetComponent<UnlockNode>().NodeCheck();
+      
     }
 
     void Die1Activate()
