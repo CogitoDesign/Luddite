@@ -11,6 +11,7 @@ public class ScreensAppear : MonoBehaviour
     public GameObject hackScreen;
     public GameObject rollbonusScreen;
     public GameObject toolsScreen;
+    public GameObject moveOptionsScreen;
 
 
     //turn on and off switch menu and turn off all other menus
@@ -24,6 +25,7 @@ public class ScreensAppear : MonoBehaviour
             hackScreen.SetActive(false);
             rollbonusScreen.SetActive(false);
             toolsScreen.SetActive(false);
+            moveOptionsScreen.SetActive(false);
         }
         else
         {
@@ -43,6 +45,7 @@ public class ScreensAppear : MonoBehaviour
             hackScreen.SetActive(false);
             rollbonusScreen.SetActive(false);
             toolsScreen.SetActive(false);
+            moveOptionsScreen.SetActive(false);
         }
         else
         {
@@ -62,6 +65,7 @@ public class ScreensAppear : MonoBehaviour
             clockScreen.SetActive(false);
             rollbonusScreen.SetActive(false);
             toolsScreen.SetActive(false);
+            moveOptionsScreen.SetActive(false);
         }
         else
         {
@@ -80,6 +84,7 @@ public class ScreensAppear : MonoBehaviour
             hackScreen.SetActive(false);
             switchesScreen.SetActive(false);
             toolsScreen.SetActive(false);
+            moveOptionsScreen.SetActive(false);
         }
         else
         {
@@ -98,10 +103,30 @@ public class ScreensAppear : MonoBehaviour
             hackScreen.SetActive(false);
             switchesScreen.SetActive(false);
             toolsScreen.SetActive(true);
+            moveOptionsScreen.SetActive(false);
         }
         else
         {
             toolsScreen.SetActive(false);
+        }
+
+    }
+
+    public void MoveOptionsMenuIsOn()
+    {
+
+        if (moveOptionsScreen.activeSelf == false)
+        {
+            moveOptionsScreen.SetActive(true);
+            rollbonusScreen.SetActive(false);
+            clockScreen.SetActive(false);
+            hackScreen.SetActive(false);
+            switchesScreen.SetActive(false);
+            toolsScreen.SetActive(false);
+        }
+        else
+        {
+            moveOptionsScreen.SetActive(false);
         }
 
     }
