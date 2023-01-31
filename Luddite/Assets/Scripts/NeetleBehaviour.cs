@@ -34,6 +34,54 @@ public class NeetleBehaviour : MonoBehaviour
 
     public int dieMoveNumber;
 
+    public UnlockNode unlockNode;
+
+    public GameObject nodes;
+
+    public GameObject switchPanel;
+
+    private GameObject leftLocation;
+    private bool leftLocationIsOpen;
+
+    private GameObject rightLocation;
+    private bool rightLocationIsOpen;
+
+    private GameObject upLocation;
+    private bool upLocationIsOpen;
+
+    private GameObject downLocation;
+    private bool downLocationIsOpen;
+
+    private bool x1y2;
+    private bool x1y3;
+    private bool x1y4;
+
+    private bool x2y1;
+    private bool x2y2;
+    private bool x2y3;
+    private bool x2y4;
+
+    private bool x3y1;
+    private bool x3y2;
+    private bool x3y3;
+    private bool x3y4;
+
+    private bool x4y1;
+    private bool x4y2;
+    private bool x4y3;
+    private bool x4y4;
+
+    private bool x5y1;
+    private bool x5y2;
+    private bool x5y3;
+    private bool x5y4;
+
+    private bool x6y1;
+    private bool x6y2;
+    private bool x6y3;
+    private bool x6y4;
+
+
     //add the active die to the movepad make diemovenumber the same.
 
     public void AddDieButtonIsClicked()
@@ -171,6 +219,7 @@ public class NeetleBehaviour : MonoBehaviour
 
     public void EnergyButtonIsclicked()
     {
+        gameManager.energyNumber -= 1;
         if (dieMoveNumber <= 3)
         {
             dieMoveNumber += 3;
@@ -184,6 +233,10 @@ public class NeetleBehaviour : MonoBehaviour
         
     }
 
+    public void DoubleEnergyButtonIsClicked()
+    {
+
+    }
 
     public void RightButtonIsClicked()
     {
@@ -191,6 +244,8 @@ public class NeetleBehaviour : MonoBehaviour
         FindTargetLocation();
       
         StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+        dieMoveNumber -= 1;
+        ChangeDieSprite();
     }
 
     public void LeftButtonIsClicked()
@@ -199,6 +254,8 @@ public class NeetleBehaviour : MonoBehaviour
         FindTargetLocation();
 
         StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+        dieMoveNumber -= 1;
+        ChangeDieSprite();
     }
 
     public void UpButtonIsClicked()
@@ -207,6 +264,8 @@ public class NeetleBehaviour : MonoBehaviour
         FindTargetLocation();
 
         StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+        dieMoveNumber -= 1;
+        ChangeDieSprite();
     }
 
     public void DownButtonIsClicked()
@@ -215,6 +274,8 @@ public class NeetleBehaviour : MonoBehaviour
         FindTargetLocation();
 
         StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+        dieMoveNumber -= 1;
+        ChangeDieSprite();
     }
 
     IEnumerator MoveToTarget(GameObject neetle, GameObject targetLocation, float speedTranslation)
@@ -223,6 +284,1054 @@ public class NeetleBehaviour : MonoBehaviour
         {
             neetle.transform.position = Vector3.MoveTowards(neetle.transform.position, targetLocation.transform.position, speed * Time.deltaTime);
             yield return null;
+        }
+    }
+
+    private void ChangeDieSprite()
+    {
+        if (dieMoveNumber >= 1)
+        {
+            dieMoveIcon.GetComponent<Image>().sprite = numberSprites[dieMoveNumber - 1];
+        }
+        else
+        {
+            dieMoveIcon.GetComponent<Image>().sprite = null;
+        }
+    }
+
+    private void CheckLeftLocationIsOpen()
+    {
+        if (currentXAxis == 1 && currentYAxis == 1)
+        {
+            leftLocation = null;
+            leftLocationIsOpen = false;
+        }
+        else if (currentXAxis == 1 && currentYAxis == 2)
+        {
+            leftLocation = mapMarkers[0];
+            leftLocationIsOpen = true;
+        }
+        else if (currentXAxis == 1 && currentYAxis == 3)
+        {
+            leftLocation = mapMarkers[1];
+
+            if (unlockNode.DieSixnode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn))
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 1 && currentYAxis == 4)
+        {
+            leftLocation = mapMarkers[2];
+            if (unlockNode.DieOnenode1IsUnlocked == true && switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn)
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 2 && currentYAxis == 1)
+        {
+            leftLocation = null;
+            leftLocationIsOpen = false;
+        }
+        else if (currentXAxis == 2 && currentYAxis == 2)
+        {
+            leftLocation = mapMarkers[4];
+            if (unlockNode.DieFivenode1IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 2 && currentYAxis == 3)
+        {
+            leftLocation = mapMarkers[5];
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn)
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 2 && currentYAxis == 4)
+        {
+            leftLocation = mapMarkers[6];
+
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 3 && currentYAxis == 1)
+        {
+            leftLocation = null;
+            leftLocationIsOpen = false;
+        }
+        else if (currentXAxis == 3 && currentYAxis == 2)
+        {
+            leftLocation = mapMarkers[8];
+            if (unlockNode.DieTwonode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn))
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 3 && currentYAxis == 3)
+        {
+            leftLocation = mapMarkers[9];
+            if (unlockNode.DieSixnode2IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 3 && currentYAxis == 4)
+        {
+            leftLocation = mapMarkers[10];
+
+            if (unlockNode.DieTwonode2IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn))
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 4 && currentYAxis == 1)
+        {
+            leftLocation = null;
+            leftLocationIsOpen = false;
+        }
+        else if (currentXAxis == 4 && currentYAxis == 2)
+        {
+            leftLocation = mapMarkers[12];
+            if (unlockNode.DieThreenode1IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 4 && currentYAxis == 3)
+        {
+            leftLocation = mapMarkers[13];
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 4 && currentYAxis == 4)
+        {
+            leftLocation = mapMarkers[14];
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 5 && currentYAxis == 1)
+        {
+            leftLocation = null;
+            leftLocationIsOpen = false;
+        }
+        else if (currentXAxis == 5 && currentYAxis == 2)
+        {
+            leftLocation = mapMarkers[16];
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 5 && currentYAxis == 3)
+        {
+            leftLocation = mapMarkers[17];
+            if (unlockNode.DieOnenode2IsUnlocked == true && switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn)
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 5 && currentYAxis == 4)
+        {
+            leftLocation = mapMarkers[18];
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 6 && currentYAxis == 1)
+        {
+            leftLocation = null;
+            leftLocationIsOpen = false;
+        }
+        else if (currentXAxis == 6 && currentYAxis == 2)
+        {
+            leftLocation = mapMarkers[20];
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 6 && currentYAxis == 3)
+        {
+            leftLocation = mapMarkers[21];
+
+            if (unlockNode.DieFournode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn))
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 6 && currentYAxis == 4)
+        {
+            leftLocation = mapMarkers[18];
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                leftLocationIsOpen = true;
+            }
+            else
+            {
+                leftLocationIsOpen = false;
+            }
+        }
+    }
+
+    private void CheckRightLocationIsOpen()
+    {
+        if (currentXAxis == 1 && currentYAxis == 1)
+        {
+            rightLocation = mapMarkers[1];
+
+            if (x1y2 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 1 && currentYAxis == 2)
+        {
+            rightLocation = mapMarkers[2];
+            if (x1y3 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 1 && currentYAxis == 3)
+        {
+            rightLocation = mapMarkers[3];
+
+            if (x1y4 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 1 && currentYAxis == 4)
+        {
+            rightLocation = null;
+            rightLocationIsOpen = false;
+        }
+        else if (currentXAxis == 2 && currentYAxis == 1)
+        {
+            rightLocation = mapMarkers[5];
+
+            if (x2y2 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 2 && currentYAxis == 2)
+        {
+            rightLocation = mapMarkers[6];
+            if (x2y3 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 2 && currentYAxis == 3)
+        {
+            rightLocation = mapMarkers[7];
+            if (x2y4 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 2 && currentYAxis == 4)
+        {
+            rightLocation = null;
+            rightLocationIsOpen = false;
+        }
+        else if (currentXAxis == 3 && currentYAxis == 1)
+        {
+            rightLocation = mapMarkers[9];
+
+            if (x3y2 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 3 && currentYAxis == 2)
+        {
+            rightLocation = mapMarkers[10];
+            if (x3y3 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 3 && currentYAxis == 3)
+        {
+            rightLocation = mapMarkers[11];
+            if (x3y4 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 3 && currentYAxis == 4)
+        {
+            rightLocation = null;
+            rightLocationIsOpen = false;
+        }
+        else if (currentXAxis == 4 && currentYAxis == 1)
+        {
+            rightLocation = mapMarkers[13];
+
+            if (x4y2 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 4 && currentYAxis == 2)
+        {
+            rightLocation = mapMarkers[14];
+            if (x4y3 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 4 && currentYAxis == 3)
+        {
+            rightLocation = mapMarkers[15];
+            if (x4y4 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 4 && currentYAxis == 4)
+        {
+            rightLocation = null;
+            rightLocationIsOpen = false;
+        }
+        else if (currentXAxis == 5 && currentYAxis == 1)
+        {
+            rightLocation = mapMarkers[17];
+
+            if (x5y2 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 5 && currentYAxis == 2)
+        {
+            rightLocation = mapMarkers[18];
+            if (x5y3 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 5 && currentYAxis == 3)
+        {
+            rightLocation = mapMarkers[19];
+            if (x5y4 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 5 && currentYAxis == 4)
+        {
+            rightLocation = null;
+            rightLocationIsOpen = false;
+        }
+        else if (currentXAxis == 6 && currentYAxis == 1)
+        {
+            rightLocation = mapMarkers[21];
+
+            if (x6y2 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 6 && currentYAxis == 2)
+        {
+            rightLocation = mapMarkers[22];
+            if (x6y3 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 6 && currentYAxis == 3)
+        {
+            rightLocation = mapMarkers[23];
+
+            if (x6y4 == true)
+            {
+                rightLocationIsOpen = true;
+            }
+            else
+            {
+                rightLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 6 && currentYAxis == 4)
+        {
+            rightLocation = null;
+            rightLocationIsOpen = false;
+        }
+    }
+
+    private void CheckUpLocationIsOpen()
+    {
+        if (currentXAxis == 1 && currentYAxis == 1)
+        {
+            upLocation = null;
+            upLocationIsOpen = false;
+        }
+        else if (currentXAxis == 1 && currentYAxis == 2)
+        {
+            upLocation = null;
+            upLocationIsOpen = false;
+        }
+        else if (currentXAxis == 1 && currentYAxis == 3)
+        {
+            upLocation = null;
+            upLocationIsOpen = false;
+        }
+        else if (currentXAxis == 1 && currentYAxis == 4)
+        {
+            upLocation = null;
+            upLocationIsOpen = false;
+        }
+        else if (currentXAxis == 2 && currentYAxis == 1)
+        {
+            upLocation = mapMarkers[0];
+            upLocationIsOpen = true;
+        }
+        else if (currentXAxis == 2 && currentYAxis == 2)
+        {
+            upLocation = mapMarkers[1];
+
+            if (x1y2 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 2 && currentYAxis == 3)
+        {
+            upLocation = mapMarkers[2];
+            if (x1y3 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 2 && currentYAxis == 4)
+        {
+            upLocation = mapMarkers[3];
+            if (x1y4 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 3 && currentYAxis == 1)
+        {
+            upLocation = mapMarkers[4];
+
+            if (x2y1 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 3 && currentYAxis == 2)
+        {
+            upLocation = mapMarkers[5];
+            if (x2y2 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 3 && currentYAxis == 3)
+        {
+            upLocation = mapMarkers[6];
+            if (x2y3 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 3 && currentYAxis == 4)
+        {
+            upLocation = mapMarkers[7];
+            if (x2y4 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 4 && currentYAxis == 1)
+        {
+            upLocation = mapMarkers[8];
+
+            if (x3y1 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 4 && currentYAxis == 2)
+        {
+            upLocation = mapMarkers[9];
+            if (x3y2 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 4 && currentYAxis == 3)
+        {
+            upLocation = mapMarkers[10];
+            if (x3y3 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 4 && currentYAxis == 4)
+        {
+            upLocation = mapMarkers[11];
+            if (x3y4 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 5 && currentYAxis == 1)
+        {
+            upLocation = mapMarkers[12];
+
+            if (x4y1 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 5 && currentYAxis == 2)
+        {
+            upLocation = mapMarkers[13];
+            if (x4y2 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 5 && currentYAxis == 3)
+        {
+            upLocation = mapMarkers[14];
+            if (x4y3 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 5 && currentYAxis == 4)
+        {
+            upLocation = mapMarkers[15];
+            if (x4y4 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 6 && currentYAxis == 1)
+        {
+            upLocation = mapMarkers[16];
+
+            if (x5y1 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 6 && currentYAxis == 2)
+        {
+            upLocation = mapMarkers[17];
+            if (x5y2 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 6 && currentYAxis == 3)
+        {
+            upLocation = mapMarkers[18];
+
+            if (x5y3 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 6 && currentYAxis == 4)
+        {
+            upLocation = mapMarkers[19];
+            if (x5y4 == true)
+            {
+                upLocationIsOpen = true;
+            }
+            else
+            {
+                upLocationIsOpen = false;
+            }
+        }
+    }
+
+    private void CheckDownLocationIsOpen()
+    {
+        if (currentXAxis == 1 && currentYAxis == 1)
+        {
+            downLocation = mapMarkers[4];
+            if (x2y1 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 1 && currentYAxis == 2)
+        {
+            downLocation = mapMarkers[5];
+            if (x2y2 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 1 && currentYAxis == 3)
+        {
+            downLocation = mapMarkers[6];
+            if (x2y3 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 1 && currentYAxis == 4)
+        {
+            downLocation = mapMarkers[7];
+            if (x2y4 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 2 && currentYAxis == 1)
+        {
+            downLocation = mapMarkers[8];
+            if (x3y1 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 2 && currentYAxis == 2)
+        {
+            downLocation = mapMarkers[9];
+
+            if (x3y2 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 2 && currentYAxis == 3)
+        {
+            downLocation = mapMarkers[10];
+            if (x3y3 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 2 && currentYAxis == 4)
+        {
+            downLocation = mapMarkers[11];
+            if (x3y4 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 3 && currentYAxis == 1)
+        {
+            downLocation = mapMarkers[12];
+
+            if (x4y1 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 3 && currentYAxis == 2)
+        {
+            downLocation = mapMarkers[13];
+            if (x4y2 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 3 && currentYAxis == 3)
+        {
+            downLocation = mapMarkers[14];
+            if (x4y3 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 3 && currentYAxis == 4)
+        {
+            downLocation = mapMarkers[15];
+            if (x4y4 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 4 && currentYAxis == 1)
+        {
+            downLocation = mapMarkers[16];
+
+            if (x5y1 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 4 && currentYAxis == 2)
+        {
+            downLocation = mapMarkers[17];
+            if (x5y2 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 4 && currentYAxis == 3)
+        {
+            downLocation = mapMarkers[18];
+            if (x5y3 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 4 && currentYAxis == 4)
+        {
+            downLocation = mapMarkers[19];
+            if (x5y4 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 5 && currentYAxis == 1)
+        {
+            downLocation = mapMarkers[20];
+
+            if (x6y1 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 5 && currentYAxis == 2)
+        {
+            downLocation = mapMarkers[21];
+            if (x6y2 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 5 && currentYAxis == 3)
+        {
+            downLocation = mapMarkers[22];
+            if (x6y3 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 5 && currentYAxis == 4)
+        {
+            downLocation = mapMarkers[23];
+            if (x6y4 == true)
+            {
+                downLocationIsOpen = true;
+            }
+            else
+            {
+                downLocationIsOpen = false;
+            }
+        }
+        else if (currentXAxis == 6 && currentYAxis == 1)
+        {
+            downLocation = null;
+            downLocationIsOpen = false;
+        }
+        else if (currentXAxis == 6 && currentYAxis == 2)
+        {
+            downLocation = null;
+            downLocationIsOpen = false;
+        }
+        else if (currentXAxis == 6 && currentYAxis == 3)
+        {
+            downLocation = null;
+            downLocationIsOpen = false;
+        }
+        else if (currentXAxis == 6 && currentYAxis == 4)
+        {
+            downLocation = null;
+            downLocationIsOpen = false;
         }
     }
 
@@ -336,10 +1445,14 @@ public class NeetleBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckLeftLocationIsOpen();
+        CheckRightLocationIsOpen();
+        CheckUpLocationIsOpen();
+        CheckDownLocationIsOpen();
 
         //turn on energy buttons only when have required energy
 
-        if(gameManager.energyNumber >= 1)
+        if (gameManager.energyNumber >= 1)
         {
             energyButton.SetActive(true);
         }
@@ -362,35 +1475,169 @@ public class NeetleBehaviour : MonoBehaviour
         {
             rightButton.SetActive(false);
         }
-        else
+        else if (dieMoveNumber >= 1 && rightLocationIsOpen == true)
         {
             rightButton.SetActive(true);
         }
+        else
+        {
+            rightButton.SetActive(false);
+        }
 
-        if(currentYAxis == 1)
+        if (currentYAxis == 1)
         {
             leftButton.SetActive(false);
         }
-        else
+        else if (dieMoveNumber >= 1 && leftLocationIsOpen == true)
         {
             leftButton.SetActive(true);
+        }
+        else
+        {
+            leftButton.SetActive(false);
         }
 
         if (currentXAxis == 1)
         {
             upButton.SetActive(false);
         }
-        else
+        else if (dieMoveNumber >= 1 && upLocationIsOpen == true)
         {
             upButton.SetActive(true);
         }
+        else
+        {
+            upButton.SetActive(false);
+        }
+
         if (currentXAxis == 6)
         {
             downButton.SetActive(false);
         }
-        else
+        else if (dieMoveNumber >= 1 && downLocationIsOpen == true)
         {
             downButton.SetActive(true);
+        }
+        else
+        {
+            downButton.SetActive(false);
+        }
+
+        //check if nodes are open by checking switch config and node gates
+
+        if (unlockNode.DieSixnode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn))
+        {
+            x1y2 = true;
+        }
+
+        if (unlockNode.DieOnenode1IsUnlocked == true && switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn)
+        {
+            x1y3 = true;
+        }
+
+        if (switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+        {
+            x1y4 = true;
+        }
+
+        if (unlockNode.DieFivenode1IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+        {
+            x2y1 = true;
+        }
+
+        if (!switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn)
+        {
+            x2y2 = true;
+        }
+
+        if (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
+        {
+            x2y3 = true;
+        }
+
+        if (switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+        {
+            x2y4 = true;
+        }
+
+        if (unlockNode.DieTwonode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn))
+        {
+            x3y1 = true;
+        }
+
+        if (unlockNode.DieSixnode2IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+        {
+            x3y2 = true;
+        }
+
+        if (unlockNode.DieTwonode2IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn))
+        {
+            x3y3 = true;
+        }
+
+        if (switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+        {
+            x3y4 = true;
+        }
+
+        if (unlockNode.DieThreenode1IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+        {
+            x4y1 = true;
+        }
+
+        if (!switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+        {
+            x4y2 = true;
+        }
+
+        if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
+        {
+            x4y3 = true;
+        }
+
+        if (unlockNode.DieFivenode2IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn))
+        {
+            x4y4 = true;
+        }
+
+        if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
+        {
+            x5y1 = true;
+        }
+
+        if (unlockNode.DieOnenode2IsUnlocked == true && switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn)
+        {
+            x5y2 = true;
+        }
+
+        if (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+        {
+            x5y3 = true;
+        }
+
+        if (unlockNode.DieTwonode3IsUnlocked == true && switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+        {
+            x5y4 = true;
+        }
+
+        if (switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+        {
+            x6y1 = true;
+        }
+
+        if (unlockNode.DieFournode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn))
+        {
+            x6y2 = true;
+        }
+
+        if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+        {
+            x6y3 = true;
+        }
+
+        if (!switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
+        {
+            x6y4 = true;
         }
     }
 }
