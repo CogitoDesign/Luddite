@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class NeetleBehaviour : MonoBehaviour
 {
-    private int currentXAxis;
-    private int currentYAxis;
+    [SerializeField] private int currentXAxis;
+    [SerializeField] private int currentYAxis;
 
     public GameObject neetle;
 
@@ -85,6 +85,31 @@ public class NeetleBehaviour : MonoBehaviour
     public GameObject rightDEIcon;
     public GameObject upDEIcon;
     public GameObject downDEIcon;
+
+    private bool bonusMultitool;
+    private bool bonusCredit1;
+    private bool bonusCredit2;
+    private bool bonusEnergy;
+    private bool bonusMultitools;
+
+    public GameObject bonusMultitoolsNode;
+    public GameObject bonusMultitoolNode;
+    public GameObject bonusCreditNode1;
+    public GameObject bonusCreditNode2;
+    public GameObject bonusEnergyNode;
+
+    public Material green;
+
+    private bool tool1done;
+    private bool tool2done;
+    private bool tool3done;
+    private bool tool4done;
+    private bool tool5done;
+    private bool tool6done;
+
+    public GameObject[] toolNodes;
+
+    public GameObject hacScreen;
 
 
     //add the active die to the movepad make diemovenumber the same.
@@ -1738,5 +1763,93 @@ public class NeetleBehaviour : MonoBehaviour
         {
             x6y4 = true;
         }
+
+        //Check if neetle has entered a bonus location and give bonus, turn node green then stop allowing bonus
+
+        if ((currentXAxis == 6 && currentYAxis == 3) && bonusMultitools == false)
+        {
+            gameManager.multitoolNumber += 2;
+            bonusMultitools = true;
+            bonusMultitoolsNode.GetComponent<MeshRenderer>().material = green;
+        }
+
+        if ((currentXAxis == 4 && currentYAxis == 3) && bonusEnergy == false)
+        {
+            gameManager.energyNumber += 1;
+            bonusEnergy = true;
+            bonusEnergyNode.GetComponent<MeshRenderer>().material = green;
+        }
+
+        if ((currentXAxis == 2 && currentYAxis == 4) && bonusCredit1 == false)
+        {
+            gameManager.creditNumber += 1;
+            bonusCredit1 = true;
+            bonusCreditNode1.GetComponent<MeshRenderer>().material = green;
+        }
+
+        if ((currentXAxis == 5 && currentYAxis == 1) && bonusCredit2 == false)
+        {
+            gameManager.creditNumber += 1;
+            bonusCredit2 = true;
+            bonusCreditNode2.GetComponent<MeshRenderer>().material = green;
+        }
+
+        if ((currentXAxis == 2 && currentYAxis == 3) && bonusMultitool == false)
+        {
+            gameManager.multitoolNumber += 1;
+            bonusMultitool = true;
+            bonusMultitoolNode.GetComponent<MeshRenderer>().material = green;
+        }
+
+        //Check if have tool when entering tool node and activate node if you do
+
+       if ((currentXAxis == 1 && currentYAxis == 4) && (hacScreen.GetComponent<HackBehaviour>().hasTool2 == true && tool2done == false))
+       {
+            tool2done = true;
+            toolNodes[1].GetComponent<MeshRenderer>().material = green;
+            gameManager.damageNumber += 12;
+            hacScreen.GetComponent<HackBehaviour>().hasTool2 = false;
+       }
+
+        if ((currentXAxis == 2 && currentYAxis == 2) && (hacScreen.GetComponent<HackBehaviour>().hasTool1 == true && tool1done == false))
+        {
+            tool1done = true;
+            toolNodes[0].GetComponent<MeshRenderer>().material = green;
+            gameManager.damageNumber += 9;
+            hacScreen.GetComponent<HackBehaviour>().hasTool1 = false;
+        }
+
+        if ((currentXAxis == 3 && currentYAxis == 4) && (hacScreen.GetComponent<HackBehaviour>().hasTool4 == true && tool4done == false))
+        {
+            tool4done = true;
+            toolNodes[3].GetComponent<MeshRenderer>().material = green;
+            gameManager.damageNumber += 15;
+            hacScreen.GetComponent<HackBehaviour>().hasTool4 = false;
+        }
+
+        if ((currentXAxis == 4 && currentYAxis == 2) && (hacScreen.GetComponent<HackBehaviour>().hasTool5 == true && tool5done == false))
+        {
+            tool5done = true;
+            toolNodes[4].GetComponent<MeshRenderer>().material = green;
+            gameManager.damageNumber += 15;
+            hacScreen.GetComponent<HackBehaviour>().hasTool5 = false;
+        }
+
+        if ((currentXAxis == 5 && currentYAxis == 3) && (hacScreen.GetComponent<HackBehaviour>().hasTool3 == true && tool3done == false))
+        {
+            tool3done = true;
+            toolNodes[2].GetComponent<MeshRenderer>().material = green;
+            gameManager.damageNumber += 17;
+            hacScreen.GetComponent<HackBehaviour>().hasTool3 = false;
+        }
+
+        if ((currentXAxis == 6 && currentYAxis == 1) && (hacScreen.GetComponent<HackBehaviour>().hasTool6 == true && tool6done == false))
+        {
+            tool6done = true;
+            toolNodes[5].GetComponent<MeshRenderer>().material = green;
+            gameManager.damageNumber += 20;
+            hacScreen.GetComponent<HackBehaviour>().hasTool6 = false;
+        }
+
     }
 }

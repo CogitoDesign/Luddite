@@ -3668,7 +3668,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232916213}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 0, z: 28.65}
+  m_LocalPosition: {x: -20.798, y: 0, z: 6.987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8162,7 +8162,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442052606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.89, y: 0, z: 14.24}
+  m_LocalPosition: {x: -0.06, y: 0, z: 28.447}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12323,7 +12323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678308360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.81, y: 0, z: 6.99}
+  m_LocalPosition: {x: -6.887, y: 0, z: 14.237}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31645,6 +31645,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19805bb8419844406a2bc42e0e794267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentXAxis: 0
+  currentYAxis: 0
   neetle: {fileID: 1836701776}
   speed: 4
   numberSprites:
@@ -31695,6 +31697,20 @@ MonoBehaviour:
   rightDEIcon: {fileID: 1292767411}
   upDEIcon: {fileID: 1156473501}
   downDEIcon: {fileID: 1681966953}
+  bonusMultitoolsNode: {fileID: 163512355}
+  bonusMultitoolNode: {fileID: 1087439179}
+  bonusCreditNode1: {fileID: 2056233859}
+  bonusCreditNode2: {fileID: 609706855}
+  bonusEnergyNode: {fileID: 188749008}
+  green: {fileID: 2100000, guid: e694d5ab3e7fc4a5ea3a00ecf07e56c1, type: 2}
+  toolNodes:
+  - {fileID: 342326262}
+  - {fileID: 1291859508}
+  - {fileID: 1578630248}
+  - {fileID: 232916213}
+  - {fileID: 678308360}
+  - {fileID: 442052606}
+  hacScreen: {fileID: 494054445}
 --- !u!1 &1838980075
 GameObject:
   m_ObjectHideFlags: 0
