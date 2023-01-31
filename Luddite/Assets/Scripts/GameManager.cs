@@ -60,13 +60,14 @@ public class GameManager : MonoBehaviour
 
     public bool reset;
 
-
+   
 
     //Dice are rolled and number shown on screen
     public void RollDie1()
     {
         die1.SetActive(true);
         die1Number = Random.Range(0, 7);
+       
 
         if (die1Number == 1)
         {
@@ -101,6 +102,7 @@ public class GameManager : MonoBehaviour
     {
         die2.SetActive(true);
         die2Number = Random.Range(0, 7);
+        
 
         if (die2Number == 1)
         {
@@ -135,6 +137,7 @@ public class GameManager : MonoBehaviour
     {
         die3.SetActive(true);
         die3Number = Random.Range(0, 7);
+        
 
         if (die3Number == 1)
         {
@@ -378,6 +381,7 @@ public class GameManager : MonoBehaviour
         die1.SetActive(false);
         dieOneIsActive = false;
         HasNone();
+       
     }
 
     public void Die2Disable()
@@ -385,6 +389,7 @@ public class GameManager : MonoBehaviour
         die2.SetActive(false);
         dieTwoIsActive = false;
         HasNone();
+    
     }
 
     public void Die3Disable()
@@ -392,6 +397,7 @@ public class GameManager : MonoBehaviour
         die3.SetActive(false);
         dieThreeIsActive = false;
         HasNone();
+     
     }
 
     // Start is called before the first frame update

@@ -13462,6 +13462,7 @@ MonoBehaviour:
   fiveBonusNumber: {fileID: 1858785711}
   sixBonusNumber: {fileID: 666360560}
   sixBonusTracker: 0
+  screensAppear: {fileID: 1663741550}
   crosses:
   - {fileID: 1538899169}
   - {fileID: 1571006515}
@@ -13495,6 +13496,7 @@ MonoBehaviour:
   - {fileID: 1315549960}
   - {fileID: 1805284340}
   - {fileID: 1216413999}
+  clockScreen: {fileID: 127447852}
 --- !u!1 &687465638
 GameObject:
   m_ObjectHideFlags: 0
@@ -18223,6 +18225,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2094780799}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: HasNone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 681824823}
+        m_TargetAssemblyTypeName: Clock, Assembly-CSharp
+        m_MethodName: ResetAddLast
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -18,11 +18,16 @@ public class Clock : MonoBehaviour
     private int fiveBonusTracker;
     public int sixBonusTracker;
 
+    public GameObject screensAppear;
+
     private int whatToAdd;
 
     public GameObject[] crosses;
 
-    int latestCross = 0;
+    private int addLast;
+    private int latestCross = 0;
+
+    public GameObject clockScreen;
 
     //the Add Die button is clicked, crosses are added and
 
@@ -314,18 +319,21 @@ public class Clock : MonoBehaviour
         {
             sixBonusTracker += 1;
             sixBonusNumber.GetComponent<TextMeshProUGUI>().text = sixBonusTracker.ToString();
+            gameManager.damageNumber += 6;
             
         }
         else if (gameManager.GetComponent<GameManager>().hasFive == true)
         {
             fiveBonusTracker += 1;
             fiveBonusNumber.GetComponent<TextMeshProUGUI>().text = fiveBonusTracker.ToString();
+            gameManager.damageNumber += 5;
 
         }
         else if (gameManager.GetComponent<GameManager>().hasFour == true)
         {
             fourBonusTracker += 1;
             fourBonusNumber.GetComponent<TextMeshProUGUI>().text = fourBonusTracker.ToString();
+            gameManager.damageNumber += 4;
 
         }
     }
@@ -364,14 +372,51 @@ public class Clock : MonoBehaviour
             addDieButton.SetActive(false);
         }
 
+        //add to clock if it is last die
+
+        if(gameManager.die1.activeSelf == true && (gameManager.die2.activeSelf == false && gameManager.die3.activeSelf == false))
+        {
+            AddLastToClock();
+            gameManager.Die1Disable();
+        }
+        else if (gameManager.die2.activeSelf == true && (gameManager.die1.activeSelf == false && gameManager.die3.activeSelf == false))
+        {
+            AddLastToClock();
+            gameManager.Die2Disable();
+        }
+        else if ((gameManager.die1.activeSelf == false && gameManager.die2.activeSelf == false) && gameManager.die3.activeSelf == true)
+        {
+            AddLastToClock();
+            gameManager.Die3Disable();
+        }
 
         //check if last cliock box is done
         if (crosses[31].activeSelf == true)
         {
             //endGame method to go here
-            Debug.Log(gameManager.damageNumber);
+            Debug.Log("You scored" + gameManager.damageNumber + "damage");
         }
 
+    }
+
+    private void AddLastToClock()
+    {
+        if (addLast == 0)
+        {
+            if (clockScreen.activeSelf == false)
+            {
+                screensAppear.GetComponent<ScreensAppear>().ClockMenuIsOn();
+            }
+            AddUnusedDietoClock();
+            addLast += 1;
+        }
+    }
+
+
+
+    public void ResetAddLast()
+    {
+        addLast = 0;
     }
 
     public void AddUnusedDietoClock()
