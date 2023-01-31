@@ -81,6 +81,11 @@ public class NeetleBehaviour : MonoBehaviour
     private bool x6y3;
     private bool x6y4;
 
+    public GameObject leftDEIcon;
+    public GameObject rightDEIcon;
+    public GameObject upDEIcon;
+    public GameObject downDEIcon;
+
 
     //add the active die to the movepad make diemovenumber the same.
 
@@ -217,6 +222,8 @@ public class NeetleBehaviour : MonoBehaviour
 
     }
 
+    //adds three movement when energy button is clicked
+
     public void EnergyButtonIsclicked()
     {
         gameManager.energyNumber -= 1;
@@ -233,10 +240,98 @@ public class NeetleBehaviour : MonoBehaviour
         
     }
 
+    //allows movement anywhere when double energy button is clicked
+
     public void DoubleEnergyButtonIsClicked()
     {
+        gameManager.energyNumber -= 2;
+
+        if (currentYAxis == 1)
+        {
+            leftDEIcon.SetActive(false);
+        }
+        else
+        {
+            leftDEIcon.SetActive(true);
+        }
+
+        if (currentYAxis == 4)
+        {
+            rightDEIcon.SetActive(false);
+        }
+        else
+        {
+            rightDEIcon.SetActive(true);
+        }
+
+        if (currentXAxis == 1)
+        {
+            upDEIcon.SetActive(false);
+        }
+        else
+        {
+            upDEIcon.SetActive(true);
+        }
+        if (currentXAxis == 6)
+        {
+            downDEIcon.SetActive(false);
+        }
+        else
+        {
+            downDEIcon.SetActive(true);
+        }
 
     }
+
+    public void LeftDEIsClicked()
+    {
+        currentYAxis -= 1;
+        FindTargetLocation();
+
+        StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+        leftDEIcon.SetActive(false);
+        rightDEIcon.SetActive(false);
+        upDEIcon.SetActive(false);
+        downDEIcon.SetActive(false);
+    }
+
+    public void RightDEIsClicked()
+    {
+        currentYAxis += 1;
+        FindTargetLocation();
+
+        StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+        leftDEIcon.SetActive(false);
+        rightDEIcon.SetActive(false);
+        upDEIcon.SetActive(false);
+        downDEIcon.SetActive(false);
+    }
+
+    public void UpDEIsClicked()
+    {
+        currentXAxis -= 1;
+        FindTargetLocation();
+
+        StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+        leftDEIcon.SetActive(false);
+        rightDEIcon.SetActive(false);
+        upDEIcon.SetActive(false);
+        downDEIcon.SetActive(false);
+    }
+
+    public void DownDEIsClicked()
+    {
+        currentXAxis += 1;
+        FindTargetLocation();
+
+        StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+        leftDEIcon.SetActive(false);
+        rightDEIcon.SetActive(false);
+        upDEIcon.SetActive(false);
+        downDEIcon.SetActive(false);
+    }
+
+    //move neetle when arrow is clicked
 
     public void RightButtonIsClicked()
     {
@@ -278,6 +373,8 @@ public class NeetleBehaviour : MonoBehaviour
         ChangeDieSprite();
     }
 
+    //coroutine to move neetle
+
     IEnumerator MoveToTarget(GameObject neetle, GameObject targetLocation, float speedTranslation)
     {
         while (gameObject.transform.position != targetLocation.transform.position)
@@ -298,6 +395,8 @@ public class NeetleBehaviour : MonoBehaviour
             dieMoveIcon.GetComponent<Image>().sprite = null;
         }
     }
+
+    //check the locations orthogonally to neetle and allow movement if the die node is unlocked and switches have correct allignment
 
     private void CheckLeftLocationIsOpen()
     {
@@ -1458,7 +1557,7 @@ public class NeetleBehaviour : MonoBehaviour
         }
         else
         {
-            energyButton.SetActive(true);
+            energyButton.SetActive(false);
         }
 
         if (gameManager.energyNumber >= 2)
@@ -1467,7 +1566,7 @@ public class NeetleBehaviour : MonoBehaviour
         }
         else
         {
-            doubleEnergyButton.SetActive(true);
+            doubleEnergyButton.SetActive(false);
         }
 
         //turn off move buttons when not usable
