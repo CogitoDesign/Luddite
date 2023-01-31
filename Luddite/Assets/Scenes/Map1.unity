@@ -5279,7 +5279,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 306850017}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 963194229}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: moveCameraUpButtonIsClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &306850017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13940,7 +13952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &707073581
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14007,7 +14019,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 707073583}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 963194229}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: ZoomOutButtonIsClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &707073583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18148,6 +18172,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 681824823}
+        m_TargetAssemblyTypeName: Clock, Assembly-CSharp
+        m_MethodName: AddUnusedDietoClock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2094780799}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: RollDie1
@@ -18317,7 +18353,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 945029454}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 963194229}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: ZoomInButtonIsClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &945029454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18739,10 +18787,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81920f7602d64485979b81dbd6819f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomInButton: {fileID: 0}
-  zoomOutButton: {fileID: 0}
-  moveCameraUpButton: {fileID: 0}
-  moveCameraDownButton: {fileID: 0}
+  zoomInButton: {fileID: 945029451}
+  zoomOutButton: {fileID: 707073580}
+  moveCameraUpButton: {fileID: 306850014}
+  moveCameraDownButton: {fileID: 1630342088}
 --- !u!1 &963710542
 GameObject:
   m_ObjectHideFlags: 0
@@ -31689,7 +31737,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1630342091}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 963194229}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: moveCameraDownButtonIsClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1630342091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38974,6 +39034,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36e2ad01add548f6ac350a13569490e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  die1Number: 0
+  die2Number: 0
+  die3Number: 0
   die1: {fileID: 417765999}
   die2: {fileID: 2137617334}
   die3: {fileID: 1311909379}
@@ -39007,6 +39070,7 @@ MonoBehaviour:
   dieTwoDownButton: {fileID: 1755191733}
   dieThreeUpButton: {fileID: 1086630068}
   dieThreeDownButton: {fileID: 5126524}
+  reset: 0
 --- !u!4 &2094780800
 Transform:
   m_ObjectHideFlags: 0

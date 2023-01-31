@@ -644,9 +644,10 @@ public class SwitchBehaviour : MonoBehaviour
         switchDEButtons[4].SetActive(false);
         switchDEButtons[5].SetActive(false);
     }
+   
 
-        // Update is called once per frame 
-        void Update()
+    // Update is called once per frame 
+    void Update()
     {
         //turns switch on only if correspinding die is on
         if (gameManager.GetComponent<GameManager>().hasOne == true && switchOneIsDone == false)

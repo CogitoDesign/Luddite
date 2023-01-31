@@ -9,9 +9,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     //stuff
-    private int die1Number;
-    private int die2Number;
-    private int die3Number;
+    public int die1Number;
+    public int die2Number;
+    public int die3Number;
 
     public GameObject die1;
     public GameObject die2;
@@ -57,6 +57,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject dieThreeUpButton;
     public GameObject dieThreeDownButton;
+
+    public bool reset;
 
 
 
@@ -161,6 +163,15 @@ public class GameManager : MonoBehaviour
             die3.GetComponent<Image>().sprite = Six;
         }
        
+    }
+
+    //reset everthing after re-roll
+
+    public void ResetAfterReroll()
+    {
+        reset = true;
+        Debug.Log("switch happned");
+        reset = false;
     }
 
 
