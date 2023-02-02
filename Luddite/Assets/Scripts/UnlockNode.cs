@@ -48,23 +48,28 @@ public class UnlockNode : MonoBehaviour
     public void DieNodeOne1Clicked()
     {
        
-        Debug.Log("Is clicked");
+       
         if (DieOnenode1IsActive == true && DieOnenode1IsUnlocked == false)
         {
             DieOnenode1IsUnlocked = true;
             diceNodes[0].GetComponent<MeshRenderer>().material = green;
 
-            if (gameManager.dieOneIsActive == true)
+            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
             {
                 gameManager.Die1Disable();
             }
-            else if (gameManager.dieTwoIsActive == true)
+            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
             {
                 gameManager.Die2Disable();
             }
-            else if (gameManager.dieThreeIsActive == true)
+            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
             {
                 gameManager.Die3Disable();
+            }
+            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+            {
+                gameManager.Die4Disable();
+                gameManager.die4visible = false;
             }
         }
     }

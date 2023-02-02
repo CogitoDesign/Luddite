@@ -120,20 +120,39 @@ public class NeetleBehaviour : MonoBehaviour
         {
             dieMoveIcon.GetComponent<Image>().sprite = numberSprites[0];
             dieMoveNumber = 1;
-            
-          
 
-            if (gameManager.dieOneIsActive == true)
+            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
             {
                 gameManager.Die1Disable();
             }
-            else if (gameManager.dieTwoIsActive == true)
+            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
             {
                 gameManager.Die2Disable();
             }
-            else if (gameManager.dieThreeIsActive == true)
+            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
             {
                 gameManager.Die3Disable();
+            }
+            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+            {
+                gameManager.Die4Disable();
+                gameManager.die4visible = false;
+            }
+            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+            {
+                gameManager.die1amount -= 1;
+            }
+            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+            {
+                gameManager.die2amount -= 1;
+            }
+            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+            {
+                gameManager.die3amount -= 1;
+            }
+            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+            {
+                gameManager.die4amount -= 1;
             }
 
         }
@@ -142,20 +161,39 @@ public class NeetleBehaviour : MonoBehaviour
         {
             dieMoveIcon.GetComponent<Image>().sprite = numberSprites[1];
             dieMoveNumber = 2;
-            
-       
 
-            if (gameManager.dieOneIsActive == true)
+            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
             {
                 gameManager.Die1Disable();
             }
-            else if (gameManager.dieTwoIsActive == true)
+            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
             {
                 gameManager.Die2Disable();
             }
-            else if (gameManager.dieThreeIsActive == true)
+            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
             {
                 gameManager.Die3Disable();
+            }
+            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+            {
+                gameManager.Die4Disable();
+                gameManager.die4visible = false;
+            }
+            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+            {
+                gameManager.die1amount -= 1;
+            }
+            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+            {
+                gameManager.die2amount -= 1;
+            }
+            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+            {
+                gameManager.die3amount -= 1;
+            }
+            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+            {
+                gameManager.die4amount -= 1;
             }
 
         }
@@ -164,20 +202,41 @@ public class NeetleBehaviour : MonoBehaviour
         {
             dieMoveIcon.GetComponent<Image>().sprite = numberSprites[2];
             dieMoveNumber = 3;
-            
-           
 
-            if (gameManager.dieOneIsActive == true)
+
+
+            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
             {
                 gameManager.Die1Disable();
             }
-            else if (gameManager.dieTwoIsActive == true)
+            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
             {
                 gameManager.Die2Disable();
             }
-            else if (gameManager.dieThreeIsActive == true)
+            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
             {
                 gameManager.Die3Disable();
+            }
+            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+            {
+                gameManager.Die4Disable();
+                gameManager.die4visible = false;
+            }
+            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+            {
+                gameManager.die1amount -= 1;
+            }
+            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+            {
+                gameManager.die2amount -= 1;
+            }
+            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+            {
+                gameManager.die3amount -= 1;
+            }
+            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+            {
+                gameManager.die4amount -= 1;
             }
 
         }
@@ -185,20 +244,41 @@ public class NeetleBehaviour : MonoBehaviour
         {
             dieMoveIcon.GetComponent<Image>().sprite = numberSprites[3];
             dieMoveNumber = 4;
-            
-        
 
-            if (gameManager.dieOneIsActive == true)
+
+
+            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
             {
                 gameManager.Die1Disable();
             }
-            else if (gameManager.dieTwoIsActive == true)
+            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
             {
                 gameManager.Die2Disable();
             }
-            else if (gameManager.dieThreeIsActive == true)
+            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
             {
                 gameManager.Die3Disable();
+            }
+            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+            {
+                gameManager.Die4Disable();
+                gameManager.die4visible = false;
+            }
+            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+            {
+                gameManager.die1amount -= 1;
+            }
+            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+            {
+                gameManager.die2amount -= 1;
+            }
+            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+            {
+                gameManager.die3amount -= 1;
+            }
+            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+            {
+                gameManager.die4amount -= 1;
             }
 
         }
@@ -206,20 +286,41 @@ public class NeetleBehaviour : MonoBehaviour
         {
             dieMoveIcon.GetComponent<Image>().sprite = numberSprites[4];
             dieMoveNumber = 5;
-            
-            
 
-            if (gameManager.dieOneIsActive == true)
+
+
+            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
             {
                 gameManager.Die1Disable();
             }
-            else if (gameManager.dieTwoIsActive == true)
+            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
             {
                 gameManager.Die2Disable();
             }
-            else if (gameManager.dieThreeIsActive == true)
+            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
             {
                 gameManager.Die3Disable();
+            }
+            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+            {
+                gameManager.Die4Disable();
+                gameManager.die4visible = false;
+            }
+            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+            {
+                gameManager.die1amount -= 1;
+            }
+            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+            {
+                gameManager.die2amount -= 1;
+            }
+            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+            {
+                gameManager.die3amount -= 1;
+            }
+            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+            {
+                gameManager.die4amount -= 1;
             }
 
         }
@@ -230,17 +331,38 @@ public class NeetleBehaviour : MonoBehaviour
             
             energyButton.SetActive(false);
 
-            if (gameManager.dieOneIsActive == true)
+            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
             {
                 gameManager.Die1Disable();
             }
-            else if (gameManager.dieTwoIsActive == true)
+            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
             {
                 gameManager.Die2Disable();
             }
-            else if (gameManager.dieThreeIsActive == true)
+            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
             {
                 gameManager.Die3Disable();
+            }
+            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+            {
+                gameManager.Die4Disable();
+                gameManager.die4visible = false;
+            }
+            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+            {
+                gameManager.die1amount -= 1;
+            }
+            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+            {
+                gameManager.die2amount -= 1;
+            }
+            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+            {
+                gameManager.die3amount -= 1;
+            }
+            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+            {
+                gameManager.die4amount -= 1;
             }
 
         }

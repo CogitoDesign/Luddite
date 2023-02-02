@@ -12,10 +12,12 @@ public class GameManager : MonoBehaviour
     public int die1Number;
     public int die2Number;
     public int die3Number;
+    public int die4Number;
 
     public GameObject die1;
     public GameObject die2;
     public GameObject die3;
+    public GameObject die4;
 
     public Sprite One;
     public Sprite Two;
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour
     public Sprite Four;
     public Sprite Five;
     public Sprite Six;
+
+    public Sprite[] whiteSprites;
 
     public bool hasOne;
     public bool hasTwo;
@@ -34,6 +38,7 @@ public class GameManager : MonoBehaviour
     public bool dieOneIsActive;
     public bool dieTwoIsActive;
     public bool dieThreeIsActive;
+    public bool dieFourIsActive;
 
     public UnlockNode unlockNode;
 
@@ -58,14 +63,35 @@ public class GameManager : MonoBehaviour
     public GameObject dieThreeUpButton;
     public GameObject dieThreeDownButton;
 
+    public GameObject dieFourUpButton;
+    public GameObject dieFourDownButton;
+
+    public GameObject doubleCreditbutton;
+    public GameObject creditButton;
+
+    public GameObject greenCreditDie1;
+    public GameObject greenCreditDie2;
+    public GameObject greenCreditDie3;
+    public GameObject greenCreditDie4;
+
     public bool reset;
 
-   
+    public bool die4visible;
+    public bool die1isvisible;
+    public bool die2isvisible;
+    public bool die3isvisible;
+
+    public int die1amount;
+    public int die2amount;
+    public int die3amount;
+    public int die4amount;
 
     //Dice are rolled and number shown on screen
     public void RollDie1()
     {
         die1.SetActive(true);
+        die1amount = 1;
+        die1isvisible = true;
         die1Number = Random.Range(0, 7);
        
 
@@ -101,6 +127,8 @@ public class GameManager : MonoBehaviour
     public void RollDie2()
     {
         die2.SetActive(true);
+        die2isvisible = true;
+        die2amount = 1;
         die2Number = Random.Range(0, 7);
         
 
@@ -136,6 +164,8 @@ public class GameManager : MonoBehaviour
     public void RollDie3()
     {
         die3.SetActive(true);
+        die3isvisible = true;
+        die3amount = 1;
         die3Number = Random.Range(0, 7);
         
 
@@ -173,7 +203,7 @@ public class GameManager : MonoBehaviour
     public void ResetAfterReroll()
     {
         reset = true;
-        Debug.Log("switch happned");
+        
         reset = false;
     }
 
@@ -348,8 +378,36 @@ public class GameManager : MonoBehaviour
         }
 
         Die3Activate();
+    }
 
-      
+    public void Die4Clicked()
+    {
+        if (die4.GetComponent<Image>().sprite == whiteSprites[0])
+        {
+            HasOne();
+        }
+        else if (die4.GetComponent<Image>().sprite == whiteSprites[1])
+        {
+            HasTwo();
+        }
+        else if (die4.GetComponent<Image>().sprite == whiteSprites[2])
+        {
+            HasThree();
+        }
+        else if (die4.GetComponent<Image>().sprite == whiteSprites[3])
+        {
+            HasFour();
+        }
+        else if (die4.GetComponent<Image>().sprite == whiteSprites[4])
+        {
+            HasFive();
+        }
+        else
+        {
+            HasSix();
+        }
+
+        Die4Activate();
     }
 
     void Die1Activate()
@@ -357,6 +415,7 @@ public class GameManager : MonoBehaviour
         dieOneIsActive = true;
         dieTwoIsActive = false;
         dieThreeIsActive = false;
+        dieFourIsActive = false;
     }
 
     void Die2Activate()
@@ -364,6 +423,7 @@ public class GameManager : MonoBehaviour
         dieOneIsActive = false;
         dieTwoIsActive = true;
         dieThreeIsActive = false;
+        dieFourIsActive = false;
     }
 
     void Die3Activate()
@@ -371,6 +431,15 @@ public class GameManager : MonoBehaviour
         dieOneIsActive = false;
         dieTwoIsActive = false;
         dieThreeIsActive = true;
+        dieFourIsActive = false;
+    }
+
+    void Die4Activate()
+    {
+        dieOneIsActive = false;
+        dieTwoIsActive = false;
+        dieThreeIsActive = false;
+        dieFourIsActive = true;
     }
 
 
@@ -380,6 +449,7 @@ public class GameManager : MonoBehaviour
     {
         die1.SetActive(false);
         dieOneIsActive = false;
+        die1isvisible = false;
         HasNone();
        
     }
@@ -388,6 +458,7 @@ public class GameManager : MonoBehaviour
     {
         die2.SetActive(false);
         dieTwoIsActive = false;
+        die2isvisible = true;
         HasNone();
     
     }
@@ -396,8 +467,20 @@ public class GameManager : MonoBehaviour
     {
         die3.SetActive(false);
         dieThreeIsActive = false;
+        die3isvisible = true;
         HasNone();
      
+    }
+
+    public void Die4Disable()
+    {
+        die4.SetActive(false);
+        dieFourIsActive = false;
+        die4visible = false;
+        dieFourUpButton.SetActive(false);
+        dieFourDownButton.SetActive(false);
+        HasNone();
+
     }
 
     // Start is called before the first frame update
@@ -409,6 +492,85 @@ public class GameManager : MonoBehaviour
         RollDie3();
 
     }
+
+    //Double Credit Creates new Die 4
+
+    public void DoubleCreditIsClicked()
+    {
+        doubleCreditbutton.SetActive(false);
+        die4.SetActive(true);
+        die4visible = true;
+        dieFourUpButton.SetActive(true);
+        die4Number = 1;
+        dieFourDownButton.SetActive(true);
+        creditNumber -= 2;
+        die4amount = 1;
+
+    }
+
+    public void CreditButtonIsClicked()
+    {
+        creditNumber -= 1;
+        if (die1.activeSelf == true)
+        {
+            greenCreditDie1.SetActive(true);
+        }
+
+        if (die2.activeSelf == true)
+        {
+            greenCreditDie2.SetActive(true);
+        }
+        if (die3.activeSelf == true)
+        {
+            greenCreditDie3.SetActive(true);
+        }
+
+        if (die4visible == true)
+        {
+            greenCreditDie4.SetActive(true);
+        }
+    }
+
+    public void GreenCredDie1IsClicked()
+    {
+        greenCreditDie1.SetActive(false);
+        greenCreditDie2.SetActive(false);
+        greenCreditDie3.SetActive(false);
+        greenCreditDie4.SetActive(false);
+
+        die1amount += 1;
+    }
+
+    public void GreenCredDie2IsClicked()
+    {
+        greenCreditDie1.SetActive(false);
+        greenCreditDie2.SetActive(false);
+        greenCreditDie3.SetActive(false);
+        greenCreditDie4.SetActive(false);
+
+        die2amount += 1;
+    }
+
+    public void GreenCredDie3IsClicked()
+    {
+        greenCreditDie1.SetActive(false);
+        greenCreditDie2.SetActive(false);
+        greenCreditDie3.SetActive(false);
+        greenCreditDie4.SetActive(false);
+
+        die3amount += 1;
+    }
+
+    public void GreenCredDie4IsClicked()
+    {
+        greenCreditDie1.SetActive(false);
+        greenCreditDie2.SetActive(false);
+        greenCreditDie3.SetActive(false);
+        greenCreditDie4.SetActive(false);
+
+        die4amount += 1;
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -427,16 +589,46 @@ public class GameManager : MonoBehaviour
         {
             multitoolButton.SetActive(false);
         }
+
+        //set credit button active if have a credit
+        if (creditNumber >= 1)
+        {
+            creditButton.SetActive(true);
+        }
+        else
+        {
+            creditButton.SetActive(false);
+        }
+
+        //set Double credit button active if have a credit
+        if (creditNumber >= 2 && die4visible == false)
+        {
+            doubleCreditbutton.SetActive(true);
+        }
+        else
+        {
+            doubleCreditbutton.SetActive(false);
+        }
     }
 
     public void MultitoolButtonIsClicked()
     {
-        dieOneUpButton.SetActive(true);
-        dieOneDownButton.SetActive(true);
-        dieTwoUpButton.SetActive(true);
-        dieTwoDownButton.SetActive(true);
-        dieThreeUpButton.SetActive(true);
-        dieThreeDownButton.SetActive(true);
+        if (die1.activeSelf == true)
+        {
+            dieOneUpButton.SetActive(true);
+            dieOneDownButton.SetActive(true);
+        }
+        if (die2.activeSelf == true)
+        {
+            dieTwoUpButton.SetActive(true);
+            dieTwoDownButton.SetActive(true);
+        }
+        if (die3.activeSelf == true)
+        {
+            dieThreeUpButton.SetActive(true);
+            dieThreeDownButton.SetActive(true);
+        }
+        
         multitoolNumber -= 1;
     }
 
@@ -453,6 +645,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
+            
 
         }
 
@@ -467,6 +660,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
+          
 
         }
 
@@ -481,6 +675,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
+       
 
         }
 
@@ -495,6 +690,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
+      
 
         }
 
@@ -509,6 +705,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
+          
 
         }
 
@@ -523,6 +720,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
+         
 
         }
     }
@@ -540,6 +738,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
+    
 
         }
 
@@ -554,6 +753,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
+  
 
         }
 
@@ -568,6 +768,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
+    
 
         }
 
@@ -582,7 +783,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+    
         }
 
         else if(die2Number == 5)
@@ -596,7 +797,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+      
         }
 
         else if(die2Number == 6)
@@ -610,7 +811,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+     
         }
     }
 
@@ -627,7 +828,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+    
         }
 
         else if(die3Number == 2)
@@ -641,7 +842,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+  
         }
 
         else if(die3Number == 3)
@@ -655,7 +856,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+       
         }
 
         else if(die3Number == 4)
@@ -669,7 +870,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+    
         }
 
         else if(die3Number == 5)
@@ -683,7 +884,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+   
         }
 
         else if(die3Number == 6)
@@ -697,6 +898,51 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
+    
+        }
+    }
+
+    public void DieFourUpIsClicked()
+    {
+        if (die4Number == 1)
+        {
+            die4Number = 2;
+            die4.GetComponent<Image>().sprite = whiteSprites[1];
+
+        }
+
+        else if (die4Number == 2)
+        {
+            die4Number = 3;
+            die4.GetComponent<Image>().sprite = whiteSprites[2];
+        }
+
+        else if (die4Number == 3)
+        {
+            die4Number = 4;
+            die4.GetComponent<Image>().sprite = whiteSprites[3];
+
+
+        }
+
+        else if (die4Number == 4)
+        {
+            die4Number = 5;
+            die4.GetComponent<Image>().sprite = whiteSprites[4];
+
+        }
+
+        else if (die4Number == 5)
+        {
+            die4Number = 6;
+            die4.GetComponent<Image>().sprite = whiteSprites[5];
+
+        }
+
+        else if (die4Number == 6)
+        {
+            die4Number = 1;
+            die4.GetComponent<Image>().sprite = whiteSprites[0];
 
         }
     }
@@ -728,7 +974,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+         
         }
 
         else if (die1Number == 3)
@@ -742,7 +988,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+         
         }
 
         else if (die1Number == 4)
@@ -756,7 +1002,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+     
         }
 
         else if (die1Number == 5)
@@ -784,7 +1030,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+        
         }
     }
 
@@ -815,7 +1061,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+   
         }
 
         else if (die2Number == 3)
@@ -829,7 +1075,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+   
         }
 
         else if (die2Number == 4)
@@ -843,7 +1089,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+    
         }
 
         else if (die2Number == 5)
@@ -857,7 +1103,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+        
         }
 
         else if (die2Number == 6)
@@ -871,7 +1117,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+        
         }
     }
 
@@ -888,7 +1134,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+        
         }
 
         else if (die3Number == 2)
@@ -916,7 +1162,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+  
         }
 
         else if (die3Number == 4)
@@ -930,7 +1176,7 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+  
         }
 
         else if (die3Number == 5)
@@ -945,6 +1191,7 @@ public class GameManager : MonoBehaviour
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
 
+
         }
 
         else if (die3Number == 6)
@@ -958,6 +1205,51 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
+
+        }
+    }
+
+    public void DieFourDownIsClicked()
+    {
+        if (die4Number == 1)
+        {
+            die4Number = 6;
+            die4.GetComponent<Image>().sprite = whiteSprites[5];
+
+        }
+
+        else if (die4Number == 2)
+        {
+            die4Number = 1;
+            die4.GetComponent<Image>().sprite = whiteSprites[0];
+
+        }
+
+        else if (die4Number == 3)
+        {
+            die4Number = 2;
+            die4.GetComponent<Image>().sprite = whiteSprites[1];
+
+        }
+
+        else if (die4Number == 4)
+        {
+            die4Number = 3;
+            die4.GetComponent<Image>().sprite = whiteSprites[2];
+
+        }
+
+        else if (die4Number == 5)
+        {
+            die4Number = 4;
+            die4.GetComponent<Image>().sprite = whiteSprites[3];
+
+        }
+
+        else if (die4Number == 6)
+        {
+            die4Number = 5;
+            die4.GetComponent<Image>().sprite = whiteSprites[4];
 
         }
     }

@@ -25,17 +25,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[0].SetActive(true);
         box1[0].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -46,17 +67,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[1].SetActive(true);
         box1[1].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -67,17 +109,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[2].SetActive(true);
         box1[2].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -88,17 +151,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[8].SetActive(true);
         box1[3].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -109,17 +193,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[12].SetActive(true);
         box1[4].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -130,17 +235,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[4].SetActive(true);
         box2[0].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -151,17 +277,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[9].SetActive(true);
         box2[1].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -172,17 +319,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[14].SetActive(true);
         box2[2].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -193,17 +361,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[5].SetActive(true);
         box3[0].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -214,17 +403,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[15].SetActive(true);
         box3[1].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -235,17 +445,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[10].SetActive(true);
         box4[0].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -256,17 +487,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[16].SetActive(true);
         box4[1].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -277,17 +529,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[6].SetActive(true);
         box5[0].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -298,17 +571,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[17].SetActive(true);
         box5[1].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -319,17 +613,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[3].SetActive(true);
         box6[0].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -340,17 +655,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[7].SetActive(true);
         box6[1].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -362,17 +698,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[11].SetActive(true);
         box6[2].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
@@ -384,17 +741,38 @@ public class RollBonusBehaviour : MonoBehaviour
         crosses[13].SetActive(true);
         box6[3].GetComponent<Button>().interactable = false;
 
-        if (gameManager.dieOneIsActive == true)
+        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
         {
             gameManager.Die1Disable();
         }
-        else if (gameManager.dieTwoIsActive == true)
+        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
         {
             gameManager.Die2Disable();
         }
-        else if (gameManager.dieThreeIsActive == true)
+        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
         {
             gameManager.Die3Disable();
+        }
+        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+        {
+            gameManager.Die4Disable();
+            gameManager.die4visible = false;
+        }
+        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+        {
+            gameManager.die1amount -= 1;
+        }
+        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+        {
+            gameManager.die2amount -= 1;
+        }
+        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+        {
+            gameManager.die3amount -= 1;
+        }
+        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+        {
+            gameManager.die4amount -= 1;
         }
     }
 
