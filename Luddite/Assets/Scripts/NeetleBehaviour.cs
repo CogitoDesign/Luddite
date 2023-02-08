@@ -107,9 +107,18 @@ public class NeetleBehaviour : MonoBehaviour
     private bool tool5done;
     private bool tool6done;
 
+    public GameObject screensAppear;
+
     public GameObject[] toolNodes;
 
     public GameObject hacScreen;
+
+    //Show Move screen when click Neetle
+
+    private void OnMouseDown()
+    {
+        screensAppear.GetComponent<ScreensAppear>().MoveOptionsMenuIsOn();
+    }
 
 
     //add the active die to the movepad make diemovenumber the same.

@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
         die1.SetActive(true);
         die1amount = 1;
         die1isvisible = true;
-        die1Number = Random.Range(0, 7);
+        die1Number = Random.Range(1, 7);
        
 
         if (die1Number == 1)
@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour
         die2.SetActive(true);
         die2isvisible = true;
         die2amount = 1;
-        die2Number = Random.Range(0, 7);
+        die2Number = Random.Range(1, 7);
         
 
         if (die2Number == 1)
@@ -166,7 +166,7 @@ public class GameManager : MonoBehaviour
         die3.SetActive(true);
         die3isvisible = true;
         die3amount = 1;
-        die3Number = Random.Range(0, 7);
+        die3Number = Random.Range(1, 7);
         
 
         if (die3Number == 1)

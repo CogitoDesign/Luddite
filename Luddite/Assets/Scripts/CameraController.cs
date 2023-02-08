@@ -4,71 +4,77 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject zoomInButton;
-    public GameObject zoomOutButton;
-    public GameObject moveCameraUpButton;
-    public GameObject moveCameraDownButton;
+   
+    public bool zoomOutisHeldDown = false;
+    public bool zoomInisHeldDown = false;
 
-    private int cameraPos;
 
-    public void ZoomInButtonIsClicked()
+    public float cameraMoveSpeed;
+
+
+    public Vector3 cameraPosition;
+
+  
+    
+
+    public void ZoomOutonPress()
     {
-        gameObject.transform.position = new Vector3(0, 5, 0);
-        zoomInButton.SetActive(false);
-        zoomOutButton.SetActive(true);
-        moveCameraUpButton.SetActive(true);
-        moveCameraDownButton.SetActive(true);
-        cameraPos = 2;
+        zoomOutisHeldDown = true;    
     }
 
-    public void ZoomOutButtonIsClicked()
+    public void ZoomOutonRelease()
     {
-        gameObject.transform.position = new Vector3(0, 13, 0);
-        zoomInButton.SetActive(true);
-        zoomOutButton.SetActive(false);
-        moveCameraUpButton.SetActive(false);
-        moveCameraDownButton.SetActive(false);
+        zoomOutisHeldDown = false;
     }
 
-    public void moveCameraUpButtonIsClicked()
+    public void ZoomInonPress()
     {
-        cameraPos -= 1;
-        if (cameraPos == 1)
-        {
-            gameObject.transform.position = new Vector3(0, 5, -4);
-            moveCameraUpButton.SetActive(false);
-        }
-        else if (cameraPos == 2)
-        {
-            gameObject.transform.position = new Vector3(0, 5, 0);
-            moveCameraDownButton.SetActive(true);
-        }
+        zoomInisHeldDown = true;
     }
 
-    public void moveCameraDownButtonIsClicked()
+    public void ZoomInonRelease()
     {
-        cameraPos += 1;
-        if (cameraPos == 2)
-        {
-            gameObject.transform.position = new Vector3(0, 5, 0);
-            moveCameraUpButton.SetActive(true);
-        }
-        else if (cameraPos == 3)
-        {
-            gameObject.transform.position = new Vector3(0, 5, 4);
-            moveCameraDownButton.SetActive(false);
-        }
+        zoomInisHeldDown = false;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        cameraPosition = this.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        if (Input.GetKey(KeyCode.UpArrow) && cameraPosition.z > -7)
+        {
+            cameraPosition.z -= cameraMoveSpeed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.DownArrow) && cameraPosition.z < 7)
+        {
+            cameraPosition.z += cameraMoveSpeed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.LeftArrow) && cameraPosition.x < 5)
+        {
+            cameraPosition.x += cameraMoveSpeed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.RightArrow) && cameraPosition.x > -5)
+        {
+            cameraPosition.x -= cameraMoveSpeed * Time.deltaTime;
+        }
+        if (zoomOutisHeldDown == true && cameraPosition.y < 14)
+        {
+            cameraPosition.y += cameraMoveSpeed * Time.deltaTime;
+        }
+
+        if (zoomInisHeldDown == true && cameraPosition.y > 2)
+        {
+            cameraPosition.y -= cameraMoveSpeed * Time.deltaTime;
+        }
+
+        this.transform.position = cameraPosition;
     }
+
+   
+    
 }

@@ -131,4 +131,20 @@ public class ScreensAppear : MonoBehaviour
 
     }
 
+    public void TurnClockScreenOnOnNewRound()
+    {
+        if (clockScreen.activeSelf == false)
+        {
+            clockScreen.SetActive(true);
+            switchesScreen.SetActive(false);
+            hackScreen.SetActive(false);
+            rollbonusScreen.SetActive(false);
+            toolsScreen.SetActive(false);
+            moveOptionsScreen.SetActive(false);
+        }
+        else
+        {
+        }
+    }
+
 }

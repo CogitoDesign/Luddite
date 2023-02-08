@@ -20,19 +20,22 @@ public class Clock : MonoBehaviour
 
     public GameObject screensAppear;
 
-    private int whatToAdd;
+    public int whatToAdd;
 
     public GameObject[] crosses;
 
-    private int addLast;
+    
     private int latestCross = 0;
 
     public GameObject clockScreen;
+
+    public bool hasUsedClockThisRound;
 
     //the Add Die button is clicked, crosses are added and
 
     public void AddDieButtonIsClicked()
     {
+        hasUsedClockThisRound = true;
         if(gameManager.GetComponent<GameManager>().hasOne == true)
         {
             if (latestCross <= 31)
@@ -359,7 +362,11 @@ public class Clock : MonoBehaviour
         }
     }
 
-    
+    public void ResetClock()
+    {
+        hasUsedClockThisRound = false;
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -395,22 +402,26 @@ public class Clock : MonoBehaviour
 
         //add to clock if it is last die
 
-        if(gameManager.die1.activeSelf == true && (gameManager.die2.activeSelf == false && gameManager.die3.activeSelf == false))
+        if (hasUsedClockThisRound == false)
         {
-            AddLastToClock();
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.die2.activeSelf == true && (gameManager.die1.activeSelf == false && gameManager.die3.activeSelf == false))
-        {
-            AddLastToClock();
-            gameManager.Die2Disable();
-        }
-        else if ((gameManager.die1.activeSelf == false && gameManager.die2.activeSelf == false) && gameManager.die3.activeSelf == true)
-        {
-            AddLastToClock();
-            gameManager.Die3Disable();
-        }
 
+            if (gameManager.die1.activeSelf == true && (gameManager.die2.activeSelf == false && gameManager.die3.activeSelf == false))
+            {
+                AddLastToClock();
+                gameManager.Die1Disable();
+            }
+            else if (gameManager.die2.activeSelf == true && (gameManager.die1.activeSelf == false && gameManager.die3.activeSelf == false))
+            {
+                AddLastToClock();
+                gameManager.Die2Disable();
+            }
+            else if ((gameManager.die1.activeSelf == false && gameManager.die2.activeSelf == false) && gameManager.die3.activeSelf == true)
+            {
+                AddLastToClock();
+                gameManager.Die3Disable();
+            }
+        }
+        
         //check if last cliock box is done
         if (crosses[31].activeSelf == true)
         {
@@ -422,23 +433,17 @@ public class Clock : MonoBehaviour
 
     private void AddLastToClock()
     {
-        if (addLast == 0)
-        {
+        
             if (clockScreen.activeSelf == false)
             {
                 screensAppear.GetComponent<ScreensAppear>().ClockMenuIsOn();
+                
             }
             AddUnusedDietoClock();
-            addLast += 1;
-        }
+          
+        
     }
 
-
-
-    public void ResetAddLast()
-    {
-        addLast = 0;
-    }
 
     public void AddUnusedDietoClock()
     {
@@ -457,89 +462,165 @@ public class Clock : MonoBehaviour
                 whatToAdd -= 1;
             }
         }
+        clockBonus();
     }
 
     private void Die1WhatToAdd()
     {
-        if (gameManager.die1Number == 1 && gameManager.die1.activeSelf == true)
+        if(gameManager.die1.activeSelf == true)
         {
-            whatToAdd += 1;
+            if(gameManager.die1Number == 1)
+            {
+                whatToAdd += 1;
+            }
+            else if (gameManager.die1Number == 2)
+            {
+                whatToAdd += 2;
+            }
+            else if (gameManager.die1Number == 3)
+            {
+                whatToAdd += 3;
+            }
+            else if (gameManager.die1Number == 4)
+            {
+                whatToAdd += 4;
+                if (latestCross <= 28)
+                {
+                    fourBonusTracker += 1;
+                    fourBonusNumber.GetComponent<TextMeshProUGUI>().text = fourBonusTracker.ToString();
+                    gameManager.damageNumber += 4;
+                }
+            }
+            else if (gameManager.die1Number == 5)
+            {
+                whatToAdd += 5;
+                if (latestCross <= 27)
+                {
+                    fiveBonusTracker += 1;
+                    fiveBonusNumber.GetComponent<TextMeshProUGUI>().text = fiveBonusTracker.ToString();
+                    gameManager.damageNumber += 5;
+                }
+            }
+            else if (gameManager.die1Number == 6)
+            {
+                whatToAdd += 6;
+                if (latestCross <= 26)
+                {
+                    sixBonusTracker += 1;
+                    sixBonusNumber.GetComponent<TextMeshProUGUI>().text = sixBonusTracker.ToString();
+                    gameManager.damageNumber += 6;
+                }
+            }
         }
-        else if (gameManager.die1Number == 2 && gameManager.die1.activeSelf == true)
+        else
         {
-            whatToAdd += 2;
-        }
-        else if (gameManager.die1Number == 3 && gameManager.die1.activeSelf == true)
-        {
-            whatToAdd += 3;
-        }
-        else if (gameManager.die1Number == 4 && gameManager.die1.activeSelf == true)
-        {
-            whatToAdd += 4;
-        }
-        else if (gameManager.die1Number == 5 && gameManager.die1.activeSelf == true)
-        {
-            whatToAdd += 5;
-        }
-        else if (gameManager.die1Number == 6 && gameManager.die1.activeSelf == true)
-        {
-            whatToAdd += 6;
+
         }
     }
 
     private void Die2WhatToAdd()
     {
-        if (gameManager.die2Number == 1 && gameManager.die2.activeSelf == true)
+        if (gameManager.die2.activeSelf == true)
         {
-            whatToAdd += 1;
+            if (gameManager.die2Number == 1)
+            {
+                whatToAdd += 1;
+            }
+            else if (gameManager.die2Number == 2)
+            {
+                whatToAdd += 2;
+            }
+            else if (gameManager.die2Number == 3)
+            {
+                whatToAdd += 3;
+            }
+            else if (gameManager.die2Number == 4)
+            {
+                whatToAdd += 4;
+                if (latestCross <= 28)
+                {
+                    fourBonusTracker += 1;
+                    fourBonusNumber.GetComponent<TextMeshProUGUI>().text = fourBonusTracker.ToString();
+                    gameManager.damageNumber += 4;
+                }
+            }
+            else if (gameManager.die2Number == 5)
+            {
+                whatToAdd += 5;
+                if (latestCross <= 27)
+                {
+                    fiveBonusTracker += 1;
+                    fiveBonusNumber.GetComponent<TextMeshProUGUI>().text = fiveBonusTracker.ToString();
+                    gameManager.damageNumber += 5;
+                }
+            }
+            else if (gameManager.die2Number == 6)
+            {
+                whatToAdd += 6;
+                if (latestCross <= 26)
+                {
+                    sixBonusTracker += 1;
+                    sixBonusNumber.GetComponent<TextMeshProUGUI>().text = sixBonusTracker.ToString();
+                    gameManager.damageNumber += 6;
+                }
+            }
         }
-        else if (gameManager.die2Number == 2 && gameManager.die2.activeSelf == true)
+        else
         {
-            whatToAdd += 2;
-        }
-        else if (gameManager.die2Number == 3 && gameManager.die2.activeSelf == true)
-        {
-            whatToAdd += 3;
-        }
-        else if (gameManager.die2Number == 4 && gameManager.die2.activeSelf == true)
-        {
-            whatToAdd += 4;
-        }
-        else if (gameManager.die2Number == 5 && gameManager.die2.activeSelf == true)
-        {
-            whatToAdd += 5;
-        }
-        else if (gameManager.die2Number == 6 && gameManager.die2.activeSelf == true)
-        {
-            whatToAdd += 6;
+
         }
     }
 
     private void Die3WhatToAdd()
     {
-        if (gameManager.die3Number == 1 && gameManager.die3.activeSelf == true)
+        if (gameManager.die3.activeSelf == true)
         {
-            whatToAdd += 1;
+            if (gameManager.die3Number == 1)
+            {
+                whatToAdd += 1;
+            }
+            else if (gameManager.die3Number == 2)
+            {
+                whatToAdd += 2;
+            }
+            else if (gameManager.die3Number == 3)
+            {
+                whatToAdd += 3;
+            }
+            else if (gameManager.die3Number == 4)
+            {
+                whatToAdd += 4;
+                if (latestCross <= 28)
+                {
+                    fourBonusTracker += 1;
+                    fourBonusNumber.GetComponent<TextMeshProUGUI>().text = fourBonusTracker.ToString();
+                    gameManager.damageNumber += 4;
+                }
+            }
+            else if (gameManager.die3Number == 5)
+            {
+                whatToAdd += 5;
+                if (latestCross <= 27)
+                {
+                    fiveBonusTracker += 1;
+                    fiveBonusNumber.GetComponent<TextMeshProUGUI>().text = fiveBonusTracker.ToString();
+                    gameManager.damageNumber += 5;
+                }
+            }
+            else if (gameManager.die3Number == 6)
+            {
+                whatToAdd += 6;
+                if (latestCross <= 26)
+                {
+                    sixBonusTracker += 1;
+                    sixBonusNumber.GetComponent<TextMeshProUGUI>().text = sixBonusTracker.ToString();
+                    gameManager.damageNumber += 6;
+                }
+            }
         }
-        else if (gameManager.die3Number == 2 && gameManager.die3.activeSelf == true)
+        else
         {
-            whatToAdd += 2;
-        }
-        else if (gameManager.die3Number == 3 && gameManager.die3.activeSelf == true)
-        {
-            whatToAdd += 3;
-        }
-        else if (gameManager.die3Number == 4 && gameManager.die3.activeSelf == true)
-        {
-            whatToAdd += 4;
-        }
-        else if (gameManager.die3Number == 5 && gameManager.die3.activeSelf == true)
-        {
-            whatToAdd += 5;
-        }
-        else if (gameManager.die3Number == 6 && gameManager.die3.activeSelf == true)
-        {
-            whatToAdd += 6;
+
         }
     }
 }
