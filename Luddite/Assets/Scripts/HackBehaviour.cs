@@ -1725,6 +1725,7 @@ public class HackBehaviour : MonoBehaviour
         if (damageBonus1 == true && damageBonus1count == 1)
         {
             gameManager.damageNumber += 8;
+            gameManager.hackDamage += 8;
             damageBonus1count = 2;
 
         }
@@ -1732,6 +1733,7 @@ public class HackBehaviour : MonoBehaviour
         if (damageBonus2 == true && damageBonus2count == 1)
         {
             gameManager.damageNumber += 8;
+            gameManager.hackDamage += 8;
             damageBonus2count = 2;
         }
     }

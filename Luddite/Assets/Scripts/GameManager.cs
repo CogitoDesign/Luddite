@@ -86,6 +86,23 @@ public class GameManager : MonoBehaviour
     public int die3amount;
     public int die4amount;
 
+    public GameObject damageAmountText;
+    public GameObject theHackText;
+    public GameObject theNedText;
+    public GameObject theSwitchesText;
+    public GameObject rollBonusText;
+    public GameObject resourcesText;
+    public GameObject theClockText;
+
+    public int nedDamage;
+    public int hackDamage;
+    public int switchesDamage;
+    public int rollbonusDamage;
+    public int clockDamage;
+    public int resourcesDamage;
+
+    public GameObject neetle;
+
     //Dice are rolled and number shown on screen
     public void RollDie1()
     {
@@ -1270,6 +1287,65 @@ public class GameManager : MonoBehaviour
     {
         energyNumber += 1;
        
+    }
+
+    public void ResetDieUpandDownButtonsOnReRoll()
+    {
+        dieOneUpButton.SetActive(false);
+        dieOneDownButton.SetActive(false);
+        dieTwoUpButton.SetActive(false);
+        dieTwoDownButton.SetActive(false);
+        dieThreeUpButton.SetActive(false);
+        dieThreeDownButton.SetActive(false);
+    }
+
+    public void EndGameScore()
+    {
+        neetle.GetComponent<NeetleBehaviour>().CheckIfNeetleatExit();
+        if (neetle.GetComponent<NeetleBehaviour>().neetleInFinalLocation == true)
+        {
+            Debug.Log("in right location");
+            //add resource damage to total damage
+
+            damageNumber = damageNumber + multitoolNumber;
+            damageNumber = damageNumber + energyNumber;
+            damageNumber = damageNumber + (creditNumber * 2);
+
+            //calculate resource damage separately
+
+            resourcesDamage = multitoolNumber + energyNumber + (creditNumber * 2);
+
+
+            //display damage score
+
+            theNedText.GetComponent<TextMeshProUGUI>().text = nedDamage.ToString();
+            theHackText.GetComponent<TextMeshProUGUI>().text = hackDamage.ToString();
+            theSwitchesText.GetComponent<TextMeshProUGUI>().text = switchesDamage.ToString();
+            rollBonusText.GetComponent<TextMeshProUGUI>().text = rollbonusDamage.ToString();
+            theClockText.GetComponent<TextMeshProUGUI>().text = clockDamage.ToString();
+            resourcesText.GetComponent<TextMeshProUGUI>().text = resourcesDamage.ToString();
+            damageAmountText.GetComponent<TextMeshProUGUI>().text = damageNumber.ToString();
+        }
+        else
+        {
+            Debug.Log("in wrong location");
+            damageNumber = 0;
+            nedDamage = 0;
+            hackDamage = 0;
+            switchesDamage = 0;
+            rollbonusDamage = 0;
+            resourcesDamage = 0;
+            damageNumber = 0;
+
+            theNedText.GetComponent<TextMeshProUGUI>().text = nedDamage.ToString();
+            theHackText.GetComponent<TextMeshProUGUI>().text = hackDamage.ToString();
+            theSwitchesText.GetComponent<TextMeshProUGUI>().text = switchesDamage.ToString();
+            rollBonusText.GetComponent<TextMeshProUGUI>().text = rollbonusDamage.ToString();
+            theClockText.GetComponent<TextMeshProUGUI>().text = clockDamage.ToString();
+            resourcesText.GetComponent<TextMeshProUGUI>().text = resourcesDamage.ToString();
+            damageAmountText.GetComponent<TextMeshProUGUI>().text = damageNumber.ToString();
+        }
+        
     }
 
 }

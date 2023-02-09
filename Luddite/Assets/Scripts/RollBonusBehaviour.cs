@@ -190,6 +190,7 @@ public class RollBonusBehaviour : MonoBehaviour
     {
         box1[4].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.damageNumber += 2;
+        gameManager.rollbonusDamage += 2;
         crosses[12].SetActive(true);
         box1[4].GetComponent<Button>().interactable = false;
 
@@ -316,6 +317,7 @@ public class RollBonusBehaviour : MonoBehaviour
     {
         box2[2].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.damageNumber += 2;
+        gameManager.rollbonusDamage += 2;
         crosses[14].SetActive(true);
         box2[2].GetComponent<Button>().interactable = false;
 
@@ -400,6 +402,7 @@ public class RollBonusBehaviour : MonoBehaviour
     {
         box3[1].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.damageNumber += 2;
+        gameManager.rollbonusDamage += 2;
         crosses[15].SetActive(true);
         box3[1].GetComponent<Button>().interactable = false;
 
@@ -484,6 +487,7 @@ public class RollBonusBehaviour : MonoBehaviour
     {
         box4[1].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.damageNumber += 2;
+        gameManager.rollbonusDamage += 2;
         crosses[16].SetActive(true);
         box4[1].GetComponent<Button>().interactable = false;
 
@@ -568,6 +572,7 @@ public class RollBonusBehaviour : MonoBehaviour
     {
         box5[1].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.damageNumber += 2;
+        gameManager.rollbonusDamage += 2;
         crosses[17].SetActive(true);
         box5[1].GetComponent<Button>().interactable = false;
 
@@ -738,6 +743,7 @@ public class RollBonusBehaviour : MonoBehaviour
     {
         box6[3].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.damageNumber += 2;
+        gameManager.rollbonusDamage += 2;
         crosses[13].SetActive(true);
         box6[3].GetComponent<Button>().interactable = false;
 

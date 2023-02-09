@@ -24,12 +24,15 @@ public class Clock : MonoBehaviour
 
     public GameObject[] crosses;
 
+    public GameObject endGameScreen;
     
     private int latestCross = 0;
 
     public GameObject clockScreen;
 
     public bool hasUsedClockThisRound;
+
+    private bool runEndgameOnce = false;
 
     //the Add Die button is clicked, crosses are added and
 
@@ -344,6 +347,7 @@ public class Clock : MonoBehaviour
             sixBonusTracker += 1;
             sixBonusNumber.GetComponent<TextMeshProUGUI>().text = sixBonusTracker.ToString();
             gameManager.damageNumber += 6;
+            gameManager.clockDamage += 6;
             
         }
         else if (gameManager.GetComponent<GameManager>().hasFive == true)
@@ -351,6 +355,7 @@ public class Clock : MonoBehaviour
             fiveBonusTracker += 1;
             fiveBonusNumber.GetComponent<TextMeshProUGUI>().text = fiveBonusTracker.ToString();
             gameManager.damageNumber += 5;
+            gameManager.clockDamage += 5;
 
         }
         else if (gameManager.GetComponent<GameManager>().hasFour == true)
@@ -358,6 +363,7 @@ public class Clock : MonoBehaviour
             fourBonusTracker += 1;
             fourBonusNumber.GetComponent<TextMeshProUGUI>().text = fourBonusTracker.ToString();
             gameManager.damageNumber += 4;
+            gameManager.clockDamage += 4;
 
         }
     }
@@ -425,11 +431,17 @@ public class Clock : MonoBehaviour
         //check if last cliock box is done
         if (crosses[31].activeSelf == true)
         {
-            //endGame method to go here
-            Debug.Log("You scored" + gameManager.damageNumber + "damage");
+            endGameScreen.SetActive(true);
+            if (runEndgameOnce == false)
+            {
+                gameManager.EndGameScore();
+                runEndgameOnce = true;
+            }
         }
 
     }
+
+
 
     private void AddLastToClock()
     {
@@ -489,6 +501,7 @@ public class Clock : MonoBehaviour
                     fourBonusTracker += 1;
                     fourBonusNumber.GetComponent<TextMeshProUGUI>().text = fourBonusTracker.ToString();
                     gameManager.damageNumber += 4;
+                    gameManager.clockDamage += 4;
                 }
             }
             else if (gameManager.die1Number == 5)
@@ -499,6 +512,7 @@ public class Clock : MonoBehaviour
                     fiveBonusTracker += 1;
                     fiveBonusNumber.GetComponent<TextMeshProUGUI>().text = fiveBonusTracker.ToString();
                     gameManager.damageNumber += 5;
+                    gameManager.clockDamage += 5;
                 }
             }
             else if (gameManager.die1Number == 6)
@@ -509,6 +523,7 @@ public class Clock : MonoBehaviour
                     sixBonusTracker += 1;
                     sixBonusNumber.GetComponent<TextMeshProUGUI>().text = sixBonusTracker.ToString();
                     gameManager.damageNumber += 6;
+                    gameManager.clockDamage += 6;
                 }
             }
         }
@@ -542,6 +557,7 @@ public class Clock : MonoBehaviour
                     fourBonusTracker += 1;
                     fourBonusNumber.GetComponent<TextMeshProUGUI>().text = fourBonusTracker.ToString();
                     gameManager.damageNumber += 4;
+                    gameManager.clockDamage += 4;
                 }
             }
             else if (gameManager.die2Number == 5)
@@ -552,6 +568,7 @@ public class Clock : MonoBehaviour
                     fiveBonusTracker += 1;
                     fiveBonusNumber.GetComponent<TextMeshProUGUI>().text = fiveBonusTracker.ToString();
                     gameManager.damageNumber += 5;
+                    gameManager.clockDamage += 5;
                 }
             }
             else if (gameManager.die2Number == 6)
@@ -562,6 +579,7 @@ public class Clock : MonoBehaviour
                     sixBonusTracker += 1;
                     sixBonusNumber.GetComponent<TextMeshProUGUI>().text = sixBonusTracker.ToString();
                     gameManager.damageNumber += 6;
+                    gameManager.clockDamage += 6;
                 }
             }
         }
@@ -595,6 +613,7 @@ public class Clock : MonoBehaviour
                     fourBonusTracker += 1;
                     fourBonusNumber.GetComponent<TextMeshProUGUI>().text = fourBonusTracker.ToString();
                     gameManager.damageNumber += 4;
+                    gameManager.clockDamage += 4;
                 }
             }
             else if (gameManager.die3Number == 5)
@@ -605,6 +624,7 @@ public class Clock : MonoBehaviour
                     fiveBonusTracker += 1;
                     fiveBonusNumber.GetComponent<TextMeshProUGUI>().text = fiveBonusTracker.ToString();
                     gameManager.damageNumber += 5;
+                    gameManager.clockDamage += 5;
                 }
             }
             else if (gameManager.die3Number == 6)
@@ -615,6 +635,7 @@ public class Clock : MonoBehaviour
                     sixBonusTracker += 1;
                     sixBonusNumber.GetComponent<TextMeshProUGUI>().text = sixBonusTracker.ToString();
                     gameManager.damageNumber += 6;
+                    gameManager.clockDamage += 6;
                 }
             }
         }

@@ -77,6 +77,7 @@ public class SwitchBehaviour : MonoBehaviour
             {
                 switchOneIsDone = true;
                 gameManager.damageNumber += 2;
+                gameManager.switchesDamage += 2;
             }
         }
         else if (switchOneIsOn == true)
@@ -149,6 +150,7 @@ public class SwitchBehaviour : MonoBehaviour
             {
                 switchTwoIsDone = true;
                 gameManager.damageNumber += 2;
+                gameManager.switchesDamage += 2;
             }
         }
         else if (switchTwoIsOn == true)
@@ -221,6 +223,7 @@ public class SwitchBehaviour : MonoBehaviour
             {
                 switchThreeIsDone = true;
                 gameManager.damageNumber += 2;
+                gameManager.switchesDamage += 2;
             }
         }
         else if (switchThreeIsOn == true)
@@ -295,6 +298,7 @@ public class SwitchBehaviour : MonoBehaviour
             {
                 switchFourIsDone = true;
                 gameManager.damageNumber += 2;
+                gameManager.switchesDamage += 2;
             }
         }
         else if (switchFourIsOn == true)
@@ -364,6 +368,7 @@ public class SwitchBehaviour : MonoBehaviour
             {
                 crosses[14].SetActive(true);
                 gameManager.damageNumber += 2;
+                gameManager.switchesDamage += 2;
             }
 
             if (switchFiveCounter == 3)
@@ -443,6 +448,7 @@ public class SwitchBehaviour : MonoBehaviour
             {
                 switchSixIsDone = true;
                 gameManager.damageNumber += 2;
+                gameManager.switchesDamage += 2;
             }
         }
         else if (switchSixIsOn == true)
@@ -529,6 +535,7 @@ public class SwitchBehaviour : MonoBehaviour
             {
                 switchOneIsDone = true;
                 gameManager.damageNumber += 2;
+                gameManager.switchesDamage += 2;
             }
         }
         else if (switchOneIsOn == true)
@@ -574,6 +581,7 @@ public class SwitchBehaviour : MonoBehaviour
             {
                 switchTwoIsDone = true;
                 gameManager.damageNumber += 2;
+                gameManager.switchesDamage += 2;
             }
         }
         else if (switchTwoIsOn == true)
@@ -618,6 +626,7 @@ public class SwitchBehaviour : MonoBehaviour
             {
                 switchThreeIsDone = true;
                 gameManager.damageNumber += 2;
+                gameManager.switchesDamage += 2;
             }
         }
         else if (switchThreeIsOn == true)
@@ -663,6 +672,7 @@ public class SwitchBehaviour : MonoBehaviour
             {
                 switchFourIsDone = true;
                 gameManager.damageNumber += 2;
+                gameManager.switchesDamage += 2;
             }
         }
         else if (switchFourIsOn == true)
@@ -703,6 +713,7 @@ public class SwitchBehaviour : MonoBehaviour
             {
                 crosses[14].SetActive(true);
                 gameManager.damageNumber += 2;
+                gameManager.switchesDamage += 2;
             }
 
             if (switchFiveCounter == 3)
@@ -752,6 +763,7 @@ public class SwitchBehaviour : MonoBehaviour
             {
                 switchSixIsDone = true;
                 gameManager.damageNumber += 2;
+                gameManager.switchesDamage += 2;
             }
         }
         else if (switchSixIsOn == true)

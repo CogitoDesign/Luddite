@@ -113,6 +113,18 @@ public class NeetleBehaviour : MonoBehaviour
 
     public GameObject hacScreen;
 
+    public bool neetleInFinalLocation;
+
+
+
+    public void CheckIfNeetleatExit()
+    {
+        if (currentXAxis == 6 && currentYAxis == 4)
+        {
+            neetleInFinalLocation = true;
+        }
+    }
+
     //Show Move screen when click Neetle
 
     private void OnMouseDown()
@@ -1939,6 +1951,7 @@ public class NeetleBehaviour : MonoBehaviour
             tool2done = true;
             toolNodes[1].GetComponent<MeshRenderer>().material = green;
             gameManager.damageNumber += 12;
+            gameManager.nedDamage += 12;
             hacScreen.GetComponent<HackBehaviour>().hasTool2 = false;
        }
 
@@ -1947,6 +1960,7 @@ public class NeetleBehaviour : MonoBehaviour
             tool1done = true;
             toolNodes[0].GetComponent<MeshRenderer>().material = green;
             gameManager.damageNumber += 9;
+            gameManager.nedDamage += 9;
             hacScreen.GetComponent<HackBehaviour>().hasTool1 = false;
         }
 
@@ -1955,6 +1969,7 @@ public class NeetleBehaviour : MonoBehaviour
             tool4done = true;
             toolNodes[3].GetComponent<MeshRenderer>().material = green;
             gameManager.damageNumber += 15;
+            gameManager.nedDamage += 15;
             hacScreen.GetComponent<HackBehaviour>().hasTool4 = false;
         }
 
@@ -1963,6 +1978,7 @@ public class NeetleBehaviour : MonoBehaviour
             tool5done = true;
             toolNodes[4].GetComponent<MeshRenderer>().material = green;
             gameManager.damageNumber += 15;
+            gameManager.nedDamage += 15;
             hacScreen.GetComponent<HackBehaviour>().hasTool5 = false;
         }
 
@@ -1971,6 +1987,7 @@ public class NeetleBehaviour : MonoBehaviour
             tool3done = true;
             toolNodes[2].GetComponent<MeshRenderer>().material = green;
             gameManager.damageNumber += 17;
+            gameManager.nedDamage += 17;
             hacScreen.GetComponent<HackBehaviour>().hasTool3 = false;
         }
 
@@ -1979,6 +1996,7 @@ public class NeetleBehaviour : MonoBehaviour
             tool6done = true;
             toolNodes[5].GetComponent<MeshRenderer>().material = green;
             gameManager.damageNumber += 20;
+            gameManager.nedDamage += 20;
             hacScreen.GetComponent<HackBehaviour>().hasTool6 = false;
         }
 
