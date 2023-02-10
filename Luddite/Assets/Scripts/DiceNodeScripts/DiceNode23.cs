@@ -6,6 +6,7 @@ public class DiceNode23 : MonoBehaviour
 {
     public UnlockNode unlockNode;
     public GameManager gameManager;
+    public AudioSource dieNodeUnlock;
 
     public Material green;
     public Material purple;
@@ -17,6 +18,7 @@ public class DiceNode23 : MonoBehaviour
         {
             unlockNode.DieTwonode3IsUnlocked = true;
             gameObject.GetComponent<MeshRenderer>().material = green;
+            dieNodeUnlock.Play();
 
             if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
             {

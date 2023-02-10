@@ -115,6 +115,8 @@ public class NeetleBehaviour : MonoBehaviour
 
     public bool neetleInFinalLocation;
 
+    public AudioSource neetleWalk;
+
 
 
     public void CheckIfNeetleatExit()
@@ -130,6 +132,7 @@ public class NeetleBehaviour : MonoBehaviour
     private void OnMouseDown()
     {
         screensAppear.GetComponent<ScreensAppear>().MoveOptionsMenuIsOn();
+        gameManager.select.Play();
     }
 
 
@@ -137,7 +140,9 @@ public class NeetleBehaviour : MonoBehaviour
 
     public void AddDieButtonIsClicked()
     {
-        if(gameManager.GetComponent<GameManager>().hasOne == true)
+        gameManager.select.Play();
+
+        if (gameManager.GetComponent<GameManager>().hasOne == true)
         {
             dieMoveIcon.GetComponent<Image>().sprite = numberSprites[0];
             dieMoveNumber = 1;
@@ -394,6 +399,7 @@ public class NeetleBehaviour : MonoBehaviour
 
     public void EnergyButtonIsclicked()
     {
+        gameManager.select.Play();
         gameManager.energyNumber -= 1;
         if (dieMoveNumber <= 3)
         {
@@ -412,6 +418,7 @@ public class NeetleBehaviour : MonoBehaviour
 
     public void DoubleEnergyButtonIsClicked()
     {
+        gameManager.select.Play();
         gameManager.energyNumber -= 2;
 
         if (currentYAxis == 1)
@@ -453,6 +460,8 @@ public class NeetleBehaviour : MonoBehaviour
 
     public void LeftDEIsClicked()
     {
+        gameManager.select.Play();
+        neetleWalk.Play();
         currentYAxis -= 1;
         FindTargetLocation();
 
@@ -465,6 +474,8 @@ public class NeetleBehaviour : MonoBehaviour
 
     public void RightDEIsClicked()
     {
+        gameManager.select.Play();
+        neetleWalk.Play();
         currentYAxis += 1;
         FindTargetLocation();
 
@@ -477,6 +488,8 @@ public class NeetleBehaviour : MonoBehaviour
 
     public void UpDEIsClicked()
     {
+        gameManager.select.Play();
+        neetleWalk.Play();
         currentXAxis -= 1;
         FindTargetLocation();
 
@@ -489,6 +502,8 @@ public class NeetleBehaviour : MonoBehaviour
 
     public void DownDEIsClicked()
     {
+        gameManager.select.Play();
+        neetleWalk.Play();
         currentXAxis += 1;
         FindTargetLocation();
 
@@ -503,6 +518,8 @@ public class NeetleBehaviour : MonoBehaviour
 
     public void RightButtonIsClicked()
     {
+        gameManager.select.Play();
+        neetleWalk.Play();
         currentYAxis += 1;
         FindTargetLocation();
       
@@ -513,6 +530,8 @@ public class NeetleBehaviour : MonoBehaviour
 
     public void LeftButtonIsClicked()
     {
+        gameManager.select.Play();
+        neetleWalk.Play();
         currentYAxis -= 1;
         FindTargetLocation();
 
@@ -523,6 +542,8 @@ public class NeetleBehaviour : MonoBehaviour
 
     public void UpButtonIsClicked()
     {
+        gameManager.select.Play();
+        neetleWalk.Play();
         currentXAxis -= 1;
         FindTargetLocation();
 
@@ -533,6 +554,8 @@ public class NeetleBehaviour : MonoBehaviour
 
     public void DownButtonIsClicked()
     {
+        gameManager.select.Play();
+        neetleWalk.Play();
         currentXAxis += 1;
         FindTargetLocation();
 

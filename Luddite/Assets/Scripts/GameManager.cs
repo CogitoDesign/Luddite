@@ -103,6 +103,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject neetle;
 
+    public AudioSource select;
+
     //Dice are rolled and number shown on screen
     public void RollDie1()
     {
@@ -330,6 +332,7 @@ public class GameManager : MonoBehaviour
         }
 
         Die1Activate();
+        select.Play();
 
     
 
@@ -363,8 +366,8 @@ public class GameManager : MonoBehaviour
         }
 
         Die2Activate();
+        select.Play();
 
-      
     }
 
     public void Die3Clicked()
@@ -395,6 +398,7 @@ public class GameManager : MonoBehaviour
         }
 
         Die3Activate();
+        select.Play();
     }
 
     public void Die4Clicked()
@@ -425,6 +429,7 @@ public class GameManager : MonoBehaviour
         }
 
         Die4Activate();
+        select.Play();
     }
 
     void Die1Activate()
@@ -522,6 +527,7 @@ public class GameManager : MonoBehaviour
         dieFourDownButton.SetActive(true);
         creditNumber -= 2;
         die4amount = 1;
+        select.Play();
 
     }
 
@@ -546,6 +552,7 @@ public class GameManager : MonoBehaviour
         {
             greenCreditDie4.SetActive(true);
         }
+        select.Play();
     }
 
     public void GreenCredDie1IsClicked()
@@ -556,6 +563,7 @@ public class GameManager : MonoBehaviour
         greenCreditDie4.SetActive(false);
 
         die1amount += 1;
+        select.Play();
     }
 
     public void GreenCredDie2IsClicked()
@@ -566,6 +574,7 @@ public class GameManager : MonoBehaviour
         greenCreditDie4.SetActive(false);
 
         die2amount += 1;
+        select.Play();
     }
 
     public void GreenCredDie3IsClicked()
@@ -576,6 +585,7 @@ public class GameManager : MonoBehaviour
         greenCreditDie4.SetActive(false);
 
         die3amount += 1;
+        select.Play();
     }
 
     public void GreenCredDie4IsClicked()
@@ -586,6 +596,7 @@ public class GameManager : MonoBehaviour
         greenCreditDie4.SetActive(false);
 
         die4amount += 1;
+        select.Play();
     }
 
 
@@ -647,6 +658,7 @@ public class GameManager : MonoBehaviour
         }
         
         multitoolNumber -= 1;
+        select.Play();
     }
 
     public void DieOneUpIsClicked()
@@ -740,6 +752,7 @@ public class GameManager : MonoBehaviour
          
 
         }
+        select.Play();
     }
 
     public void DieTwoUpIsClicked()
@@ -830,6 +843,7 @@ public class GameManager : MonoBehaviour
             dieThreeDownButton.SetActive(false);
      
         }
+        select.Play();
     }
 
     public void DieThreeUpIsClicked()
@@ -917,6 +931,7 @@ public class GameManager : MonoBehaviour
             dieThreeDownButton.SetActive(false);
     
         }
+        select.Play();
     }
 
     public void DieFourUpIsClicked()
@@ -962,6 +977,7 @@ public class GameManager : MonoBehaviour
             die4.GetComponent<Image>().sprite = whiteSprites[0];
 
         }
+        select.Play();
     }
 
     public void DieOneDownIsClicked()
@@ -1049,6 +1065,7 @@ public class GameManager : MonoBehaviour
             dieThreeDownButton.SetActive(false);
         
         }
+        select.Play();
     }
 
     public void DieTwoDownIsClicked()
@@ -1136,6 +1153,7 @@ public class GameManager : MonoBehaviour
             dieThreeDownButton.SetActive(false);
         
         }
+        select.Play();
     }
 
     public void DieThreeDownIsClicked()
@@ -1224,6 +1242,7 @@ public class GameManager : MonoBehaviour
             dieThreeDownButton.SetActive(false);
 
         }
+        select.Play();
     }
 
     public void DieFourDownIsClicked()
@@ -1269,6 +1288,7 @@ public class GameManager : MonoBehaviour
             die4.GetComponent<Image>().sprite = whiteSprites[4];
 
         }
+        select.Play();
     }
 
     public void AddCredit()

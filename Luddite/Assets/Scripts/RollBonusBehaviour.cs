@@ -16,10 +16,13 @@ public class RollBonusBehaviour : MonoBehaviour
     public GameObject[] box5;
     public GameObject[] box6;
 
+    public AudioSource bonusSFX;
+
     public GameManager gameManager;
 
     public void ButtonOne1isClicked()
     {
+        bonusSFX.Play();
         box1[0].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.creditNumber += 1;
         crosses[0].SetActive(true);
@@ -62,6 +65,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonOne2isClicked()
     {
+        bonusSFX.Play();
         box1[1].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.creditNumber += 1;
         crosses[1].SetActive(true);
@@ -104,6 +108,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonOne3isClicked()
     {
+        bonusSFX.Play();
         box1[2].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.creditNumber += 1;
         crosses[2].SetActive(true);
@@ -146,6 +151,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonOne4isClicked()
     {
+        bonusSFX.Play();
         box1[3].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.energyNumber += 2;
         crosses[8].SetActive(true);
@@ -188,6 +194,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonOne5isClicked()
     {
+        bonusSFX.Play();
         box1[4].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.damageNumber += 2;
         gameManager.rollbonusDamage += 2;
@@ -231,6 +238,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonTwo1isClicked()
     {
+        bonusSFX.Play();
         box2[0].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.multitoolNumber += 2;
         crosses[4].SetActive(true);
@@ -273,6 +281,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonTwo2isClicked()
     {
+        bonusSFX.Play();
         box2[1].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.energyNumber += 2;
         crosses[9].SetActive(true);
@@ -315,6 +324,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonTwo3isClicked()
     {
+        bonusSFX.Play();
         box2[2].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.damageNumber += 2;
         gameManager.rollbonusDamage += 2;
@@ -358,6 +368,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonThree1isClicked()
     {
+        bonusSFX.Play();
         box3[0].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.multitoolNumber += 2;
         crosses[5].SetActive(true);
@@ -400,6 +411,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonThree2isClicked()
     {
+        bonusSFX.Play();
         box3[1].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.damageNumber += 2;
         gameManager.rollbonusDamage += 2;
@@ -443,6 +455,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonFour1isClicked()
     {
+        bonusSFX.Play();
         box4[0].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.energyNumber += 2;
         crosses[10].SetActive(true);
@@ -485,6 +498,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonFour2isClicked()
     {
+        bonusSFX.Play();
         box4[1].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.damageNumber += 2;
         gameManager.rollbonusDamage += 2;
@@ -528,6 +542,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonFive1isClicked()
     {
+        bonusSFX.Play();
         box5[0].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.multitoolNumber += 2;
         crosses[6].SetActive(true);
@@ -570,6 +585,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonFive2isClicked()
     {
+        bonusSFX.Play();
         box5[1].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.damageNumber += 2;
         gameManager.rollbonusDamage += 2;
@@ -613,6 +629,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonSix1isClicked()
     {
+        bonusSFX.Play();
         box6[0].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.creditNumber += 1;
         crosses[3].SetActive(true);
@@ -655,6 +672,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonSix2isClicked()
     {
+        bonusSFX.Play();
         box6[1].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.multitoolNumber += 2;
         crosses[7].SetActive(true);
@@ -698,6 +716,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonSix3isClicked()
     {
+        bonusSFX.Play();
         box6[2].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.energyNumber += 2;
         crosses[11].SetActive(true);
@@ -741,6 +760,7 @@ public class RollBonusBehaviour : MonoBehaviour
 
     public void ButtonSix4isClicked()
     {
+        bonusSFX.Play();
         box6[3].GetComponent<Image>().color = new Color(0, 255, 0);
         gameManager.damageNumber += 2;
         gameManager.rollbonusDamage += 2;

@@ -13,11 +13,13 @@ public class ScreensAppear : MonoBehaviour
     public GameObject toolsScreen;
     public GameObject moveOptionsScreen;
 
+    public GameManager gameManager;
+
 
     //turn on and off switch menu and turn off all other menus
     public void SwitchMenuIsOn()
     {
-        
+        gameManager.select.Play();
         if (switchesScreen.activeSelf == false)
         {
             switchesScreen.SetActive(true);
@@ -37,7 +39,7 @@ public class ScreensAppear : MonoBehaviour
     //turn on and off clock menu and turn off all other menus
     public void ClockMenuIsOn()
     {
-
+        gameManager.select.Play();
         if (clockScreen.activeSelf == false)
         {
             clockScreen.SetActive(true);
@@ -57,7 +59,7 @@ public class ScreensAppear : MonoBehaviour
     //turn on and off hack menu and turn off all other menus
     public void HackMenuIsOn()
     {
-
+        gameManager.select.Play();
         if (hackScreen.activeSelf == false)
         {
             hackScreen.SetActive(true);
@@ -76,7 +78,7 @@ public class ScreensAppear : MonoBehaviour
 
     public void RollbonusMenuIsOn()
     {
-
+        gameManager.select.Play();
         if (rollbonusScreen.activeSelf == false)
         {
             rollbonusScreen.SetActive(true);
@@ -95,7 +97,7 @@ public class ScreensAppear : MonoBehaviour
 
     public void ToolsMenuIsOn()
     {
-
+        gameManager.select.Play();
         if (toolsScreen.activeSelf == false)
         {
             rollbonusScreen.SetActive(false);
@@ -114,7 +116,7 @@ public class ScreensAppear : MonoBehaviour
 
     public void MoveOptionsMenuIsOn()
     {
-
+        gameManager.select.Play();
         if (moveOptionsScreen.activeSelf == false)
         {
             moveOptionsScreen.SetActive(true);
@@ -133,6 +135,7 @@ public class ScreensAppear : MonoBehaviour
 
     public void TurnClockScreenOnOnNewRound()
     {
+
         if (clockScreen.activeSelf == false)
         {
             clockScreen.SetActive(true);
