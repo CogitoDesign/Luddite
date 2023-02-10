@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
     public GameObject neetle;
 
     public AudioSource select;
+    public AudioSource readoutSFX;
 
     //Dice are rolled and number shown on screen
     public void RollDie1()
@@ -1324,7 +1325,7 @@ public class GameManager : MonoBehaviour
         neetle.GetComponent<NeetleBehaviour>().CheckIfNeetleatExit();
         if (neetle.GetComponent<NeetleBehaviour>().neetleInFinalLocation == true)
         {
-            Debug.Log("in right location");
+            readoutSFX.Play();
             //add resource damage to total damage
 
             damageNumber = damageNumber + multitoolNumber;
@@ -1348,7 +1349,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("in wrong location");
+            readoutSFX.Play();
             damageNumber = 0;
             nedDamage = 0;
             hackDamage = 0;

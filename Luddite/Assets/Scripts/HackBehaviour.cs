@@ -19,7 +19,7 @@ public class HackBehaviour : MonoBehaviour
     public Button[] buttonFour;
     public Button[] buttonFive;
     public Button[] buttonSix;
-
+    
     public GameObject[] box1;
     public GameObject[] box2;
     public GameObject[] box3;
