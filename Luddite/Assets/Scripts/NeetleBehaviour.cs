@@ -116,8 +116,10 @@ public class NeetleBehaviour : MonoBehaviour
     public bool neetleInFinalLocation;
 
     public AudioSource neetleWalk;
+    public AudioSource explode;
 
-
+    public ParticleSystem plasmaExplodeOne;
+    
 
     public void CheckIfNeetleatExit()
     {
@@ -1985,6 +1987,8 @@ public class NeetleBehaviour : MonoBehaviour
             gameManager.damageNumber += 9;
             gameManager.nedDamage += 9;
             hacScreen.GetComponent<HackBehaviour>().hasTool1 = false;
+            plasmaExplodeOne.Play();
+            explode.Play();
         }
 
         if ((currentXAxis == 3 && currentYAxis == 4) && (hacScreen.GetComponent<HackBehaviour>().hasTool4 == true && tool4done == false))

@@ -127,6 +127,8 @@ public class HackBehaviour : MonoBehaviour
     public AudioSource miniBonus;
     public AudioSource bonusSFX;
 
+    
+
     // 1 buttons
 
     public void Number1IsClicked1()
