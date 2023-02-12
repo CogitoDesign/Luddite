@@ -117,9 +117,22 @@ public class NeetleBehaviour : MonoBehaviour
 
     public AudioSource neetleWalk;
     public AudioSource explode;
+    public AudioSource sparks;
 
     public ParticleSystem plasmaExplodeOne;
-    
+    public ParticleSystem plasmaExplodeTwo;
+    public ParticleSystem plasmaExplodeThree;
+    public ParticleSystem plasmaExplodeFour;
+    public ParticleSystem plasmaExplodeFive;
+    public ParticleSystem plasmaExplodeSix;
+
+    public ParticleSystem sparksFXOne;
+    public ParticleSystem sparksFXTwo;
+    public ParticleSystem sparksFXThree;
+    public ParticleSystem sparksFXFour;
+    public ParticleSystem sparksFXFive;
+
+
 
     public void CheckIfNeetleatExit()
     {
@@ -1939,6 +1952,8 @@ public class NeetleBehaviour : MonoBehaviour
             gameManager.multitoolNumber += 2;
             bonusMultitools = true;
             bonusMultitoolsNode.GetComponent<MeshRenderer>().material = green;
+            sparksFXFive.Play();
+            sparks.Play();
         }
 
         if ((currentXAxis == 4 && currentYAxis == 3) && bonusEnergy == false)
@@ -1946,6 +1961,8 @@ public class NeetleBehaviour : MonoBehaviour
             gameManager.energyNumber += 1;
             bonusEnergy = true;
             bonusEnergyNode.GetComponent<MeshRenderer>().material = green;
+            sparksFXThree.Play();
+            sparks.Play();
         }
 
         if ((currentXAxis == 2 && currentYAxis == 4) && bonusCredit1 == false)
@@ -1953,6 +1970,8 @@ public class NeetleBehaviour : MonoBehaviour
             gameManager.creditNumber += 1;
             bonusCredit1 = true;
             bonusCreditNode1.GetComponent<MeshRenderer>().material = green;
+            sparksFXTwo.Play();
+            sparks.Play();
         }
 
         if ((currentXAxis == 5 && currentYAxis == 1) && bonusCredit2 == false)
@@ -1960,6 +1979,8 @@ public class NeetleBehaviour : MonoBehaviour
             gameManager.creditNumber += 1;
             bonusCredit2 = true;
             bonusCreditNode2.GetComponent<MeshRenderer>().material = green;
+            sparksFXFour.Play();
+            sparks.Play();
         }
 
         if ((currentXAxis == 2 && currentYAxis == 3) && bonusMultitool == false)
@@ -1967,6 +1988,8 @@ public class NeetleBehaviour : MonoBehaviour
             gameManager.multitoolNumber += 1;
             bonusMultitool = true;
             bonusMultitoolNode.GetComponent<MeshRenderer>().material = green;
+            sparksFXOne.Play();
+            sparks.Play();
         }
 
         //Check if have tool when entering tool node and activate node if you do
@@ -1978,7 +2001,9 @@ public class NeetleBehaviour : MonoBehaviour
             gameManager.damageNumber += 12;
             gameManager.nedDamage += 12;
             hacScreen.GetComponent<HackBehaviour>().hasTool2 = false;
-       }
+            plasmaExplodeTwo.Play();
+            explode.Play();
+        }
 
         if ((currentXAxis == 2 && currentYAxis == 2) && (hacScreen.GetComponent<HackBehaviour>().hasTool1 == true && tool1done == false))
         {
@@ -1998,6 +2023,8 @@ public class NeetleBehaviour : MonoBehaviour
             gameManager.damageNumber += 15;
             gameManager.nedDamage += 15;
             hacScreen.GetComponent<HackBehaviour>().hasTool4 = false;
+            plasmaExplodeFour.Play();
+            explode.Play();
         }
 
         if ((currentXAxis == 4 && currentYAxis == 2) && (hacScreen.GetComponent<HackBehaviour>().hasTool5 == true && tool5done == false))
@@ -2007,6 +2034,8 @@ public class NeetleBehaviour : MonoBehaviour
             gameManager.damageNumber += 15;
             gameManager.nedDamage += 15;
             hacScreen.GetComponent<HackBehaviour>().hasTool5 = false;
+            plasmaExplodeFive.Play();
+            explode.Play();
         }
 
         if ((currentXAxis == 5 && currentYAxis == 3) && (hacScreen.GetComponent<HackBehaviour>().hasTool3 == true && tool3done == false))
@@ -2016,6 +2045,8 @@ public class NeetleBehaviour : MonoBehaviour
             gameManager.damageNumber += 17;
             gameManager.nedDamage += 17;
             hacScreen.GetComponent<HackBehaviour>().hasTool3 = false;
+            plasmaExplodeThree.Play();
+            explode.Play();
         }
 
         if ((currentXAxis == 6 && currentYAxis == 1) && (hacScreen.GetComponent<HackBehaviour>().hasTool6 == true && tool6done == false))
@@ -2025,6 +2056,8 @@ public class NeetleBehaviour : MonoBehaviour
             gameManager.damageNumber += 20;
             gameManager.nedDamage += 20;
             hacScreen.GetComponent<HackBehaviour>().hasTool6 = false;
+            plasmaExplodeSix.Play();
+            explode.Play();
         }
 
     }

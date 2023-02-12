@@ -39,6 +39,8 @@ public class Clock : MonoBehaviour
     public void AddDieButtonIsClicked()
     {
         hasUsedClockThisRound = true;
+        gameManager.select.Play();
+
         if(gameManager.GetComponent<GameManager>().hasOne == true)
         {
             if (latestCross <= 31)

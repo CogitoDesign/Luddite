@@ -305,6 +305,15 @@ public class GameManager : MonoBehaviour
         dieThreeIsActive = false;
     }
 
+    public AudioSource reRollSFX;
+
+    //Reroll noise
+
+    public void Rerollstuff()
+    {
+        reRollSFX.Play();
+    }
+
     //Die is clicked
 
     public void Die1Clicked()

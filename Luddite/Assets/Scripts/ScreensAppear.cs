@@ -13,6 +13,13 @@ public class ScreensAppear : MonoBehaviour
     public GameObject toolsScreen;
     public GameObject moveOptionsScreen;
 
+    public GameObject clockScreenBackground;
+    public GameObject rollBonusScreenBackground;
+    public GameObject hackScreenBackground;
+    public GameObject toolsScreenBackground;
+    public GameObject switchesScreenBackground;
+    public GameObject moveOptionScreenBackground;
+
     public GameManager gameManager;
 
 
@@ -23,15 +30,22 @@ public class ScreensAppear : MonoBehaviour
         if (switchesScreen.activeSelf == false)
         {
             switchesScreen.SetActive(true);
+            switchesScreenBackground.SetActive(true);
             clockScreen.SetActive(false);
             hackScreen.SetActive(false);
             rollbonusScreen.SetActive(false);
             toolsScreen.SetActive(false);
             moveOptionsScreen.SetActive(false);
+            clockScreenBackground.SetActive(false);
+            rollBonusScreenBackground.SetActive(false);
+            hackScreenBackground.SetActive(false);
+            toolsScreenBackground.SetActive(false);
+            moveOptionScreenBackground.SetActive(false);
         }
         else
         {
             switchesScreen.SetActive(false);
+            switchesScreenBackground.SetActive(false);
         }
 
     }
@@ -43,15 +57,22 @@ public class ScreensAppear : MonoBehaviour
         if (clockScreen.activeSelf == false)
         {
             clockScreen.SetActive(true);
+            clockScreenBackground.SetActive(true);
             switchesScreen.SetActive(false);
             hackScreen.SetActive(false);
             rollbonusScreen.SetActive(false);
             toolsScreen.SetActive(false);
             moveOptionsScreen.SetActive(false);
+            rollBonusScreenBackground.SetActive(false);
+            hackScreenBackground.SetActive(false);
+            toolsScreenBackground.SetActive(false);
+            switchesScreenBackground.SetActive(false);
+            moveOptionScreenBackground.SetActive(false);
         }
         else
         {
             clockScreen.SetActive(false);
+            clockScreenBackground.SetActive(false);
         }
 
     }
@@ -63,15 +84,22 @@ public class ScreensAppear : MonoBehaviour
         if (hackScreen.activeSelf == false)
         {
             hackScreen.SetActive(true);
+            hackScreenBackground.SetActive(true);
             switchesScreen.SetActive(false);
             clockScreen.SetActive(false);
             rollbonusScreen.SetActive(false);
             toolsScreen.SetActive(false);
             moveOptionsScreen.SetActive(false);
+            clockScreenBackground.SetActive(false);
+            rollBonusScreenBackground.SetActive(false);
+            toolsScreenBackground.SetActive(false);
+            switchesScreenBackground.SetActive(false);
+            moveOptionScreenBackground.SetActive(false);
         }
         else
         {
             hackScreen.SetActive(false);
+            hackScreenBackground.SetActive(false);
         }
 
     }
@@ -82,15 +110,23 @@ public class ScreensAppear : MonoBehaviour
         if (rollbonusScreen.activeSelf == false)
         {
             rollbonusScreen.SetActive(true);
+            rollBonusScreenBackground.SetActive(true);
             clockScreen.SetActive(false);
             hackScreen.SetActive(false);
             switchesScreen.SetActive(false);
             toolsScreen.SetActive(false);
             moveOptionsScreen.SetActive(false);
+            clockScreenBackground.SetActive(false);
+            hackScreenBackground.SetActive(false);
+            toolsScreenBackground.SetActive(false);
+            switchesScreenBackground.SetActive(false);
+            moveOptionScreenBackground.SetActive(false);
+
         }
         else
         {
             rollbonusScreen.SetActive(false);
+            rollBonusScreenBackground.SetActive(false);
         }
 
     }
@@ -105,11 +141,18 @@ public class ScreensAppear : MonoBehaviour
             hackScreen.SetActive(false);
             switchesScreen.SetActive(false);
             toolsScreen.SetActive(true);
+            toolsScreenBackground.SetActive(true);
             moveOptionsScreen.SetActive(false);
+            clockScreenBackground.SetActive(false);
+            rollBonusScreenBackground.SetActive(false);
+            hackScreenBackground.SetActive(false);
+            switchesScreenBackground.SetActive(false);
+            moveOptionScreenBackground.SetActive(false);
         }
         else
         {
             toolsScreen.SetActive(false);
+            toolsScreenBackground.SetActive(false);
         }
 
     }
@@ -120,15 +163,22 @@ public class ScreensAppear : MonoBehaviour
         if (moveOptionsScreen.activeSelf == false)
         {
             moveOptionsScreen.SetActive(true);
+            moveOptionScreenBackground.SetActive(true);
             rollbonusScreen.SetActive(false);
             clockScreen.SetActive(false);
             hackScreen.SetActive(false);
             switchesScreen.SetActive(false);
             toolsScreen.SetActive(false);
+            clockScreenBackground.SetActive(false);
+            rollBonusScreenBackground.SetActive(false);
+            hackScreenBackground.SetActive(false);
+            toolsScreenBackground.SetActive(false);
+            switchesScreenBackground.SetActive(false);
         }
         else
         {
             moveOptionsScreen.SetActive(false);
+            moveOptionScreenBackground.SetActive(false);
         }
 
     }
@@ -139,11 +189,17 @@ public class ScreensAppear : MonoBehaviour
         if (clockScreen.activeSelf == false)
         {
             clockScreen.SetActive(true);
+            clockScreenBackground.SetActive(true);
             switchesScreen.SetActive(false);
             hackScreen.SetActive(false);
             rollbonusScreen.SetActive(false);
             toolsScreen.SetActive(false);
             moveOptionsScreen.SetActive(false);
+            rollBonusScreenBackground.SetActive(false);
+            hackScreenBackground.SetActive(false);
+            toolsScreenBackground.SetActive(false);
+            switchesScreenBackground.SetActive(false);
+            moveOptionScreenBackground.SetActive(false);
         }
         else
         {

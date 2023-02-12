@@ -12,6 +12,9 @@ public class DiceNode21 : MonoBehaviour
     public Material purple;
     public Material red;
 
+    public AudioSource sparks;
+    public ParticleSystem sparksEffect;
+
     public void OnMouseDown()
     {
         if (unlockNode.DieTwonode1IsActive == true && unlockNode.DieTwonode1IsUnlocked == false)
@@ -19,6 +22,8 @@ public class DiceNode21 : MonoBehaviour
             unlockNode.DieTwonode1IsUnlocked = true;
             gameObject.GetComponent<MeshRenderer>().material = green;
             dieNodeUnlock.Play();
+            sparksEffect.Play();
+            sparks.Play();
 
             if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
             {
