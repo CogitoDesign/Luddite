@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
+using System.Drawing;
 
 public class NeetleBehaviour : MonoBehaviour
 {
@@ -12,11 +14,14 @@ public class NeetleBehaviour : MonoBehaviour
     public GameObject neetle;
 
     public float speed;
+    public float rotationSpeed;
 
-    private GameObject targetLocation;
+    
 
     public Sprite[] numberSprites;
     public GameObject[] mapMarkers;
+
+    private GameObject targetLocation;
 
     private int spriteNumber;
 
@@ -132,7 +137,11 @@ public class NeetleBehaviour : MonoBehaviour
     public ParticleSystem sparksFXFour;
     public ParticleSystem sparksFXFive;
 
+    public Animator neetleAnimator;
 
+    
+
+  
 
     public void CheckIfNeetleatExit()
     {
@@ -479,8 +488,11 @@ public class NeetleBehaviour : MonoBehaviour
         neetleWalk.Play();
         currentYAxis -= 1;
         FindTargetLocation();
+       
 
         StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+        
+        
         leftDEIcon.SetActive(false);
         rightDEIcon.SetActive(false);
         upDEIcon.SetActive(false);
@@ -493,8 +505,11 @@ public class NeetleBehaviour : MonoBehaviour
         neetleWalk.Play();
         currentYAxis += 1;
         FindTargetLocation();
+        
 
         StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+        
+        
         leftDEIcon.SetActive(false);
         rightDEIcon.SetActive(false);
         upDEIcon.SetActive(false);
@@ -507,8 +522,11 @@ public class NeetleBehaviour : MonoBehaviour
         neetleWalk.Play();
         currentXAxis -= 1;
         FindTargetLocation();
+      
 
         StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+
+       
         leftDEIcon.SetActive(false);
         rightDEIcon.SetActive(false);
         upDEIcon.SetActive(false);
@@ -521,8 +539,12 @@ public class NeetleBehaviour : MonoBehaviour
         neetleWalk.Play();
         currentXAxis += 1;
         FindTargetLocation();
+        
 
+       
         StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+        
+
         leftDEIcon.SetActive(false);
         rightDEIcon.SetActive(false);
         upDEIcon.SetActive(false);
@@ -539,6 +561,7 @@ public class NeetleBehaviour : MonoBehaviour
         FindTargetLocation();
       
         StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+        
         dieMoveNumber -= 1;
         ChangeDieSprite();
     }
@@ -551,6 +574,7 @@ public class NeetleBehaviour : MonoBehaviour
         FindTargetLocation();
 
         StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+        
         dieMoveNumber -= 1;
         ChangeDieSprite();
     }
@@ -563,6 +587,7 @@ public class NeetleBehaviour : MonoBehaviour
         FindTargetLocation();
 
         StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+        
         dieMoveNumber -= 1;
         ChangeDieSprite();
     }
@@ -573,8 +598,10 @@ public class NeetleBehaviour : MonoBehaviour
         neetleWalk.Play();
         currentXAxis += 1;
         FindTargetLocation();
+        
 
         StartCoroutine(MoveToTarget(neetle, targetLocation, speed));
+        
         dieMoveNumber -= 1;
         ChangeDieSprite();
     }
@@ -586,9 +613,23 @@ public class NeetleBehaviour : MonoBehaviour
         while (gameObject.transform.position != targetLocation.transform.position)
         {
             neetle.transform.position = Vector3.MoveTowards(neetle.transform.position, targetLocation.transform.position, speed * Time.deltaTime);
+            transform.LookAt(targetLocation.transform);
+            neetleAnimator.SetBool("isMoving", true);
+
+            /*
+            Vector3 dir = targetLocation.transform.position - transform.position;
+            dir.y = 0;
+            // keep the direction strictly horizontal
+            Quaternion rot = Quaternion.LookRotation(dir);
+            // slerp to the desired rotation over time
+            transform.rotation = Quaternion.Slerp(transform.rotation, rot, rotationSpeed * Time.deltaTime);
+            */
+
             yield return null;
         }
+        
     }
+
 
     private void ChangeDieSprite()
     {
@@ -1745,15 +1786,38 @@ public class NeetleBehaviour : MonoBehaviour
     {
         currentXAxis = 1;
         currentYAxis = 1;
+        FindTargetLocation();
+      
     }
 
     // Update is called once per frame
+
     void Update()
     {
         CheckLeftLocationIsOpen();
         CheckRightLocationIsOpen();
         CheckUpLocationIsOpen();
         CheckDownLocationIsOpen();
+
+        if (neetleAnimator.GetBool("isMoving") == true)
+        {
+
+            Vector3 dir = targetLocation.transform.position - transform.position;
+            dir.y = 0;
+            // keep the direction strictly horizontal
+            Quaternion rot = Quaternion.LookRotation(dir);
+            // slerp to the desired rotation over time
+            transform.rotation = Quaternion.Slerp(transform.rotation, rot, rotationSpeed * Time.deltaTime);
+
+        }
+
+
+        //turn off walking animation when idle
+
+        if (neetle.transform.position == targetLocation.transform.position)
+        {
+            neetleAnimator.SetBool("isMoving", false);
+        }
 
         //turn on energy buttons only when have required energy
 
