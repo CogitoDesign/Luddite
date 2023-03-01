@@ -34,12 +34,15 @@ public class Clock : MonoBehaviour
 
     private bool runEndgameOnce = false;
 
+    public GameObject clockWarning;
+
     //the Add Die button is clicked, crosses are added and
 
     public void AddDieButtonIsClicked()
     {
         hasUsedClockThisRound = true;
         gameManager.select.Play();
+        clockWarning.SetActive(false);
 
         if(gameManager.GetComponent<GameManager>().hasOne == true)
         {
@@ -408,25 +411,31 @@ public class Clock : MonoBehaviour
             addDieButton.SetActive(false);
         }
 
-        //add to clock if it is last die
+        //if it is the last die turn on mustUseClockbool and turn on warning sight
 
         if (hasUsedClockThisRound == false)
         {
 
-            if (gameManager.die1.activeSelf == true && (gameManager.die2.activeSelf == false && gameManager.die3.activeSelf == false))
+            if (gameManager.die1.activeSelf == true && ((gameManager.die2.activeSelf == false && gameManager.die3.activeSelf == false) && gameManager.die4.activeSelf == false))
             {
-                AddLastToClock();
-                gameManager.Die1Disable();
+                lastDietoClock();
             }
-            else if (gameManager.die2.activeSelf == true && (gameManager.die1.activeSelf == false && gameManager.die3.activeSelf == false))
+            else if (gameManager.die2.activeSelf == true && ((gameManager.die1.activeSelf == false && gameManager.die3.activeSelf == false) && gameManager.die4.activeSelf == false))
             {
-                AddLastToClock();
-                gameManager.Die2Disable();
+                lastDietoClock();
             }
-            else if ((gameManager.die1.activeSelf == false && gameManager.die2.activeSelf == false) && gameManager.die3.activeSelf == true)
+            else if (((gameManager.die1.activeSelf == false && gameManager.die2.activeSelf == false) && gameManager.die4.activeSelf == false) && gameManager.die3.activeSelf == true)
             {
-                AddLastToClock();
-                gameManager.Die3Disable();
+                lastDietoClock();
+            }
+            else if (((gameManager.die1.activeSelf == false && gameManager.die2.activeSelf == false) && gameManager.die3.activeSelf == false) && gameManager.die4.activeSelf == true)
+            {
+                lastDietoClock();
+            }
+            else
+            {
+                clockWarning.SetActive(false);
+                gameManager.mustUseClock = false;
             }
         }
         
@@ -443,7 +452,12 @@ public class Clock : MonoBehaviour
 
     }
 
-
+    //show warning that clock must be used and stop use of other things
+    private void lastDietoClock()
+    {
+        clockWarning.SetActive(true);
+        gameManager.mustUseClock = true;
+    }
 
     private void AddLastToClock()
     {

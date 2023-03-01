@@ -166,257 +166,264 @@ public class NeetleBehaviour : MonoBehaviour
     {
         gameManager.select.Play();
 
-        if (gameManager.GetComponent<GameManager>().hasOne == true)
+
+        if (gameManager.mustUseClock == false)
         {
-            dieMoveIcon.GetComponent<Image>().sprite = numberSprites[0];
-            dieMoveNumber = 1;
+            if (gameManager.GetComponent<GameManager>().hasOne == true)
+            {
+                dieMoveIcon.GetComponent<Image>().sprite = numberSprites[0];
+                dieMoveNumber = 1;
 
-            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
-            {
-                gameManager.Die1Disable();
-            }
-            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
-            {
-                gameManager.Die2Disable();
-            }
-            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
-            {
-                gameManager.Die3Disable();
-            }
-            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
-            {
-                gameManager.Die4Disable();
-                gameManager.die4visible = false;
-            }
-            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
-            {
-                gameManager.die1amount -= 1;
-            }
-            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
-            {
-                gameManager.die2amount -= 1;
-            }
-            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
-            {
-                gameManager.die3amount -= 1;
-            }
-            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
-            {
-                gameManager.die4amount -= 1;
+                if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
+                {
+                    gameManager.Die1Disable();
+                }
+                else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
+                {
+                    gameManager.Die2Disable();
+                }
+                else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
+                {
+                    gameManager.Die3Disable();
+                }
+                else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+                {
+                    gameManager.Die4Disable();
+                    gameManager.die4visible = false;
+                }
+                else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+                {
+                    gameManager.die1amount -= 1;
+                }
+                else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+                {
+                    gameManager.die2amount -= 1;
+                }
+                else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+                {
+                    gameManager.die3amount -= 1;
+                }
+                else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+                {
+                    gameManager.die4amount -= 1;
+                }
+
             }
 
+            else if (gameManager.GetComponent<GameManager>().hasTwo == true)
+            {
+                dieMoveIcon.GetComponent<Image>().sprite = numberSprites[1];
+                dieMoveNumber = 2;
+
+                if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
+                {
+                    gameManager.Die1Disable();
+                }
+                else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
+                {
+                    gameManager.Die2Disable();
+                }
+                else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
+                {
+                    gameManager.Die3Disable();
+                }
+                else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+                {
+                    gameManager.Die4Disable();
+                    gameManager.die4visible = false;
+                }
+                else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+                {
+                    gameManager.die1amount -= 1;
+                }
+                else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+                {
+                    gameManager.die2amount -= 1;
+                }
+                else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+                {
+                    gameManager.die3amount -= 1;
+                }
+                else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+                {
+                    gameManager.die4amount -= 1;
+                }
+
+            }
+
+            else if (gameManager.GetComponent<GameManager>().hasThree == true)
+            {
+                dieMoveIcon.GetComponent<Image>().sprite = numberSprites[2];
+                dieMoveNumber = 3;
+
+
+
+                if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
+                {
+                    gameManager.Die1Disable();
+                }
+                else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
+                {
+                    gameManager.Die2Disable();
+                }
+                else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
+                {
+                    gameManager.Die3Disable();
+                }
+                else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+                {
+                    gameManager.Die4Disable();
+                    gameManager.die4visible = false;
+                }
+                else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+                {
+                    gameManager.die1amount -= 1;
+                }
+                else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+                {
+                    gameManager.die2amount -= 1;
+                }
+                else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+                {
+                    gameManager.die3amount -= 1;
+                }
+                else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+                {
+                    gameManager.die4amount -= 1;
+                }
+
+            }
+            else if (gameManager.GetComponent<GameManager>().hasFour == true)
+            {
+                dieMoveIcon.GetComponent<Image>().sprite = numberSprites[3];
+                dieMoveNumber = 4;
+
+
+
+                if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
+                {
+                    gameManager.Die1Disable();
+                }
+                else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
+                {
+                    gameManager.Die2Disable();
+                }
+                else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
+                {
+                    gameManager.Die3Disable();
+                }
+                else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+                {
+                    gameManager.Die4Disable();
+                    gameManager.die4visible = false;
+                }
+                else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+                {
+                    gameManager.die1amount -= 1;
+                }
+                else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+                {
+                    gameManager.die2amount -= 1;
+                }
+                else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+                {
+                    gameManager.die3amount -= 1;
+                }
+                else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+                {
+                    gameManager.die4amount -= 1;
+                }
+
+            }
+            else if (gameManager.GetComponent<GameManager>().hasFive == true)
+            {
+                dieMoveIcon.GetComponent<Image>().sprite = numberSprites[4];
+                dieMoveNumber = 5;
+
+
+
+                if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
+                {
+                    gameManager.Die1Disable();
+                }
+                else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
+                {
+                    gameManager.Die2Disable();
+                }
+                else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
+                {
+                    gameManager.Die3Disable();
+                }
+                else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+                {
+                    gameManager.Die4Disable();
+                    gameManager.die4visible = false;
+                }
+                else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+                {
+                    gameManager.die1amount -= 1;
+                }
+                else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+                {
+                    gameManager.die2amount -= 1;
+                }
+                else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+                {
+                    gameManager.die3amount -= 1;
+                }
+                else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+                {
+                    gameManager.die4amount -= 1;
+                }
+
+            }
+            else if (gameManager.GetComponent<GameManager>().hasSix == true)
+            {
+                dieMoveIcon.GetComponent<Image>().sprite = numberSprites[5];
+                dieMoveNumber = 6;
+
+                energyButton.SetActive(false);
+
+                if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
+                {
+                    gameManager.Die1Disable();
+                }
+                else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
+                {
+                    gameManager.Die2Disable();
+                }
+                else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
+                {
+                    gameManager.Die3Disable();
+                }
+                else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+                {
+                    gameManager.Die4Disable();
+                    gameManager.die4visible = false;
+                }
+                else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+                {
+                    gameManager.die1amount -= 1;
+                }
+                else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+                {
+                    gameManager.die2amount -= 1;
+                }
+                else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+                {
+                    gameManager.die3amount -= 1;
+                }
+                else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+                {
+                    gameManager.die4amount -= 1;
+                }
+
+            }
         }
-
-        else if (gameManager.GetComponent<GameManager>().hasTwo == true)
+        else
         {
-            dieMoveIcon.GetComponent<Image>().sprite = numberSprites[1];
-            dieMoveNumber = 2;
-
-            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
-            {
-                gameManager.Die1Disable();
-            }
-            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
-            {
-                gameManager.Die2Disable();
-            }
-            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
-            {
-                gameManager.Die3Disable();
-            }
-            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
-            {
-                gameManager.Die4Disable();
-                gameManager.die4visible = false;
-            }
-            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
-            {
-                gameManager.die1amount -= 1;
-            }
-            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
-            {
-                gameManager.die2amount -= 1;
-            }
-            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
-            {
-                gameManager.die3amount -= 1;
-            }
-            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
-            {
-                gameManager.die4amount -= 1;
-            }
-
+            gameManager.ClockErrorScreen();
         }
-
-        else if (gameManager.GetComponent<GameManager>().hasThree == true)
-        {
-            dieMoveIcon.GetComponent<Image>().sprite = numberSprites[2];
-            dieMoveNumber = 3;
-
-
-
-            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
-            {
-                gameManager.Die1Disable();
-            }
-            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
-            {
-                gameManager.Die2Disable();
-            }
-            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
-            {
-                gameManager.Die3Disable();
-            }
-            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
-            {
-                gameManager.Die4Disable();
-                gameManager.die4visible = false;
-            }
-            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
-            {
-                gameManager.die1amount -= 1;
-            }
-            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
-            {
-                gameManager.die2amount -= 1;
-            }
-            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
-            {
-                gameManager.die3amount -= 1;
-            }
-            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
-            {
-                gameManager.die4amount -= 1;
-            }
-
-        }
-        else if (gameManager.GetComponent<GameManager>().hasFour == true)
-        {
-            dieMoveIcon.GetComponent<Image>().sprite = numberSprites[3];
-            dieMoveNumber = 4;
-
-
-
-            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
-            {
-                gameManager.Die1Disable();
-            }
-            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
-            {
-                gameManager.Die2Disable();
-            }
-            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
-            {
-                gameManager.Die3Disable();
-            }
-            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
-            {
-                gameManager.Die4Disable();
-                gameManager.die4visible = false;
-            }
-            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
-            {
-                gameManager.die1amount -= 1;
-            }
-            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
-            {
-                gameManager.die2amount -= 1;
-            }
-            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
-            {
-                gameManager.die3amount -= 1;
-            }
-            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
-            {
-                gameManager.die4amount -= 1;
-            }
-
-        }
-        else if (gameManager.GetComponent<GameManager>().hasFive == true)
-        {
-            dieMoveIcon.GetComponent<Image>().sprite = numberSprites[4];
-            dieMoveNumber = 5;
-
-
-
-            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
-            {
-                gameManager.Die1Disable();
-            }
-            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
-            {
-                gameManager.Die2Disable();
-            }
-            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
-            {
-                gameManager.Die3Disable();
-            }
-            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
-            {
-                gameManager.Die4Disable();
-                gameManager.die4visible = false;
-            }
-            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
-            {
-                gameManager.die1amount -= 1;
-            }
-            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
-            {
-                gameManager.die2amount -= 1;
-            }
-            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
-            {
-                gameManager.die3amount -= 1;
-            }
-            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
-            {
-                gameManager.die4amount -= 1;
-            }
-
-        }
-        else if (gameManager.GetComponent<GameManager>().hasSix == true)
-        {
-            dieMoveIcon.GetComponent<Image>().sprite = numberSprites[5];
-            dieMoveNumber = 6;
-            
-            energyButton.SetActive(false);
-
-            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
-            {
-                gameManager.Die1Disable();
-            }
-            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
-            {
-                gameManager.Die2Disable();
-            }
-            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
-            {
-                gameManager.Die3Disable();
-            }
-            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
-            {
-                gameManager.Die4Disable();
-                gameManager.die4visible = false;
-            }
-            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
-            {
-                gameManager.die1amount -= 1;
-            }
-            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
-            {
-                gameManager.die2amount -= 1;
-            }
-            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
-            {
-                gameManager.die3amount -= 1;
-            }
-            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
-            {
-                gameManager.die4amount -= 1;
-            }
-
-        }
-
     }
 
     //adds three movement when energy button is clicked

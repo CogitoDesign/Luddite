@@ -105,8 +105,13 @@ public class GameManager : MonoBehaviour
 
     public AudioSource select;
     public AudioSource readoutSFX;
+    public AudioSource error;
 
-   
+    public GameObject clockWarning;
+
+    private string nothing = " ";
+
+    public bool mustUseClock;
 
     //Dice are rolled and number shown on screen
     public void RollDie1()
@@ -1303,6 +1308,24 @@ public class GameManager : MonoBehaviour
         select.Play();
     }
 
+    //when you can only add to clock
+    public void ClockErrorScreen()
+    {
+        
+        StartCoroutine(ShowLastDieWarning());
+        
+    }
+
+    IEnumerator ShowLastDieWarning()
+    {
+        clockWarning.SetActive(true);
+        error.Play();
+        
+        yield return new WaitForSeconds(2);
+        
+        clockWarning.SetActive(false);
+    }
+
     public void AddCredit()
     {
         creditNumber += 1;
@@ -1349,7 +1372,7 @@ public class GameManager : MonoBehaviour
 
 
             //display damage score
-
+            /*
             theNedText.GetComponent<TextMeshProUGUI>().text = nedDamage.ToString();
             theHackText.GetComponent<TextMeshProUGUI>().text = hackDamage.ToString();
             theSwitchesText.GetComponent<TextMeshProUGUI>().text = switchesDamage.ToString();
@@ -1357,16 +1380,19 @@ public class GameManager : MonoBehaviour
             theClockText.GetComponent<TextMeshProUGUI>().text = clockDamage.ToString();
             resourcesText.GetComponent<TextMeshProUGUI>().text = resourcesDamage.ToString();
             damageAmountText.GetComponent<TextMeshProUGUI>().text = damageNumber.ToString();
+            */
+            StartCoroutine(ShowScoresOneByOne());
         }
         else
         {
-            readoutSFX.Play();
+            error.Play();
             damageNumber = 0;
             nedDamage = 0;
             hackDamage = 0;
             switchesDamage = 0;
             rollbonusDamage = 0;
             resourcesDamage = 0;
+            clockDamage = 0;
             damageNumber = 0;
 
             theNedText.GetComponent<TextMeshProUGUI>().text = nedDamage.ToString();
@@ -1378,6 +1404,31 @@ public class GameManager : MonoBehaviour
             damageAmountText.GetComponent<TextMeshProUGUI>().text = damageNumber.ToString();
         }
         
+    }
+
+    IEnumerator ShowScoresOneByOne()
+    {
+        theNedText.GetComponent<TextMeshProUGUI>().text = nothing;
+        theHackText.GetComponent<TextMeshProUGUI>().text = nothing;
+        theSwitchesText.GetComponent<TextMeshProUGUI>().text = nothing;
+        rollBonusText.GetComponent<TextMeshProUGUI>().text = nothing;
+        theClockText.GetComponent<TextMeshProUGUI>().text = nothing;
+        resourcesText.GetComponent<TextMeshProUGUI>().text = nothing;
+        damageAmountText.GetComponent<TextMeshProUGUI>().text = nothing;
+        yield return new WaitForSeconds(0.5f);
+        theNedText.GetComponent<TextMeshProUGUI>().text = nedDamage.ToString();
+        yield return new WaitForSeconds(0.5f);
+        theHackText.GetComponent<TextMeshProUGUI>().text = hackDamage.ToString();
+        yield return new WaitForSeconds(0.5f);
+        theSwitchesText.GetComponent<TextMeshProUGUI>().text = switchesDamage.ToString();
+        yield return new WaitForSeconds(0.5f);
+        rollBonusText.GetComponent<TextMeshProUGUI>().text = rollbonusDamage.ToString();
+        yield return new WaitForSeconds(0.5f);
+        theClockText.GetComponent<TextMeshProUGUI>().text = clockDamage.ToString();
+        yield return new WaitForSeconds(0.5f);
+        resourcesText.GetComponent<TextMeshProUGUI>().text = resourcesDamage.ToString();
+        yield return new WaitForSeconds(0.5f);
+        damageAmountText.GetComponent<TextMeshProUGUI>().text = damageNumber.ToString();
     }
 
 }

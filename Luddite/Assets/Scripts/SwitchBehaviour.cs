@@ -56,450 +56,487 @@ public class SwitchBehaviour : MonoBehaviour
 
     public void SwitchOneIsClicked()
     {
-        gameManager.select.Play();
-        if (switchOneIsOn == false)
+        if (gameManager.mustUseClock == false)
         {
-            switchOneIsOn = true;
-            
-            switchOneCounter += 1;
-
-            if (switchOneCounter == 1)
+            gameManager.select.Play();
+            if (switchOneIsOn == false)
             {
-                crosses[0].SetActive(true);
+                switchOneIsOn = true;
+
+                switchOneCounter += 1;
+
+                if (switchOneCounter == 1)
+                {
+                    crosses[0].SetActive(true);
+                }
+
+                else if (switchOneCounter == 3)
+                {
+                    crosses[2].SetActive(true);
+                }
+
+                if (switchOneCounter == 3)
+                {
+                    switchOneIsDone = true;
+                    gameManager.damageNumber += 2;
+                    gameManager.switchesDamage += 2;
+                }
+
+
             }
-           
-            else if (switchOneCounter == 3)
+            else if (switchOneIsOn == true)
             {
-                crosses[2].SetActive(true);
+                switchOneIsOn = false;
+                switchOneCounter += 1;
+
+                if (switchOneCounter == 2)
+                {
+                    crosses[1].SetActive(true);
+                }
             }
 
-            if (switchOneCounter == 3)
+            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
             {
-                switchOneIsDone = true;
-                gameManager.damageNumber += 2;
-                gameManager.switchesDamage += 2;
+                gameManager.Die1Disable();
             }
-            
-
-        }
-        else if (switchOneIsOn == true)
-        {
-            switchOneIsOn = false;
-            switchOneCounter += 1;
-
-            if (switchOneCounter == 2)
+            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
             {
-                crosses[1].SetActive(true);
-            }  
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
+            {
+                gameManager.Die3Disable();
+            }
+            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+            {
+                gameManager.Die4Disable();
+                gameManager.die4visible = false;
+            }
+            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+            {
+                gameManager.die1amount -= 1;
+            }
+            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+            {
+                gameManager.die2amount -= 1;
+            }
+            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+            {
+                gameManager.die3amount -= 1;
+            }
+            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+            {
+                gameManager.die4amount -= 1;
+            }
         }
-
-        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
+        else
         {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
-        {
-            gameManager.Die3Disable();
-        }
-        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
-        {
-            gameManager.Die4Disable();
-            gameManager.die4visible = false;
-        }
-        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
-        {
-            gameManager.die1amount -= 1;
-        }
-        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
-        {
-            gameManager.die2amount -= 1;
-        }
-        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
-        {
-            gameManager.die3amount -= 1;
-        }
-        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
-        {
-            gameManager.die4amount -= 1;
+            gameManager.ClockErrorScreen();
         }
 
     }
 
     public void SwitchTwoIsClicked()
     {
-        gameManager.select.Play();
-        if (switchTwoIsOn == false)
+        if (gameManager.mustUseClock == false)
         {
-            switchTwoIsOn = true;
-
-            switchTwoCounter += 1;
-
-            if (switchTwoCounter == 1)
+            gameManager.select.Play();
+            if (switchTwoIsOn == false)
             {
-                crosses[3].SetActive(true);
+                switchTwoIsOn = true;
+
+                switchTwoCounter += 1;
+
+                if (switchTwoCounter == 1)
+                {
+                    crosses[3].SetActive(true);
+                }
+
+                else if (switchTwoCounter == 3)
+                {
+                    crosses[5].SetActive(true);
+                }
+
+                if (switchTwoCounter == 3)
+                {
+                    switchTwoIsDone = true;
+                    gameManager.damageNumber += 2;
+                    gameManager.switchesDamage += 2;
+                }
+            }
+            else if (switchTwoIsOn == true)
+            {
+                switchTwoIsOn = false;
+                switchTwoCounter += 1;
+
+                if (switchTwoCounter == 2)
+                {
+                    crosses[4].SetActive(true);
+                }
             }
 
-            else if (switchTwoCounter == 3)
+            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
             {
-                crosses[5].SetActive(true);
+                gameManager.Die1Disable();
             }
-
-            if (switchTwoCounter == 3)
+            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
             {
-                switchTwoIsDone = true;
-                gameManager.damageNumber += 2;
-                gameManager.switchesDamage += 2;
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
+            {
+                gameManager.Die3Disable();
+            }
+            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+            {
+                gameManager.Die4Disable();
+                gameManager.die4visible = false;
+            }
+            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+            {
+                gameManager.die1amount -= 1;
+            }
+            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+            {
+                gameManager.die2amount -= 1;
+            }
+            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+            {
+                gameManager.die3amount -= 1;
+            }
+            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+            {
+                gameManager.die4amount -= 1;
             }
         }
-        else if (switchTwoIsOn == true)
+        else
         {
-            switchTwoIsOn = false;
-            switchTwoCounter += 1;
-
-            if (switchTwoCounter == 2)
-            {
-                crosses[4].SetActive(true);
-            }       
+            gameManager.ClockErrorScreen();
         }
-
-        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
-        {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
-        {
-            gameManager.Die3Disable();
-        }
-        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
-        {
-            gameManager.Die4Disable();
-            gameManager.die4visible = false;
-        }
-        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
-        {
-            gameManager.die1amount -= 1;
-        }
-        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
-        {
-            gameManager.die2amount -= 1;
-        }
-        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
-        {
-            gameManager.die3amount -= 1;
-        }
-        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
-        {
-            gameManager.die4amount -= 1;
-        }
-
     }
 
     public void SwitchThreeIsClicked()
     {
-        gameManager.select.Play();
-        if (switchThreeIsOn == false)
+        if (gameManager.mustUseClock == false)
         {
-            switchThreeIsOn = true;
-
-            switchThreeCounter += 1;
-
-            if (switchThreeCounter == 1)
+            gameManager.select.Play();
+            if (switchThreeIsOn == false)
             {
-                crosses[6].SetActive(true);
+                switchThreeIsOn = true;
+
+                switchThreeCounter += 1;
+
+                if (switchThreeCounter == 1)
+                {
+                    crosses[6].SetActive(true);
+                }
+
+                else if (switchThreeCounter == 3)
+                {
+                    crosses[8].SetActive(true);
+                }
+
+                if (switchThreeCounter == 3)
+                {
+                    switchThreeIsDone = true;
+                    gameManager.damageNumber += 2;
+                    gameManager.switchesDamage += 2;
+                }
+            }
+            else if (switchThreeIsOn == true)
+            {
+                switchThreeIsOn = false;
+                switchThreeCounter += 1;
+
+                if (switchThreeCounter == 2)
+                {
+                    crosses[7].SetActive(true);
+                }
+
+
             }
 
-            else if (switchThreeCounter == 3)
+            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
             {
-                crosses[8].SetActive(true);
+                gameManager.Die1Disable();
             }
-
-            if (switchThreeCounter == 3)
+            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
             {
-                switchThreeIsDone = true;
-                gameManager.damageNumber += 2;
-                gameManager.switchesDamage += 2;
+                gameManager.Die2Disable();
             }
-        }
-        else if (switchThreeIsOn == true)
-        {
-            switchThreeIsOn = false;
-            switchThreeCounter += 1;
-
-            if (switchThreeCounter == 2)
+            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
             {
-                crosses[7].SetActive(true);
+                gameManager.Die3Disable();
             }
-
-         
+            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+            {
+                gameManager.Die4Disable();
+                gameManager.die4visible = false;
+            }
+            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+            {
+                gameManager.die1amount -= 1;
+            }
+            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+            {
+                gameManager.die2amount -= 1;
+            }
+            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+            {
+                gameManager.die3amount -= 1;
+            }
+            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+            {
+                gameManager.die4amount -= 1;
+            }
         }
-
-        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
+        else
         {
-            gameManager.Die1Disable();
+            gameManager.ClockErrorScreen();
         }
-        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
-        {
-            gameManager.Die3Disable();
-        }
-        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
-        {
-            gameManager.Die4Disable();
-            gameManager.die4visible = false;
-        }
-        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
-        {
-            gameManager.die1amount -= 1;
-        }
-        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
-        {
-            gameManager.die2amount -= 1;
-        }
-        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
-        {
-            gameManager.die3amount -= 1;
-        }
-        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
-        {
-            gameManager.die4amount -= 1;
-        }
-
     }
 
     public void SwitchFourIsClicked()
     {
-        gameManager.select.Play();
-        if (switchFourIsOn == false)
+        if (gameManager.mustUseClock == false)
         {
-            switchFourIsOn = true;
-
-            switchFourCounter += 1;
-
-            if (switchFourCounter == 1)
+            gameManager.select.Play();
+            if (switchFourIsOn == false)
             {
-                crosses[9].SetActive(true);
+                switchFourIsOn = true;
+
+                switchFourCounter += 1;
+
+                if (switchFourCounter == 1)
+                {
+                    crosses[9].SetActive(true);
+                }
+
+                else if (switchFourCounter == 3)
+                {
+                    crosses[11].SetActive(true);
+                }
+
+                if (switchFourCounter == 3)
+                {
+                    switchFourIsDone = true;
+                    gameManager.damageNumber += 2;
+                    gameManager.switchesDamage += 2;
+                }
+            }
+            else if (switchFourIsOn == true)
+            {
+                switchFourIsOn = false;
+                switchFourCounter += 1;
+
+                if (switchFourCounter == 2)
+                {
+                    crosses[10].SetActive(true);
+                }
+
+
             }
 
-            else if (switchFourCounter == 3)
+            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
             {
-                crosses[11].SetActive(true);
+                gameManager.Die1Disable();
             }
-
-            if (switchFourCounter == 3)
+            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
             {
-                switchFourIsDone = true;
-                gameManager.damageNumber += 2;
-                gameManager.switchesDamage += 2;
+                gameManager.Die2Disable();
             }
-        }
-        else if (switchFourIsOn == true)
-        {
-            switchFourIsOn = false;
-            switchFourCounter += 1;
-
-            if (switchFourCounter == 2)
+            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
             {
-                crosses[10].SetActive(true);
+                gameManager.Die3Disable();
             }
-
-          
+            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+            {
+                gameManager.Die4Disable();
+                gameManager.die4visible = false;
+            }
+            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+            {
+                gameManager.die1amount -= 1;
+            }
+            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+            {
+                gameManager.die2amount -= 1;
+            }
+            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+            {
+                gameManager.die3amount -= 1;
+            }
+            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+            {
+                gameManager.die4amount -= 1;
+            }
         }
-
-        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
+        else
         {
-            gameManager.Die1Disable();
+            gameManager.ClockErrorScreen();
         }
-        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
-        {
-            gameManager.Die3Disable();
-        }
-        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
-        {
-            gameManager.Die4Disable();
-            gameManager.die4visible = false;
-        }
-        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
-        {
-            gameManager.die1amount -= 1;
-        }
-        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
-        {
-            gameManager.die2amount -= 1;
-        }
-        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
-        {
-            gameManager.die3amount -= 1;
-        }
-        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
-        {
-            gameManager.die4amount -= 1;
-        }
-
     }
 
     public void SwitchFiveIsClicked()
     {
-        gameManager.select.Play();
-        if (switchFiveIsOn == false)
+        if (gameManager.mustUseClock == false)
         {
-            switchFiveIsOn = true;
-
-            switchFiveCounter += 1;
-
-            if (switchFiveCounter == 1)
+            gameManager.select.Play();
+            if (switchFiveIsOn == false)
             {
-                crosses[12].SetActive(true);
+                switchFiveIsOn = true;
+
+                switchFiveCounter += 1;
+
+                if (switchFiveCounter == 1)
+                {
+                    crosses[12].SetActive(true);
+                }
+
+                else if (switchFiveCounter == 3)
+                {
+                    crosses[14].SetActive(true);
+                    gameManager.damageNumber += 2;
+                    gameManager.switchesDamage += 2;
+                }
+
+                if (switchFiveCounter == 3)
+                {
+                    switchFiveIsDone = true;
+                }
+            }
+            else if (switchFiveIsOn == true)
+            {
+                switchFiveIsOn = false;
+                switchFiveCounter += 1;
+
+                if (switchFiveCounter == 2)
+                {
+                    crosses[13].SetActive(true);
+                }
+
+
             }
 
-            else if (switchFiveCounter == 3)
+            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
             {
-                crosses[14].SetActive(true);
-                gameManager.damageNumber += 2;
-                gameManager.switchesDamage += 2;
+                gameManager.Die1Disable();
             }
-
-            if (switchFiveCounter == 3)
+            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
             {
-                switchFiveIsDone = true;
+                gameManager.Die2Disable();
             }
-        }
-        else if (switchFiveIsOn == true)
-        {
-            switchFiveIsOn = false;
-            switchFiveCounter += 1;
-
-            if (switchFiveCounter == 2)
+            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
             {
-                crosses[13].SetActive(true);
+                gameManager.Die3Disable();
             }
-
-          
+            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+            {
+                gameManager.Die4Disable();
+                gameManager.die4visible = false;
+            }
+            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+            {
+                gameManager.die1amount -= 1;
+            }
+            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+            {
+                gameManager.die2amount -= 1;
+            }
+            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+            {
+                gameManager.die3amount -= 1;
+            }
+            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+            {
+                gameManager.die4amount -= 1;
+            }
         }
-
-        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
+        else
         {
-            gameManager.Die1Disable();
+            gameManager.ClockErrorScreen();
         }
-        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
-        {
-            gameManager.Die3Disable();
-        }
-        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
-        {
-            gameManager.Die4Disable();
-            gameManager.die4visible = false;
-        }
-        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
-        {
-            gameManager.die1amount -= 1;
-        }
-        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
-        {
-            gameManager.die2amount -= 1;
-        }
-        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
-        {
-            gameManager.die3amount -= 1;
-        }
-        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
-        {
-            gameManager.die4amount -= 1;
-        }
-
     }
 
     public void SwitchSixIsClicked()
     {
-        gameManager.select.Play();
-        if (switchSixIsOn == false)
+        if (gameManager.mustUseClock == false)
         {
-            switchSixIsOn = true;
-
-            switchSixCounter += 1;
-
-            if (switchSixCounter == 1)
+            gameManager.select.Play();
+            if (switchSixIsOn == false)
             {
-                crosses[15].SetActive(true);
+                switchSixIsOn = true;
+
+                switchSixCounter += 1;
+
+                if (switchSixCounter == 1)
+                {
+                    crosses[15].SetActive(true);
+                }
+
+                else if (switchSixCounter == 3)
+                {
+                    crosses[17].SetActive(true);
+                }
+
+                if (switchSixCounter == 3)
+                {
+                    switchSixIsDone = true;
+                    gameManager.damageNumber += 2;
+                    gameManager.switchesDamage += 2;
+                }
+            }
+            else if (switchSixIsOn == true)
+            {
+                switchSixIsOn = false;
+                switchSixCounter += 1;
+
+                if (switchSixCounter == 2)
+                {
+                    crosses[16].SetActive(true);
+                }
             }
 
-            else if (switchSixCounter == 3)
+
+
+            if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
             {
-                crosses[17].SetActive(true);
+                gameManager.Die1Disable();
             }
-
-            if (switchSixCounter == 3)
+            else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
             {
-                switchSixIsDone = true;
-                gameManager.damageNumber += 2;
-                gameManager.switchesDamage += 2;
+                gameManager.Die2Disable();
+            }
+            else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
+            {
+                gameManager.Die3Disable();
+            }
+            else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
+            {
+                gameManager.Die4Disable();
+                gameManager.die4visible = false;
+            }
+            else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
+            {
+                gameManager.die1amount -= 1;
+            }
+            else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
+            {
+                gameManager.die2amount -= 1;
+            }
+            else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
+            {
+                gameManager.die3amount -= 1;
+            }
+            else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
+            {
+                gameManager.die4amount -= 1;
             }
         }
-        else if (switchSixIsOn == true)
+        else
         {
-            switchSixIsOn = false;
-            switchSixCounter += 1;
-
-            if (switchSixCounter == 2)
-            {
-                crosses[16].SetActive(true);
-            }         
+            gameManager.ClockErrorScreen();
         }
-
-        
-
-        if (gameManager.dieOneIsActive == true && gameManager.die1amount == 1)
-        {
-            gameManager.Die1Disable();
-        }
-        else if (gameManager.dieTwoIsActive == true && gameManager.die2amount == 1)
-        {
-            gameManager.Die2Disable();
-        }
-        else if (gameManager.dieThreeIsActive == true && gameManager.die3amount == 1)
-        {
-            gameManager.Die3Disable();
-        }
-        else if (gameManager.dieFourIsActive == true && gameManager.die4amount == 1)
-        {
-            gameManager.Die4Disable();
-            gameManager.die4visible = false;
-        }
-        else if (gameManager.dieOneIsActive && gameManager.die1amount > 1)
-        {
-            gameManager.die1amount -= 1;
-        }
-        else if (gameManager.dieTwoIsActive && gameManager.die2amount > 1)
-        {
-            gameManager.die2amount -= 1;
-        }
-        else if (gameManager.dieThreeIsActive && gameManager.die3amount > 1)
-        {
-            gameManager.die3amount -= 1;
-        }
-        else if (gameManager.dieFourIsActive && gameManager.die4amount > 1)
-        {
-            gameManager.die4amount -= 1;
-        }
-
     }
 
     public void DoubleMultitoolIsClicked()
