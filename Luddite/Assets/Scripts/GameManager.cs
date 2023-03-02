@@ -106,12 +106,29 @@ public class GameManager : MonoBehaviour
     public AudioSource select;
     public AudioSource readoutSFX;
     public AudioSource error;
+    public AudioSource switchsound;
+    public AudioSource clockAddSound;
 
     public GameObject clockWarning;
 
     private string nothing = " ";
 
     public bool mustUseClock;
+
+    public GameObject die1roller;
+    public GameObject die2roller;
+    public GameObject die3roller;
+
+    public GameObject die1BlueBackground;
+    public GameObject die2BlueBackground;
+    public GameObject die3BlueBackground;
+    public GameObject die4BlueBackground;
+    public GameObject die1RedBackground;
+    public GameObject die2RedBackground;
+    public GameObject die3RedBackground;
+    public GameObject die4RedBackground;
+
+    public GameObject reRollButton;
 
     //Dice are rolled and number shown on screen
     public void RollDie1()
@@ -317,6 +334,11 @@ public class GameManager : MonoBehaviour
     public void Rerollstuff()
     {
         reRollSFX.Play();
+        StartCoroutine(DieRollAnimation());
+
+        die1RedBackground.SetActive(true);
+        die2RedBackground.SetActive(true);
+        die3RedBackground.SetActive(true);
     }
 
     //Die is clicked
@@ -455,6 +477,28 @@ public class GameManager : MonoBehaviour
         dieTwoIsActive = false;
         dieThreeIsActive = false;
         dieFourIsActive = false;
+
+        die1BlueBackground.SetActive(true);
+        die2BlueBackground.SetActive(false);
+        die3BlueBackground.SetActive(false);
+       
+        if (die1isvisible == true)
+        {
+            die1RedBackground.SetActive(false);
+        }
+        if (die2isvisible == true)
+        {
+            die2RedBackground.SetActive(true);
+        }
+        if (die3isvisible == true)
+        {
+            die3RedBackground.SetActive(true);
+        }
+        if (die4visible == true)
+        {
+            die4BlueBackground.SetActive(false);
+            die4RedBackground.SetActive(true);
+        }
     }
 
     void Die2Activate()
@@ -463,6 +507,28 @@ public class GameManager : MonoBehaviour
         dieTwoIsActive = true;
         dieThreeIsActive = false;
         dieFourIsActive = false;
+
+        die1BlueBackground.SetActive(false);
+        die2BlueBackground.SetActive(true);
+        die3BlueBackground.SetActive(false);
+        if (die1isvisible == true)
+        {
+            die1RedBackground.SetActive(true);
+        }
+        if (die2isvisible == true)
+        {
+            die2RedBackground.SetActive(false);
+        }
+        if (die3isvisible == true)
+        {
+            die3RedBackground.SetActive(true);
+        }
+
+        if (die4visible == true)
+        {
+            die4BlueBackground.SetActive(false);
+            die4RedBackground.SetActive(true);
+        }
     }
 
     void Die3Activate()
@@ -471,6 +537,28 @@ public class GameManager : MonoBehaviour
         dieTwoIsActive = false;
         dieThreeIsActive = true;
         dieFourIsActive = false;
+
+        die1BlueBackground.SetActive(false);
+        die2BlueBackground.SetActive(false);
+        die3BlueBackground.SetActive(true);
+        if (die1isvisible == true)
+        {
+            die1RedBackground.SetActive(true);
+        }
+        if (die2isvisible == true)
+        {
+            die2RedBackground.SetActive(true);
+        }
+        if (die3isvisible == true)
+        {
+            die3RedBackground.SetActive(false);
+        }
+
+        if (die4visible == true)
+        {
+            die4BlueBackground.SetActive(false);
+            die4RedBackground.SetActive(true);
+        }
     }
 
     void Die4Activate()
@@ -479,6 +567,27 @@ public class GameManager : MonoBehaviour
         dieTwoIsActive = false;
         dieThreeIsActive = false;
         dieFourIsActive = true;
+
+        die1BlueBackground.SetActive(false);
+        die2BlueBackground.SetActive(false);
+        die3BlueBackground.SetActive(false);
+        if (die1isvisible == true)
+        {
+            die1RedBackground.SetActive(true);
+        }
+        if (die2isvisible == true)
+        {
+            die2RedBackground.SetActive(true);
+        }
+        if (die3isvisible == true)
+        {
+            die3RedBackground.SetActive(true);
+        }
+        if (die4visible == true)
+        {
+            die4BlueBackground.SetActive(true);
+            die4RedBackground.SetActive(false);
+        }
     }
 
 
@@ -487,6 +596,8 @@ public class GameManager : MonoBehaviour
     public void Die1Disable()
     {
         die1.SetActive(false);
+        die1BlueBackground.SetActive(false);
+        die1RedBackground.SetActive(false);
         dieOneIsActive = false;
         die1isvisible = false;
         HasNone();
@@ -496,8 +607,10 @@ public class GameManager : MonoBehaviour
     public void Die2Disable()
     {
         die2.SetActive(false);
+        die2BlueBackground.SetActive(false);
+        die2RedBackground.SetActive(false);
         dieTwoIsActive = false;
-        die2isvisible = true;
+        die2isvisible = false;
         HasNone();
     
     }
@@ -505,8 +618,10 @@ public class GameManager : MonoBehaviour
     public void Die3Disable()
     {
         die3.SetActive(false);
+        die3BlueBackground.SetActive(false);
+        die3RedBackground.SetActive(false);
         dieThreeIsActive = false;
-        die3isvisible = true;
+        die3isvisible = false;
         HasNone();
      
     }
@@ -514,6 +629,8 @@ public class GameManager : MonoBehaviour
     public void Die4Disable()
     {
         die4.SetActive(false);
+        die4BlueBackground.SetActive(false);
+        die4RedBackground.SetActive(false);
         dieFourIsActive = false;
         die4visible = false;
         dieFourUpButton.SetActive(false);
@@ -526,10 +643,28 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //roll dice at start of game
+
+        die1BlueBackground.SetActive(false);
+        die2BlueBackground.SetActive(false);
+        die3BlueBackground.SetActive(false);
+        die4BlueBackground.SetActive(false);
+        die4RedBackground.SetActive(false);
+        StartCoroutine(DieRollAnimation());
         RollDie1();
         RollDie2();
         RollDie3();
 
+    }
+
+    IEnumerator DieRollAnimation()
+    {
+        die1roller.SetActive(true);
+        die2roller.SetActive(true);
+        die3roller.SetActive(true);
+        yield return new WaitForSeconds(1.8f);
+        die1roller.SetActive(false);
+        die2roller.SetActive(false);
+        die3roller.SetActive(false);
     }
 
     //Double Credit Creates new Die 4
@@ -653,6 +788,16 @@ public class GameManager : MonoBehaviour
         else
         {
             doubleCreditbutton.SetActive(false);
+        }
+
+        //only show reroll button when all dice used
+        if(((die1isvisible == false && die2isvisible == false) && die3isvisible == false) && die4visible == false)
+        {
+            reRollButton.SetActive(true);
+        }
+        else
+        {
+            reRollButton.SetActive(false);
         }
     }
 

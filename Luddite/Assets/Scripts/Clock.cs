@@ -41,15 +41,15 @@ public class Clock : MonoBehaviour
     public void AddDieButtonIsClicked()
     {
         hasUsedClockThisRound = true;
-        gameManager.select.Play();
+        
         clockWarning.SetActive(false);
 
         if(gameManager.GetComponent<GameManager>().hasOne == true)
         {
             if (latestCross <= 31)
             {
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add1Cross());
+              
             }
         }
         else if (gameManager.GetComponent<GameManager>().hasTwo == true)
@@ -57,15 +57,13 @@ public class Clock : MonoBehaviour
 
             if (latestCross <= 30)
             {
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add2Crosses());
+              
             }
             else if (latestCross <= 31)
             {
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add1Cross());
+            
             }
         }
         else if (gameManager.GetComponent<GameManager>().hasThree == true)
@@ -73,24 +71,18 @@ public class Clock : MonoBehaviour
 
             if (latestCross <= 29)
             {
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add3Crosses());
+            
             }
             else if (latestCross <= 30)
             {
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add2Crosses());
+            
             }
             else if (latestCross <= 31)
             {
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add1Cross());
+            
             }
         }
         else if (gameManager.GetComponent<GameManager>().hasFour == true)
@@ -98,36 +90,24 @@ public class Clock : MonoBehaviour
 
             if (latestCross <= 28)
             {
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add4Crosses());
+                
                 AddClockBonus();
             }
             else if (latestCross <= 29)
             {
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add3Crosses());
+                
             }
             else if (latestCross <= 30)
             {
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add2Crosses());
+             
             }
             else if (latestCross <= 31)
             {
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add1Cross());
+                
             }
 
         }
@@ -136,113 +116,65 @@ public class Clock : MonoBehaviour
 
             if (latestCross <= 27)
             {
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add5Crosses());
+              
                 AddClockBonus();
             }
             else if (latestCross <= 28)
             {
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add4Crosses());
+              
             }
             else if (latestCross <= 29)
             {
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add3Crosses());
+               
             }
             else if (latestCross <= 30)
             {
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add2Crosses());
+             
             }
             else if (latestCross <= 31)
             {
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add1Cross());
+           
             }
         }
         else if (gameManager.GetComponent<GameManager>().hasSix == true)
         {
             if (latestCross <= 26)
             {
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add6Crosses());
+               
                 AddClockBonus();
             }
             else if (latestCross <= 27)
             {
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add5Crosses());
+               
             }
             else if (latestCross <= 28)
             {
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add4Crosses());
+              
             }
             else if (latestCross <= 29)
             {
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add3Crosses());
+             
+                
             }
             else if (latestCross <= 30)
             {
-                AddCrosses();
-                latestCross += 1;
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add2Crosses());
+                
+         
             }
             else if (latestCross <= 31)
             {
-                AddCrosses();
-                latestCross += 1;
+                StartCoroutine(Add1Cross());
+                
             }
         }
 
@@ -336,12 +268,135 @@ public class Clock : MonoBehaviour
         }
     }
 
+/*
     private void AddCrosses()
     {
 
         if (latestCross <= 31)
         {
             crosses[latestCross].SetActive(true);
+        }
+    }
+*/
+
+    IEnumerator Add1Cross()
+    {
+        if (latestCross <= 31)
+        {
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    IEnumerator Add2Crosses()
+    {
+        if (latestCross <= 31)
+        {
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+        }
+    }
+
+    IEnumerator Add3Crosses()
+    {
+        if (latestCross <= 31)
+        {
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+        }
+    }
+
+    IEnumerator Add4Crosses()
+    {
+        if (latestCross <= 31)
+        {
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+        }
+    }
+
+    IEnumerator Add5Crosses()
+    {
+        if (latestCross <= 31)
+        {
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+        }
+    }
+
+    IEnumerator Add6Crosses()
+    {
+        if (latestCross <= 31)
+        {
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
+            yield return new WaitForSeconds(0.2f);
+            crosses[latestCross].SetActive(true);
+            gameManager.clockAddSound.Play();
+            latestCross += 1;
         }
     }
 
@@ -459,6 +514,7 @@ public class Clock : MonoBehaviour
         gameManager.mustUseClock = true;
     }
 
+    /*
     private void AddLastToClock()
     {
         
@@ -472,7 +528,7 @@ public class Clock : MonoBehaviour
         
     }
 
-
+    
     public void AddUnusedDietoClock()
     {
         whatToAdd = 0;
@@ -660,4 +716,5 @@ public class Clock : MonoBehaviour
 
         }
     }
+    */
 }

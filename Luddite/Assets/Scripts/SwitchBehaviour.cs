@@ -58,7 +58,7 @@ public class SwitchBehaviour : MonoBehaviour
     {
         if (gameManager.mustUseClock == false)
         {
-            gameManager.select.Play();
+            gameManager.switchsound.Play();
             if (switchOneIsOn == false)
             {
                 switchOneIsOn = true;
@@ -140,7 +140,7 @@ public class SwitchBehaviour : MonoBehaviour
     {
         if (gameManager.mustUseClock == false)
         {
-            gameManager.select.Play();
+            gameManager.switchsound.Play();
             if (switchTwoIsOn == false)
             {
                 switchTwoIsOn = true;
@@ -219,7 +219,7 @@ public class SwitchBehaviour : MonoBehaviour
     {
         if (gameManager.mustUseClock == false)
         {
-            gameManager.select.Play();
+            gameManager.switchsound.Play();
             if (switchThreeIsOn == false)
             {
                 switchThreeIsOn = true;
@@ -300,7 +300,7 @@ public class SwitchBehaviour : MonoBehaviour
     {
         if (gameManager.mustUseClock == false)
         {
-            gameManager.select.Play();
+            gameManager.switchsound.Play();
             if (switchFourIsOn == false)
             {
                 switchFourIsOn = true;
@@ -381,7 +381,7 @@ public class SwitchBehaviour : MonoBehaviour
     {
         if (gameManager.mustUseClock == false)
         {
-            gameManager.select.Play();
+            gameManager.switchsound.Play();
             if (switchFiveIsOn == false)
             {
                 switchFiveIsOn = true;
@@ -462,7 +462,7 @@ public class SwitchBehaviour : MonoBehaviour
     {
         if (gameManager.mustUseClock == false)
         {
-            gameManager.select.Play();
+            gameManager.switchsound.Play();
             if (switchSixIsOn == false)
             {
                 switchSixIsOn = true;
@@ -553,7 +553,7 @@ public class SwitchBehaviour : MonoBehaviour
 
     public void SwitchOneDEIsClicked()
     {
-        gameManager.select.Play();
+        gameManager.switchsound.Play();
         if (switchOneIsOn == false)
         {
             switchOneIsOn = true;
@@ -599,7 +599,7 @@ public class SwitchBehaviour : MonoBehaviour
 
     public void SwitchTwoDEIsClicked()
     {
-        gameManager.select.Play();
+        gameManager.switchsound.Play();
         if (switchTwoIsOn == false)
         {
             switchTwoIsOn = true;
@@ -644,7 +644,7 @@ public class SwitchBehaviour : MonoBehaviour
 
     public void SwitchThreeDEIsClicked()
     {
-        gameManager.select.Play();
+        gameManager.switchsound.Play();
         if (switchThreeIsOn == false)
         {
             switchThreeIsOn = true;
@@ -690,7 +690,7 @@ public class SwitchBehaviour : MonoBehaviour
 
     public void SwitchFourDEIsClicked()
     {
-        gameManager.select.Play();
+        gameManager.switchsound.Play();
         if (switchFourIsOn == false)
         {
             switchFourIsOn = true;
@@ -736,7 +736,7 @@ public class SwitchBehaviour : MonoBehaviour
 
     public void SwitchFiveDEIsClicked()
     {
-        gameManager.select.Play();
+        gameManager.switchsound.Play();
         if (switchFiveIsOn == false)
         {
             switchFiveIsOn = true;
@@ -781,7 +781,7 @@ public class SwitchBehaviour : MonoBehaviour
 
     public void SwitchSixDEIsClicked()
     {
-        gameManager.select.Play();
+        gameManager.switchsound.Play();
         if (switchSixIsOn == false)
         {
             switchSixIsOn = true;
