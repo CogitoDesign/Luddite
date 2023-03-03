@@ -130,6 +130,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject reRollButton;
 
+    public GameObject diceModuleBackground;
+
+    public float speed; 
+
     //Dice are rolled and number shown on screen
     public void RollDie1()
     {
@@ -635,7 +639,24 @@ public class GameManager : MonoBehaviour
         die4visible = false;
         dieFourUpButton.SetActive(false);
         dieFourDownButton.SetActive(false);
+        MoveDiceModuleBackgroundRight();
         HasNone();
+
+    }
+
+    //Move Dice Module background
+
+    public void MoveDiceModuleBackgroundRight()
+    {
+       diceModuleBackground.GetComponent<Animator>().SetBool("moveRight", true);
+       diceModuleBackground.GetComponent<Animator>().SetBool("moveLeft", false);
+
+    }
+
+    public void MoveDiceModuleBackgroundLeft()
+    {
+        diceModuleBackground.GetComponent<Animator>().SetBool("moveLeft", true);
+        diceModuleBackground.GetComponent<Animator>().SetBool("moveRight", false);
 
     }
 
@@ -679,6 +700,7 @@ public class GameManager : MonoBehaviour
         dieFourDownButton.SetActive(true);
         creditNumber -= 2;
         die4amount = 1;
+        MoveDiceModuleBackgroundLeft();
         select.Play();
 
     }
