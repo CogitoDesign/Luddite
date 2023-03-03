@@ -105,12 +105,12 @@ public class NeetleBehaviour : MonoBehaviour
 
     public Material green;
 
-    private bool tool1done;
-    private bool tool2done;
-    private bool tool3done;
-    private bool tool4done;
-    private bool tool5done;
-    private bool tool6done;
+    public bool tool1done;
+    public bool tool2done;
+    public bool tool3done;
+    public bool tool4done;
+    public bool tool5done;
+    public bool tool6done;
 
     public GameObject screensAppear;
 
@@ -1806,6 +1806,33 @@ public class NeetleBehaviour : MonoBehaviour
         CheckUpLocationIsOpen();
         CheckDownLocationIsOpen();
 
+        //check if tools are done and turn off
+        if (tool1done == true)
+        {
+            hacScreen.GetComponent<HackBehaviour>().tool1BLUE.SetActive(false);
+        }
+        if (tool2done == true)
+        {
+            hacScreen.GetComponent<HackBehaviour>().tool2BLUE.SetActive(false);
+        }
+        if (tool3done == true)
+        {
+            hacScreen.GetComponent<HackBehaviour>().tool3BLUE.SetActive(false);
+        }
+        if (tool4done == true)
+        {
+            hacScreen.GetComponent<HackBehaviour>().tool4BLUE.SetActive(false);
+        }
+        if (tool5done == true)
+        {
+            hacScreen.GetComponent<HackBehaviour>().tool5BLUE.SetActive(false);
+        }
+        if (tool6done == true)
+        {
+            hacScreen.GetComponent<HackBehaviour>().tool6BLUE.SetActive(false);
+        }
+
+
         if (neetleAnimator.GetBool("isMoving") == true)
         {
 
@@ -2068,6 +2095,8 @@ public class NeetleBehaviour : MonoBehaviour
        if ((currentXAxis == 1 && currentYAxis == 4) && (hacScreen.GetComponent<HackBehaviour>().hasTool2 == true && tool2done == false))
        {
             tool2done = true;
+            hacScreen.GetComponent<HackBehaviour>().tool2.SetActive(true);
+            
             toolNodes[1].GetComponent<MeshRenderer>().material = green;
             gameManager.damageNumber += 12;
             gameManager.nedDamage += 12;
@@ -2079,6 +2108,7 @@ public class NeetleBehaviour : MonoBehaviour
         if ((currentXAxis == 2 && currentYAxis == 2) && (hacScreen.GetComponent<HackBehaviour>().hasTool1 == true && tool1done == false))
         {
             tool1done = true;
+            hacScreen.GetComponent<HackBehaviour>().tool1.SetActive(true);
             toolNodes[0].GetComponent<MeshRenderer>().material = green;
             gameManager.damageNumber += 9;
             gameManager.nedDamage += 9;
@@ -2090,6 +2120,7 @@ public class NeetleBehaviour : MonoBehaviour
         if ((currentXAxis == 3 && currentYAxis == 4) && (hacScreen.GetComponent<HackBehaviour>().hasTool4 == true && tool4done == false))
         {
             tool4done = true;
+            hacScreen.GetComponent<HackBehaviour>().tool4.SetActive(true);
             toolNodes[3].GetComponent<MeshRenderer>().material = green;
             gameManager.damageNumber += 15;
             gameManager.nedDamage += 15;
@@ -2101,6 +2132,7 @@ public class NeetleBehaviour : MonoBehaviour
         if ((currentXAxis == 4 && currentYAxis == 2) && (hacScreen.GetComponent<HackBehaviour>().hasTool5 == true && tool5done == false))
         {
             tool5done = true;
+            hacScreen.GetComponent<HackBehaviour>().tool5.SetActive(true);
             toolNodes[4].GetComponent<MeshRenderer>().material = green;
             gameManager.damageNumber += 15;
             gameManager.nedDamage += 15;
@@ -2112,6 +2144,7 @@ public class NeetleBehaviour : MonoBehaviour
         if ((currentXAxis == 5 && currentYAxis == 3) && (hacScreen.GetComponent<HackBehaviour>().hasTool3 == true && tool3done == false))
         {
             tool3done = true;
+            hacScreen.GetComponent<HackBehaviour>().tool3.SetActive(true);
             toolNodes[2].GetComponent<MeshRenderer>().material = green;
             gameManager.damageNumber += 17;
             gameManager.nedDamage += 17;
@@ -2123,6 +2156,7 @@ public class NeetleBehaviour : MonoBehaviour
         if ((currentXAxis == 6 && currentYAxis == 1) && (hacScreen.GetComponent<HackBehaviour>().hasTool6 == true && tool6done == false))
         {
             tool6done = true;
+            hacScreen.GetComponent<HackBehaviour>().tool6.SetActive(true);
             toolNodes[5].GetComponent<MeshRenderer>().material = green;
             gameManager.damageNumber += 20;
             gameManager.nedDamage += 20;

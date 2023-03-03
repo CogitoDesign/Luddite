@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
     public AudioSource error;
     public AudioSource switchsound;
     public AudioSource clockAddSound;
+    public AudioSource dieModuleBackgroundMoveSFX;
 
     public GameObject clockWarning;
 
@@ -649,6 +650,7 @@ public class GameManager : MonoBehaviour
     public void MoveDiceModuleBackgroundRight()
     {
        diceModuleBackground.GetComponent<Animator>().SetBool("moveRight", true);
+       dieModuleBackgroundMoveSFX.Play();
        diceModuleBackground.GetComponent<Animator>().SetBool("moveLeft", false);
 
     }
@@ -656,6 +658,7 @@ public class GameManager : MonoBehaviour
     public void MoveDiceModuleBackgroundLeft()
     {
         diceModuleBackground.GetComponent<Animator>().SetBool("moveLeft", true);
+        dieModuleBackgroundMoveSFX.Play();
         diceModuleBackground.GetComponent<Animator>().SetBool("moveRight", false);
 
     }
