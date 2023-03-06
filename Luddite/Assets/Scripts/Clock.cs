@@ -212,59 +212,70 @@ public class Clock : MonoBehaviour
             gameManager.die4amount -= 1;
         }
 
-        clockBonus();
+      
     }
 
     private void clockBonus()
     {
+  
         if (crosses[0].activeSelf == true && crosses[1].activeSelf == false)
         {
             gameManager.energyNumber += 1;
+            gameManager.bonusSFX.Play();
         }
 
         if (crosses[5].activeSelf == true && crosses[6].activeSelf == false)
         {
             gameManager.multitoolNumber += 1;
+            gameManager.bonusSFX.Play();
         }
 
         if (crosses[9].activeSelf == true && crosses[10].activeSelf == false)
         {
             gameManager.energyNumber += 1;
+            gameManager.bonusSFX.Play();
         }
 
         if (crosses[11].activeSelf == true && crosses[12].activeSelf == false)
         {
             gameManager.multitoolNumber += 1;
+            gameManager.bonusSFX.Play();
         }
 
         if (crosses[13].activeSelf == true && crosses[14].activeSelf == false)
         {
             gameManager.creditNumber += 1;
+            gameManager.bonusSFX.Play();
         }
 
         if (crosses[16].activeSelf == true && crosses[17].activeSelf == false)
         {
             gameManager.energyNumber += 1;
+            gameManager.bonusSFX.Play();
         }
 
         if (crosses[21].activeSelf == true && crosses[22].activeSelf == false)
         {
             gameManager.multitoolNumber += 1;
+            gameManager.bonusSFX.Play();
         }
 
         if (crosses[25].activeSelf == true && crosses[26].activeSelf == false)
         {
             gameManager.energyNumber += 1;
+            gameManager.bonusSFX.Play();
         }
 
         if (crosses[27].activeSelf == true && crosses[28].activeSelf == false)
         {
             gameManager.multitoolNumber += 1;
+            gameManager.bonusSFX.Play();
         }
 
         if (crosses[29].activeSelf == true && crosses[30].activeSelf == false)
         {
             gameManager.creditNumber += 1;
+            gameManager.bonusSFX.Play();
         }
     }
 
@@ -287,6 +298,7 @@ public class Clock : MonoBehaviour
             gameManager.clockAddSound.Play();
             latestCross += 1;
             yield return new WaitForSeconds(0.2f);
+            clockBonus();
         }
     }
 
@@ -301,6 +313,7 @@ public class Clock : MonoBehaviour
             crosses[latestCross].SetActive(true);
             gameManager.clockAddSound.Play();
             latestCross += 1;
+            clockBonus();
         }
     }
 
@@ -319,6 +332,7 @@ public class Clock : MonoBehaviour
             crosses[latestCross].SetActive(true);
             gameManager.clockAddSound.Play();
             latestCross += 1;
+            clockBonus();
         }
     }
 
@@ -341,6 +355,7 @@ public class Clock : MonoBehaviour
             crosses[latestCross].SetActive(true);
             gameManager.clockAddSound.Play();
             latestCross += 1;
+            clockBonus();
         }
     }
 
@@ -367,6 +382,7 @@ public class Clock : MonoBehaviour
             crosses[latestCross].SetActive(true);
             gameManager.clockAddSound.Play();
             latestCross += 1;
+            clockBonus();
         }
     }
 
@@ -397,6 +413,7 @@ public class Clock : MonoBehaviour
             crosses[latestCross].SetActive(true);
             gameManager.clockAddSound.Play();
             latestCross += 1;
+            clockBonus();
         }
     }
 
@@ -473,19 +490,55 @@ public class Clock : MonoBehaviour
 
             if (gameManager.die1.activeSelf == true && ((gameManager.die2.activeSelf == false && gameManager.die3.activeSelf == false) && gameManager.die4.activeSelf == false))
             {
-                lastDietoClock();
+                if (gameManager.die1amount == 1)
+                {
+                    lastDietoClock();
+                }
+                else
+                {
+                    clockWarning.SetActive(false);
+                    gameManager.mustUseClock = false;
+                }
+
             }
             else if (gameManager.die2.activeSelf == true && ((gameManager.die1.activeSelf == false && gameManager.die3.activeSelf == false) && gameManager.die4.activeSelf == false))
             {
-                lastDietoClock();
+                if (gameManager.die2amount == 1)
+                {
+                    lastDietoClock();
+                }
+                else
+                {
+                    clockWarning.SetActive(false);
+                    gameManager.mustUseClock = false;
+                }
+
             }
             else if (((gameManager.die1.activeSelf == false && gameManager.die2.activeSelf == false) && gameManager.die4.activeSelf == false) && gameManager.die3.activeSelf == true)
             {
-                lastDietoClock();
+                if (gameManager.die3amount == 1)
+                {
+                    lastDietoClock();
+                }
+                else
+                {
+                    clockWarning.SetActive(false);
+                    gameManager.mustUseClock = false;
+                }
+
             }
             else if (((gameManager.die1.activeSelf == false && gameManager.die2.activeSelf == false) && gameManager.die3.activeSelf == false) && gameManager.die4.activeSelf == true)
             {
-                lastDietoClock();
+                if (gameManager.die4amount == 1)
+                {
+                    lastDietoClock();
+                }
+                else
+                {
+                    clockWarning.SetActive(false);
+                    gameManager.mustUseClock = false;
+                }
+
             }
             else
             {

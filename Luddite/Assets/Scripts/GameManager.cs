@@ -109,6 +109,7 @@ public class GameManager : MonoBehaviour
     public AudioSource switchsound;
     public AudioSource clockAddSound;
     public AudioSource dieModuleBackgroundMoveSFX;
+    public AudioSource bonusSFX;
 
     public GameObject clockWarning;
 
@@ -133,7 +134,17 @@ public class GameManager : MonoBehaviour
 
     public GameObject diceModuleBackground;
 
-    public float speed; 
+    public float speed;
+
+    public GameObject die1NumberBackground;
+    public GameObject die2NumberBackground;
+    public GameObject die3NumberBackground;
+    public GameObject die4NumberBackground;
+
+    public GameObject die1NumberText;
+    public GameObject die2NumberText;
+    public GameObject die3NumberText;
+    public GameObject die4NumberText;
 
     //Dice are rolled and number shown on screen
     public void RollDie1()
@@ -780,6 +791,57 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //show if more than one of each dice is available
+        die1NumberText.GetComponent<TextMeshProUGUI>().text = die1amount.ToString();
+        die2NumberText.GetComponent<TextMeshProUGUI>().text = die2amount.ToString();
+        die3NumberText.GetComponent<TextMeshProUGUI>().text = die3amount.ToString();
+        die4NumberText.GetComponent<TextMeshProUGUI>().text = die4amount.ToString();
+
+        if (die1amount > 1)
+        {
+            die1NumberBackground.SetActive(true);
+            die1NumberText.SetActive(true);
+        }
+        else
+        {
+            die1NumberBackground.SetActive(false);
+            die1NumberText.SetActive(false);
+        }
+
+        if (die2amount > 1)
+        {
+            die2NumberBackground.SetActive(true);
+            die2NumberText.SetActive(true);
+        }
+        else
+        {
+            die2NumberBackground.SetActive(false);
+            die2NumberText.SetActive(false);
+        }
+
+        if (die3amount > 1)
+        {
+            die3NumberBackground.SetActive(true);
+            die3NumberText.SetActive(true);
+        }
+        else
+        {
+            die3NumberBackground.SetActive(false);
+            die3NumberText.SetActive(false);
+        }
+
+        if (die4amount > 1)
+        {
+            die4NumberBackground.SetActive(true);
+            die4NumberText.SetActive(true);
+        }
+        else
+        {
+            die4NumberBackground.SetActive(false);
+            die4NumberText.SetActive(false);
+        }
+
         //track resource amounts
         creditTrackerNumber.GetComponent<TextMeshProUGUI>().text = creditNumber.ToString();
         multitoolTrackerNumber.GetComponent<TextMeshProUGUI>().text = multitoolNumber.ToString();

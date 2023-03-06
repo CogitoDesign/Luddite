@@ -67,7 +67,7 @@ public class CameraController : MonoBehaviour
             cameraPosition.y += cameraMoveSpeed * Time.deltaTime;
         }
 
-        if (zoomInisHeldDown == true && cameraPosition.y > 2)
+        if (zoomInisHeldDown == true && cameraPosition.y > 4)
         {
             cameraPosition.y -= cameraMoveSpeed * Time.deltaTime;
         }

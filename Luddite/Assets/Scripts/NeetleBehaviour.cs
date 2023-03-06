@@ -646,7 +646,7 @@ public class NeetleBehaviour : MonoBehaviour
         }
         else
         {
-            dieMoveIcon.GetComponent<Image>().sprite = null;
+            dieMoveIcon.GetComponent<Image>().sprite = numberSprites[6];
         }
     }
 
@@ -1837,7 +1837,7 @@ public class NeetleBehaviour : MonoBehaviour
         {
 
             Vector3 dir = targetLocation.transform.position - transform.position;
-            dir.y = 0;
+            dir.y = 0.1f;
             // keep the direction strictly horizontal
             Quaternion rot = Quaternion.LookRotation(dir);
             // slerp to the desired rotation over time
@@ -1932,115 +1932,207 @@ public class NeetleBehaviour : MonoBehaviour
         {
             x1y2 = true;
         }
+        else
+        {
+            x1y2 = false;
+        }
 
         if (unlockNode.DieOnenode1IsUnlocked == true && switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn)
         {
             x1y3 = true;
+        }
+        else
+        {
+            x1y3 = false;
         }
 
         if (switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
         {
             x1y4 = true;
         }
+        else
+        {
+            x1y4 = false;
+        }
 
         if (unlockNode.DieFivenode1IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
         {
             x2y1 = true;
+        }
+        else
+        {
+            x2y1 = false;
         }
 
         if (!switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn)
         {
             x2y2 = true;
         }
+        else
+        {
+            x2y2 = false;
+        }
 
         if (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
         {
             x2y3 = true;
+        }
+        else
+        {
+            x2y3 = false;
         }
 
         if (switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
         {
             x2y4 = true;
         }
+        else
+        {
+            x2y4 = false;
+        }
 
         if (unlockNode.DieTwonode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn))
         {
             x3y1 = true;
+        }
+        else
+        {
+            x3y1 = false;
         }
 
         if (unlockNode.DieSixnode2IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
         {
             x3y2 = true;
         }
+        else
+        {
+            x3y2 = false;
+        }
 
         if (unlockNode.DieTwonode2IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn))
         {
             x3y3 = true;
+        }
+        else
+        {
+            x3y3 = false;
         }
 
         if (switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
         {
             x3y4 = true;
         }
+        else
+        {
+            x3y4 = false;
+        }
 
         if (unlockNode.DieThreenode1IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
         {
             x4y1 = true;
+        }
+        else
+        {
+            x4y1 = false;
         }
 
         if (!switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
         {
             x4y2 = true;
         }
+        else
+        {
+            x4y2 = false;
+        }
 
         if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
         {
             x4y3 = true;
+        }
+        else
+        {
+            x4y3 = false;
         }
 
         if (unlockNode.DieFivenode2IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn))
         {
             x4y4 = true;
         }
+        else
+        {
+            x4y4 = false;
+        }
 
         if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
         {
             x5y1 = true;
+        }
+        else
+        {
+            x5y1 = false;
         }
 
         if (unlockNode.DieOnenode2IsUnlocked == true && switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn)
         {
             x5y2 = true;
         }
+        else
+        {
+            x5y2 = false;
+        }
 
         if (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
         {
             x5y3 = true;
+        }
+        else
+        {
+            x5y3 = false;
         }
 
         if (unlockNode.DieTwonode3IsUnlocked == true && switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
         {
             x5y4 = true;
         }
+        else
+        {
+            x5y4 = false;
+        }
 
         if (switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
         {
             x6y1 = true;
+        }
+        else
+        {
+            x6y1 = false;
         }
 
         if (unlockNode.DieFournode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn))
         {
             x6y2 = true;
         }
+        else
+        {
+            x6y2 = false;
+        }
 
         if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
         {
             x6y3 = true;
         }
+        else
+        {
+            x6y3 = false;
+        }
 
         if (!switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
         {
             x6y4 = true;
+        }
+        else
+        {
+            x6y4 = false;
         }
 
         //Check if neetle has entered a bonus location and give bonus, turn node green then stop allowing bonus

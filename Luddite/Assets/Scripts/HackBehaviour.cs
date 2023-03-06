@@ -136,7 +136,7 @@ public class HackBehaviour : MonoBehaviour
 
     public NeetleBehaviour neetleBehaviour;
 
-    
+    public bool[] bonuses;
 
     // 1 buttons
 
@@ -1888,73 +1888,126 @@ public class HackBehaviour : MonoBehaviour
     {
         if (buttonFour1isDone == true && buttonSix1isDone == true && buttonThree2isDone == true && buttonFour3isDone == true)
         {
-       
-            hasTool1 = true;
-            tool1.SetActive(false);
-            tool1BLUE.SetActive(true);
-            StartCoroutine(playBonusWithDelay(0.5f));
+            if (neetleBehaviour.GetComponent<NeetleBehaviour>().tool1done == false)
+            {
+                if (bonuses[0] == false)
+                {
+                    bonuses[0] = true;
+                    hasTool1 = true;
+                    tool1.SetActive(false);
+                    tool1BLUE.SetActive(true);
+                    StartCoroutine(playBonusWithDelay(0.5f));
+                }
+            }
         }
 
         if (buttonThree3isDone == true && buttonSix2isDone == true && buttonOne1isDone == true && buttonFive3isDone == true)
         {
-            hasTool2 = true;
-            tool2.SetActive(false);
-            tool2BLUE.SetActive(true);
-            StartCoroutine(playBonusWithDelay(0.5f));
+            if (neetleBehaviour.GetComponent<NeetleBehaviour>().tool2done == false)
+            {
+                if (bonuses[1] == false)
+                {
+                    bonuses[1] = true;
+                    hasTool2 = true;
+                    tool2.SetActive(false);
+                    tool2BLUE.SetActive(true);
+                    StartCoroutine(playBonusWithDelay(0.5f));
+                }
+            }
         }
 
         if (buttonOne1isDone == true && buttonSix3isDone == true && buttonTwo2isDone == true && buttonThree4isDone == true)
         {
-            hasTool3 = true;
-            tool3.SetActive(false);
-            tool3BLUE.SetActive(true);
-            StartCoroutine(playBonusWithDelay(0.5f));
+            if (neetleBehaviour.GetComponent<NeetleBehaviour>().tool3done == false)
+            {
+                if (bonuses[2] == false)
+                {
+                    bonuses[2] = true;
+                    hasTool3 = true;
+                    tool3.SetActive(false);
+                    tool3BLUE.SetActive(true);
+                    StartCoroutine(playBonusWithDelay(0.5f));
+                }
+            }
         }
 
         if (buttonFive4isDone == true && buttonSix5isDone == true && buttonOne4isDone == true && buttonFive6isDone == true)
         {
-            hasTool4 = true;
-            tool4.SetActive(false);
-            tool4BLUE.SetActive(true);
-            StartCoroutine(playBonusWithDelay(0.5f));
+            if (neetleBehaviour.GetComponent<NeetleBehaviour>().tool4done == false)
+            {
+                if (bonuses[3] == false)
+                {
+                    bonuses[3] = true;
+                    hasTool4 = true;
+                    tool4.SetActive(false);
+                    tool4BLUE.SetActive(true);
+                    StartCoroutine(playBonusWithDelay(0.5f));
+                }
+            }
         }
 
         if (buttonFive5isDone == true && buttonTwo4isDone == true && buttonSix7isDone == true && buttonTwo5isDone == true)
         {
-            hasTool5 = true;
-            tool5.SetActive(false);
-            tool5BLUE.SetActive(true);
-            StartCoroutine(playBonusWithDelay(0.5f));
+            if (neetleBehaviour.GetComponent<NeetleBehaviour>().tool5done == false)
+            {
+                if (bonuses[4] == false)
+                {
+                    bonuses[4] = true;
+                    hasTool5 = true;
+                    tool5.SetActive(false);
+                    tool5BLUE.SetActive(true);
+                    StartCoroutine(playBonusWithDelay(0.5f));
+                }
+            }
         }
         if(buttonOne3isDone == true && buttonOne4isDone == true && buttonSix6isDone == true && buttonFour5isDone == true && buttonSix7isDone == true)
         {
-            hasTool6 = true;
-            tool6.SetActive(false);
-            tool6BLUE.SetActive(true);
-            StartCoroutine(playBonusWithDelay(0.5f));
+            if (neetleBehaviour.GetComponent<NeetleBehaviour>().tool6done == false)
+            {
+                if (bonuses[5] == false)
+                {
+                    bonuses[5] = true;
+                    hasTool6 = true;
+                    tool6.SetActive(false);
+                    tool6BLUE.SetActive(true);
+                    StartCoroutine(playBonusWithDelay(0.5f));
+                }
+            }
         }
 
         if(buttonSix4isDone == true && buttonOne2isDone == true)
         {
-            gameManager.AddCredit();
-            StartCoroutine(playBonusWithDelay(0.5f));
+            if (bonuses[6] == false)
+            {
+                bonuses[6] = true;
+                gameManager.AddCredit();
+                StartCoroutine(playBonusWithDelay(0.5f));
+            }
         }
+
         if(buttonFour2isDone == true && buttonThree1isDone == true && buttonFive1isDone == true && buttonTwo1isDone == true && buttonThree2isDone == true && buttonFive2isDone == true)
         {
-            damageBonus1 = true;
-            
-            increaseDamage();
-            StartCoroutine(playBonusWithDelay(0.5f));
+            if (bonuses[7] == false)
+            {
+                bonuses[7] = true;
+                damageBonus1 = true;
+
+                increaseDamage();
+                StartCoroutine(playBonusWithDelay(0.5f));
+            }
 
 
         }
         if(buttonTwo3isDone == true && buttonFive4isDone == true && buttonThree4isDone == true && buttonFour4isDone == true && buttonFive5isDone == true && buttonOne2isDone == true)
         {
-            damageBonus2 = true;
-            
-            increaseDamage();
-            StartCoroutine(playBonusWithDelay(1));
+            if (bonuses[8] == false)
+            {
+                bonuses[8] = true;
+                damageBonus2 = true;
 
+                increaseDamage();
+                StartCoroutine(playBonusWithDelay(1));
+            }
 
         }
     }
@@ -2012,6 +2065,8 @@ public class HackBehaviour : MonoBehaviour
             box.SetActive(true);
         }
     }
+
+    
 
     // Update is called once per frame
     //for each loop makes all gameobjects active when hasNumber is true and all others off last turns all off when no die active
