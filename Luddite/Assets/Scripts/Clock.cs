@@ -43,6 +43,7 @@ public class Clock : MonoBehaviour
         hasUsedClockThisRound = true;
         
         clockWarning.SetActive(false);
+        gameManager.mustUseClock = false;
 
         if(gameManager.GetComponent<GameManager>().hasOne == true)
         {

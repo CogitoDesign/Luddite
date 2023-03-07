@@ -146,6 +146,41 @@ public class GameManager : MonoBehaviour
     public GameObject die3NumberText;
     public GameObject die4NumberText;
 
+    public GameObject failIcon;
+    public GameObject successIcon;
+
+    public GameObject startScreen;
+    public bool easyMode;
+    public bool normalMode;
+    public bool hardMode;
+
+    public int difficultyLevel;
+
+
+    //set difficulty level and turn off start screen
+
+    public void EasyModeIsChosen()
+    {
+        startScreen.SetActive(false);
+        switchsound.Play();
+        difficultyLevel = 50;
+    }
+
+    public void NormalModeIsChosen()
+    {
+        startScreen.SetActive(false);
+        switchsound.Play();
+        difficultyLevel = 60;
+    }
+
+    public void HardModeIsChosen()
+    {
+        startScreen.SetActive(false);
+        switchsound.Play();
+        difficultyLevel = 70;
+    }
+
+
     //Dice are rolled and number shown on screen
     public void RollDie1()
     {
@@ -617,7 +652,9 @@ public class GameManager : MonoBehaviour
         dieOneIsActive = false;
         die1isvisible = false;
         HasNone();
-       
+        dieOneUpButton.SetActive(false);
+        dieOneDownButton.SetActive(false);
+
     }
 
     public void Die2Disable()
@@ -628,7 +665,9 @@ public class GameManager : MonoBehaviour
         dieTwoIsActive = false;
         die2isvisible = false;
         HasNone();
-    
+        dieTwoUpButton.SetActive(false);
+        dieTwoDownButton.SetActive(false);
+
     }
 
     public void Die3Disable()
@@ -639,7 +678,9 @@ public class GameManager : MonoBehaviour
         dieThreeIsActive = false;
         die3isvisible = false;
         HasNone();
-     
+        dieThreeUpButton.SetActive(false);
+        dieThreeDownButton.SetActive(false);
+
     }
 
     public void Die4Disable()
@@ -923,6 +964,11 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
+
+            if(dieOneIsActive == true)
+            {
+                HasTwo();
+            }
             
 
         }
@@ -938,7 +984,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-          
+            if (dieOneIsActive == true)
+            {
+                HasThree();
+            }
 
         }
 
@@ -953,7 +1002,11 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-       
+            if (dieOneIsActive == true)
+            {
+                HasFour();
+            }
+
 
         }
 
@@ -968,7 +1021,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-      
+            if (dieOneIsActive == true)
+            {
+                HasFive();
+            }
 
         }
 
@@ -983,7 +1039,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-          
+            if (dieOneIsActive == true)
+            {
+                HasSix();
+            }
 
         }
 
@@ -998,7 +1057,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-         
+            if (dieOneIsActive == true)
+            {
+                HasOne();
+            }
 
         }
         select.Play();
@@ -1017,7 +1079,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-    
+            if (dieTwoIsActive == true)
+            {
+                HasTwo();
+            }
 
         }
 
@@ -1032,7 +1097,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-  
+            if (dieTwoIsActive == true)
+            {
+                HasThree();
+            }
 
         }
 
@@ -1047,7 +1115,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-    
+            if (dieTwoIsActive == true)
+            {
+                HasFour();
+            }
 
         }
 
@@ -1062,7 +1133,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-    
+            if (dieTwoIsActive == true)
+            {
+                HasFive();
+            }
         }
 
         else if(die2Number == 5)
@@ -1076,7 +1150,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-      
+            if (dieTwoIsActive == true)
+            {
+                HasSix();
+            }
         }
 
         else if(die2Number == 6)
@@ -1090,7 +1167,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-     
+            if (dieTwoIsActive == true)
+            {
+                HasOne();
+            }
         }
         select.Play();
     }
@@ -1108,7 +1188,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-    
+            if (dieThreeIsActive == true)
+            {
+                HasTwo();
+            }
         }
 
         else if(die3Number == 2)
@@ -1122,7 +1205,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-  
+            if (dieThreeIsActive == true)
+            {
+                HasThree();
+            }
         }
 
         else if(die3Number == 3)
@@ -1136,7 +1222,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-       
+            if (dieThreeIsActive == true)
+            {
+                HasFour();
+            }
         }
 
         else if(die3Number == 4)
@@ -1150,7 +1239,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-    
+            if (dieThreeIsActive == true)
+            {
+                HasFive();
+            }
         }
 
         else if(die3Number == 5)
@@ -1164,7 +1256,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-   
+            if (dieThreeIsActive == true)
+            {
+                HasSix();
+            }
         }
 
         else if(die3Number == 6)
@@ -1178,7 +1273,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-    
+            if (dieThreeIsActive == true)
+            {
+                HasOne();
+            }
         }
         select.Play();
     }
@@ -1189,19 +1287,30 @@ public class GameManager : MonoBehaviour
         {
             die4Number = 2;
             die4.GetComponent<Image>().sprite = whiteSprites[1];
-
+            if (dieFourIsActive == true)
+            {
+                HasTwo();
+            }
         }
 
         else if (die4Number == 2)
         {
             die4Number = 3;
             die4.GetComponent<Image>().sprite = whiteSprites[2];
+            if (dieFourIsActive == true)
+            {
+                HasThree();
+            }
         }
 
         else if (die4Number == 3)
         {
             die4Number = 4;
             die4.GetComponent<Image>().sprite = whiteSprites[3];
+            if (dieFourIsActive == true)
+            {
+                HasFour();
+            }
 
 
         }
@@ -1210,21 +1319,30 @@ public class GameManager : MonoBehaviour
         {
             die4Number = 5;
             die4.GetComponent<Image>().sprite = whiteSprites[4];
-
+            if (dieFourIsActive == true)
+            {
+                HasFive();
+            }
         }
 
         else if (die4Number == 5)
         {
             die4Number = 6;
             die4.GetComponent<Image>().sprite = whiteSprites[5];
-
+            if (dieFourIsActive == true)
+            {
+                HasSix();
+            }
         }
 
         else if (die4Number == 6)
         {
             die4Number = 1;
             die4.GetComponent<Image>().sprite = whiteSprites[0];
-
+            if (dieFourIsActive == true)
+            {
+                HasOne();
+            }
         }
         select.Play();
     }
@@ -1242,7 +1360,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+            if (dieOneIsActive == true)
+            {
+                HasSix();
+            }
         }
 
         else if(die1Number == 2)
@@ -1256,7 +1377,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-         
+            if (dieOneIsActive == true)
+            {
+                HasOne();
+            }
         }
 
         else if (die1Number == 3)
@@ -1270,7 +1394,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-         
+            if (dieOneIsActive == true)
+            {
+                HasTwo();
+            }
         }
 
         else if (die1Number == 4)
@@ -1284,7 +1411,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-     
+            if (dieOneIsActive == true)
+            {
+                HasThree();
+            }
         }
 
         else if (die1Number == 5)
@@ -1298,7 +1428,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+            if (dieOneIsActive == true)
+            {
+                HasFour();
+            }
         }
 
         else if (die1Number == 6)
@@ -1312,7 +1445,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-        
+            if (dieOneIsActive == true)
+            {
+                HasFive();
+            }
         }
         select.Play();
     }
@@ -1330,7 +1466,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+            if (dieTwoIsActive == true)
+            {
+                HasSix();
+            }
         }
 
         else if (die2Number == 2)
@@ -1344,7 +1483,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-   
+            if (dieTwoIsActive == true)
+            {
+                HasOne();
+            }
         }
 
         else if (die2Number == 3)
@@ -1358,7 +1500,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-   
+            if (dieTwoIsActive == true)
+            {
+                HasTwo();
+            }
         }
 
         else if (die2Number == 4)
@@ -1372,7 +1517,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-    
+            if (dieTwoIsActive == true)
+            {
+                HasThree();
+            }
         }
 
         else if (die2Number == 5)
@@ -1386,7 +1534,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-        
+            if (dieTwoIsActive == true)
+            {
+                HasFour();
+            }
         }
 
         else if (die2Number == 6)
@@ -1400,7 +1551,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-        
+            if (dieTwoIsActive == true)
+            {
+                HasFive();
+            }
         }
         select.Play();
     }
@@ -1418,7 +1572,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-        
+            if (dieThreeIsActive == true)
+            {
+                HasSix();
+            }
         }
 
         else if (die3Number == 2)
@@ -1432,7 +1589,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+            if (dieThreeIsActive == true)
+            {
+                HasOne();
+            }
         }
 
         else if (die3Number == 3)
@@ -1446,7 +1606,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-  
+            if (dieThreeIsActive == true)
+            {
+                HasTwo();
+            }
         }
 
         else if (die3Number == 4)
@@ -1460,7 +1623,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-  
+            if (dieThreeIsActive == true)
+            {
+                HasThree();
+            }
         }
 
         else if (die3Number == 5)
@@ -1474,7 +1640,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+            if (dieThreeIsActive == true)
+            {
+                HasFour();
+            }
 
         }
 
@@ -1489,7 +1658,10 @@ public class GameManager : MonoBehaviour
             dieTwoDownButton.SetActive(false);
             dieThreeUpButton.SetActive(false);
             dieThreeDownButton.SetActive(false);
-
+            if (dieThreeIsActive == true)
+            {
+                HasFive();
+            }
         }
         select.Play();
     }
@@ -1500,42 +1672,60 @@ public class GameManager : MonoBehaviour
         {
             die4Number = 6;
             die4.GetComponent<Image>().sprite = whiteSprites[5];
-
+            if (dieFourIsActive == true)
+            {
+                HasSix();
+            }
         }
 
         else if (die4Number == 2)
         {
             die4Number = 1;
             die4.GetComponent<Image>().sprite = whiteSprites[0];
-
+            if (dieFourIsActive == true)
+            {
+                HasOne();
+            }
         }
 
         else if (die4Number == 3)
         {
             die4Number = 2;
             die4.GetComponent<Image>().sprite = whiteSprites[1];
-
+            if (dieFourIsActive == true)
+            {
+                HasTwo();
+            }
         }
 
         else if (die4Number == 4)
         {
             die4Number = 3;
             die4.GetComponent<Image>().sprite = whiteSprites[2];
-
+            if (dieFourIsActive == true)
+            {
+                HasThree();
+            }
         }
 
         else if (die4Number == 5)
         {
             die4Number = 4;
             die4.GetComponent<Image>().sprite = whiteSprites[3];
-
+            if (dieFourIsActive == true)
+            {
+                HasFour();
+            }
         }
 
         else if (die4Number == 6)
         {
             die4Number = 5;
             die4.GetComponent<Image>().sprite = whiteSprites[4];
-
+            if (dieFourIsActive == true)
+            {
+                HasFive();
+            }
         }
         select.Play();
     }
@@ -1627,6 +1817,9 @@ public class GameManager : MonoBehaviour
             clockDamage = 0;
             damageNumber = 0;
 
+            StartCoroutine(ShowScoresOneByOne());
+
+            /*
             theNedText.GetComponent<TextMeshProUGUI>().text = nedDamage.ToString();
             theHackText.GetComponent<TextMeshProUGUI>().text = hackDamage.ToString();
             theSwitchesText.GetComponent<TextMeshProUGUI>().text = switchesDamage.ToString();
@@ -1634,6 +1827,7 @@ public class GameManager : MonoBehaviour
             theClockText.GetComponent<TextMeshProUGUI>().text = clockDamage.ToString();
             resourcesText.GetComponent<TextMeshProUGUI>().text = resourcesDamage.ToString();
             damageAmountText.GetComponent<TextMeshProUGUI>().text = damageNumber.ToString();
+            */
         }
         
     }
@@ -1661,6 +1855,17 @@ public class GameManager : MonoBehaviour
         resourcesText.GetComponent<TextMeshProUGUI>().text = resourcesDamage.ToString();
         yield return new WaitForSeconds(0.5f);
         damageAmountText.GetComponent<TextMeshProUGUI>().text = damageNumber.ToString();
+        yield return new WaitForSeconds(0.5f);
+        if(damageNumber > difficultyLevel)
+        {
+            successIcon.SetActive(true);
+            bonusSFX.Play();
+        }
+        else
+        {
+            failIcon.SetActive(true);
+            error.Play();
+        }
     }
 
 }
