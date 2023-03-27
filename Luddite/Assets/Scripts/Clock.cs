@@ -426,7 +426,8 @@ public class Clock : MonoBehaviour
             sixBonusNumber.GetComponent<TextMeshProUGUI>().text = sixBonusTracker.ToString();
             gameManager.damageNumber += 6;
             gameManager.clockDamage += 6;
-            
+            gameManager.damageSFX.Play();
+
         }
         else if (gameManager.GetComponent<GameManager>().hasFive == true)
         {
@@ -434,6 +435,7 @@ public class Clock : MonoBehaviour
             fiveBonusNumber.GetComponent<TextMeshProUGUI>().text = fiveBonusTracker.ToString();
             gameManager.damageNumber += 5;
             gameManager.clockDamage += 5;
+            gameManager.damageSFX.Play();
 
         }
         else if (gameManager.GetComponent<GameManager>().hasFour == true)
@@ -442,6 +444,7 @@ public class Clock : MonoBehaviour
             fourBonusNumber.GetComponent<TextMeshProUGUI>().text = fourBonusTracker.ToString();
             gameManager.damageNumber += 4;
             gameManager.clockDamage += 4;
+            gameManager.damageSFX.Play();
 
         }
     }

@@ -225,7 +225,7 @@ public class RollBonusBehaviour : MonoBehaviour
     {
         if (gameManager.mustUseClock == false)
         {
-            bonusSFX.Play();
+            gameManager.damageSFX.Play();
             box1[4].GetComponent<Image>().color = new Color(0, 255, 0);
             gameManager.damageNumber += 2;
             gameManager.rollbonusDamage += 2;
@@ -377,7 +377,7 @@ public class RollBonusBehaviour : MonoBehaviour
     {
         if (gameManager.mustUseClock == false)
         {
-            bonusSFX.Play();
+            gameManager.damageSFX.Play();
             box2[2].GetComponent<Image>().color = new Color(0, 255, 0);
             gameManager.damageNumber += 2;
             gameManager.rollbonusDamage += 2;
@@ -478,7 +478,7 @@ public class RollBonusBehaviour : MonoBehaviour
     {
         if (gameManager.mustUseClock == false)
         {
-            bonusSFX.Play();
+            gameManager.damageSFX.Play();
             box3[1].GetComponent<Image>().color = new Color(0, 255, 0);
             gameManager.damageNumber += 2;
             gameManager.rollbonusDamage += 2;
@@ -579,7 +579,7 @@ public class RollBonusBehaviour : MonoBehaviour
     {
         if (gameManager.mustUseClock == false)
         {
-            bonusSFX.Play();
+            gameManager.damageSFX.Play();
             box4[1].GetComponent<Image>().color = new Color(0, 255, 0);
             gameManager.damageNumber += 2;
             gameManager.rollbonusDamage += 2;
@@ -681,7 +681,7 @@ public class RollBonusBehaviour : MonoBehaviour
     {
         if (gameManager.mustUseClock == false)
         {
-            bonusSFX.Play();
+            gameManager.damageSFX.Play();
             box5[1].GetComponent<Image>().color = new Color(0, 255, 0);
             gameManager.damageNumber += 2;
             gameManager.rollbonusDamage += 2;
@@ -884,7 +884,7 @@ public class RollBonusBehaviour : MonoBehaviour
     {
         if (gameManager.mustUseClock == false)
         {
-            bonusSFX.Play();
+            gameManager.damageSFX.Play();
             box6[3].GetComponent<Image>().color = new Color(0, 255, 0);
             gameManager.damageNumber += 2;
             gameManager.rollbonusDamage += 2;

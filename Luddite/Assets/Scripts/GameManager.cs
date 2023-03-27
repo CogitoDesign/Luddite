@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     public GameObject creditTrackerNumber;
     public GameObject multitoolTrackerNumber;
     public GameObject energyTrackerNumber;
+    public GameObject damageTrackerNumber;
 
     public int creditNumber = 0;
     public int multitoolNumber = 1;
@@ -110,8 +111,10 @@ public class GameManager : MonoBehaviour
     public AudioSource clockAddSound;
     public AudioSource dieModuleBackgroundMoveSFX;
     public AudioSource bonusSFX;
+    public AudioSource damageSFX;
 
     public GameObject clockWarning;
+    public GameObject damageWarning;
 
     private string nothing = " ";
 
@@ -149,12 +152,18 @@ public class GameManager : MonoBehaviour
     public GameObject failIcon;
     public GameObject successIcon;
 
+
+    public int difficultyLevel;
+
+    private bool damageWarningShown;
+
+    /*
     public GameObject startScreen;
     public bool easyMode;
     public bool normalMode;
     public bool hardMode;
 
-    public int difficultyLevel;
+   
 
 
     //set difficulty level and turn off start screen
@@ -180,7 +189,7 @@ public class GameManager : MonoBehaviour
         difficultyLevel = 70;
     }
 
-
+    */
     //Dice are rolled and number shown on screen
     public void RollDie1()
     {
@@ -730,6 +739,21 @@ public class GameManager : MonoBehaviour
         RollDie2();
         RollDie3();
 
+        //set difficulty level
+
+        if(MenuScreen.easyMode == true)
+        {
+            difficultyLevel = 50;
+        }
+        else if(MenuScreen.normalMode == true)
+        {
+            difficultyLevel = 60;
+        }
+        else if (MenuScreen.hardMode == true)
+        {
+            difficultyLevel = 70;
+        }
+
     }
 
     IEnumerator DieRollAnimation()
@@ -887,9 +911,18 @@ public class GameManager : MonoBehaviour
         creditTrackerNumber.GetComponent<TextMeshProUGUI>().text = creditNumber.ToString();
         multitoolTrackerNumber.GetComponent<TextMeshProUGUI>().text = multitoolNumber.ToString();
         energyTrackerNumber.GetComponent<TextMeshProUGUI>().text = energyNumber.ToString();
+        damageTrackerNumber.GetComponent<TextMeshProUGUI>().text = damageNumber.ToString() + "/" + difficultyLevel.ToString();
+        if(damageNumber >= difficultyLevel)
+        {
+            damageTrackerNumber.GetComponent<TextMeshProUGUI>().color = Color.green;
+            if(neetle.GetComponent<NeetleBehaviour>().neetleInFinalLocation == false)
+            {
+                StartCoroutine(ShowDamageWarning());
+            }
+        }
 
         //set multitool button active if have a multitool
-        if(multitoolNumber >= 1)
+        if (multitoolNumber >= 1)
         {
             multitoolButton.SetActive(true);
         }
@@ -1746,6 +1779,21 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         
         clockWarning.SetActive(false);
+    }
+
+    IEnumerator ShowDamageWarning()
+    {
+        if (damageWarningShown == false)
+        {
+            damageWarning.SetActive(true);
+            damageWarningShown = true;
+            bonusSFX.Play();
+
+            yield return new WaitForSeconds(2);
+
+            damageWarning.SetActive(false);
+        }
+        else { }
     }
 
     public void AddCredit()

@@ -2019,6 +2019,7 @@ public class HackBehaviour : MonoBehaviour
             gameManager.damageNumber += 8;
             gameManager.hackDamage += 8;
             damageBonus1count = 2;
+            gameManager.damageSFX.Play();
 
         }
 
@@ -2027,6 +2028,7 @@ public class HackBehaviour : MonoBehaviour
             gameManager.damageNumber += 8;
             gameManager.hackDamage += 8;
             damageBonus2count = 2;
+            gameManager.damageSFX.Play();
         }
     }
 
