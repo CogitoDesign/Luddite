@@ -36,6 +36,8 @@ public class Clock : MonoBehaviour
 
     public GameObject clockWarning;
 
+    public AudioSource ticking;
+
     //the Add Die button is clicked, crosses are added and
 
     public void AddDieButtonIsClicked()
@@ -300,6 +302,8 @@ public class Clock : MonoBehaviour
             latestCross += 1;
             yield return new WaitForSeconds(0.2f);
             clockBonus();
+            ticking.pitch += 0.03f;
+            ticking.volume += 0.02f;
         }
     }
 
@@ -315,6 +319,8 @@ public class Clock : MonoBehaviour
             gameManager.clockAddSound.Play();
             latestCross += 1;
             clockBonus();
+            ticking.pitch += 0.06f;
+            ticking.volume += 0.04f;
         }
     }
 
@@ -334,6 +340,8 @@ public class Clock : MonoBehaviour
             gameManager.clockAddSound.Play();
             latestCross += 1;
             clockBonus();
+            ticking.pitch += 0.09f;
+            ticking.volume += 0.06f;
         }
     }
 
@@ -357,6 +365,8 @@ public class Clock : MonoBehaviour
             gameManager.clockAddSound.Play();
             latestCross += 1;
             clockBonus();
+            ticking.pitch += 0.12f;
+            ticking.volume += 0.08f;
         }
     }
 
@@ -384,6 +394,8 @@ public class Clock : MonoBehaviour
             gameManager.clockAddSound.Play();
             latestCross += 1;
             clockBonus();
+            ticking.pitch += 0.15f;
+            ticking.volume += 0.1f;
         }
     }
 
@@ -415,6 +427,8 @@ public class Clock : MonoBehaviour
             gameManager.clockAddSound.Play();
             latestCross += 1;
             clockBonus();
+            ticking.pitch += 0.18f;
+            ticking.volume += 0.12f;
         }
     }
 

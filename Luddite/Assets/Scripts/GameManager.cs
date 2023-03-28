@@ -157,6 +157,8 @@ public class GameManager : MonoBehaviour
 
     private bool damageWarningShown;
 
+    public GameObject mainMenuButton;
+
     /*
     public GameObject startScreen;
     public bool easyMode;
@@ -1914,6 +1916,8 @@ public class GameManager : MonoBehaviour
             failIcon.SetActive(true);
             error.Play();
         }
+        yield return new WaitForSeconds(0.5f);
+        mainMenuButton.SetActive(true);
     }
 
 }
