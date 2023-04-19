@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class ScreensAppear : MonoBehaviour
 {
@@ -13,10 +14,30 @@ public class ScreensAppear : MonoBehaviour
     public GameObject toolsScreen;
     public GameObject moveOptionsScreen;
 
-  
+    public GameObject videoImage;
 
+    public AudioSource backgroundMusic;
 
     public GameManager gameManager;
+
+    public VideoPlayer howToPlayVideoPlayer;
+
+    public void playVideo()
+    {
+        videoImage.SetActive(true);
+        backgroundMusic.volume = 0;
+        //howToPlayVideoPlayer = GetComponent<VideoPlayer>();
+        howToPlayVideoPlayer.Play();
+    }
+
+    public void CloseVideo()
+    {
+        backgroundMusic.volume = 1;
+        videoImage.SetActive(false);
+        howToPlayVideoPlayer.Stop();
+
+    }
+
 
     //close all menus
     public void CloseAllMenus()
