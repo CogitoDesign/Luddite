@@ -13,9 +13,21 @@ public class ScreensAppear : MonoBehaviour
     public GameObject toolsScreen;
     public GameObject moveOptionsScreen;
 
- 
+  
+
 
     public GameManager gameManager;
+
+    //close all menus
+    public void CloseAllMenus()
+    {
+        switchesScreen.SetActive(false);
+        clockScreen.SetActive(false);
+        hackScreen.SetActive(false);
+        rollbonusScreen.SetActive(false);
+        toolsScreen.SetActive(false);
+        moveOptionsScreen.SetActive(false);
+    }
 
 
     //turn on and off switch menu and turn off all other menus
