@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 
 
@@ -158,6 +159,19 @@ public class GameManager : MonoBehaviour
     private bool damageWarningShown;
 
     public GameObject mainMenuButton;
+
+    public AudioSource backgroundMusic;
+    public VideoPlayer endGameVideoPlayer;
+    public GameObject videoImage;
+
+    public bool closeFinalVidbool;
+
+    public GameObject endgameclosebutton;
+    public GameObject closebutton;
+
+    bool endgameonce = true;
+
+    public GameObject addDieToMovement;
 
     /*
     public GameObject startScreen;
@@ -324,6 +338,7 @@ public class GameManager : MonoBehaviour
         hasFour = false;
         hasFive = false;
         hasSix = false;
+        addDieToMovement.SetActive(true);
     }
 
     private void HasTwo()
@@ -334,6 +349,7 @@ public class GameManager : MonoBehaviour
         hasFour = false;
         hasFive = false;
         hasSix = false;
+        addDieToMovement.SetActive(true);
     }
 
     private void HasThree()
@@ -344,6 +360,7 @@ public class GameManager : MonoBehaviour
         hasFour = false;
         hasFive = false;
         hasSix = false;
+        addDieToMovement.SetActive(true);
     }
 
     private void HasFour()
@@ -354,6 +371,7 @@ public class GameManager : MonoBehaviour
         hasFour = true;
         hasFive = false;
         hasSix = false;
+        addDieToMovement.SetActive(true);
     }
 
     private void HasFive()
@@ -364,6 +382,7 @@ public class GameManager : MonoBehaviour
         hasFour = false;
         hasFive = true;
         hasSix = false;
+        addDieToMovement.SetActive(true);
     }
 
     private void HasSix()
@@ -374,6 +393,7 @@ public class GameManager : MonoBehaviour
         hasFour = false;
         hasFive = false;
         hasSix = true;
+        addDieToMovement.SetActive(true);
     }
 
     public void HasNone()
@@ -387,6 +407,7 @@ public class GameManager : MonoBehaviour
         dieOneIsActive = false;
         dieTwoIsActive = false;
         dieThreeIsActive = false;
+        addDieToMovement.SetActive(false);
     }
 
     public AudioSource reRollSFX;
@@ -433,6 +454,7 @@ public class GameManager : MonoBehaviour
         }
 
         Die1Activate();
+        
         select.Play();
 
     
@@ -467,6 +489,7 @@ public class GameManager : MonoBehaviour
         }
 
         Die2Activate();
+        
         select.Play();
 
     }
@@ -499,6 +522,7 @@ public class GameManager : MonoBehaviour
         }
 
         Die3Activate();
+        
         select.Play();
     }
 
@@ -530,6 +554,7 @@ public class GameManager : MonoBehaviour
         }
 
         Die4Activate();
+       
         select.Play();
     }
 
@@ -858,6 +883,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if close final vid button is pressed
+        if(closeFinalVidbool == true)
+        {
+            if (endgameonce == true)
+            {
+                StopCoroutine(PlayEndGameVideo());
+                StartCoroutine(ShowScoresOneByOne());
+                endgameonce = false;
+            }
+        }
 
         //show if more than one of each dice is available
         die1NumberText.GetComponent<TextMeshProUGUI>().text = die1amount.ToString();
@@ -1831,7 +1866,8 @@ public class GameManager : MonoBehaviour
         neetle.GetComponent<NeetleBehaviour>().CheckIfNeetleatExit();
         if (neetle.GetComponent<NeetleBehaviour>().neetleInFinalLocation == true)
         {
-            readoutSFX.Play();
+            StartCoroutine(PlayEndGameVideo());
+            
             //add resource damage to total damage
 
             damageNumber = damageNumber + multitoolNumber;
@@ -1853,7 +1889,7 @@ public class GameManager : MonoBehaviour
             resourcesText.GetComponent<TextMeshProUGUI>().text = resourcesDamage.ToString();
             damageAmountText.GetComponent<TextMeshProUGUI>().text = damageNumber.ToString();
             */
-            StartCoroutine(ShowScoresOneByOne());
+            
         }
         else
         {
@@ -1882,8 +1918,25 @@ public class GameManager : MonoBehaviour
         
     }
 
-    IEnumerator ShowScoresOneByOne()
+    IEnumerator PlayEndGameVideo()
     {
+        videoImage.SetActive(true);
+        endgameclosebutton.SetActive(true);
+        closebutton.SetActive(false);
+        backgroundMusic.volume = 0;
+        endGameVideoPlayer.Play();
+        yield return new WaitForSeconds(97.0f);
+        
+        StartCoroutine(ShowScoresOneByOne());
+        backgroundMusic.volume = 1;
+        videoImage.SetActive(false);
+        endGameVideoPlayer.Stop();
+
+    }
+
+    public IEnumerator ShowScoresOneByOne()
+    {
+        readoutSFX.Play();
         theNedText.GetComponent<TextMeshProUGUI>().text = nothing;
         theHackText.GetComponent<TextMeshProUGUI>().text = nothing;
         theSwitchesText.GetComponent<TextMeshProUGUI>().text = nothing;
@@ -1915,6 +1968,7 @@ public class GameManager : MonoBehaviour
         {
             failIcon.SetActive(true);
             error.Play();
+            
         }
         yield return new WaitForSeconds(0.5f);
         mainMenuButton.SetActive(true);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
 public class ScreensAppear : MonoBehaviour
@@ -21,6 +22,27 @@ public class ScreensAppear : MonoBehaviour
     public GameManager gameManager;
 
     public VideoPlayer howToPlayVideoPlayer;
+    public VideoPlayer endGameVideoPlayer;
+    public VideoPlayer startGameVideoPlayer;
+
+    public GameObject blankScreen;
+
+    public void Start()
+    {
+        StartCoroutine(StartVideo());
+    }
+
+    IEnumerator StartVideo()
+    {
+        
+        
+        startGameVideoPlayer.Play();
+        yield return new WaitForSeconds(744.0f);
+        blankScreen.SetActive(false);
+        videoImage.SetActive(false);
+        backgroundMusic.volume = 1;
+        backgroundMusic.Play();
+    }
 
     public void playVideo()
     {
@@ -32,10 +54,26 @@ public class ScreensAppear : MonoBehaviour
 
     public void CloseVideo()
     {
-        backgroundMusic.volume = 1;
+        StopCoroutine(StartVideo());
+        blankScreen.SetActive(false);
         videoImage.SetActive(false);
         howToPlayVideoPlayer.Stop();
+        startGameVideoPlayer.Stop();
+        backgroundMusic.volume = 1;
+        backgroundMusic.Play();
 
+        
+
+    }
+
+    public void CloseEndGameVideo()
+    {
+        videoImage.SetActive(false);
+      
+        gameManager.closeFinalVidbool = true;
+        endGameVideoPlayer.Stop();
+        backgroundMusic.volume = 1;
+        backgroundMusic.Play();
     }
 
 
@@ -185,6 +223,11 @@ public class ScreensAppear : MonoBehaviour
      
         }
 
+    }
+
+    public void MainMenuIsClicked()
+    {
+        SceneManager.LoadScene("MenuScreen");
     }
 /*
     public void TurnClockScreenOnOnNewRound()
