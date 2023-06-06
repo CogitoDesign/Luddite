@@ -22,13 +22,20 @@ public class MenuScreen : MonoBehaviour
 
     //set difficulty level and turn off start screen
 
+    public void button_exit()
+    {
+
+        Application.Quit();
+
+    }
+
     public void EasyModeIsChosen()
     {
        
         easyMode = true;
         normalMode = false;
         hardMode = false;
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Level 1 NEW");
         switchsound.Play();
         
     }
@@ -38,7 +45,7 @@ public class MenuScreen : MonoBehaviour
         easyMode = false;
         normalMode = true;
         hardMode = false;
-        SceneManager.LoadScene(sceneName: "Level 1");
+        SceneManager.LoadScene("Level 1 NEW");
         switchsound.Play();
         
     }
@@ -48,7 +55,7 @@ public class MenuScreen : MonoBehaviour
         easyMode = false;
         normalMode = false;
         hardMode = true;
-        SceneManager.LoadScene(sceneName: "Level 1");
+        SceneManager.LoadScene("Level 1 NEW");
         switchsound.Play();
        
     }

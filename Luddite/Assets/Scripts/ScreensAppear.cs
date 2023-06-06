@@ -29,7 +29,8 @@ public class ScreensAppear : MonoBehaviour
 
     public void Start()
     {
-        StartCoroutine(StartVideo());
+        //REMOVE // in line below to put in video at the start of game
+        //StartCoroutine(StartVideo());
     }
 
     IEnumerator StartVideo()
@@ -46,10 +47,11 @@ public class ScreensAppear : MonoBehaviour
 
     public void playVideo()
     {
-        videoImage.SetActive(true);
-        backgroundMusic.volume = 0;
-        //howToPlayVideoPlayer = GetComponent<VideoPlayer>();
-        howToPlayVideoPlayer.Play();
+        //REMOVE ALL // TO PUT IN VIDEO
+        //videoImage.SetActive(true);
+        //backgroundMusic.volume = 0;
+        
+        //howToPlayVideoPlayer.Play();
     }
 
     public void CloseVideo()

@@ -1920,17 +1920,20 @@ public class GameManager : MonoBehaviour
 
     IEnumerator PlayEndGameVideo()
     {
-        videoImage.SetActive(true);
-        endgameclosebutton.SetActive(true);
-        closebutton.SetActive(false);
-        backgroundMusic.volume = 0;
-        endGameVideoPlayer.Play();
-        yield return new WaitForSeconds(97.0f);
-        
+        //videoImage.SetActive(true);
+        //endgameclosebutton.SetActive(true);
+        //closebutton.SetActive(false);
+        //backgroundMusic.volume = 0;
+        //endGameVideoPlayer.Play();
+        //yield return new WaitForSeconds(97.0f);
+
+        //REMOVE LINE BELOW AND REMOVE// from all other lines
+
+        yield return new WaitForSeconds(0.01f);
         StartCoroutine(ShowScoresOneByOne());
-        backgroundMusic.volume = 1;
-        videoImage.SetActive(false);
-        endGameVideoPlayer.Stop();
+        //backgroundMusic.volume = 1;
+        //videoImage.SetActive(false);
+        //endGameVideoPlayer.Stop();
 
     }
 
