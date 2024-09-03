@@ -951,11 +951,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: 9cd68944-bf41-4219-b955-f4722a37888f
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Luddite
+  organizationId: joeadams1987
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

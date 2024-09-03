@@ -103,6 +103,8 @@ public class NeetleBehaviour : MonoBehaviour
     public GameObject bonusCreditNode2;
     public GameObject bonusEnergyNode;
 
+    public GameObject[] energyNodes;
+
     public Material green;
 
     public bool tool1done;
@@ -136,6 +138,10 @@ public class NeetleBehaviour : MonoBehaviour
     public ParticleSystem sparksFXThree;
     public ParticleSystem sparksFXFour;
     public ParticleSystem sparksFXFive;
+
+    public ParticleSystem sparksFXEnergyNodeOne;
+    public ParticleSystem sparksFXEnergyNodeTwo;
+    public ParticleSystem sparksFXEnergyNodeThree;
 
     public Animator neetleAnimator;
 
@@ -1791,16 +1797,32 @@ public class NeetleBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentXAxis = 1;
-        currentYAxis = 1;
-        FindTargetLocation();
-      
+
+        if (gameManager.levelOneIsActive)
+        {
+            currentXAxis = 1;
+            currentYAxis = 1;
+            FindTargetLocation();
+        }
+        else if(gameManager.levelSixIsActive)
+        {
+            currentXAxis = 6;
+            currentYAxis = 1;
+            FindTargetLocation();
+        }
+
+
+
+
     }
 
     // Update is called once per frame
 
     void Update()
     {
+      
+
+
         CheckLeftLocationIsOpen();
         CheckRightLocationIsOpen();
         CheckUpLocationIsOpen();

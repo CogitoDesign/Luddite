@@ -14,6 +14,8 @@ public class UnlockNode : MonoBehaviour
     public GameObject[] diceNodes;
     public GameObject[] bonusNodes;
     public GameObject[] toolNodes;
+    public GameObject[] energyNodes;
+
 
     public GameManager gameManager;
 
@@ -84,6 +86,10 @@ public class UnlockNode : MonoBehaviour
     // Update is called once per frame check active die and turn dice nodes purple
     void Update()
     {
+
+       
+
+
         if (gameManager.GetComponent<GameManager>().hasSix == true)
         {
             if (DieSixnode1IsUnlocked == false)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -10,6 +11,14 @@ using UnityEngine.Video;
 public class GameManager : MonoBehaviour
 {
     //stuff
+    public bool levelOneIsActive;
+    public bool levelTwoIsActive;
+    public bool levelThreeIsActive;
+    public bool levelFourIsActive;
+    public bool levelFiveIsActive;
+    public bool levelSixIsActive;
+    public bool levelSevenIsActive;
+
     public int die1Number;
     public int die2Number;
     public int die3Number;
@@ -752,8 +761,96 @@ public class GameManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        //check what level is being played
+
+        // Create a temporary reference to the current scene.
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        // Retrieve the name of this scene.
+        string sceneName = currentScene.name;
+
+        if (sceneName == "Level 1 NEW")
+        {
+            levelOneIsActive = true;
+            levelTwoIsActive = false;
+            levelThreeIsActive = false;
+            levelFourIsActive = false;
+            levelFiveIsActive = false;
+            levelSixIsActive = false;
+            levelSevenIsActive = false;
+        }
+        else if (sceneName == "Level 2")
+        {
+            levelOneIsActive = false;
+            levelTwoIsActive = true;
+            levelThreeIsActive = false;
+            levelFourIsActive = false;
+            levelFiveIsActive = false;
+            levelSixIsActive = false;
+            levelSevenIsActive = false;
+        }
+        else if (sceneName == "Level 3")
+        {
+            levelOneIsActive = false;
+            levelTwoIsActive = false;
+            levelThreeIsActive = true;
+            levelFourIsActive = false;
+            levelFiveIsActive = false;
+            levelSixIsActive = false;
+            levelSevenIsActive = false;
+        }
+        else if (sceneName == "Level 4")
+        {
+            levelOneIsActive = false;
+            levelTwoIsActive = false;
+            levelThreeIsActive = false;
+            levelFourIsActive = true;
+            levelFiveIsActive = false;
+            levelSixIsActive = false;
+            levelSevenIsActive = false;
+        }
+        else if (sceneName == "Level 5")
+        {
+            levelOneIsActive = false;
+            levelTwoIsActive = false;
+            levelThreeIsActive = false;
+            levelFourIsActive = false;
+            levelFiveIsActive = true;
+            levelSixIsActive = false;
+            levelSevenIsActive = false;
+        }
+        else if (sceneName == "Level 6")
+        {
+            levelOneIsActive = false;
+            levelTwoIsActive = false;
+            levelThreeIsActive = false;
+            levelFourIsActive = false;
+            levelFiveIsActive = false;
+            levelSixIsActive = true;
+            levelSevenIsActive = false;
+        }
+        else if (sceneName == "Level 7")
+        {
+            levelOneIsActive = false;
+            levelTwoIsActive = false;
+            levelThreeIsActive = false;
+            levelFourIsActive = false;
+            levelFiveIsActive = false;
+            levelSixIsActive = false;
+            levelSevenIsActive = true;
+        }
+    }
+
+
     void Start()
     {
+       
+
+
+
         //roll dice at start of game
 
         die1BlueBackground.SetActive(false);
@@ -883,8 +980,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //if close final vid button is pressed
-        if(closeFinalVidbool == true)
+        if (closeFinalVidbool == true)
         {
             if (endgameonce == true)
             {
