@@ -241,6 +241,15 @@ public class UnlockNode : MonoBehaviour
                 DieFournode1IsActive = true;
             }
 
+            if(gameManager.levelSixIsActive)
+            {
+                if (DieTwonode3IsUnlocked == false)
+                {
+                    diceNodes[4].GetComponent<MeshRenderer>().material = purple;
+                    DieTwonode3IsActive = true;
+                }
+            }
+
             // others back to red
 
             if (DieSixnode1IsUnlocked == false)
@@ -273,10 +282,13 @@ public class UnlockNode : MonoBehaviour
                 DieTwonode2IsActive = false;
             }
 
-            if (DieTwonode3IsUnlocked == false)
+            if (gameManager.levelSixIsActive == false)
             {
-                diceNodes[4].GetComponent<MeshRenderer>().material = red;
-                DieTwonode3IsActive = false;
+                if (DieTwonode3IsUnlocked == false)
+                {
+                    diceNodes[4].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode3IsActive = false;
+                }
             }
 
             if (DieOnenode1IsUnlocked == false)
@@ -313,6 +325,15 @@ public class UnlockNode : MonoBehaviour
                 DieThreenode1IsActive = true;
             }
 
+            if (gameManager.levelSixIsActive)
+            {
+                if (DieTwonode2IsUnlocked == false)
+                {
+                    diceNodes[3].GetComponent<MeshRenderer>().material = purple;
+                    DieTwonode2IsActive = true;
+                }
+            }
+
             // others back to red
 
             if (DieSixnode1IsUnlocked == false)
@@ -333,10 +354,13 @@ public class UnlockNode : MonoBehaviour
                 DieTwonode1IsActive = false;
             }
 
-            if (DieTwonode2IsUnlocked == false)
+            if (gameManager.levelSixIsActive == false)
             {
-                diceNodes[3].GetComponent<MeshRenderer>().material = red;
-                DieTwonode2IsActive = false;
+                if (DieTwonode2IsUnlocked == false)
+                {
+                    diceNodes[3].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode2IsActive = false;
+                }
             }
 
             if (DieTwonode3IsUnlocked == false)
@@ -385,16 +409,38 @@ public class UnlockNode : MonoBehaviour
                 DieTwonode1IsActive = true;
             }
 
-            if (DieTwonode2IsUnlocked == false)
+            if (gameManager.levelOneIsActive)
             {
-                diceNodes[3].GetComponent<MeshRenderer>().material = purple;
-                DieTwonode2IsActive = true;
+                if (DieTwonode2IsUnlocked == false)
+                {
+                    diceNodes[3].GetComponent<MeshRenderer>().material = purple;
+                    DieTwonode2IsActive = true;
+                }
+            }
+            else if(gameManager.levelSixIsActive)
+            {
+                if (DieTwonode2IsUnlocked == false)
+                {
+                    diceNodes[3].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode2IsActive = false;
+                }
             }
 
-            if (DieTwonode3IsUnlocked == false)
+            if (gameManager.levelOneIsActive)
             {
-                diceNodes[4].GetComponent<MeshRenderer>().material = purple;
-                DieTwonode3IsActive = true;
+                if (DieTwonode3IsUnlocked == false)
+                {
+                    diceNodes[4].GetComponent<MeshRenderer>().material = purple;
+                    DieTwonode3IsActive = true;
+                }
+            }
+            else if (gameManager.levelSixIsActive)
+            {
+                if (DieTwonode2IsUnlocked == false)
+                {
+                    diceNodes[4].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode3IsActive = false;
+                }
             }
 
             // others back to red
