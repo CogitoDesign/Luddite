@@ -19,6 +19,9 @@ public class UnlockNode : MonoBehaviour
 
     public GameManager gameManager;
 
+    public EnergyNode1 energyNode1;
+    public EnergyNode2 energyNode2;
+
     public bool DieOnenode1IsUnlocked = false;
     public bool DieOnenode2IsUnlocked = false;
     public bool DieTwonode1IsUnlocked = false;

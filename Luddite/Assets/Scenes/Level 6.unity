@@ -3646,7 +3646,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163512355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.8, y: 0.01, z: 14.4}
+  m_LocalPosition: {x: 0.02, y: 0.01, z: 7.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4208,7 +4208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194602151}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 0.01, z: 21.133333}
+  m_LocalPosition: {x: -0.02, y: 0.01, z: 21.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9436,7 +9436,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442052606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 0.01, z: -7.48}
+  m_LocalPosition: {x: 0.12, y: 0.01, z: -7.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15502,7 +15502,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719111310}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: 0.01, z: 21}
+  m_LocalPosition: {x: -6.82, y: 0.01, z: 21.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24112,7 +24112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087439179}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 0.01, z: 7.1}
+  m_LocalPosition: {x: -6.86, y: 0.01, z: 14.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -40510,6 +40510,8 @@ MonoBehaviour:
   downButton: {fileID: 314469560}
   dieMoveNumber: 0
   unlockNode: {fileID: 1966740083}
+  energyNode1: {fileID: 902594229}
+  energyNode2: {fileID: 719111315}
   nodes: {fileID: 1966740082}
   switchPanel: {fileID: 1102943700}
   leftDEIcon: {fileID: 1110088153}
@@ -42864,6 +42866,8 @@ MonoBehaviour:
   - {fileID: 442052606}
   energyNodes: []
   gameManager: {fileID: 2094780799}
+  energyNode1: {fileID: 0}
+  energyNode2: {fileID: 0}
   DieOnenode1IsUnlocked: 0
   DieOnenode2IsUnlocked: 0
   DieTwonode1IsUnlocked: 0
@@ -44406,7 +44410,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056233859}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14, y: 0.01, z: -7.6}
+  m_LocalPosition: {x: -13.82, y: 0.01, z: -7.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -44930,7 +44934,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074656011}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 0.01, z: -0.3}
+  m_LocalPosition: {x: -0.12, y: 0.01, z: -0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
