@@ -43,6 +43,7 @@ public class NeetleBehaviour : MonoBehaviour
 
     public EnergyNode1 energyNode1;
     public EnergyNode2 energyNode2;
+    public EnergyNode3 energyNode3;
 
     public GameObject nodes;
 
@@ -675,8 +676,8 @@ public class NeetleBehaviour : MonoBehaviour
     private void CheckLeftLocationIsOpen()
     {
 
-        // Level ONE
-
+        // Level ONE CAN REMOVE ALL OF THIS AS IT IS THE OLD MOVING SCRIPT
+        /*
 
         if (gameManager.levelOneIsActive)
         {
@@ -925,11 +926,14 @@ public class NeetleBehaviour : MonoBehaviour
             }
         }
 
-        //level SIX
+        //level SIX THE SCRIPT BELOW IS NOW FOR ALL LEVELS
 
 
         else if (gameManager.levelSixIsActive)
         {
+
+            */
+
             if (currentXAxis == 1 && currentYAxis == 1)
             {
                 leftLocation = null;
@@ -939,7 +943,7 @@ public class NeetleBehaviour : MonoBehaviour
             {
                 leftLocation = mapMarkers[0];
 
-                if (!switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn && !switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+                if (x1y1 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -952,7 +956,7 @@ public class NeetleBehaviour : MonoBehaviour
             {
                 leftLocation = mapMarkers[1];
 
-                if (unlockNode.DieSixnode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn))
+                if (x1y2 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -964,7 +968,7 @@ public class NeetleBehaviour : MonoBehaviour
             else if (currentXAxis == 1 && currentYAxis == 4)
             {
                 leftLocation = mapMarkers[2];
-                if (!switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
+                if (x1y3 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -981,7 +985,7 @@ public class NeetleBehaviour : MonoBehaviour
             else if (currentXAxis == 2 && currentYAxis == 2)
             {
                 leftLocation = mapMarkers[4];
-                if (unlockNode.DieFournode1IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn)
+                if (x2y1 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -993,7 +997,7 @@ public class NeetleBehaviour : MonoBehaviour
             else if (currentXAxis == 2 && currentYAxis == 3)
             {
                 leftLocation = mapMarkers[5];
-                if (!switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && !switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+                if (x2y2 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -1006,7 +1010,7 @@ public class NeetleBehaviour : MonoBehaviour
             {
                 leftLocation = mapMarkers[6];
 
-                if (unlockNode.DieFivenode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn))
+                if (x2y3 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -1023,7 +1027,7 @@ public class NeetleBehaviour : MonoBehaviour
             else if (currentXAxis == 3 && currentYAxis == 2)
             {
                 leftLocation = mapMarkers[8];
-                if (switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+                if (x3y1 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -1035,7 +1039,7 @@ public class NeetleBehaviour : MonoBehaviour
             else if (currentXAxis == 3 && currentYAxis == 3)
             {
                 leftLocation = mapMarkers[9];
-                if (energyNode1.nodeIsUnlocked == true)
+                if (x3y2 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -1048,7 +1052,7 @@ public class NeetleBehaviour : MonoBehaviour
             {
                 leftLocation = mapMarkers[10];
 
-                if (unlockNode.DieOnenode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn))
+                if (x3y3 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -1065,7 +1069,7 @@ public class NeetleBehaviour : MonoBehaviour
             else if (currentXAxis == 4 && currentYAxis == 2)
             {
                 leftLocation = mapMarkers[12];
-                if (unlockNode.DieTwonode2IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+                if (x4y1 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -1077,7 +1081,7 @@ public class NeetleBehaviour : MonoBehaviour
             else if (currentXAxis == 4 && currentYAxis == 3)
             {
                 leftLocation = mapMarkers[13];
-                if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn)
+                if (x4y2 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -1089,7 +1093,7 @@ public class NeetleBehaviour : MonoBehaviour
             else if (currentXAxis == 4 && currentYAxis == 4)
             {
                 leftLocation = mapMarkers[14];
-                if (unlockNode.DieFivenode2IsUnlocked == true && (!switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && !switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn))
+                if (x4y3 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -1106,7 +1110,7 @@ public class NeetleBehaviour : MonoBehaviour
             else if (currentXAxis == 5 && currentYAxis == 2)
             {
                 leftLocation = mapMarkers[16];
-                if (unlockNode.DieOnenode2IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn))
+                if (x5y1 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -1118,7 +1122,7 @@ public class NeetleBehaviour : MonoBehaviour
             else if (currentXAxis == 5 && currentYAxis == 3)
             {
                 leftLocation = mapMarkers[17];
-                if (energyNode2.nodeIsUnlocked == true)
+                if (x5y2 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -1130,7 +1134,7 @@ public class NeetleBehaviour : MonoBehaviour
             else if (currentXAxis == 5 && currentYAxis == 4)
             {
                 leftLocation = mapMarkers[18];
-                if (switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+                if (x5y3 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -1147,7 +1151,7 @@ public class NeetleBehaviour : MonoBehaviour
             else if (currentXAxis == 6 && currentYAxis == 2)
             {
                 leftLocation = mapMarkers[20];
-                if (!switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+                if (x6y1 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -1160,7 +1164,7 @@ public class NeetleBehaviour : MonoBehaviour
             {
                 leftLocation = mapMarkers[21];
 
-                if (unlockNode.DieSixnode2IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn))
+                if (x6y2 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -1172,7 +1176,7 @@ public class NeetleBehaviour : MonoBehaviour
             else if (currentXAxis == 6 && currentYAxis == 4)
             {
                 leftLocation = mapMarkers[18];
-                if (unlockNode.DieTwonode3IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn))
+                if (x6y3 == true)
                 {
                     leftLocationIsOpen = true;
                 }
@@ -1182,7 +1186,7 @@ public class NeetleBehaviour : MonoBehaviour
                 }
             }
         }
-    }
+    
 
     private void CheckRightLocationIsOpen()
     {
@@ -2105,6 +2109,12 @@ public class NeetleBehaviour : MonoBehaviour
             currentYAxis = 1;
             FindTargetLocation();
         }
+        else if (gameManager.levelTwoIsActive)
+        {
+            currentXAxis = 1;
+            currentYAxis = 1;
+            FindTargetLocation();
+        }
         else if(gameManager.levelSixIsActive)
         {
             currentXAxis = 6;
@@ -2256,6 +2266,8 @@ public class NeetleBehaviour : MonoBehaviour
 
         if (gameManager.levelOneIsActive == true)
         {
+            x1y1 = true;
+
             if (unlockNode.DieSixnode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn))
             {
                 x1y2 = true;
@@ -2455,6 +2467,220 @@ public class NeetleBehaviour : MonoBehaviour
             }
 
             if (!switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
+            {
+                x6y4 = true;
+            }
+            else
+            {
+                x6y4 = false;
+            }
+        }
+
+        // LEVEL TWO
+
+        else if (gameManager.levelTwoIsActive == true)
+        {
+            x1y1 = true;
+
+            if (unlockNode.DieSixnode1IsUnlocked == true && switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
+            {
+                x1y2 = true;
+            }
+            else
+            {
+                x1y2 = false;
+            }
+
+            if (unlockNode.DieOnenode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn))
+            {
+                x1y3 = true;
+            }
+            else
+            {
+                x1y3 = false;
+            }
+
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                x1y4 = true;
+            }
+            else
+            {
+                x1y4 = false;
+            }
+
+            if (energyNode1.nodeIsUnlocked == true)
+            {
+                x2y1 = true;
+            }
+            else
+            {
+                x2y1 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn)
+            {
+                x2y2 = true;
+            }
+            else
+            {
+                x2y2 = false;
+            }
+
+            if (unlockNode.DieFivenode1IsUnlocked == true && (!switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn && !switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn))
+            {
+                x2y3 = true;
+            }
+            else
+            {
+                x2y3 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn)
+            {
+                x2y4 = true;
+            }
+            else
+            {
+                x2y4 = false;
+            }
+
+            if (unlockNode.DieOnenode2IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn))
+            {
+                x3y1 = true;
+            }
+            else
+            {
+                x3y1 = false;
+            }
+
+            if (unlockNode.DieFournode1IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                x3y2 = true;
+            }
+            else
+            {
+                x3y2 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn && !switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+            {
+                x3y3 = true;
+            }
+            else
+            {
+                x3y3 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn)
+            {
+                x3y4 = true;
+            }
+            else
+            {
+                x3y4 = false;
+            }
+
+            if (unlockNode.DieTwonode2IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                x4y1 = true;
+            }
+            else
+            {
+                x4y1 = false;
+            }
+
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                x4y2 = true;
+            }
+            else
+            {
+                x4y2 = false;
+            }
+
+            if (unlockNode.DieFivenode2IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn))
+            {
+                x4y3 = true;
+            }
+            else
+            {
+                x4y3 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn && !switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+            {
+                x4y4 = true;
+            }
+            else
+            {
+                x4y4 = false;
+            }
+
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+            {
+                x5y1 = true;
+            }
+            else
+            {
+                x5y1 = false;
+            }
+
+            if (energyNode2.nodeIsUnlocked == true)
+            {
+                x5y2 = true;
+            }
+            else
+            {
+                x5y2 = false;
+            }
+
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
+            {
+                x5y3 = true;
+            }
+            else
+            {
+                x5y3 = false;
+            }
+
+            if (energyNode3.nodeIsUnlocked == true)
+            {
+                x5y4 = true;
+            }
+            else
+            {
+                x5y4 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                x6y1 = true;
+            }
+            else
+            {
+                x6y1 = false;
+            }
+
+            if (unlockNode.DieSixnode2IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn))
+            {
+                x6y2 = true;
+            }
+            else
+            {
+                x6y2 = false;
+            }
+
+            if (unlockNode.DieTwonode3IsUnlocked == true && (!switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && !switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn))
+            {
+                x6y3 = true;
+            }
+            else
+            {
+                x6y3 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
             {
                 x6y4 = true;
             }
@@ -2738,6 +2964,52 @@ public class NeetleBehaviour : MonoBehaviour
             }
         }
 
+        //Level TWO
+
+        else if (gameManager.levelTwoIsActive)
+        {
+
+            if ((currentXAxis == 3 && currentYAxis == 3) && bonusMultitools == false)
+            {
+                gameManager.multitoolNumber += 1;
+                bonusMultitools = true;
+                bonusMultitoolsNode.GetComponent<MeshRenderer>().material = green;
+                sparksFXFive.Play();
+                sparks.Play();
+            }
+
+            if ((currentXAxis == 4 && currentYAxis == 4) && bonusEnergy == false)
+            {
+                gameManager.energyNumber += 1;
+                bonusEnergy = true;
+                bonusEnergyNode.GetComponent<MeshRenderer>().material = green;
+                sparksFXThree.Play();
+                sparks.Play();
+            }
+
+
+            if ((currentXAxis == 2 && currentYAxis == 4) && bonusCredit1 == false)
+            {
+                gameManager.creditNumber += 1;
+                bonusCredit1 = true;
+                bonusCreditNode1.GetComponent<MeshRenderer>().material = green;
+                sparksFXTwo.Play();
+                sparks.Play();
+            }
+
+
+
+            if ((currentXAxis == 5 && currentYAxis == 1) && bonusMultitool == false)
+            {
+                gameManager.creditNumber += 1;
+                bonusMultitool = true;
+                bonusMultitoolNode.GetComponent<MeshRenderer>().material = green;
+                sparksFXOne.Play();
+                sparks.Play();
+            }
+        }
+
+
         //Level SIX
 
         else if(gameManager.levelSixIsActive)
@@ -2864,6 +3136,85 @@ public class NeetleBehaviour : MonoBehaviour
                 explode.Play();
             }
         }
+
+        //Level TWO
+
+        else if (gameManager.levelTwoIsActive)
+        {
+            if ((currentXAxis == 1 && currentYAxis == 4) && (hacScreen.GetComponent<HackBehaviour>().hasTool2 == true && tool2done == false))
+            {
+                tool2done = true;
+                hacScreen.GetComponent<HackBehaviour>().tool2.SetActive(true);
+
+                toolNodes[1].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 12;
+                gameManager.nedDamage += 12;
+                hacScreen.GetComponent<HackBehaviour>().hasTool2 = false;
+                plasmaExplodeTwo.Play();
+                explode.Play();
+            }
+
+            if ((currentXAxis == 2 && currentYAxis == 2) && (hacScreen.GetComponent<HackBehaviour>().hasTool1 == true && tool1done == false))
+            {
+                tool1done = true;
+                hacScreen.GetComponent<HackBehaviour>().tool1.SetActive(true);
+                toolNodes[0].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 9;
+                gameManager.nedDamage += 9;
+                hacScreen.GetComponent<HackBehaviour>().hasTool1 = false;
+                plasmaExplodeOne.Play();
+                explode.Play();
+            }
+
+            if ((currentXAxis == 3 && currentYAxis == 4) && (hacScreen.GetComponent<HackBehaviour>().hasTool4 == true && tool4done == false))
+            {
+                tool4done = true;
+                hacScreen.GetComponent<HackBehaviour>().tool4.SetActive(true);
+                toolNodes[3].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 15;
+                gameManager.nedDamage += 15;
+                hacScreen.GetComponent<HackBehaviour>().hasTool4 = false;
+                plasmaExplodeFour.Play();
+                explode.Play();
+            }
+
+            if ((currentXAxis == 4 && currentYAxis == 2) && (hacScreen.GetComponent<HackBehaviour>().hasTool5 == true && tool5done == false))
+            {
+                tool5done = true;
+                hacScreen.GetComponent<HackBehaviour>().tool5.SetActive(true);
+                toolNodes[4].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 15;
+                gameManager.nedDamage += 15;
+                hacScreen.GetComponent<HackBehaviour>().hasTool5 = false;
+                plasmaExplodeFive.Play();
+                explode.Play();
+            }
+
+            if ((currentXAxis == 5 && currentYAxis == 3) && (hacScreen.GetComponent<HackBehaviour>().hasTool3 == true && tool3done == false))
+            {
+                tool3done = true;
+                hacScreen.GetComponent<HackBehaviour>().tool3.SetActive(true);
+                toolNodes[2].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 17;
+                gameManager.nedDamage += 17;
+                hacScreen.GetComponent<HackBehaviour>().hasTool3 = false;
+                plasmaExplodeThree.Play();
+                explode.Play();
+            }
+
+            if ((currentXAxis == 6 && currentYAxis == 1) && (hacScreen.GetComponent<HackBehaviour>().hasTool6 == true && tool6done == false))
+            {
+                tool6done = true;
+                hacScreen.GetComponent<HackBehaviour>().tool6.SetActive(true);
+                toolNodes[5].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 20;
+                gameManager.nedDamage += 20;
+                hacScreen.GetComponent<HackBehaviour>().hasTool6 = false;
+                plasmaExplodeSix.Play();
+                explode.Play();
+            }
+        }
+
 
         //Level SIX
 

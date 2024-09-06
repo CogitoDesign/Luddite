@@ -21,6 +21,7 @@ public class UnlockNode : MonoBehaviour
 
     public EnergyNode1 energyNode1;
     public EnergyNode2 energyNode2;
+    public EnergyNode3 energyNode3;
 
     public bool DieOnenode1IsUnlocked = false;
     public bool DieOnenode2IsUnlocked = false;
@@ -90,555 +91,1010 @@ public class UnlockNode : MonoBehaviour
     void Update()
     {
 
-       
 
+        // turn dice nodes to purple when right die is selected levels one and 6 are bundled together the rest are done individually
 
-        if (gameManager.GetComponent<GameManager>().hasSix == true)
+        //LEVELS ONE AND SIX
+
+        if (gameManager.levelOneIsActive || gameManager.levelSixIsActive)
         {
-            if (DieSixnode1IsUnlocked == false)
+
+            if (gameManager.GetComponent<GameManager>().hasSix == true)
             {
-                diceNodes[9].GetComponent<MeshRenderer>().material = purple;
-                DieSixnode1IsActive = true;
-            }
 
-            if (DieSixnode2IsUnlocked == false)
-            {
-                diceNodes[10].GetComponent<MeshRenderer>().material = purple;
-                DieSixnode2IsActive = true;
-            }
-
-            // others back to red
-
-            if (DieFivenode1IsUnlocked == false)
-            {
-                diceNodes[7].GetComponent<MeshRenderer>().material = red;
-                DieFivenode1IsActive = false;
-            }
-
-            if (DieFivenode2IsUnlocked == false)
-            {
-                diceNodes[8].GetComponent<MeshRenderer>().material = red;
-                DieFivenode2IsActive = false;
-            }
-
-            if (DieFournode1IsUnlocked == false)
-            {
-                diceNodes[6].GetComponent<MeshRenderer>().material = red;
-                DieFournode1IsActive = false;
-            }
-
-            if (DieThreenode1IsUnlocked == false)
-            {
-                diceNodes[5].GetComponent<MeshRenderer>().material = red;
-                DieThreenode1IsActive = false;
-            }
-
-            if (DieTwonode1IsUnlocked == false)
-            {
-                diceNodes[2].GetComponent<MeshRenderer>().material = red;
-                DieTwonode1IsActive = false;
-            }
-
-            if (DieTwonode2IsUnlocked == false)
-            {
-                diceNodes[3].GetComponent<MeshRenderer>().material = red;
-                DieTwonode2IsActive = false;
-            }
-
-            if (DieTwonode3IsUnlocked == false)
-            {
-                diceNodes[4].GetComponent<MeshRenderer>().material = red;
-                DieTwonode3IsActive = false;
-            }
-
-            if (DieOnenode1IsUnlocked == false)
-            {
-                diceNodes[0].GetComponent<MeshRenderer>().material = red;
-                DieOnenode1IsActive = false;
-            }
-
-            if (DieOnenode2IsUnlocked == false)
-            {
-                diceNodes[1].GetComponent<MeshRenderer>().material = red;
-                DieOnenode2IsActive = false;
-            }
-        }
-
-        else if (gameManager.GetComponent<GameManager>().hasFive == true)
-        {
-            if (DieFivenode1IsUnlocked == false)
-            {
-                diceNodes[7].GetComponent<MeshRenderer>().material = purple;
-                DieFivenode1IsActive = true;
-            }
-
-            if (DieFivenode2IsUnlocked == false)
-            {
-                diceNodes[8].GetComponent<MeshRenderer>().material = purple;
-                DieFivenode2IsActive = true;
-            }
-
-            // others back to red
-
-            if (DieSixnode1IsUnlocked == false)
-            {
-                diceNodes[9].GetComponent<MeshRenderer>().material = red;
-                DieSixnode1IsActive = false;
-            }
-
-            if (DieSixnode2IsUnlocked == false)
-            {
-                diceNodes[10].GetComponent<MeshRenderer>().material = red;
-                DieSixnode2IsActive = false;
-            }
-
-            if (DieFournode1IsUnlocked == false)
-            {
-                diceNodes[6].GetComponent<MeshRenderer>().material = red;
-                DieFournode1IsActive = false;
-            }
-
-            if (DieThreenode1IsUnlocked == false)
-            {
-                diceNodes[5].GetComponent<MeshRenderer>().material = red;
-                DieThreenode1IsActive = false;
-            }
-
-            if (DieTwonode1IsUnlocked == false)
-            {
-                diceNodes[2].GetComponent<MeshRenderer>().material = red;
-                DieTwonode1IsActive = false;
-            }
-
-            if (DieTwonode2IsUnlocked == false)
-            {
-                diceNodes[3].GetComponent<MeshRenderer>().material = red;
-                DieTwonode2IsActive = false;
-            }
-
-            if (DieTwonode3IsUnlocked == false)
-            {
-                diceNodes[4].GetComponent<MeshRenderer>().material = red;
-                DieTwonode3IsActive = false;
-            }
-
-            if (DieOnenode1IsUnlocked == false)
-            {
-                diceNodes[0].GetComponent<MeshRenderer>().material = red;
-                DieOnenode1IsActive = false;
-            }
-
-            if (DieOnenode2IsUnlocked == false)
-            {
-                diceNodes[1].GetComponent<MeshRenderer>().material = red;
-                DieOnenode2IsActive = false;
-            }
-
-        }
-
-        else if (gameManager.GetComponent<GameManager>().hasFour == true)
-        {
-            if (DieFournode1IsUnlocked == false)
-            {
-                diceNodes[6].GetComponent<MeshRenderer>().material = purple;
-                DieFournode1IsActive = true;
-            }
-
-            if(gameManager.levelSixIsActive)
-            {
-                if (DieTwonode3IsUnlocked == false)
+                if (DieSixnode1IsUnlocked == false)
                 {
-                    diceNodes[4].GetComponent<MeshRenderer>().material = purple;
-                    DieTwonode3IsActive = true;
+                    diceNodes[9].GetComponent<MeshRenderer>().material = purple;
+                    DieSixnode1IsActive = true;
                 }
-            }
 
-            // others back to red
-
-            if (DieSixnode1IsUnlocked == false)
-            {
-                diceNodes[9].GetComponent<MeshRenderer>().material = red;
-                DieSixnode1IsActive = false;
-            }
-
-            if (DieSixnode2IsUnlocked == false)
-            {
-                diceNodes[10].GetComponent<MeshRenderer>().material = red;
-                DieSixnode2IsActive = false;
-            }
-
-            if (DieThreenode1IsUnlocked == false)
-            {
-                diceNodes[5].GetComponent<MeshRenderer>().material = red;
-                DieThreenode1IsActive = false;
-            }
-
-            if (DieTwonode1IsUnlocked == false)
-            {
-                diceNodes[2].GetComponent<MeshRenderer>().material = red;
-                DieTwonode1IsActive = false;
-            }
-
-            if (DieTwonode2IsUnlocked == false)
-            {
-                diceNodes[3].GetComponent<MeshRenderer>().material = red;
-                DieTwonode2IsActive = false;
-            }
-
-            if (gameManager.levelSixIsActive == false)
-            {
-                if (DieTwonode3IsUnlocked == false)
+                if (DieSixnode2IsUnlocked == false)
                 {
-                    diceNodes[4].GetComponent<MeshRenderer>().material = red;
-                    DieTwonode3IsActive = false;
+                    diceNodes[10].GetComponent<MeshRenderer>().material = purple;
+                    DieSixnode2IsActive = true;
                 }
-            }
 
-            if (DieOnenode1IsUnlocked == false)
-            {
-                diceNodes[0].GetComponent<MeshRenderer>().material = red;
-                DieOnenode1IsActive = false;
-            }
+                // others back to red
 
-            if (DieOnenode2IsUnlocked == false)
-            {
-                diceNodes[1].GetComponent<MeshRenderer>().material = red;
-                DieOnenode2IsActive = false;
-            }
-
-            if (DieFivenode1IsUnlocked == false)
-            {
-                diceNodes[7].GetComponent<MeshRenderer>().material = red;
-                DieFivenode1IsActive = false;
-            }
-
-            if (DieFivenode2IsUnlocked == false)
-            {
-                diceNodes[8].GetComponent<MeshRenderer>().material = red;
-                DieFivenode2IsActive = false;
-            }
-
-        }
-
-        else if (gameManager.GetComponent<GameManager>().hasThree == true)
-        {
-            if (DieThreenode1IsUnlocked == false)
-            {
-                diceNodes[5].GetComponent<MeshRenderer>().material = purple;
-                DieThreenode1IsActive = true;
-            }
-
-            if (gameManager.levelSixIsActive)
-            {
-                if (DieTwonode2IsUnlocked == false)
+                if (DieFivenode1IsUnlocked == false)
                 {
-                    diceNodes[3].GetComponent<MeshRenderer>().material = purple;
-                    DieTwonode2IsActive = true;
+                    diceNodes[7].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode1IsActive = false;
                 }
-            }
 
-            // others back to red
+                if (DieFivenode2IsUnlocked == false)
+                {
+                    diceNodes[8].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode2IsActive = false;
+                }
 
-            if (DieSixnode1IsUnlocked == false)
-            {
-                diceNodes[9].GetComponent<MeshRenderer>().material = red;
-                DieSixnode1IsActive = false;
-            }
+                if (DieFournode1IsUnlocked == false)
+                {
+                    diceNodes[6].GetComponent<MeshRenderer>().material = red;
+                    DieFournode1IsActive = false;
+                }
 
-            if (DieSixnode2IsUnlocked == false)
-            {
-                diceNodes[10].GetComponent<MeshRenderer>().material = red;
-                DieSixnode2IsActive = false;
-            }
+                if (DieThreenode1IsUnlocked == false)
+                {
+                    diceNodes[5].GetComponent<MeshRenderer>().material = red;
+                    DieThreenode1IsActive = false;
+                }
 
-            if (DieTwonode1IsUnlocked == false)
-            {
-                diceNodes[2].GetComponent<MeshRenderer>().material = red;
-                DieTwonode1IsActive = false;
-            }
+                if (DieTwonode1IsUnlocked == false)
+                {
+                    diceNodes[2].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode1IsActive = false;
+                }
 
-            if (gameManager.levelSixIsActive == false)
-            {
                 if (DieTwonode2IsUnlocked == false)
                 {
                     diceNodes[3].GetComponent<MeshRenderer>().material = red;
                     DieTwonode2IsActive = false;
                 }
-            }
 
-            if (DieTwonode3IsUnlocked == false)
-            {
-                diceNodes[4].GetComponent<MeshRenderer>().material = red;
-                DieTwonode3IsActive = false;
-            }
-
-            if (DieOnenode1IsUnlocked == false)
-            {
-                diceNodes[0].GetComponent<MeshRenderer>().material = red;
-                DieOnenode1IsActive = false;
-            }
-
-            if (DieOnenode2IsUnlocked == false)
-            {
-                diceNodes[1].GetComponent<MeshRenderer>().material = red;
-                DieOnenode2IsActive = false;
-            }
-
-            if (DieFivenode1IsUnlocked == false)
-            {
-                diceNodes[7].GetComponent<MeshRenderer>().material = red;
-                DieFivenode1IsActive = false;
-            }
-
-            if (DieFivenode2IsUnlocked == false)
-            {
-                diceNodes[8].GetComponent<MeshRenderer>().material = red;
-                DieFivenode2IsActive = false;
-            }
-
-            if (DieFournode1IsUnlocked == false)
-            {
-                diceNodes[6].GetComponent<MeshRenderer>().material = red;
-                DieFournode1IsActive = false;
-            }
-
-        }
-
-        else if (gameManager.GetComponent<GameManager>().hasTwo == true)
-        {
-            if (DieTwonode1IsUnlocked == false)
-            {
-                diceNodes[2].GetComponent<MeshRenderer>().material = purple;
-                DieTwonode1IsActive = true;
-            }
-
-            if (gameManager.levelOneIsActive)
-            {
-                if (DieTwonode2IsUnlocked == false)
+                if (DieTwonode3IsUnlocked == false)
                 {
-                    diceNodes[3].GetComponent<MeshRenderer>().material = purple;
-                    DieTwonode2IsActive = true;
+                    diceNodes[4].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode3IsActive = false;
+                }
+
+                if (DieOnenode1IsUnlocked == false)
+                {
+                    diceNodes[0].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode1IsActive = false;
+                }
+
+                if (DieOnenode2IsUnlocked == false)
+                {
+                    diceNodes[1].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode2IsActive = false;
                 }
             }
-            else if(gameManager.levelSixIsActive)
+
+            else if (gameManager.GetComponent<GameManager>().hasFive == true)
             {
+                if (DieFivenode1IsUnlocked == false)
+                {
+                    diceNodes[7].GetComponent<MeshRenderer>().material = purple;
+                    DieFivenode1IsActive = true;
+                }
+
+                if (DieFivenode2IsUnlocked == false)
+                {
+                    diceNodes[8].GetComponent<MeshRenderer>().material = purple;
+                    DieFivenode2IsActive = true;
+                }
+
+                // others back to red
+
+                if (DieSixnode1IsUnlocked == false)
+                {
+                    diceNodes[9].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode1IsActive = false;
+                }
+
+                if (DieSixnode2IsUnlocked == false)
+                {
+                    diceNodes[10].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode2IsActive = false;
+                }
+
+                if (DieFournode1IsUnlocked == false)
+                {
+                    diceNodes[6].GetComponent<MeshRenderer>().material = red;
+                    DieFournode1IsActive = false;
+                }
+
+                if (DieThreenode1IsUnlocked == false)
+                {
+                    diceNodes[5].GetComponent<MeshRenderer>().material = red;
+                    DieThreenode1IsActive = false;
+                }
+
+                if (DieTwonode1IsUnlocked == false)
+                {
+                    diceNodes[2].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode1IsActive = false;
+                }
+
                 if (DieTwonode2IsUnlocked == false)
                 {
                     diceNodes[3].GetComponent<MeshRenderer>().material = red;
                     DieTwonode2IsActive = false;
                 }
+
+                if (DieTwonode3IsUnlocked == false)
+                {
+                    diceNodes[4].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode3IsActive = false;
+                }
+
+                if (DieOnenode1IsUnlocked == false)
+                {
+                    diceNodes[0].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode1IsActive = false;
+                }
+
+                if (DieOnenode2IsUnlocked == false)
+                {
+                    diceNodes[1].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode2IsActive = false;
+                }
+
             }
 
-            if (gameManager.levelOneIsActive)
+            else if (gameManager.GetComponent<GameManager>().hasFour == true)
             {
+                if (DieFournode1IsUnlocked == false)
+                {
+                    diceNodes[6].GetComponent<MeshRenderer>().material = purple;
+                    DieFournode1IsActive = true;
+                }
+
+                if (gameManager.levelSixIsActive)
+                {
+                    if (DieTwonode3IsUnlocked == false)
+                    {
+                        diceNodes[4].GetComponent<MeshRenderer>().material = purple;
+                        DieTwonode3IsActive = true;
+                    }
+                }
+
+                // others back to red
+
+                if (DieSixnode1IsUnlocked == false)
+                {
+                    diceNodes[9].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode1IsActive = false;
+                }
+
+                if (DieSixnode2IsUnlocked == false)
+                {
+                    diceNodes[10].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode2IsActive = false;
+                }
+
+                if (DieThreenode1IsUnlocked == false)
+                {
+                    diceNodes[5].GetComponent<MeshRenderer>().material = red;
+                    DieThreenode1IsActive = false;
+                }
+
+                if (DieTwonode1IsUnlocked == false)
+                {
+                    diceNodes[2].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode1IsActive = false;
+                }
+
+                if (DieTwonode2IsUnlocked == false)
+                {
+                    diceNodes[3].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode2IsActive = false;
+                }
+
+                if (gameManager.levelSixIsActive == false)
+                {
+                    if (DieTwonode3IsUnlocked == false)
+                    {
+                        diceNodes[4].GetComponent<MeshRenderer>().material = red;
+                        DieTwonode3IsActive = false;
+                    }
+                }
+
+                if (DieOnenode1IsUnlocked == false)
+                {
+                    diceNodes[0].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode1IsActive = false;
+                }
+
+                if (DieOnenode2IsUnlocked == false)
+                {
+                    diceNodes[1].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode2IsActive = false;
+                }
+
+                if (DieFivenode1IsUnlocked == false)
+                {
+                    diceNodes[7].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode1IsActive = false;
+                }
+
+                if (DieFivenode2IsUnlocked == false)
+                {
+                    diceNodes[8].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode2IsActive = false;
+                }
+
+            }
+
+            else if (gameManager.GetComponent<GameManager>().hasThree == true)
+            {
+                if (DieThreenode1IsUnlocked == false)
+                {
+                    diceNodes[5].GetComponent<MeshRenderer>().material = purple;
+                    DieThreenode1IsActive = true;
+                }
+
+                if (gameManager.levelSixIsActive)
+                {
+                    if (DieTwonode2IsUnlocked == false)
+                    {
+                        diceNodes[3].GetComponent<MeshRenderer>().material = purple;
+                        DieTwonode2IsActive = true;
+                    }
+                }
+
+                // others back to red
+
+                if (DieSixnode1IsUnlocked == false)
+                {
+                    diceNodes[9].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode1IsActive = false;
+                }
+
+                if (DieSixnode2IsUnlocked == false)
+                {
+                    diceNodes[10].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode2IsActive = false;
+                }
+
+                if (DieTwonode1IsUnlocked == false)
+                {
+                    diceNodes[2].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode1IsActive = false;
+                }
+
+                if (gameManager.levelSixIsActive == false)
+                {
+                    if (DieTwonode2IsUnlocked == false)
+                    {
+                        diceNodes[3].GetComponent<MeshRenderer>().material = red;
+                        DieTwonode2IsActive = false;
+                    }
+                }
+
+                if (DieTwonode3IsUnlocked == false)
+                {
+                    diceNodes[4].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode3IsActive = false;
+                }
+
+                if (DieOnenode1IsUnlocked == false)
+                {
+                    diceNodes[0].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode1IsActive = false;
+                }
+
+                if (DieOnenode2IsUnlocked == false)
+                {
+                    diceNodes[1].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode2IsActive = false;
+                }
+
+                if (DieFivenode1IsUnlocked == false)
+                {
+                    diceNodes[7].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode1IsActive = false;
+                }
+
+                if (DieFivenode2IsUnlocked == false)
+                {
+                    diceNodes[8].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode2IsActive = false;
+                }
+
+                if (DieFournode1IsUnlocked == false)
+                {
+                    diceNodes[6].GetComponent<MeshRenderer>().material = red;
+                    DieFournode1IsActive = false;
+                }
+
+            }
+
+            else if (gameManager.GetComponent<GameManager>().hasTwo == true)
+            {
+                if (DieTwonode1IsUnlocked == false)
+                {
+                    diceNodes[2].GetComponent<MeshRenderer>().material = purple;
+                    DieTwonode1IsActive = true;
+                }
+
+                if (gameManager.levelOneIsActive)
+                {
+                    if (DieTwonode2IsUnlocked == false)
+                    {
+                        diceNodes[3].GetComponent<MeshRenderer>().material = purple;
+                        DieTwonode2IsActive = true;
+                    }
+                }
+                else if (gameManager.levelSixIsActive)
+                {
+                    if (DieTwonode2IsUnlocked == false)
+                    {
+                        diceNodes[3].GetComponent<MeshRenderer>().material = red;
+                        DieTwonode2IsActive = false;
+                    }
+                }
+
+                if (gameManager.levelOneIsActive)
+                {
+                    if (DieTwonode3IsUnlocked == false)
+                    {
+                        diceNodes[4].GetComponent<MeshRenderer>().material = purple;
+                        DieTwonode3IsActive = true;
+                    }
+                }
+                else if (gameManager.levelSixIsActive)
+                {
+                    if (DieTwonode2IsUnlocked == false)
+                    {
+                        diceNodes[4].GetComponent<MeshRenderer>().material = red;
+                        DieTwonode3IsActive = false;
+                    }
+                }
+
+                // others back to red
+
+                if (DieSixnode1IsUnlocked == false)
+                {
+                    diceNodes[9].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode1IsActive = false;
+                }
+
+                if (DieSixnode2IsUnlocked == false)
+                {
+                    diceNodes[10].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode2IsActive = false;
+                }
+
+                if (DieOnenode1IsUnlocked == false)
+                {
+                    diceNodes[0].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode1IsActive = false;
+                }
+
+                if (DieOnenode2IsUnlocked == false)
+                {
+                    diceNodes[1].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode2IsActive = false;
+                }
+
+                if (DieFivenode1IsUnlocked == false)
+                {
+                    diceNodes[7].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode1IsActive = false;
+                }
+
+                if (DieFivenode2IsUnlocked == false)
+                {
+                    diceNodes[8].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode2IsActive = false;
+                }
+
+                if (DieFournode1IsUnlocked == false)
+                {
+                    diceNodes[6].GetComponent<MeshRenderer>().material = red;
+                    DieFournode1IsActive = false;
+                }
+
+                if (DieThreenode1IsUnlocked == false)
+                {
+                    diceNodes[5].GetComponent<MeshRenderer>().material = red;
+                    DieThreenode1IsActive = false;
+                }
+            }
+
+            else if (gameManager.GetComponent<GameManager>().hasOne == true)
+            {
+                if (DieOnenode1IsUnlocked == false)
+                {
+                    diceNodes[0].GetComponent<MeshRenderer>().material = purple;
+                    DieOnenode1IsActive = true;
+                }
+
+                if (DieOnenode2IsUnlocked == false)
+                {
+                    diceNodes[1].GetComponent<MeshRenderer>().material = purple;
+                    DieOnenode2IsActive = true;
+                }
+
+                // others back to red
+
+                if (DieSixnode1IsUnlocked == false)
+                {
+                    diceNodes[9].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode1IsActive = false;
+                }
+
+                if (DieSixnode2IsUnlocked == false)
+                {
+                    diceNodes[10].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode2IsActive = false;
+                }
+
+                if (DieFivenode1IsUnlocked == false)
+                {
+                    diceNodes[7].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode1IsActive = false;
+                }
+
+                if (DieFivenode2IsUnlocked == false)
+                {
+                    diceNodes[8].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode2IsActive = false;
+                }
+
+                if (DieFournode1IsUnlocked == false)
+                {
+                    diceNodes[6].GetComponent<MeshRenderer>().material = red;
+                    DieFournode1IsActive = false;
+                }
+
+                if (DieThreenode1IsUnlocked == false)
+                {
+                    diceNodes[5].GetComponent<MeshRenderer>().material = red;
+                    DieThreenode1IsActive = false;
+                }
+
+                if (DieTwonode1IsUnlocked == false)
+                {
+                    diceNodes[2].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode1IsActive = false;
+                }
+
+                if (DieTwonode2IsUnlocked == false)
+                {
+                    diceNodes[3].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode2IsActive = false;
+                }
+
+                if (DieTwonode3IsUnlocked == false)
+                {
+                    diceNodes[4].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode3IsActive = false;
+                }
+
+            }
+
+            else if (gameManager.GetComponent<GameManager>().hasOne == false && gameManager.GetComponent<GameManager>().hasTwo == false && gameManager.GetComponent<GameManager>().hasThree == false && gameManager.GetComponent<GameManager>().hasFour == false && gameManager.GetComponent<GameManager>().hasFive == false && gameManager.GetComponent<GameManager>().hasSix == false)
+            {
+                if (DieOnenode1IsUnlocked == false)
+                {
+                    diceNodes[0].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode1IsActive = false;
+                }
+
+                if (DieOnenode2IsUnlocked == false)
+                {
+                    diceNodes[1].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode2IsActive = false;
+                }
+
+                // others back to red
+
+                if (DieSixnode1IsUnlocked == false)
+                {
+                    diceNodes[9].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode1IsActive = false;
+                }
+
+                if (DieSixnode2IsUnlocked == false)
+                {
+                    diceNodes[10].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode2IsActive = false;
+                }
+
+                if (DieFivenode1IsUnlocked == false)
+                {
+                    diceNodes[7].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode1IsActive = false;
+                }
+
+                if (DieFivenode2IsUnlocked == false)
+                {
+                    diceNodes[8].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode2IsActive = false;
+                }
+
+                if (DieFournode1IsUnlocked == false)
+                {
+                    diceNodes[6].GetComponent<MeshRenderer>().material = red;
+                    DieFournode1IsActive = false;
+                }
+
+                if (DieThreenode1IsUnlocked == false)
+                {
+                    diceNodes[5].GetComponent<MeshRenderer>().material = red;
+                    DieThreenode1IsActive = false;
+                }
+
+                if (DieTwonode1IsUnlocked == false)
+                {
+                    diceNodes[2].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode1IsActive = false;
+                }
+
+                if (DieTwonode2IsUnlocked == false)
+                {
+                    diceNodes[3].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode2IsActive = false;
+                }
+
+                if (DieTwonode3IsUnlocked == false)
+                {
+                    diceNodes[4].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode3IsActive = false;
+                }
+
+            }
+        }
+
+        //LEVEL TWO
+
+        if (gameManager.levelTwoIsActive)
+        {
+
+            if (gameManager.GetComponent<GameManager>().hasSix == true)
+            {
+
+                if (DieFivenode1IsUnlocked == false)
+                {
+                    diceNodes[7].GetComponent<MeshRenderer>().material = purple;
+                    DieFivenode1IsActive = true;
+                }
+
+                if (DieFivenode2IsUnlocked == false)
+                {
+                    diceNodes[8].GetComponent<MeshRenderer>().material = purple;
+                    DieFivenode2IsActive = true;
+                }
+
+                // others back to red
+
+                if (DieFournode1IsUnlocked == false)
+                {
+                    diceNodes[6].GetComponent<MeshRenderer>().material = red;
+                    DieFournode1IsActive = false;
+                }
+
+                if (DieOnenode2IsUnlocked == false)
+                {
+                    diceNodes[1].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode2IsActive = false;
+                }
+
+
+                if (DieTwonode3IsUnlocked == false)
+                {
+                    diceNodes[4].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode3IsActive = false;
+                }
+
+                if (DieSixnode2IsUnlocked == false)
+                {
+                    diceNodes[10].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode2IsActive = false;
+                }
+
+                if (DieOnenode1IsUnlocked == false)
+                {
+                    diceNodes[0].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode1IsActive = false;
+                }
+
+                if (DieSixnode1IsUnlocked == false)
+                {
+                    diceNodes[9].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode1IsActive = false;
+                }
+
+                if (DieTwonode2IsUnlocked == false)
+                {
+                    diceNodes[3].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode2IsActive = false;
+                }
+
+            }
+
+            else if (gameManager.GetComponent<GameManager>().hasFive == true)
+            {
+                if (DieFournode1IsUnlocked == false)
+                {
+                    diceNodes[6].GetComponent<MeshRenderer>().material = purple;
+                    DieFournode1IsActive = true;
+                }
+
+
+
+                // others back to red
+
+
+                if (DieOnenode2IsUnlocked == false)
+                {
+                    diceNodes[1].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode2IsActive = false;
+                }
+
+
+                if (DieTwonode3IsUnlocked == false)
+                {
+                    diceNodes[4].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode3IsActive = false;
+                }
+
+                if (DieSixnode2IsUnlocked == false)
+                {
+                    diceNodes[10].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode2IsActive = false;
+                }
+
+                if (DieOnenode1IsUnlocked == false)
+                {
+                    diceNodes[0].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode1IsActive = false;
+                }
+
+                if (DieSixnode1IsUnlocked == false)
+                {
+                    diceNodes[9].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode1IsActive = false;
+                }
+
+                if (DieTwonode2IsUnlocked == false)
+                {
+                    diceNodes[3].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode2IsActive = false;
+                }
+
+                if (DieFivenode1IsUnlocked == false)
+                {
+                    diceNodes[7].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode1IsActive = false;
+                }
+
+                if (DieFivenode2IsUnlocked == false)
+                {
+                    diceNodes[8].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode2IsActive = false;
+                }
+            }
+
+            else if (gameManager.GetComponent<GameManager>().hasFour == true)
+            {
+                if (DieOnenode2IsUnlocked == false)
+                {
+                    diceNodes[1].GetComponent<MeshRenderer>().material = purple;
+                    DieOnenode2IsActive = true;
+                }
+
+
                 if (DieTwonode3IsUnlocked == false)
                 {
                     diceNodes[4].GetComponent<MeshRenderer>().material = purple;
                     DieTwonode3IsActive = true;
                 }
-            }
-            else if (gameManager.levelSixIsActive)
-            {
+
+
+                // others back to red
+
+                if (DieSixnode2IsUnlocked == false)
+                {
+                    diceNodes[10].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode2IsActive = false;
+                }
+
+                if (DieOnenode1IsUnlocked == false)
+                {
+                    diceNodes[0].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode1IsActive = false;
+                }
+
+                if (DieSixnode1IsUnlocked == false)
+                {
+                    diceNodes[9].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode1IsActive = false;
+                }
+
                 if (DieTwonode2IsUnlocked == false)
+                {
+                    diceNodes[3].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode2IsActive = false;
+                }
+
+                if (DieFivenode1IsUnlocked == false)
+                {
+                    diceNodes[7].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode1IsActive = false;
+                }
+
+                if (DieFivenode2IsUnlocked == false)
+                {
+                    diceNodes[8].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode2IsActive = false;
+                }
+
+                if (DieFournode1IsUnlocked == false)
+                {
+                    diceNodes[6].GetComponent<MeshRenderer>().material = red;
+                    DieFournode1IsActive = false;
+                }
+
+            }
+
+            else if (gameManager.GetComponent<GameManager>().hasThree == true)
+            {
+                if (DieSixnode2IsUnlocked == false)
+                {
+                    diceNodes[10].GetComponent<MeshRenderer>().material = purple;
+                    DieSixnode2IsActive = true;
+                }
+
+
+
+                // others back to red
+
+                if (DieOnenode1IsUnlocked == false)
+                {
+                    diceNodes[0].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode1IsActive = false;
+                }
+
+                if (DieSixnode1IsUnlocked == false)
+                {
+                    diceNodes[9].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode1IsActive = false;
+                }
+
+                if (DieTwonode2IsUnlocked == false)
+                {
+                    diceNodes[3].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode2IsActive = false;
+                }
+
+                if (DieFivenode1IsUnlocked == false)
+                {
+                    diceNodes[7].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode1IsActive = false;
+                }
+
+                if (DieFivenode2IsUnlocked == false)
+                {
+                    diceNodes[8].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode2IsActive = false;
+                }
+
+                if (DieFournode1IsUnlocked == false)
+                {
+                    diceNodes[6].GetComponent<MeshRenderer>().material = red;
+                    DieFournode1IsActive = false;
+                }
+
+                if (DieOnenode2IsUnlocked == false)
+                {
+                    diceNodes[1].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode2IsActive = false;
+                }
+
+
+                if (DieTwonode3IsUnlocked == false)
                 {
                     diceNodes[4].GetComponent<MeshRenderer>().material = red;
                     DieTwonode3IsActive = false;
                 }
+
+
             }
 
-            // others back to red
-
-            if (DieSixnode1IsUnlocked == false)
+            else if (gameManager.GetComponent<GameManager>().hasTwo == true)
             {
-                diceNodes[9].GetComponent<MeshRenderer>().material = red;
-                DieSixnode1IsActive = false;
+                if (DieOnenode1IsUnlocked == false)
+                {
+                    diceNodes[0].GetComponent<MeshRenderer>().material = purple;
+                    DieOnenode1IsActive = true;
+                }
+
+
+
+                // others back to red
+
+                if (DieSixnode1IsUnlocked == false)
+                {
+                    diceNodes[9].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode1IsActive = false;
+                }
+
+                if (DieTwonode2IsUnlocked == false)
+                {
+                    diceNodes[3].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode2IsActive = false;
+                }
+
+                if (DieFivenode1IsUnlocked == false)
+                {
+                    diceNodes[7].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode1IsActive = false;
+                }
+
+                if (DieFivenode2IsUnlocked == false)
+                {
+                    diceNodes[8].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode2IsActive = false;
+                }
+
+                if (DieFournode1IsUnlocked == false)
+                {
+                    diceNodes[6].GetComponent<MeshRenderer>().material = red;
+                    DieFournode1IsActive = false;
+                }
+
+                if (DieOnenode2IsUnlocked == false)
+                {
+                    diceNodes[1].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode2IsActive = false;
+                }
+
+
+                if (DieTwonode3IsUnlocked == false)
+                {
+                    diceNodes[4].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode3IsActive = false;
+                }
+
+                if (DieSixnode2IsUnlocked == false)
+                {
+                    diceNodes[10].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode2IsActive = false;
+                }
+
+
             }
 
-            if (DieSixnode2IsUnlocked == false)
+            else if (gameManager.GetComponent<GameManager>().hasOne == true)
             {
-                diceNodes[10].GetComponent<MeshRenderer>().material = red;
-                DieSixnode2IsActive = false;
+                if (DieSixnode1IsUnlocked == false)
+                {
+                    diceNodes[9].GetComponent<MeshRenderer>().material = purple;
+                    DieSixnode1IsActive = true;
+                }
+
+                if (DieTwonode2IsUnlocked == false)
+                {
+                    diceNodes[3].GetComponent<MeshRenderer>().material = purple;
+                    DieTwonode2IsActive = true;
+                }
+
+                // others back to red
+
+                if (DieFivenode1IsUnlocked == false)
+                {
+                    diceNodes[7].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode1IsActive = false;
+                }
+
+                if (DieFivenode2IsUnlocked == false)
+                {
+                    diceNodes[8].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode2IsActive = false;
+                }
+
+                if (DieFournode1IsUnlocked == false)
+                {
+                    diceNodes[6].GetComponent<MeshRenderer>().material = red;
+                    DieFournode1IsActive = false;
+                }
+
+                if (DieOnenode2IsUnlocked == false)
+                {
+                    diceNodes[1].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode2IsActive = false;
+                }
+
+
+                if (DieTwonode3IsUnlocked == false)
+                {
+                    diceNodes[4].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode3IsActive = false;
+                }
+
+                if (DieSixnode2IsUnlocked == false)
+                {
+                    diceNodes[10].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode2IsActive = false;
+                }
+
+                if (DieOnenode1IsUnlocked == false)
+                {
+                    diceNodes[0].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode1IsActive = false;
+                }
+
             }
 
-            if (DieOnenode1IsUnlocked == false)
-            {
-                diceNodes[0].GetComponent<MeshRenderer>().material = red;
-                DieOnenode1IsActive = false;
-            }
+            //all red and inactive if no die is selecred
 
-            if (DieOnenode2IsUnlocked == false)
+            else if (gameManager.GetComponent<GameManager>().hasOne == false && gameManager.GetComponent<GameManager>().hasTwo == false && gameManager.GetComponent<GameManager>().hasThree == false && gameManager.GetComponent<GameManager>().hasFour == false && gameManager.GetComponent<GameManager>().hasFive == false && gameManager.GetComponent<GameManager>().hasSix == false)
             {
-                diceNodes[1].GetComponent<MeshRenderer>().material = red;
-                DieOnenode2IsActive = false;
-            }
 
-            if (DieFivenode1IsUnlocked == false)
-            {
-                diceNodes[7].GetComponent<MeshRenderer>().material = red;
-                DieFivenode1IsActive = false;
-            }
+                if (DieFivenode1IsUnlocked == false)
+                {
+                    diceNodes[7].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode1IsActive = false;
+                }
 
-            if (DieFivenode2IsUnlocked == false)
-            {
-                diceNodes[8].GetComponent<MeshRenderer>().material = red;
-                DieFivenode2IsActive = false;
-            }
+                if (DieFivenode2IsUnlocked == false)
+                {
+                    diceNodes[8].GetComponent<MeshRenderer>().material = red;
+                    DieFivenode2IsActive = false;
+                }
 
-            if (DieFournode1IsUnlocked == false)
-            {
-                diceNodes[6].GetComponent<MeshRenderer>().material = red;
-                DieFournode1IsActive = false;
-            }
+                if (DieFournode1IsUnlocked == false)
+                {
+                    diceNodes[6].GetComponent<MeshRenderer>().material = red;
+                    DieFournode1IsActive = false;
+                }
 
-            if (DieThreenode1IsUnlocked == false)
-            {
-                diceNodes[5].GetComponent<MeshRenderer>().material = red;
-                DieThreenode1IsActive = false;
+                if (DieOnenode2IsUnlocked == false)
+                {
+                    diceNodes[1].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode2IsActive = false;
+                }
+
+
+                if (DieTwonode3IsUnlocked == false)
+                {
+                    diceNodes[4].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode3IsActive = false;
+                }
+
+                if (DieSixnode2IsUnlocked == false)
+                {
+                    diceNodes[10].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode2IsActive = false;
+                }
+
+                if (DieOnenode1IsUnlocked == false)
+                {
+                    diceNodes[0].GetComponent<MeshRenderer>().material = red;
+                    DieOnenode1IsActive = false;
+                }
+
+                if (DieSixnode1IsUnlocked == false)
+                {
+                    diceNodes[9].GetComponent<MeshRenderer>().material = red;
+                    DieSixnode1IsActive = false;
+                }
+
+                if (DieTwonode2IsUnlocked == false)
+                {
+                    diceNodes[3].GetComponent<MeshRenderer>().material = red;
+                    DieTwonode2IsActive = false;
+                }
+
             }
         }
 
-        else if (gameManager.GetComponent<GameManager>().hasOne == true)
-        {
-            if (DieOnenode1IsUnlocked == false)
-            {
-                diceNodes[0].GetComponent<MeshRenderer>().material = purple;
-                DieOnenode1IsActive = true;
-            }
+      
 
-            if (DieOnenode2IsUnlocked == false)
-            {
-                diceNodes[1].GetComponent<MeshRenderer>().material = purple;
-                DieOnenode2IsActive = true;
-            }
 
-            // others back to red
-
-            if (DieSixnode1IsUnlocked == false)
-            {
-                diceNodes[9].GetComponent<MeshRenderer>().material = red;
-                DieSixnode1IsActive = false;
-            }
-
-            if (DieSixnode2IsUnlocked == false)
-            {
-                diceNodes[10].GetComponent<MeshRenderer>().material = red;
-                DieSixnode2IsActive = false;
-            }
-
-            if (DieFivenode1IsUnlocked == false)
-            {
-                diceNodes[7].GetComponent<MeshRenderer>().material = red;
-                DieFivenode1IsActive = false;
-            }
-
-            if (DieFivenode2IsUnlocked == false)
-            {
-                diceNodes[8].GetComponent<MeshRenderer>().material = red;
-                DieFivenode2IsActive = false;
-            }
-
-            if (DieFournode1IsUnlocked == false)
-            {
-                diceNodes[6].GetComponent<MeshRenderer>().material = red;
-                DieFournode1IsActive = false;
-            }
-
-            if (DieThreenode1IsUnlocked == false)
-            {
-                diceNodes[5].GetComponent<MeshRenderer>().material = red;
-                DieThreenode1IsActive = false;
-            }
-
-            if (DieTwonode1IsUnlocked == false)
-            {
-                diceNodes[2].GetComponent<MeshRenderer>().material = red;
-                DieTwonode1IsActive = false;
-            }
-
-            if (DieTwonode2IsUnlocked == false)
-            {
-                diceNodes[3].GetComponent<MeshRenderer>().material = red;
-                DieTwonode2IsActive = false;
-            }
-
-            if (DieTwonode3IsUnlocked == false)
-            {
-                diceNodes[4].GetComponent<MeshRenderer>().material = red;
-                DieTwonode3IsActive = false;
-            }
-
-        }
-
-        else if (gameManager.GetComponent<GameManager>().hasOne == false && gameManager.GetComponent<GameManager>().hasTwo == false && gameManager.GetComponent<GameManager>().hasThree == false && gameManager.GetComponent<GameManager>().hasFour == false && gameManager.GetComponent<GameManager>().hasFive == false && gameManager.GetComponent<GameManager>().hasSix == false)
-        {
-            if (DieOnenode1IsUnlocked == false)
-            {
-                diceNodes[0].GetComponent<MeshRenderer>().material = red;
-                DieOnenode1IsActive = false;
-            }
-
-            if (DieOnenode2IsUnlocked == false)
-            {
-                diceNodes[1].GetComponent<MeshRenderer>().material = red;
-                DieOnenode2IsActive = false;
-            }
-
-            // others back to red
-
-            if (DieSixnode1IsUnlocked == false)
-            {
-                diceNodes[9].GetComponent<MeshRenderer>().material = red;
-                DieSixnode1IsActive = false;
-            }
-
-            if (DieSixnode2IsUnlocked == false)
-            {
-                diceNodes[10].GetComponent<MeshRenderer>().material = red;
-                DieSixnode2IsActive = false;
-            }
-
-            if (DieFivenode1IsUnlocked == false)
-            {
-                diceNodes[7].GetComponent<MeshRenderer>().material = red;
-                DieFivenode1IsActive = false;
-            }
-
-            if (DieFivenode2IsUnlocked == false)
-            {
-                diceNodes[8].GetComponent<MeshRenderer>().material = red;
-                DieFivenode2IsActive = false;
-            }
-
-            if (DieFournode1IsUnlocked == false)
-            {
-                diceNodes[6].GetComponent<MeshRenderer>().material = red;
-                DieFournode1IsActive = false;
-            }
-
-            if (DieThreenode1IsUnlocked == false)
-            {
-                diceNodes[5].GetComponent<MeshRenderer>().material = red;
-                DieThreenode1IsActive = false;
-            }
-
-            if (DieTwonode1IsUnlocked == false)
-            {
-                diceNodes[2].GetComponent<MeshRenderer>().material = red;
-                DieTwonode1IsActive = false;
-            }
-
-            if (DieTwonode2IsUnlocked == false)
-            {
-                diceNodes[3].GetComponent<MeshRenderer>().material = red;
-                DieTwonode2IsActive = false;
-            }
-
-            if (DieTwonode3IsUnlocked == false)
-            {
-                diceNodes[4].GetComponent<MeshRenderer>().material = red;
-                DieTwonode3IsActive = false;
-            }
-
-        }
     }
 }
