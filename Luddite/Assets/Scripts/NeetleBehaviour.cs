@@ -2142,27 +2142,69 @@ public class NeetleBehaviour : MonoBehaviour
         //check if tools are done and turn off
         if (tool1done == true)
         {
-            hacScreen.GetComponent<HackBehaviour>().tool1BLUE.SetActive(false);
+            if (gameManager.levelOneIsActive || gameManager.levelSixIsActive)
+            {
+                hacScreen.GetComponent<HackBehaviour>().tool1BLUE.SetActive(false);
+            }
+            else if (gameManager.levelTwoIsActive || gameManager.levelFiveIsActive)
+            {
+                hacScreen.GetComponent<Level2HackScript>().tool1BLUE.SetActive(false);
+            }
         }
         if (tool2done == true)
         {
-            hacScreen.GetComponent<HackBehaviour>().tool2BLUE.SetActive(false);
+            if (gameManager.levelOneIsActive || gameManager.levelSixIsActive)
+            {
+                hacScreen.GetComponent<HackBehaviour>().tool2BLUE.SetActive(false);
+            }
+            else if (gameManager.levelTwoIsActive || gameManager.levelFiveIsActive)
+            {
+                hacScreen.GetComponent<Level2HackScript>().tool2BLUE.SetActive(false);
+            }
         }
         if (tool3done == true)
         {
-            hacScreen.GetComponent<HackBehaviour>().tool3BLUE.SetActive(false);
+            if (gameManager.levelOneIsActive || gameManager.levelSixIsActive)
+            {
+                hacScreen.GetComponent<HackBehaviour>().tool3BLUE.SetActive(false);
+            }
+            else if (gameManager.levelTwoIsActive || gameManager.levelFiveIsActive)
+            {
+                hacScreen.GetComponent<Level2HackScript>().tool3BLUE.SetActive(false);
+            }
         }
         if (tool4done == true)
         {
-            hacScreen.GetComponent<HackBehaviour>().tool4BLUE.SetActive(false);
+            if (gameManager.levelOneIsActive || gameManager.levelSixIsActive)
+            {
+                hacScreen.GetComponent<HackBehaviour>().tool4BLUE.SetActive(false);
+            }
+            else if (gameManager.levelTwoIsActive || gameManager.levelFiveIsActive)
+            {
+                hacScreen.GetComponent<Level2HackScript>().tool4BLUE.SetActive(false);
+            }
         }
         if (tool5done == true)
         {
-            hacScreen.GetComponent<HackBehaviour>().tool5BLUE.SetActive(false);
+            if (gameManager.levelOneIsActive || gameManager.levelSixIsActive)
+            {
+                hacScreen.GetComponent<HackBehaviour>().tool5BLUE.SetActive(false);
+            }
+            else if (gameManager.levelTwoIsActive || gameManager.levelFiveIsActive)
+            {
+                hacScreen.GetComponent<Level2HackScript>().tool5BLUE.SetActive(false);
+            }
         }
         if (tool6done == true)
         {
-            hacScreen.GetComponent<HackBehaviour>().tool6BLUE.SetActive(false);
+            if (gameManager.levelOneIsActive || gameManager.levelSixIsActive)
+            {
+                hacScreen.GetComponent<HackBehaviour>().tool6BLUE.SetActive(false);
+            }
+            else if (gameManager.levelTwoIsActive || gameManager.levelFiveIsActive)
+            {
+                hacScreen.GetComponent<Level2HackScript>().tool6BLUE.SetActive(false);
+            }
         }
 
 
@@ -3141,75 +3183,75 @@ public class NeetleBehaviour : MonoBehaviour
 
         else if (gameManager.levelTwoIsActive)
         {
-            if ((currentXAxis == 1 && currentYAxis == 4) && (hacScreen.GetComponent<HackBehaviour>().hasTool2 == true && tool2done == false))
+            if ((currentXAxis == 1 && currentYAxis == 4) && (hacScreen.GetComponent<Level2HackScript>().hasTool2 == true && tool2done == false))
             {
                 tool2done = true;
-                hacScreen.GetComponent<HackBehaviour>().tool2.SetActive(true);
+                hacScreen.GetComponent<Level2HackScript>().tool2.SetActive(true);
 
                 toolNodes[1].GetComponent<MeshRenderer>().material = green;
                 gameManager.damageNumber += 12;
                 gameManager.nedDamage += 12;
-                hacScreen.GetComponent<HackBehaviour>().hasTool2 = false;
+                hacScreen.GetComponent<Level2HackScript>().hasTool2 = false;
                 plasmaExplodeTwo.Play();
                 explode.Play();
             }
 
-            if ((currentXAxis == 2 && currentYAxis == 2) && (hacScreen.GetComponent<HackBehaviour>().hasTool1 == true && tool1done == false))
+            if ((currentXAxis == 2 && currentYAxis == 2) && (hacScreen.GetComponent<Level2HackScript>().hasTool1 == true && tool1done == false))
             {
                 tool1done = true;
-                hacScreen.GetComponent<HackBehaviour>().tool1.SetActive(true);
+                hacScreen.GetComponent<Level2HackScript>().tool1.SetActive(true);
                 toolNodes[0].GetComponent<MeshRenderer>().material = green;
                 gameManager.damageNumber += 9;
                 gameManager.nedDamage += 9;
-                hacScreen.GetComponent<HackBehaviour>().hasTool1 = false;
+                hacScreen.GetComponent<Level2HackScript>().hasTool1 = false;
                 plasmaExplodeOne.Play();
                 explode.Play();
             }
 
-            if ((currentXAxis == 3 && currentYAxis == 4) && (hacScreen.GetComponent<HackBehaviour>().hasTool4 == true && tool4done == false))
+            if ((currentXAxis == 3 && currentYAxis == 4) && (hacScreen.GetComponent<Level2HackScript>().hasTool4 == true && tool4done == false))
             {
                 tool4done = true;
-                hacScreen.GetComponent<HackBehaviour>().tool4.SetActive(true);
+                hacScreen.GetComponent<Level2HackScript>().tool4.SetActive(true);
                 toolNodes[3].GetComponent<MeshRenderer>().material = green;
                 gameManager.damageNumber += 15;
                 gameManager.nedDamage += 15;
-                hacScreen.GetComponent<HackBehaviour>().hasTool4 = false;
+                hacScreen.GetComponent<Level2HackScript>().hasTool4 = false;
                 plasmaExplodeFour.Play();
                 explode.Play();
             }
 
-            if ((currentXAxis == 4 && currentYAxis == 2) && (hacScreen.GetComponent<HackBehaviour>().hasTool5 == true && tool5done == false))
+            if ((currentXAxis == 4 && currentYAxis == 2) && (hacScreen.GetComponent<Level2HackScript>().hasTool5 == true && tool5done == false))
             {
                 tool5done = true;
-                hacScreen.GetComponent<HackBehaviour>().tool5.SetActive(true);
+                hacScreen.GetComponent<Level2HackScript>().tool5.SetActive(true);
                 toolNodes[4].GetComponent<MeshRenderer>().material = green;
                 gameManager.damageNumber += 15;
                 gameManager.nedDamage += 15;
-                hacScreen.GetComponent<HackBehaviour>().hasTool5 = false;
+                hacScreen.GetComponent<Level2HackScript>().hasTool5 = false;
                 plasmaExplodeFive.Play();
                 explode.Play();
             }
 
-            if ((currentXAxis == 5 && currentYAxis == 3) && (hacScreen.GetComponent<HackBehaviour>().hasTool3 == true && tool3done == false))
+            if ((currentXAxis == 5 && currentYAxis == 3) && (hacScreen.GetComponent<Level2HackScript>().hasTool3 == true && tool3done == false))
             {
                 tool3done = true;
-                hacScreen.GetComponent<HackBehaviour>().tool3.SetActive(true);
+                hacScreen.GetComponent<Level2HackScript>().tool3.SetActive(true);
                 toolNodes[2].GetComponent<MeshRenderer>().material = green;
                 gameManager.damageNumber += 17;
                 gameManager.nedDamage += 17;
-                hacScreen.GetComponent<HackBehaviour>().hasTool3 = false;
+                hacScreen.GetComponent<Level2HackScript>().hasTool3 = false;
                 plasmaExplodeThree.Play();
                 explode.Play();
             }
 
-            if ((currentXAxis == 6 && currentYAxis == 1) && (hacScreen.GetComponent<HackBehaviour>().hasTool6 == true && tool6done == false))
+            if ((currentXAxis == 6 && currentYAxis == 1) && (hacScreen.GetComponent<Level2HackScript>().hasTool6 == true && tool6done == false))
             {
                 tool6done = true;
-                hacScreen.GetComponent<HackBehaviour>().tool6.SetActive(true);
+                hacScreen.GetComponent<Level2HackScript>().tool6.SetActive(true);
                 toolNodes[5].GetComponent<MeshRenderer>().material = green;
                 gameManager.damageNumber += 20;
                 gameManager.nedDamage += 20;
-                hacScreen.GetComponent<HackBehaviour>().hasTool6 = false;
+                hacScreen.GetComponent<Level2HackScript>().hasTool6 = false;
                 plasmaExplodeSix.Play();
                 explode.Play();
             }
