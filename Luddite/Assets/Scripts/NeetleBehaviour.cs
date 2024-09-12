@@ -170,6 +170,20 @@ public class NeetleBehaviour : MonoBehaviour
                 neetleInFinalLocation = true;
             }
         }
+        else if (gameManager.levelThreeIsActive)
+        {
+            if (currentXAxis == 1 && currentYAxis == 1)
+            {
+                neetleInFinalLocation = true;
+            }
+        }
+        else if (gameManager.levelFiveIsActive)
+        {
+            if (currentXAxis == 3 && currentYAxis == 4)
+            {
+                neetleInFinalLocation = true;
+            }
+        }
         else if (gameManager.levelSixIsActive)
         {
             if (currentXAxis == 6 && currentYAxis == 1)
@@ -2122,6 +2136,20 @@ public class NeetleBehaviour : MonoBehaviour
             currentYAxis = 1;
             FindTargetLocation();
         }
+
+        else if (gameManager.levelThreeIsActive)
+        {
+            currentXAxis = 1;
+            currentYAxis = 1;
+            FindTargetLocation();
+        }
+
+        else if (gameManager.levelFiveIsActive)
+        {
+            currentXAxis = 3;
+            currentYAxis = 4;
+            FindTargetLocation();
+        }
         else if(gameManager.levelSixIsActive)
         {
             currentXAxis = 6;
@@ -2739,6 +2767,448 @@ public class NeetleBehaviour : MonoBehaviour
             }
         }
 
+        // LEVEL THREE
+
+        else if (gameManager.levelThreeIsActive == true)
+        {
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && !switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+            {
+                x1y1 = true;
+            }
+            else
+            {
+                x1y1 = false;
+            }
+
+            if (unlockNode.DieSixnode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn))
+            {
+                x1y2 = true;
+            }
+            else
+            {
+                x1y2 = false;
+            }
+
+            if (unlockNode.DieOnenode1IsUnlocked == true && switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+            {
+                x1y3 = true;
+            }
+            else
+            {
+                x1y3 = false;
+            }
+
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+            {
+                x1y4 = true;
+            }
+            else
+            {
+                x1y4 = false;
+            }
+
+            if (unlockNode.DieTwonode3IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                x2y1 = true;
+            }
+            else
+            {
+                x2y1 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && !switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                x2y2 = true;
+            }
+            else
+            {
+                x2y2 = false;
+            }
+
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+            {
+                x2y3 = true;
+            }
+            else
+            {
+                x2y3 = false;
+            }
+
+            if (energyNode1.nodeIsUnlocked == true)
+            {
+                x2y4 = true;
+            }
+            else
+            {
+                x2y4 = false;
+            }
+
+            if (unlockNode.DieOnenode2IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn))
+            {
+                x3y1 = true;
+            }
+            else
+            {
+                x3y1 = false;
+            }
+
+            if (unlockNode.DieFournode1IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+            {
+                x3y2 = true;
+            }
+            else
+            {
+                x3y2 = false;
+            }
+
+            if (unlockNode.DieFivenode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn))
+            {
+                x3y3 = true;
+            }
+            else
+            {
+                x3y3 = false;
+            }
+
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+            {
+                x3y4 = true;
+            }
+            else
+            {
+                x3y4 = false;
+            }
+
+            if (unlockNode.DieTwonode2IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn)
+            {
+                x4y1 = true;
+            }
+            else
+            {
+                x4y1 = false;
+            }
+
+            if (energyNode2.nodeIsUnlocked == true)
+            {
+                x4y2 = true;
+            }
+            else
+            {
+                x4y2 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn && !switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                x4y3 = true;
+            }
+            else
+            {
+                x4y3 = false;
+            }
+
+            if (unlockNode.DieFivenode2IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn))
+            {
+                x4y4 = true;
+            }
+            else
+            {
+                x4y4 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && !switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+            {
+                x5y1 = true;
+            }
+            else
+            {
+                x5y1 = false;
+            }
+
+            if (unlockNode.DieThreenode1IsUnlocked == true && switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
+            {
+                x5y2 = true;
+            }
+            else
+            {
+                x5y2 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
+            {
+                x5y3 = true;
+            }
+            else
+            {
+                x5y3 = false;
+            }
+
+            if (unlockNode.DieTwonode1IsUnlocked == true && switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn)
+            {
+                x5y4 = true;
+            }
+            else
+            {
+                x5y4 = false;
+            }
+
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                x6y1 = true;
+            }
+            else
+            {
+                x6y1 = false;
+            }
+
+            if (unlockNode.DieSixnode2IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn))
+            {
+                x6y2 = true;
+            }
+            else
+            {
+                x6y2 = false;
+            }
+
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+            {
+                x6y3 = true;
+            }
+            else
+            {
+                x6y3 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn)
+            {
+                x6y4 = true;
+            }
+            else
+            {
+                x6y4 = false;
+            }
+        }
+
+        // LEVEL FIVE
+
+        else if (gameManager.levelFiveIsActive == true)
+        {
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+            {
+                x1y1 = true;
+            }
+            else
+            {
+                x1y1 = false;
+            }
+
+            if (unlockNode.DieSixnode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn))
+            {
+                x1y2 = true;
+            }
+            else
+            {
+                x1y2 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+            {
+                x1y3 = true;
+            }
+            else
+            {
+                x1y3 = false;
+            }
+
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                x1y4 = true;
+            }
+            else
+            {
+                x1y4 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && !switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                x2y1 = true;
+            }
+            else
+            {
+                x2y1 = false;
+            }
+
+            if (unlockNode.DieTwonode2IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn)
+            {
+                x2y2 = true;
+            }
+            else
+            {
+                x2y2 = false;
+            }
+
+            if (unlockNode.DieFivenode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn))
+            {
+                x2y3 = true;
+            }
+            else
+            {
+                x2y3 = false;
+            }
+
+            if (unlockNode.DieTwonode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn))
+            {
+                x2y4 = true;
+            }
+            else
+            {
+                x2y4 = false;
+            }
+
+            if (unlockNode.DieOnenode2IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn))
+            {
+                x3y1 = true;
+            }
+            else
+            {
+                x3y1 = false;
+            }
+
+            if (unlockNode.DieFournode1IsUnlocked == true && switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
+            {
+                x3y2 = true;
+            }
+            else
+            {
+                x3y2 = false;
+            }
+
+            if (unlockNode.DieOnenode1IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn))
+            {
+                x3y3 = true;
+            }
+            else
+            {
+                x3y3 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn && !switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+            {
+                x3y4 = true;
+            }
+            else
+            {
+                x3y4 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                x4y1 = true;
+            }
+            else
+            {
+                x4y1 = false;
+            }
+
+            if (energyNode1.nodeIsUnlocked == true)
+            {
+                x4y2 = true;
+            }
+            else
+            {
+                x4y2 = false;
+            }
+
+            if (unlockNode.DieFivenode2IsUnlocked == true && switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn)
+            {
+                x4y3 = true;
+            }
+            else
+            {
+                x4y3 = false;
+            }
+
+            if (energyNode2.nodeIsUnlocked == true)
+            {
+                x4y4 = true;
+            }
+            else
+            {
+                x4y4 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn && !switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                x5y1 = true;
+            }
+            else
+            {
+                x5y1 = false;
+            }
+
+            if (unlockNode.DieTwonode3IsUnlocked == true && (switchPanel.GetComponent<SwitchBehaviour>().switchTwoIsOn || switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn))
+            {
+                x5y2 = true;
+            }
+            else
+            {
+                x5y2 = false;
+            }
+
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchThreeIsOn)
+            {
+                x5y3 = true;
+            }
+            else
+            {
+                x5y3 = false;
+            }
+
+            if (unlockNode.DieThreenode1IsUnlocked == true && !switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+            {
+                x5y4 = true;
+            }
+            else
+            {
+                x5y4 = false;
+            }
+
+            if (!switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn)
+            {
+                x6y1 = true;
+            }
+            else
+            {
+                x6y1 = false;
+            }
+
+            if (unlockNode.DieSixnode2IsUnlocked == true && switchPanel.GetComponent<SwitchBehaviour>().switchFourIsOn)
+            {
+                x6y2 = true;
+            }
+            else
+            {
+                x6y2 = false;
+            }
+
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
+            {
+                x6y3 = true;
+            }
+            else
+            {
+                x6y3 = false;
+            }
+
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn)
+            {
+                x6y4 = true;
+            }
+            else
+            {
+                x6y4 = false;
+            }
+        }
+
 
         // LEVEL SIX
 
@@ -3058,6 +3528,96 @@ public class NeetleBehaviour : MonoBehaviour
             }
         }
 
+        //Level THREE
+
+        else if (gameManager.levelThreeIsActive)
+        {
+
+            if ((currentXAxis == 2 && currentYAxis == 3) && bonusMultitools == false)
+            {
+                gameManager.multitoolNumber += 1;
+                bonusMultitools = true;
+                bonusMultitoolsNode.GetComponent<MeshRenderer>().material = green;
+                sparksFXFive.Play();
+                sparks.Play();
+            }
+
+            if ((currentXAxis == 4 && currentYAxis == 3) && bonusEnergy == false)
+            {
+                gameManager.energyNumber += 1;
+                bonusEnergy = true;
+                bonusEnergyNode.GetComponent<MeshRenderer>().material = green;
+                sparksFXThree.Play();
+                sparks.Play();
+            }
+
+
+            if ((currentXAxis == 5 && currentYAxis == 1) && bonusCredit1 == false)
+            {
+                gameManager.creditNumber += 1;
+                bonusCredit1 = true;
+                bonusCreditNode1.GetComponent<MeshRenderer>().material = green;
+                sparksFXTwo.Play();
+                sparks.Play();
+            }
+
+
+
+            if ((currentXAxis == 6 && currentYAxis == 3) && bonusMultitool == false)
+            {
+                gameManager.multitoolNumber += 2;
+                bonusMultitool = true;
+                bonusMultitoolNode.GetComponent<MeshRenderer>().material = green;
+                sparksFXOne.Play();
+                sparks.Play();
+            }
+        }
+
+        //Level FIVE
+
+        else if (gameManager.levelFiveIsActive)
+        {
+
+            if ((currentXAxis == 1 && currentYAxis == 3) && bonusMultitools == false)
+            {
+                gameManager.multitoolNumber += 1;
+                bonusMultitools = true;
+                bonusMultitoolsNode.GetComponent<MeshRenderer>().material = green;
+                sparksFXFive.Play();
+                sparks.Play();
+            }
+
+            if ((currentXAxis == 2 && currentYAxis == 1) && bonusEnergy == false)
+            {
+                gameManager.energyNumber += 1;
+                bonusEnergy = true;
+                bonusEnergyNode.GetComponent<MeshRenderer>().material = green;
+                sparksFXThree.Play();
+                sparks.Play();
+            }
+
+
+            if ((currentXAxis == 5 && currentYAxis == 1) && bonusCredit1 == false)
+            {
+                gameManager.creditNumber += 1;
+                bonusCredit1 = true;
+                bonusCreditNode1.GetComponent<MeshRenderer>().material = green;
+                sparksFXTwo.Play();
+                sparks.Play();
+            }
+
+
+
+            if ((currentXAxis == 6 && currentYAxis == 3) && bonusMultitool == false)
+            {
+                gameManager.multitoolNumber += 1;
+                bonusMultitool = true;
+                bonusMultitoolNode.GetComponent<MeshRenderer>().material = green;
+                sparksFXOne.Play();
+                sparks.Play();
+            }
+        }
+
 
         //Level SIX
 
@@ -3252,6 +3812,162 @@ public class NeetleBehaviour : MonoBehaviour
             }
 
             if ((currentXAxis == 6 && currentYAxis == 1) && (hacScreen.GetComponent<Level2HackScript>().hasTool4 == true && tool6done == false))
+            {
+                tool6done = true;
+                hacScreen.GetComponent<Level2HackScript>().tool4.SetActive(true);
+                toolNodes[5].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 20;
+                gameManager.nedDamage += 20;
+                hacScreen.GetComponent<Level2HackScript>().hasTool4 = false;
+                plasmaExplodeSix.Play();
+                explode.Play();
+            }
+        }
+
+        //Level THREE
+
+        else if (gameManager.levelThreeIsActive)
+        {
+            if ((currentXAxis == 1 && currentYAxis == 4) && (hacScreen.GetComponent<Level3HackScript>().hasTool2 == true && tool2done == false))
+            {
+                tool2done = true;
+                hacScreen.GetComponent<Level3HackScript>().tool2.SetActive(true);
+
+                toolNodes[1].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 12;
+                gameManager.nedDamage += 12;
+                hacScreen.GetComponent<Level3HackScript>().hasTool2 = false;
+                plasmaExplodeTwo.Play();
+                explode.Play();
+            }
+
+            if ((currentXAxis == 2 && currentYAxis == 2) && (hacScreen.GetComponent<Level3HackScript>().hasTool1 == true && tool1done == false))
+            {
+                tool1done = true;
+                hacScreen.GetComponent<Level3HackScript>().tool1.SetActive(true);
+                toolNodes[0].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 9;
+                gameManager.nedDamage += 9;
+                hacScreen.GetComponent<Level3HackScript>().hasTool1 = false;
+                plasmaExplodeOne.Play();
+                explode.Play();
+            }
+
+            if ((currentXAxis == 3 && currentYAxis == 4) && (hacScreen.GetComponent<Level3HackScript>().hasTool5 == true && tool4done == false))
+            {
+                tool4done = true;
+                hacScreen.GetComponent<Level3HackScript>().tool5.SetActive(true);
+                toolNodes[3].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 15;
+                gameManager.nedDamage += 15;
+                hacScreen.GetComponent<Level3HackScript>().hasTool5 = false;
+                plasmaExplodeFour.Play();
+                explode.Play();
+            }
+
+            if ((currentXAxis == 6 && currentYAxis == 4) && (hacScreen.GetComponent<Level3HackScript>().hasTool6 == true && tool5done == false))
+            {
+                tool5done = true;
+                hacScreen.GetComponent<Level3HackScript>().tool6.SetActive(true);
+                toolNodes[4].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 20;
+                gameManager.nedDamage += 20;
+                hacScreen.GetComponent<Level3HackScript>().hasTool6 = false;
+                plasmaExplodeFive.Play();
+                explode.Play();
+            }
+
+            if ((currentXAxis == 5 && currentYAxis == 3) && (hacScreen.GetComponent<Level3HackScript>().hasTool3 == true && tool3done == false))
+            {
+                tool3done = true;
+                hacScreen.GetComponent<Level3HackScript>().tool3.SetActive(true);
+                toolNodes[2].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 17;
+                gameManager.nedDamage += 17;
+                hacScreen.GetComponent<Level3HackScript>().hasTool3 = false;
+                plasmaExplodeThree.Play();
+                explode.Play();
+            }
+
+            if ((currentXAxis == 6 && currentYAxis == 1) && (hacScreen.GetComponent<Level3HackScript>().hasTool4 == true && tool6done == false))
+            {
+                tool6done = true;
+                hacScreen.GetComponent<Level3HackScript>().tool4.SetActive(true);
+                toolNodes[5].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 17;
+                gameManager.nedDamage += 17;
+                hacScreen.GetComponent<Level3HackScript>().hasTool4 = false;
+                plasmaExplodeSix.Play();
+                explode.Play();
+            }
+        }
+
+        //Level FIVE
+
+        else if (gameManager.levelFiveIsActive)
+        {
+            if ((currentXAxis == 1 && currentYAxis == 4) && (hacScreen.GetComponent<Level2HackScript>().hasTool2 == true && tool2done == false))
+            {
+                tool2done = true;
+                hacScreen.GetComponent<Level2HackScript>().tool2.SetActive(true);
+
+                toolNodes[1].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 12;
+                gameManager.nedDamage += 12;
+                hacScreen.GetComponent<Level2HackScript>().hasTool2 = false;
+                plasmaExplodeTwo.Play();
+                explode.Play();
+            }
+
+            if ((currentXAxis == 5 && currentYAxis == 3) && (hacScreen.GetComponent<Level2HackScript>().hasTool1 == true && tool1done == false))
+            {
+                tool1done = true;
+                hacScreen.GetComponent<Level2HackScript>().tool1.SetActive(true);
+                toolNodes[0].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 9;
+                gameManager.nedDamage += 9;
+                hacScreen.GetComponent<Level2HackScript>().hasTool1 = false;
+                plasmaExplodeOne.Play();
+                explode.Play();
+            }
+
+            if ((currentXAxis == 4 && currentYAxis == 1) && (hacScreen.GetComponent<Level2HackScript>().hasTool5 == true && tool4done == false))
+            {
+                tool4done = true;
+                hacScreen.GetComponent<Level2HackScript>().tool5.SetActive(true);
+                toolNodes[3].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 15;
+                gameManager.nedDamage += 15;
+                hacScreen.GetComponent<Level2HackScript>().hasTool5 = false;
+                plasmaExplodeFour.Play();
+                explode.Play();
+            }
+
+            if ((currentXAxis == 6 && currentYAxis == 4) && (hacScreen.GetComponent<Level2HackScript>().hasTool6 == true && tool5done == false))
+            {
+                tool5done = true;
+                hacScreen.GetComponent<Level2HackScript>().tool6.SetActive(true);
+                toolNodes[4].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 15;
+                gameManager.nedDamage += 15;
+                hacScreen.GetComponent<Level2HackScript>().hasTool6 = false;
+                plasmaExplodeFive.Play();
+                explode.Play();
+            }
+
+            if ((currentXAxis == 6 && currentYAxis == 1) && (hacScreen.GetComponent<Level2HackScript>().hasTool3 == true && tool3done == false))
+            {
+                tool3done = true;
+                hacScreen.GetComponent<Level2HackScript>().tool3.SetActive(true);
+                toolNodes[2].GetComponent<MeshRenderer>().material = green;
+                gameManager.damageNumber += 17;
+                gameManager.nedDamage += 17;
+                hacScreen.GetComponent<Level2HackScript>().hasTool3 = false;
+                plasmaExplodeThree.Play();
+                explode.Play();
+            }
+
+            if ((currentXAxis == 1 && currentYAxis == 1) && (hacScreen.GetComponent<Level2HackScript>().hasTool4 == true && tool6done == false))
             {
                 tool6done = true;
                 hacScreen.GetComponent<Level2HackScript>().tool4.SetActive(true);
