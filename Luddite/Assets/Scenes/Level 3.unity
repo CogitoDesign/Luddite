@@ -2237,7 +2237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!328 &103270081
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -29142,7 +29142,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365232462}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 62df922d11059425485788bc7c1a7555, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: cfd01199b68504f86bf8cce87c1f2155, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -29152,7 +29152,7 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 1
+  m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
@@ -35248,7 +35248,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640917132}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: a18cebd023a8e46d1b90e8326265fedf, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 0b69761ab7fab4590af235b422af5b21, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -35258,7 +35258,7 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 1
+  m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
@@ -36134,7 +36134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1673323977
 RectTransform:
   m_ObjectHideFlags: 0

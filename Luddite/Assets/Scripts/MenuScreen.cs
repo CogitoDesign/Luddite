@@ -68,4 +68,10 @@ public class MenuScreen : MonoBehaviour
         normalButton.SetActive(true);
         hardButton.SetActive(true);
     }
+
+    public void LoadLevelIsPicked()
+    {
+        switchsound.Play();
+    }
+
 }
