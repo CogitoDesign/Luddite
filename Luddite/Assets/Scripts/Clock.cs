@@ -468,6 +468,15 @@ public class Clock : MonoBehaviour
         hasUsedClockThisRound = false;
     }
 
+    void Start()
+    {
+        if (gameManager.levelSevenIsActive)
+        {
+            latestCross = 31;
+        }
+ 
+    }
+
 
     // Update is called once per frame
     void Update()
