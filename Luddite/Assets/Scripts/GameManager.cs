@@ -2045,17 +2045,36 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            error.Play();
-            damageNumber = 0;
-            nedDamage = 0;
-            hackDamage = 0;
-            switchesDamage = 0;
-            rollbonusDamage = 0;
-            resourcesDamage = 0;
-            clockDamage = 0;
-            damageNumber = 0;
+            if (levelSevenIsActive)
+            {
+                
+                damageNumber = 0;
+                nedDamage = 0;
+                hackDamage = 0;
+                switchesDamage = 0;
+                rollbonusDamage = 0;
+                resourcesDamage = 0;
+                clockDamage = 0;
+                damageNumber = 0;
 
-            StartCoroutine(ShowScoresOneByOne());
+                PlayEndGameVideo();
+                error.Play();
+                StartCoroutine(ShowScoresOneByOne());
+            }
+            else
+            {
+                error.Play();
+                damageNumber = 0;
+                nedDamage = 0;
+                hackDamage = 0;
+                switchesDamage = 0;
+                rollbonusDamage = 0;
+                resourcesDamage = 0;
+                clockDamage = 0;
+                damageNumber = 0;
+
+                StartCoroutine(ShowScoresOneByOne());
+            }
 
             /*
             theNedText.GetComponent<TextMeshProUGUI>().text = nedDamage.ToString();
