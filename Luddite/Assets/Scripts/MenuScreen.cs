@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Video;
 
 public class MenuScreen : MonoBehaviour
 {
@@ -31,6 +32,9 @@ public class MenuScreen : MonoBehaviour
     public AudioSource error;
 
 
+    public GameObject closeVideoButton1;
+
+
     //set difficulty level and turn off start screen
 
     public void button_exit()
@@ -42,13 +46,11 @@ public class MenuScreen : MonoBehaviour
 
     public void EasyModeIsChosen()
     {
-       
+        switchsound.Play();
         easyMode = true;
         normalMode = false;
         hardMode = false;
         SceneManager.LoadScene("Level 1 NEW");
-        switchsound.Play();
-        
     }
 
     public void NormalModeIsChosen()
@@ -99,7 +101,7 @@ public class MenuScreen : MonoBehaviour
 
         //Level 2
 
-        if(input == "L2E")
+        if(input == "PSYCHE" || input == "Psyche")
         {
             easyMode = true;
             normalMode = false;
@@ -107,7 +109,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 2");
             codeSuccess.Play();
         }
-        else if (input == "L2M")
+        else if (input == "SMASH" || input == "Smash")
         {
             easyMode = false;
             normalMode = true;
@@ -115,7 +117,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 2");
             codeSuccess.Play();
         }
-        else if (input == "L2H")
+        else if (input == "LUDDITE" || input == "Luddite")
         {
             easyMode = false;
             normalMode = false;
@@ -126,7 +128,7 @@ public class MenuScreen : MonoBehaviour
 
         //Level 3
 
-        if (input == "L3E")
+        if (input == "NIVEN" || input == "Niven")
         {
             easyMode = true;
             normalMode = false;
@@ -134,7 +136,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 3");
             codeSuccess.Play();
         }
-        else if (input == "L3M")
+        else if (input == "STEELWORKS" || input == "Steelworks")
         {
             easyMode = false;
             normalMode = true;
@@ -142,7 +144,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 3");
             codeSuccess.Play();
         }
-        else if (input == "L3H")
+        else if (input == "DENG BOAT" || input == "Deng Boat")
         {
             easyMode = false;
             normalMode = false;
@@ -154,7 +156,7 @@ public class MenuScreen : MonoBehaviour
 
         //Level 4
 
-        if (input == "L4E")
+        if (input == "DYNAMIC SYSTEMS" || input == "Dynamic Systems")
         {
             easyMode = true;
             normalMode = false;
@@ -162,7 +164,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 4");
             codeSuccess.Play();
         }
-        else if (input == "L4M")
+        else if (input == "OUR UNIVERSE" || input == "Our Universe")
         {
             easyMode = false;
             normalMode = true;
@@ -170,7 +172,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 4");
             codeSuccess.Play();
         }
-        else if (input == "L4H")
+        else if (input == "KREX" || input == "Krex")
         {
             easyMode = false;
             normalMode = false;
@@ -182,7 +184,7 @@ public class MenuScreen : MonoBehaviour
 
         //Level 5
 
-        if (input == "L5E")
+        if (input == "DRED" || input == "Dred")
         {
             easyMode = true;
             normalMode = false;
@@ -190,7 +192,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 5");
             codeSuccess.Play();
         }
-        else if (input == "L5M")
+        else if (input == "OUR HOME" || input == "Our Home")
         {
             easyMode = false;
             normalMode = true;
@@ -198,7 +200,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 5");
             codeSuccess.Play();
         }
-        else if (input == "L5H")
+        else if (input == "SILVERSHINE" || input == "Silvershine")
         {
             easyMode = false;
             normalMode = false;
@@ -209,7 +211,7 @@ public class MenuScreen : MonoBehaviour
 
         //Level 6
 
-        if (input == "L6E")
+        if (input == "SLEG" || input == "Sleg")
         {
             easyMode = true;
             normalMode = false;
@@ -217,7 +219,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 6");
             codeSuccess.Play();
         }
-        else if (input == "L6M")
+        else if (input == "HENSLER" || input == "Hensler")
         {
             easyMode = false;
             normalMode = true;
@@ -225,7 +227,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 6");
             codeSuccess.Play();
         }
-        else if (input == "L6H")
+        else if (input == "MARTYR" || input == "Martyr")
         {
             easyMode = false;
             normalMode = false;
@@ -237,7 +239,7 @@ public class MenuScreen : MonoBehaviour
 
         //Level 7
 
-        if (input == "L7E")
+        if (input == "SCARLET" || input == "Scarlet")
         {
             easyMode = true;
             normalMode = false;
@@ -245,7 +247,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 7");
             codeSuccess.Play();
         }
-        else if (input == "L7M")
+        else if (input == "RED" || input == "Red")
         {
             easyMode = false;
             normalMode = true;
@@ -253,7 +255,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 7");
             codeSuccess.Play();
         }
-        else if (input == "L7H")
+        else if (input == "MAROON" || input == "Maroon")
         {
             easyMode = false;
             normalMode = false;
@@ -269,4 +271,5 @@ public class MenuScreen : MonoBehaviour
         }
     }
 
+    
 }

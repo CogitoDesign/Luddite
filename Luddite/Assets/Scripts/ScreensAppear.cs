@@ -30,15 +30,45 @@ public class ScreensAppear : MonoBehaviour
     public void Start()
     {
         //REMOVE // in line below to put in video at the start of game
-        //StartCoroutine(StartVideo());
+
+        if (gameManager.levelOneIsActive)
+        {
+            StartCoroutine(StartVideo());
+        }
+        if (gameManager.levelTwoIsActive)
+        {
+            StartCoroutine(StartVideo());
+        }
+        if (gameManager.levelThreeIsActive)
+        {
+            StartCoroutine(StartVideo());
+        }
+        if (gameManager.levelSevenIsActive)
+        {
+            StartCoroutine(StartVideo());
+        }
     }
 
     IEnumerator StartVideo()
     {
-        
-        
+
         startGameVideoPlayer.Play();
-        yield return new WaitForSeconds(744.0f);
+        if (gameManager.levelOneIsActive)
+        {
+            yield return new WaitForSeconds(744.0f);
+        }
+        else if (gameManager.levelTwoIsActive)
+        {
+            yield return new WaitForSeconds(234.0f);
+        }
+        else if (gameManager.levelThreeIsActive)
+        {
+            yield return new WaitForSeconds(434.0f);
+        }
+        else if (gameManager.levelSevenIsActive)
+        {
+            yield return new WaitForSeconds(333.0f);
+        }
         blankScreen.SetActive(false);
         videoImage.SetActive(false);
         backgroundMusic.volume = 1;
@@ -48,10 +78,10 @@ public class ScreensAppear : MonoBehaviour
     public void playVideo()
     {
         //REMOVE ALL // TO PUT IN VIDEO
-        //videoImage.SetActive(true);
-        //backgroundMusic.volume = 0;
+        videoImage.SetActive(true);
+        backgroundMusic.volume = 0;
         
-        //howToPlayVideoPlayer.Play();
+        howToPlayVideoPlayer.Play();
     }
 
     public void CloseVideo()

@@ -169,6 +169,32 @@ public class GameManager : MonoBehaviour
 
     public GameObject mainMenuButton;
 
+    public GameObject nextLevelButtonL2E;
+    public GameObject nextLevelButtonL2M;
+    public GameObject nextLevelButtonL2H;
+
+    public GameObject nextLevelButtonL3E;
+    public GameObject nextLevelButtonL3M;
+    public GameObject nextLevelButtonL3H;
+
+    public GameObject nextLevelButtonL4E;
+    public GameObject nextLevelButtonL4M;
+    public GameObject nextLevelButtonL4H;
+
+    public GameObject nextLevelButtonL5E;
+    public GameObject nextLevelButtonL5M;
+    public GameObject nextLevelButtonL5H;
+
+    public GameObject nextLevelButtonL6E;
+    public GameObject nextLevelButtonL6M;
+    public GameObject nextLevelButtonL6H;
+
+    public GameObject nextLevelButtonL7E;
+    public GameObject nextLevelButtonL7M;
+    public GameObject nextLevelButtonL7H;
+
+    public VideoPlayer startGameVideoPlayer;
+
     public AudioSource backgroundMusic;
     public VideoPlayer endGameVideoPlayer;
     public GameObject videoImage;
@@ -181,6 +207,30 @@ public class GameManager : MonoBehaviour
     bool endgameonce = true;
 
     public GameObject addDieToMovement;
+
+    public GameObject L2E;
+    public GameObject L2M;
+    public GameObject L2H;
+
+    public GameObject L3E;
+    public GameObject L3M;
+    public GameObject L3H;
+
+    public GameObject L4E;
+    public GameObject L4M;
+    public GameObject L4H;
+
+    public GameObject L5E;
+    public GameObject L5M;
+    public GameObject L5H;
+
+    public GameObject L6E;
+    public GameObject L6M;
+    public GameObject L6H;
+
+    public GameObject L7E;
+    public GameObject L7M;
+    public GameObject L7H;
 
     /*
     public GameObject startScreen;
@@ -841,13 +891,15 @@ public class GameManager : MonoBehaviour
             levelFiveIsActive = false;
             levelSixIsActive = false;
             levelSevenIsActive = true;
-        }
+        } 
+        
     }
 
 
     void Start()
     {
-       
+
+
 
 
 
@@ -1964,8 +2016,10 @@ public class GameManager : MonoBehaviour
         neetle.GetComponent<NeetleBehaviour>().CheckIfNeetleatExit();
         if (neetle.GetComponent<NeetleBehaviour>().neetleInFinalLocation == true)
         {
-            StartCoroutine(PlayEndGameVideo());
             
+                StartCoroutine(PlayEndGameVideo());
+           
+
             //add resource damage to total damage
 
             damageNumber = damageNumber + multitoolNumber;
@@ -2018,20 +2072,38 @@ public class GameManager : MonoBehaviour
 
     IEnumerator PlayEndGameVideo()
     {
-        //videoImage.SetActive(true);
-        //endgameclosebutton.SetActive(true);
-        //closebutton.SetActive(false);
-        //backgroundMusic.volume = 0;
-        //endGameVideoPlayer.Play();
-        //yield return new WaitForSeconds(97.0f);
+        if (levelOneIsActive || levelTwoIsActive || levelSixIsActive || levelSevenIsActive)
+        {
+            videoImage.SetActive(true);
+            endgameclosebutton.SetActive(true);
+            closebutton.SetActive(false);
+            backgroundMusic.volume = 0;
+            endGameVideoPlayer.Play();
+            if (levelOneIsActive)
+            {
+                yield return new WaitForSeconds(97.0f);
+            }
+            else if (levelTwoIsActive)
+            {
+                yield return new WaitForSeconds(342.0f);
+            }
+            else if (levelSixIsActive)
+            {
+                yield return new WaitForSeconds(222.0f);
+            }
+            else if (levelSevenIsActive)
+            {
+                yield return new WaitForSeconds(196.0f);
+            }
+        }
 
-        //REMOVE LINE BELOW AND REMOVE// from all other lines
+        //REMOVE LINE BELOW (I just // the line below instead) AND REMOVE// from all other lines
 
-        yield return new WaitForSeconds(0.01f);
+        //yield return new WaitForSeconds(0.01f);
         StartCoroutine(ShowScoresOneByOne());
-        //backgroundMusic.volume = 1;
-        //videoImage.SetActive(false);
-        //endGameVideoPlayer.Stop();
+        backgroundMusic.volume = 1;
+        videoImage.SetActive(false);
+        endGameVideoPlayer.Stop();
 
     }
 
@@ -2060,19 +2132,239 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         damageAmountText.GetComponent<TextMeshProUGUI>().text = damageNumber.ToString();
         yield return new WaitForSeconds(0.5f);
-        if(damageNumber > difficultyLevel)
+        if (damageNumber > difficultyLevel)
         {
             successIcon.SetActive(true);
+            bonusSFX.Play();
+            yield return new WaitForSeconds(1.0f);
+            successIcon.SetActive(false);
+            if (levelOneIsActive && MenuScreen.easyMode)
+            {
+                L2E.SetActive(true);
+                nextLevelButtonL2E.SetActive(true);
+            }
+            else if (levelOneIsActive && MenuScreen.normalMode)
+            {
+                L2M.SetActive(true);
+                nextLevelButtonL2M.SetActive(true);
+            }
+            else if (levelOneIsActive && MenuScreen.hardMode)
+            {
+                L2H.SetActive(true);
+                nextLevelButtonL2H.SetActive(true);
+            }
+
+            if (levelTwoIsActive && MenuScreen.easyMode)
+            {
+                L3E.SetActive(true);
+                nextLevelButtonL3E.SetActive(true);
+            }
+            else if (levelTwoIsActive && MenuScreen.normalMode)
+            {
+                L3M.SetActive(true);
+                nextLevelButtonL3M.SetActive(true);
+            }
+            else if (levelTwoIsActive && MenuScreen.hardMode)
+            {
+                L3H.SetActive(true);
+                nextLevelButtonL3H.SetActive(true);
+            }
+
+            if (levelThreeIsActive && MenuScreen.easyMode)
+            {
+                L4E.SetActive(true);
+                nextLevelButtonL4E.SetActive(true);
+            }
+            else if (levelThreeIsActive && MenuScreen.normalMode)
+            {
+                L4M.SetActive(true);
+                nextLevelButtonL4M.SetActive(true);
+            }
+            else if (levelThreeIsActive && MenuScreen.hardMode)
+            {
+                L4H.SetActive(true);
+                nextLevelButtonL4H.SetActive(true);
+            }
+
+            if (levelFourIsActive && MenuScreen.easyMode)
+            {
+                L5E.SetActive(true);
+                nextLevelButtonL5E.SetActive(true);
+            }
+            else if (levelFourIsActive && MenuScreen.normalMode)
+            {
+                L5M.SetActive(true);
+                nextLevelButtonL5M.SetActive(true);
+            }
+            else if (levelFourIsActive && MenuScreen.hardMode)
+            {
+                L5H.SetActive(true);
+                nextLevelButtonL5H.SetActive(true);
+            }
+
+            if (levelFiveIsActive && MenuScreen.easyMode)
+            {
+                L6E.SetActive(true);
+                nextLevelButtonL6E.SetActive(true);
+            }
+            else if (levelFiveIsActive && MenuScreen.normalMode)
+            {
+                L6M.SetActive(true);
+                nextLevelButtonL6M.SetActive(true);
+            }
+            else if (levelFiveIsActive && MenuScreen.hardMode)
+            {
+                L6H.SetActive(true);
+                nextLevelButtonL6H.SetActive(true);
+            }
+
+            if (levelSixIsActive && MenuScreen.easyMode)
+            {
+                L7E.SetActive(true);
+                nextLevelButtonL7E.SetActive(true);
+            }
+            else if (levelSixIsActive && MenuScreen.normalMode)
+            {
+                L7M.SetActive(true);
+                nextLevelButtonL7M.SetActive(true);
+            }
+            else if (levelSixIsActive && MenuScreen.hardMode)
+            {
+                L7H.SetActive(true);
+                nextLevelButtonL7H.SetActive(true);
+            }
             bonusSFX.Play();
         }
         else
         {
             failIcon.SetActive(true);
             error.Play();
-            
+
         }
         yield return new WaitForSeconds(0.5f);
         mainMenuButton.SetActive(true);
     }
 
+
+    //Next Level Buttons
+
+    //Level One
+
+    public void NextLevelL2E()
+    {
+        MenuScreen.easyMode = true;
+        SceneManager.LoadScene("Level 2");
+    }
+
+    public void NextLevelL2M()
+    {
+        MenuScreen.normalMode = true;
+        SceneManager.LoadScene("Level 2");
+    }
+
+    public void NextLevelL2H()
+    {
+        MenuScreen.hardMode = true;
+        SceneManager.LoadScene("Level 2");
+    }
+
+    //Level Two
+
+    public void NextLevelL3E()
+    {
+        MenuScreen.easyMode = true;
+        SceneManager.LoadScene("Level 3");
+    }
+
+    public void NextLevelL3M()
+    {
+        MenuScreen.normalMode = true;
+        SceneManager.LoadScene("Level 3");
+    }
+
+    public void NextLevelL3H()
+    {
+        MenuScreen.hardMode = true;
+        SceneManager.LoadScene("Level 3");
+    }
+
+    //Level Three
+
+    public void NextLevelL4E()
+    {
+        MenuScreen.easyMode = true;
+        SceneManager.LoadScene("Level 4");
+    }
+
+    public void NextLevelL4M()
+    {
+        MenuScreen.normalMode = true;
+        SceneManager.LoadScene("Level 4");
+    }
+
+    public void NextLevelL4H()
+    {
+        MenuScreen.hardMode = true;
+        SceneManager.LoadScene("Level 4");
+    }
+
+    //Level Four
+
+    public void NextLevelL5E()
+    {
+        MenuScreen.easyMode = true;
+        SceneManager.LoadScene("Level 5");
+    }
+
+    public void NextLevelL5M()
+    {
+        MenuScreen.normalMode = true;
+        SceneManager.LoadScene("Level 5");
+    }
+
+    public void NextLevelL5H()
+    {
+        MenuScreen.hardMode = true;
+        SceneManager.LoadScene("Level 5");
+    }
+
+    //Level Five
+
+    public void NextLevelL6E()
+    {
+        MenuScreen.easyMode = true;
+        SceneManager.LoadScene("Level 6");
+    }
+
+    public void NextLevelL6M()
+    {
+        MenuScreen.normalMode = true;
+        SceneManager.LoadScene("Level 6");
+    }
+
+    public void NextLevelL6H()
+    {
+        MenuScreen.hardMode = true;
+        SceneManager.LoadScene("Level 6");
+    }
+
+    //Level Six
+
+    public void NextLevelL7E()
+    {
+        MenuScreen.easyMode = true;
+        SceneManager.LoadScene("Level 7");
+    }
+
+    public void NextLevelL7M()
+    {
+        MenuScreen.normalMode = true;
+        SceneManager.LoadScene("Level 7");
+    }
+
+    public void NextLevelL7H()
+    {
+        MenuScreen.hardMode = true;
+        SceneManager.LoadScene("Level 7");
+    }
 }

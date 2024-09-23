@@ -16663,7 +16663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &757535647
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20753,7 +20753,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3062aa974894548d1aa10b2e26034e4c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -28651,7 +28651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1281416038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34808,11 +34808,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f576e50fd8e4c218ec829e7c28181b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  codeValue: 0
   easyButton: {fileID: 0}
   normalButton: {fileID: 0}
   hardButton: {fileID: 0}
   newGameButton: {fileID: 0}
+  loadLevelButton: {fileID: 0}
+  codeInputScreen: {fileID: 0}
   switchsound: {fileID: 0}
+  codeSuccess: {fileID: 0}
+  error: {fileID: 0}
+  closeVideoButton1: {fileID: 0}
 --- !u!4 &1559322259
 Transform:
   m_ObjectHideFlags: 0
@@ -39652,7 +39658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1791889387
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45522,6 +45528,25 @@ MonoBehaviour:
   successIcon: {fileID: 1767823276}
   difficultyLevel: 0
   mainMenuButton: {fileID: 1894160691}
+  nextLevelButtonL2E: {fileID: 0}
+  nextLevelButtonL2M: {fileID: 0}
+  nextLevelButtonL2H: {fileID: 0}
+  nextLevelButtonL3E: {fileID: 0}
+  nextLevelButtonL3M: {fileID: 0}
+  nextLevelButtonL3H: {fileID: 0}
+  nextLevelButtonL4E: {fileID: 0}
+  nextLevelButtonL4M: {fileID: 0}
+  nextLevelButtonL4H: {fileID: 0}
+  nextLevelButtonL5E: {fileID: 0}
+  nextLevelButtonL5M: {fileID: 0}
+  nextLevelButtonL5H: {fileID: 0}
+  nextLevelButtonL6E: {fileID: 0}
+  nextLevelButtonL6M: {fileID: 0}
+  nextLevelButtonL6H: {fileID: 0}
+  nextLevelButtonL7E: {fileID: 0}
+  nextLevelButtonL7M: {fileID: 0}
+  nextLevelButtonL7H: {fileID: 0}
+  startGameVideoPlayer: {fileID: 0}
   backgroundMusic: {fileID: 924957930}
   endGameVideoPlayer: {fileID: 1365232463}
   videoImage: {fileID: 757535646}
@@ -45529,6 +45554,24 @@ MonoBehaviour:
   endgameclosebutton: {fileID: 236749782}
   closebutton: {fileID: 1599754772}
   addDieToMovement: {fileID: 1756530972}
+  L2E: {fileID: 0}
+  L2M: {fileID: 0}
+  L2H: {fileID: 0}
+  L3E: {fileID: 0}
+  L3M: {fileID: 0}
+  L3H: {fileID: 0}
+  L4E: {fileID: 0}
+  L4M: {fileID: 0}
+  L4H: {fileID: 0}
+  L5E: {fileID: 0}
+  L5M: {fileID: 0}
+  L5H: {fileID: 0}
+  L6E: {fileID: 0}
+  L6M: {fileID: 0}
+  L6H: {fileID: 0}
+  L7E: {fileID: 0}
+  L7M: {fileID: 0}
+  L7H: {fileID: 0}
   reRollSFX: {fileID: 1435643326}
 --- !u!4 &2094780800
 Transform:
