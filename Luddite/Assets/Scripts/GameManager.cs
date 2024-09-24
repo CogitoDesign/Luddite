@@ -1038,9 +1038,18 @@ public class GameManager : MonoBehaviour
         {
             if (endgameonce == true)
             {
-                StopCoroutine(PlayEndGameVideo());
-                StartCoroutine(ShowScoresOneByOne());
-                endgameonce = false;
+                if (levelOneIsActive || levelTwoIsActive || levelThreeIsActive || levelFourIsActive || levelFiveIsActive || levelSixIsActive)
+                {
+                    StopCoroutine(PlayEndGameVideo());
+                    StartCoroutine(ShowScoresOneByOne());
+                    endgameonce = false;
+                }
+                else if (levelSevenIsActive)
+                {
+                    StopCoroutine(PlayEndGameVideo());
+                    endgameonce = false;
+                    SceneManager.LoadScene("MenuScreen");
+                }
             }
         }
 
@@ -2057,9 +2066,9 @@ public class GameManager : MonoBehaviour
                 clockDamage = 0;
                 damageNumber = 0;
 
-                PlayEndGameVideo();
-                error.Play();
-                StartCoroutine(ShowScoresOneByOne());
+                StartCoroutine(PlayEndGameVideo());
+                
+                
             }
             else
             {
@@ -2093,6 +2102,7 @@ public class GameManager : MonoBehaviour
     {
         if (levelOneIsActive || levelTwoIsActive || levelSixIsActive || levelSevenIsActive)
         {
+            
             videoImage.SetActive(true);
             endgameclosebutton.SetActive(true);
             closebutton.SetActive(false);
@@ -2116,14 +2126,18 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //REMOVE LINE BELOW (I just // the line below instead) AND REMOVE// from all other lines
+        if (levelOneIsActive || levelTwoIsActive || levelThreeIsActive || levelFourIsActive || levelFiveIsActive || levelSixIsActive)
 
-        //yield return new WaitForSeconds(0.01f);
-        StartCoroutine(ShowScoresOneByOne());
-        backgroundMusic.volume = 1;
-        videoImage.SetActive(false);
-        endGameVideoPlayer.Stop();
-
+        {
+            StartCoroutine(ShowScoresOneByOne());
+            backgroundMusic.volume = 1;
+            videoImage.SetActive(false);
+            endGameVideoPlayer.Stop();
+        }
+        else
+        {
+            SceneManager.LoadScene("MenuScreen");
+        }
     }
 
     public IEnumerator ShowScoresOneByOne()

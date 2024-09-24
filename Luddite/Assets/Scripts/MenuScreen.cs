@@ -101,7 +101,7 @@ public class MenuScreen : MonoBehaviour
 
         //Level 2
 
-        if(input == "PSYCHE" || input == "Psyche")
+        if(input == "PSYCHE" || input == "Psyche" || input == "psyche")
         {
             easyMode = true;
             normalMode = false;
@@ -109,7 +109,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 2");
             codeSuccess.Play();
         }
-        else if (input == "SMASH" || input == "Smash")
+        else if (input == "SMASH" || input == "Smash" || input == "smash")
         {
             easyMode = false;
             normalMode = true;
@@ -117,7 +117,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 2");
             codeSuccess.Play();
         }
-        else if (input == "LUDDITE" || input == "Luddite")
+        else if (input == "LUDDITE" || input == "Luddite" || input == "luddite")
         {
             easyMode = false;
             normalMode = false;
@@ -128,7 +128,7 @@ public class MenuScreen : MonoBehaviour
 
         //Level 3
 
-        if (input == "NIVEN" || input == "Niven")
+        else if (input == "NIVEN" || input == "Niven" || input == "niven")
         {
             easyMode = true;
             normalMode = false;
@@ -136,7 +136,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 3");
             codeSuccess.Play();
         }
-        else if (input == "STEELWORKS" || input == "Steelworks")
+        else if (input == "STEELWORKS" || input == "Steelworks" || input == "steelworks")
         {
             easyMode = false;
             normalMode = true;
@@ -144,7 +144,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 3");
             codeSuccess.Play();
         }
-        else if (input == "DENG BOAT" || input == "Deng Boat")
+        else if (input == "DENG BOAT" || input == "Deng Boat" || input == "deng boat")
         {
             easyMode = false;
             normalMode = false;
@@ -156,7 +156,7 @@ public class MenuScreen : MonoBehaviour
 
         //Level 4
 
-        if (input == "DYNAMIC SYSTEMS" || input == "Dynamic Systems")
+        else if (input == "DYNAMIC SYSTEMS" || input == "Dynamic Systems" || input == "dynamic systems")
         {
             easyMode = true;
             normalMode = false;
@@ -164,7 +164,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 4");
             codeSuccess.Play();
         }
-        else if (input == "OUR UNIVERSE" || input == "Our Universe")
+        else if (input == "OUR UNIVERSE" || input == "Our Universe" || input == "our universe")
         {
             easyMode = false;
             normalMode = true;
@@ -172,7 +172,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 4");
             codeSuccess.Play();
         }
-        else if (input == "KREX" || input == "Krex")
+        else if (input == "KREX" || input == "Krex" || input == "krex")
         {
             easyMode = false;
             normalMode = false;
@@ -184,7 +184,7 @@ public class MenuScreen : MonoBehaviour
 
         //Level 5
 
-        if (input == "DRED" || input == "Dred")
+        else if (input == "DRED" || input == "Dred" || input == "dred")
         {
             easyMode = true;
             normalMode = false;
@@ -192,7 +192,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 5");
             codeSuccess.Play();
         }
-        else if (input == "OUR HOME" || input == "Our Home")
+        else if (input == "OUR HOME" || input == "Our Home" || input == "our home")
         {
             easyMode = false;
             normalMode = true;
@@ -200,7 +200,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 5");
             codeSuccess.Play();
         }
-        else if (input == "SILVERSHINE" || input == "Silvershine")
+        else if (input == "SILVERSHINE" || input == "Silvershine" || input == "silvershine")
         {
             easyMode = false;
             normalMode = false;
@@ -211,7 +211,7 @@ public class MenuScreen : MonoBehaviour
 
         //Level 6
 
-        if (input == "SLEG" || input == "Sleg")
+        else if (input == "SLEG" || input == "Sleg" || input == "sleg")
         {
             easyMode = true;
             normalMode = false;
@@ -219,7 +219,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 6");
             codeSuccess.Play();
         }
-        else if (input == "HENSLER" || input == "Hensler")
+        else if (input == "HENSLER" || input == "Hensler" || input == "hensler")
         {
             easyMode = false;
             normalMode = true;
@@ -227,7 +227,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 6");
             codeSuccess.Play();
         }
-        else if (input == "MARTYR" || input == "Martyr")
+        else if (input == "MARTYR" || input == "Martyr" || input == "martyr")
         {
             easyMode = false;
             normalMode = false;
@@ -239,7 +239,7 @@ public class MenuScreen : MonoBehaviour
 
         //Level 7
 
-        if (input == "SCARLET" || input == "Scarlet")
+        else if (input == "SCARLET" || input == "Scarlet" || input == "scarlet")
         {
             easyMode = true;
             normalMode = false;
@@ -247,7 +247,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 7");
             codeSuccess.Play();
         }
-        else if (input == "RED" || input == "Red")
+        else if (input == "RED" || input == "Red" || input == "red")
         {
             easyMode = false;
             normalMode = true;
@@ -255,7 +255,7 @@ public class MenuScreen : MonoBehaviour
             SceneManager.LoadScene("Level 7");
             codeSuccess.Play();
         }
-        else if (input == "MAROON" || input == "Maroon")
+        else if (input == "MAROON" || input == "Maroon" || input == "maroon")
         {
             easyMode = false;
             normalMode = false;

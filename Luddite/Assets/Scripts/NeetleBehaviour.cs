@@ -208,8 +208,14 @@ public class NeetleBehaviour : MonoBehaviour
 
     private void OnMouseDown()
     {
-        screensAppear.GetComponent<ScreensAppear>().MoveOptionsMenuIsOn();
-        gameManager.select.Play();
+        if (screensAppear.GetComponent<ScreensAppear>().switchesScreen.activeSelf == true || screensAppear.GetComponent<ScreensAppear>().clockScreen.activeSelf == true || screensAppear.GetComponent<ScreensAppear>().hackScreen.activeSelf == true || screensAppear.GetComponent<ScreensAppear>().rollbonusScreen.activeSelf == true || screensAppear.GetComponent<ScreensAppear>().toolsScreen.activeSelf == true || screensAppear.GetComponent<ScreensAppear>().moveOptionsScreen.activeSelf == true)
+        {
+        }
+        else
+        {
+            screensAppear.GetComponent<ScreensAppear>().MoveOptionsMenuIsOn();
+            gameManager.select.Play();
+        }
     }
 
 
