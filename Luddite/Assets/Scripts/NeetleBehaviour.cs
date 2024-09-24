@@ -3916,6 +3916,8 @@ public class NeetleBehaviour : MonoBehaviour
                 x6y4 = false;
             }
 
+        }
+
             //Check if neetle has entered a bonus location and give bonus, turn node green then stop allowing bonus
 
             //Level ONE
@@ -4262,6 +4264,7 @@ public class NeetleBehaviour : MonoBehaviour
 
                 if ((currentXAxis == 2 && currentYAxis == 2) && (hacScreen.GetComponent<HackBehaviour>().hasTool1 == true && tool1done == false))
                 {
+                    
                     tool1done = true;
                     hacScreen.GetComponent<HackBehaviour>().tool1.SetActive(true);
                     toolNodes[0].GetComponent<MeshRenderer>().material = green;
@@ -4790,6 +4793,6 @@ public class NeetleBehaviour : MonoBehaviour
                 }
             }
 
-        }
+        
     }
 }
