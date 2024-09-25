@@ -15,6 +15,10 @@ public class ScreensAppear : MonoBehaviour
     public GameObject toolsScreen;
     public GameObject moveOptionsScreen;
 
+    public IEnumerator startVideo;
+
+    
+
     public GameObject videoImage;
 
     public AudioSource backgroundMusic;
@@ -29,29 +33,33 @@ public class ScreensAppear : MonoBehaviour
 
     public void Start()
     {
+        startVideo = StartVideo();
+
         //REMOVE // in line below to put in video at the start of game
 
         if (gameManager.levelOneIsActive)
         {
-            StartCoroutine(StartVideo());
+            StartCoroutine(startVideo);
         }
         if (gameManager.levelTwoIsActive)
         {
-            StartCoroutine(StartVideo());
+            StartCoroutine(startVideo);
         }
         if (gameManager.levelThreeIsActive)
         {
-            StartCoroutine(StartVideo());
+            StartCoroutine(startVideo);
         }
         if (gameManager.levelSevenIsActive)
         {
-            StartCoroutine(StartVideo());
+            StartCoroutine(startVideo);
         }
+
+
     }
 
     IEnumerator StartVideo()
     {
-        Debug.Log("4 is happening");
+        
         startGameVideoPlayer.Play();
         if (gameManager.levelOneIsActive)
         {
@@ -70,6 +78,7 @@ public class ScreensAppear : MonoBehaviour
             yield return new WaitForSeconds(333.0f);
         }
         blankScreen.SetActive(false);
+        Debug.Log("start video done");
         videoImage.SetActive(false);
         backgroundMusic.volume = 1;
         backgroundMusic.Play();
@@ -86,8 +95,8 @@ public class ScreensAppear : MonoBehaviour
 
     public void CloseVideo()
     {
-        Debug.Log("3 is happening");
-        StopCoroutine(StartVideo());
+        
+        StopCoroutine(startVideo);
         blankScreen.SetActive(false);
         videoImage.SetActive(false);
         howToPlayVideoPlayer.Stop();
@@ -101,7 +110,7 @@ public class ScreensAppear : MonoBehaviour
 
     public void CloseEndGameVideo()
     {
-        Debug.Log("2 is happening");
+        
         videoImage.SetActive(false);
       
         gameManager.closeFinalVidbool = true;

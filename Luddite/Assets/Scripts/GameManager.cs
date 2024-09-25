@@ -232,6 +232,8 @@ public class GameManager : MonoBehaviour
     public GameObject L7M;
     public GameObject L7H;
 
+    public IEnumerator playEndGameVideo;
+
     /*
     public GameObject startScreen;
     public bool easyMode;
@@ -899,7 +901,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-
+        playEndGameVideo = PlayEndGameVideo();
 
 
 
@@ -1040,13 +1042,13 @@ public class GameManager : MonoBehaviour
             {
                 if (levelOneIsActive || levelTwoIsActive || levelThreeIsActive || levelFourIsActive || levelFiveIsActive || levelSixIsActive)
                 {
-                    StopCoroutine(PlayEndGameVideo());
+                    StopCoroutine(playEndGameVideo);
                     StartCoroutine(ShowScoresOneByOne());
                     endgameonce = false;
                 }
                 else if (levelSevenIsActive)
                 {
-                    StopCoroutine(PlayEndGameVideo());
+                    StopCoroutine(playEndGameVideo);
                     endgameonce = false;
                     SceneManager.LoadScene("MenuScreen");
                 }
@@ -2129,11 +2131,12 @@ public class GameManager : MonoBehaviour
         if (levelOneIsActive || levelTwoIsActive || levelThreeIsActive || levelFourIsActive || levelFiveIsActive || levelSixIsActive)
 
         {
-            Debug.Log("1 is happening");
-            StartCoroutine(ShowScoresOneByOne());
-            backgroundMusic.volume = 1;
+            Debug.Log("triggered by ending");
+            //StartCoroutine(ShowScoresOneByOne());
+            closeFinalVidbool = true;
+            //backgroundMusic.volume = 1;
             videoImage.SetActive(false);
-            endGameVideoPlayer.Stop();
+            //endGameVideoPlayer.Stop();
         }
         else
         {
@@ -2143,6 +2146,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator ShowScoresOneByOne()
     {
+        Debug.Log("Show scores is running");
         readoutSFX.Play();
         theNedText.GetComponent<TextMeshProUGUI>().text = nothing;
         theHackText.GetComponent<TextMeshProUGUI>().text = nothing;
@@ -2166,8 +2170,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         damageAmountText.GetComponent<TextMeshProUGUI>().text = damageNumber.ToString();
         yield return new WaitForSeconds(0.5f);
-        if (damageNumber > difficultyLevel)
+        if (damageNumber >= difficultyLevel)
         {
+            Debug.Log("damage number being recognised");
             successIcon.SetActive(true);
             bonusSFX.Play();
             yield return new WaitForSeconds(1.0f);
@@ -2188,23 +2193,26 @@ public class GameManager : MonoBehaviour
                 nextLevelButtonL2H.SetActive(true);
             }
 
-            if (levelTwoIsActive && MenuScreen.easyMode)
+            else if (levelTwoIsActive && MenuScreen.easyMode)
             {
+                Debug.Log("image and button on E");
                 L3E.SetActive(true);
                 nextLevelButtonL3E.SetActive(true);
             }
             else if (levelTwoIsActive && MenuScreen.normalMode)
             {
+                Debug.Log("image and button on M");
                 L3M.SetActive(true);
                 nextLevelButtonL3M.SetActive(true);
             }
             else if (levelTwoIsActive && MenuScreen.hardMode)
             {
+                Debug.Log("image and button on H");
                 L3H.SetActive(true);
                 nextLevelButtonL3H.SetActive(true);
             }
 
-            if (levelThreeIsActive && MenuScreen.easyMode)
+            else if (levelThreeIsActive && MenuScreen.easyMode)
             {
                 L4E.SetActive(true);
                 nextLevelButtonL4E.SetActive(true);
@@ -2220,7 +2228,7 @@ public class GameManager : MonoBehaviour
                 nextLevelButtonL4H.SetActive(true);
             }
 
-            if (levelFourIsActive && MenuScreen.easyMode)
+            else if (levelFourIsActive && MenuScreen.easyMode)
             {
                 L5E.SetActive(true);
                 nextLevelButtonL5E.SetActive(true);
@@ -2236,7 +2244,7 @@ public class GameManager : MonoBehaviour
                 nextLevelButtonL5H.SetActive(true);
             }
 
-            if (levelFiveIsActive && MenuScreen.easyMode)
+            else if (levelFiveIsActive && MenuScreen.easyMode)
             {
                 L6E.SetActive(true);
                 nextLevelButtonL6E.SetActive(true);
@@ -2252,7 +2260,7 @@ public class GameManager : MonoBehaviour
                 nextLevelButtonL6H.SetActive(true);
             }
 
-            if (levelSixIsActive && MenuScreen.easyMode)
+            else if (levelSixIsActive && MenuScreen.easyMode)
             {
                 L7E.SetActive(true);
                 nextLevelButtonL7E.SetActive(true);
