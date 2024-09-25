@@ -51,7 +51,7 @@ public class ScreensAppear : MonoBehaviour
 
     IEnumerator StartVideo()
     {
-
+        Debug.Log("4 is happening");
         startGameVideoPlayer.Play();
         if (gameManager.levelOneIsActive)
         {
@@ -86,6 +86,7 @@ public class ScreensAppear : MonoBehaviour
 
     public void CloseVideo()
     {
+        Debug.Log("3 is happening");
         StopCoroutine(StartVideo());
         blankScreen.SetActive(false);
         videoImage.SetActive(false);
@@ -100,6 +101,7 @@ public class ScreensAppear : MonoBehaviour
 
     public void CloseEndGameVideo()
     {
+        Debug.Log("2 is happening");
         videoImage.SetActive(false);
       
         gameManager.closeFinalVidbool = true;

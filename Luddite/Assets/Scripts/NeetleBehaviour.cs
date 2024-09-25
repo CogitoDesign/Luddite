@@ -2663,7 +2663,7 @@ public class NeetleBehaviour : MonoBehaviour
                 x2y3 = false;
             }
 
-            if (!switchPanel.GetComponent<SwitchBehaviour>().switchOneIsOn)
+            if (switchPanel.GetComponent<SwitchBehaviour>().switchFiveIsOn && switchPanel.GetComponent<SwitchBehaviour>().switchSixIsOn)
             {
                 x2y4 = true;
             }

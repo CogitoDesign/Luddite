@@ -2129,6 +2129,7 @@ public class GameManager : MonoBehaviour
         if (levelOneIsActive || levelTwoIsActive || levelThreeIsActive || levelFourIsActive || levelFiveIsActive || levelSixIsActive)
 
         {
+            Debug.Log("1 is happening");
             StartCoroutine(ShowScoresOneByOne());
             backgroundMusic.volume = 1;
             videoImage.SetActive(false);
