@@ -78,7 +78,7 @@ public class ScreensAppear : MonoBehaviour
             yield return new WaitForSeconds(333.0f);
         }
         blankScreen.SetActive(false);
-        Debug.Log("start video done");
+        
         videoImage.SetActive(false);
         backgroundMusic.volume = 1;
         backgroundMusic.Play();

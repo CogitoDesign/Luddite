@@ -2027,9 +2027,7 @@ public class GameManager : MonoBehaviour
         neetle.GetComponent<NeetleBehaviour>().CheckIfNeetleatExit();
         if (neetle.GetComponent<NeetleBehaviour>().neetleInFinalLocation == true)
         {
-            
-                StartCoroutine(PlayEndGameVideo());
-           
+
 
             //add resource damage to total damage
 
@@ -2042,17 +2040,37 @@ public class GameManager : MonoBehaviour
             resourcesDamage = multitoolNumber + energyNumber + (creditNumber * 2);
 
 
+            if (damageNumber >= difficultyLevel)
+            {
+                StartCoroutine(PlayEndGameVideo());
+            }
+            else
+            {
+                error.Play();
+                damageNumber = 0;
+                nedDamage = 0;
+                hackDamage = 0;
+                switchesDamage = 0;
+                rollbonusDamage = 0;
+                resourcesDamage = 0;
+                clockDamage = 0;
+                damageNumber = 0;
+
+                StartCoroutine(ShowScoresOneByOne());
+            }
+
+
             //display damage score
-            /*
-            theNedText.GetComponent<TextMeshProUGUI>().text = nedDamage.ToString();
-            theHackText.GetComponent<TextMeshProUGUI>().text = hackDamage.ToString();
-            theSwitchesText.GetComponent<TextMeshProUGUI>().text = switchesDamage.ToString();
-            rollBonusText.GetComponent<TextMeshProUGUI>().text = rollbonusDamage.ToString();
-            theClockText.GetComponent<TextMeshProUGUI>().text = clockDamage.ToString();
-            resourcesText.GetComponent<TextMeshProUGUI>().text = resourcesDamage.ToString();
-            damageAmountText.GetComponent<TextMeshProUGUI>().text = damageNumber.ToString();
-            */
-            
+                /*
+                theNedText.GetComponent<TextMeshProUGUI>().text = nedDamage.ToString();
+                theHackText.GetComponent<TextMeshProUGUI>().text = hackDamage.ToString();
+                theSwitchesText.GetComponent<TextMeshProUGUI>().text = switchesDamage.ToString();
+                rollBonusText.GetComponent<TextMeshProUGUI>().text = rollbonusDamage.ToString();
+                theClockText.GetComponent<TextMeshProUGUI>().text = clockDamage.ToString();
+                resourcesText.GetComponent<TextMeshProUGUI>().text = resourcesDamage.ToString();
+                damageAmountText.GetComponent<TextMeshProUGUI>().text = damageNumber.ToString();
+                */
+
         }
         else
         {
@@ -2131,7 +2149,7 @@ public class GameManager : MonoBehaviour
         if (levelOneIsActive || levelTwoIsActive || levelThreeIsActive || levelFourIsActive || levelFiveIsActive || levelSixIsActive)
 
         {
-            Debug.Log("triggered by ending");
+            
             //StartCoroutine(ShowScoresOneByOne());
             closeFinalVidbool = true;
             //backgroundMusic.volume = 1;
@@ -2146,7 +2164,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator ShowScoresOneByOne()
     {
-        Debug.Log("Show scores is running");
+        
         readoutSFX.Play();
         theNedText.GetComponent<TextMeshProUGUI>().text = nothing;
         theHackText.GetComponent<TextMeshProUGUI>().text = nothing;
@@ -2172,7 +2190,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (damageNumber >= difficultyLevel)
         {
-            Debug.Log("damage number being recognised");
+            
             successIcon.SetActive(true);
             bonusSFX.Play();
             yield return new WaitForSeconds(1.0f);
@@ -2195,19 +2213,19 @@ public class GameManager : MonoBehaviour
 
             else if (levelTwoIsActive && MenuScreen.easyMode)
             {
-                Debug.Log("image and button on E");
+                
                 L3E.SetActive(true);
                 nextLevelButtonL3E.SetActive(true);
             }
             else if (levelTwoIsActive && MenuScreen.normalMode)
             {
-                Debug.Log("image and button on M");
+                
                 L3M.SetActive(true);
                 nextLevelButtonL3M.SetActive(true);
             }
             else if (levelTwoIsActive && MenuScreen.hardMode)
             {
-                Debug.Log("image and button on H");
+                
                 L3H.SetActive(true);
                 nextLevelButtonL3H.SetActive(true);
             }
