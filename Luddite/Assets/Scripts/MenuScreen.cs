@@ -34,6 +34,13 @@ public class MenuScreen : MonoBehaviour
 
     public GameObject closeVideoButton1;
 
+    //set screen resolution
+
+    public void Awake()
+    {
+
+        Screen.SetResolution(1920, 1080, true);
+    }
 
     //set difficulty level and turn off start screen
 

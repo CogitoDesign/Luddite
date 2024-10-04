@@ -31,6 +31,7 @@ public class ScreensAppear : MonoBehaviour
 
     public GameObject blankScreen;
 
+/*
     public void Start()
     {
         startVideo = StartVideo();
@@ -61,6 +62,7 @@ public class ScreensAppear : MonoBehaviour
     {
         
         startGameVideoPlayer.Play();
+        
         if (gameManager.levelOneIsActive)
         {
             yield return new WaitForSeconds(744.0f);
@@ -82,7 +84,10 @@ public class ScreensAppear : MonoBehaviour
         videoImage.SetActive(false);
         backgroundMusic.volume = 1;
         backgroundMusic.Play();
+   
     }
+
+    */
 
     public void playVideo()
     {
