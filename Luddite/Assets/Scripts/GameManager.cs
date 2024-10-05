@@ -2122,12 +2122,13 @@ public class GameManager : MonoBehaviour
     {
         if (levelOneIsActive || levelTwoIsActive || levelSixIsActive || levelSevenIsActive)
         {
-            
+            yield return new WaitForSeconds(0.01f);
             videoImage.SetActive(true);
             endgameclosebutton.SetActive(true);
             closebutton.SetActive(false);
             backgroundMusic.volume = 0;
             endGameVideoPlayer.Play();
+            /*
             if (levelOneIsActive)
             {
                 yield return new WaitForSeconds(97.0f);
@@ -2144,6 +2145,7 @@ public class GameManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(196.0f);
             }
+            */
         }
 
         if (levelOneIsActive || levelTwoIsActive || levelThreeIsActive || levelFourIsActive || levelFiveIsActive || levelSixIsActive)
