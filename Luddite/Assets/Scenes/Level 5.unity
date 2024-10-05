@@ -2370,7 +2370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!328 &103270081
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -15275,6 +15275,7 @@ MonoBehaviour:
   endGameScreen: {fileID: 1418036874}
   clockScreen: {fileID: 127447852}
   hasUsedClockThisRound: 0
+  runEndgameOnce: 0
   clockWarning: {fileID: 121835913}
   ticking: {fileID: 1900672437}
 --- !u!1 &689433104

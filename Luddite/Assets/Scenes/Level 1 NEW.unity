@@ -15139,6 +15139,7 @@ MonoBehaviour:
   endGameScreen: {fileID: 1418036874}
   clockScreen: {fileID: 127447852}
   hasUsedClockThisRound: 0
+  runEndgameOnce: 0
   clockWarning: {fileID: 121835913}
   ticking: {fileID: 1900672437}
 --- !u!1 &687465638
@@ -43771,6 +43772,7 @@ MonoBehaviour:
   playButton: {fileID: 1404009973}
   screensAppear: {fileID: 1663741555}
   gameManager: {fileID: 2094780799}
+  clock: {fileID: 681824823}
 --- !u!4 &2009643578
 Transform:
   m_ObjectHideFlags: 0

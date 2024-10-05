@@ -15422,6 +15422,7 @@ MonoBehaviour:
   endGameScreen: {fileID: 1418036874}
   clockScreen: {fileID: 127447852}
   hasUsedClockThisRound: 0
+  runEndgameOnce: 0
   clockWarning: {fileID: 121835913}
   ticking: {fileID: 1900672437}
 --- !u!1 &689433104
@@ -16658,6 +16659,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Video Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 7591811279848635325, guid: ea70759fb6089444b8093d9d0b1bbdb2, type: 3}
+      propertyPath: clock
+      value: 
+      objectReference: {fileID: 681824823}
     - target: {fileID: 7591811279848635325, guid: ea70759fb6089444b8093d9d0b1bbdb2, type: 3}
       propertyPath: playButton
       value: 

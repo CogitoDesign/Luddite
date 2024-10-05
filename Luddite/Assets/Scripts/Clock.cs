@@ -32,7 +32,7 @@ public class Clock : MonoBehaviour
 
     public bool hasUsedClockThisRound;
 
-    private bool runEndgameOnce = false;
+    public bool runEndgameOnce = false;
 
     public GameObject clockWarning;
 

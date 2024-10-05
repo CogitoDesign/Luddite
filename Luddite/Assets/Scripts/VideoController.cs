@@ -26,6 +26,8 @@ public class VideoController : MonoBehaviour
 
     public ScreensAppear screensAppear;
     public GameManager gameManager;
+    public Clock clock;
+
 
     void Start()
     {
@@ -168,7 +170,8 @@ public class VideoController : MonoBehaviour
     // Method to fast forward the video
     public void FastForward()
     {
-        if (videoPlayer.time < videoPlayer.length || howToPlayVideoPlayer.time < howToPlayVideoPlayer.length || endGameVideoPlayer.time < howToPlayVideoPlayer.length)
+        
+        if (videoPlayer.time < videoPlayer.length || howToPlayVideoPlayer.time < howToPlayVideoPlayer.length || endGameVideoPlayer.time < endGameVideoPlayer.length)
         {
             videoPlayer.time += forwardSpeed * Time.deltaTime;
             howToPlayVideoPlayer.time += forwardSpeed * Time.deltaTime;
@@ -182,6 +185,10 @@ public class VideoController : MonoBehaviour
         videoPlayer.Stop();
         howToPlayVideoPlayer.Stop();
         endGameVideoPlayer.Stop();
+        if (clock.runEndgameOnce == true) //bool FOR checking if the game has actually ended)
+        {
+            gameManager.closeFinalVidbool = true;
+        }
         videoPlayer.time = 0;
         howToPlayVideoPlayer.time = 0;
         endGameVideoPlayer.time = 0;
@@ -201,6 +208,10 @@ public class VideoController : MonoBehaviour
     {
         
         videoPanel.SetActive(false); // Hide the video UI
+        if (clock.runEndgameOnce == true) //bool FOR checking if the game has actually ended)
+        {
+            gameManager.closeFinalVidbool = true;
+        }
         StartGame(); // Call method to start the game
     }
 
