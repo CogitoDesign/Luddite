@@ -185,7 +185,7 @@ public class VideoController : MonoBehaviour
         videoPlayer.Stop();
         howToPlayVideoPlayer.Stop();
         endGameVideoPlayer.Stop();
-        if (clock.runEndgameOnce == true) //bool FOR checking if the game has actually ended)
+        if (clock.runEndgameOnce == true) //bool FOR checking if the game has actually ended
         {
             gameManager.closeFinalVidbool = true;
         }

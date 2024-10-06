@@ -925,11 +925,11 @@ public class GameManager : MonoBehaviour
         }
         else if(MenuScreen.normalMode == true)
         {
-            difficultyLevel = 60;
+            difficultyLevel = 70;
         }
         else if (MenuScreen.hardMode == true)
         {
-            difficultyLevel = 70;
+            difficultyLevel = 90;
         }
 
     }
@@ -2047,6 +2047,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 error.Play();
+                /*
                 damageNumber = 0;
                 nedDamage = 0;
                 hackDamage = 0;
@@ -2055,6 +2056,7 @@ public class GameManager : MonoBehaviour
                 resourcesDamage = 0;
                 clockDamage = 0;
                 damageNumber = 0;
+                */
 
                 StartCoroutine(ShowScoresOneByOne());
             }
@@ -2093,6 +2095,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 error.Play();
+                
                 damageNumber = 0;
                 nedDamage = 0;
                 hackDamage = 0;
@@ -2101,6 +2104,7 @@ public class GameManager : MonoBehaviour
                 resourcesDamage = 0;
                 clockDamage = 0;
                 damageNumber = 0;
+                
 
                 StartCoroutine(ShowScoresOneByOne());
             }
@@ -2147,7 +2151,11 @@ public class GameManager : MonoBehaviour
             }
             */
         }
-
+        else
+        {
+            StartCoroutine(ShowScoresOneByOne());
+        }
+        /*
         if (levelOneIsActive || levelTwoIsActive || levelThreeIsActive || levelFourIsActive || levelFiveIsActive || levelSixIsActive)
 
         {
@@ -2155,13 +2163,14 @@ public class GameManager : MonoBehaviour
             //StartCoroutine(ShowScoresOneByOne());
             closeFinalVidbool = true;
             //backgroundMusic.volume = 1;
-            videoImage.SetActive(false);
+            //videoImage.SetActive(false);
             //endGameVideoPlayer.Stop();
         }
         else
         {
             SceneManager.LoadScene("MenuScreen");
         }
+        */
     }
 
     public IEnumerator ShowScoresOneByOne()
